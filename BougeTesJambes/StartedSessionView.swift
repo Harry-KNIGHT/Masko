@@ -12,7 +12,7 @@ struct StartedSessionView: View {
 	@Binding var path: NavigationPath
 	@EnvironmentObject public var finishedSesionVM: FinishedSessionViewModel
 	@EnvironmentObject public var convertTimeVM: ConvertTimeViewModel
-
+	@ObservedObject public var playSongVM = PlaySongViewModel()
 	var timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
 	@State private var sessionTimer: Int = 0
 	@State private var sessionDistanceInKm: Int = 2
@@ -45,6 +45,10 @@ struct StartedSessionView: View {
 		}
 		.onReceive(timer) { _ in
 			sessionTimer += 1
+
+			if convertTimeVM.isSessionTimeBiggerThanConvertedTime(sessionTime: sessionTimer, convertedSecInMin: session.timeObjectif) {
+				playSongVM.playsong(sound: "mixkit-arcade", type: "wav")
+			}
 		}
 		.navigationBarBackButtonHidden(true)
 		.toolbar {
@@ -61,6 +65,7 @@ struct StartedSessionView_Previews: PreviewProvider {
 		StartedSessionView(session: .sample, path: .constant(NavigationPath()))
 			.environmentObject(FinishedSessionViewModel())
 			.environmentObject(ConvertTimeViewModel())
+			.environmentObject(PlaySongViewModel())
     }
 }
 

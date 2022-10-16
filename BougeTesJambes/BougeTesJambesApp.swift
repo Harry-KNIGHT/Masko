@@ -11,11 +11,13 @@ import SwiftUI
 struct BougeTesJambesApp: App {
 	@StateObject public var finishedSessionVM = FinishedSessionViewModel()
 	@StateObject public var convertTimeVM = ConvertTimeViewModel()
+	@StateObject public var playSongVM = PlaySongViewModel()
     var body: some Scene {
         WindowGroup {
 			StartSessionView()
 				.environmentObject(finishedSessionVM)
 				.environmentObject(convertTimeVM)
+				.environmentObject(PlaySongViewModel())
         }
     }
 }

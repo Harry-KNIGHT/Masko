@@ -25,4 +25,9 @@ class ConvertTimeViewModel: ObservableObject {
 
 		return sessionTime > convertedSecInMin
 	}
+
+	func isSessionTimeBiggerThanConvertedTime(sessionTime: Int, convertedSecInMin: Int) -> Bool {
+		let convertedSecInMin = convertSecInMin(second: convertedSecInMin)
+		return sessionTime == convertedSecInMin
+	}
 }
