@@ -21,6 +21,7 @@ struct StartSessionView: View {
 	@State private var sessionDistanceInKm: Int = 0
 	@State private var sessionAverageSpeed: Double = 0.0
 
+	@State private var showSheet: Bool = false
     var body: some View {
 		NavigationStack(path: $path) {
 			VStack {
@@ -57,6 +58,18 @@ struct StartSessionView: View {
 			}
 			.navigationDestination(for: SessionModel.self) { session in
 				StartedSessionView(session: SessionModel(sportType: sportChoosen, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: sessionDistanceInKm, sessionAverageSpeed: sessionAverageSpeed), path: $path)
+			}
+			.toolbar {
+				ToolbarItem(placement: .navigationBarLeading) {
+					Button(action: {
+						showSheet = true
+					}, label: {
+						Label("Show finished session", systemImage: "plus")
+					})
+					.sheet(isPresented: $showSheet) {
+						FinishedSessionListView()
+					}
+				}
 			}
 			.navigationTitle("Start session")
 		}

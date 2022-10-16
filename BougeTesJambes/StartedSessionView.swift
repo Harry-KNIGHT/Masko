@@ -9,12 +9,14 @@ import SwiftUI
 
 struct StartedSessionView: View {
 	let session: SessionModel
-
 	@Binding var path: NavigationPath
-	@State private var showAlert: Bool = false
+	@EnvironmentObject public var finishedSesionVM: FinishedSessionViewModel
 
 	var timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
 	@State private var sessionTimer: Int = 0
+	@State private var sessionDistanceInKm: Int = 2
+	@State private var sessionAverageSpeed: Double = 5.6
+
     var body: some View {
 		VStack {
 			List {
@@ -35,9 +37,12 @@ struct StartedSessionView: View {
 			}
 			Button(action: {
 				path.removeLast()
+				self.finishedSesionVM.fishishedSessions.append(SessionModel(sportType: session.sportType, timeObjectif: session.timeObjectif, ditanceObjectifInKm: session.sessionDistanceInKm, averageSpeedObjectif: session.averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: sessionDistanceInKm, sessionAverageSpeed: sessionAverageSpeed))
 			}, label: {
-				Text("go back to first vie")
+				Text("go back to first view")
+					.padding()
 			})
+			.backgroundStyle(.blue)
 
 		}
 		.onReceive(timer) { _ in
@@ -50,5 +55,6 @@ struct StartedSessionView: View {
 struct StartedSessionView_Previews: PreviewProvider {
     static var previews: some View {
 		StartedSessionView(session: .sample, path: .constant(NavigationPath()))
+			.environmentObject(FinishedSessionViewModel())
     }
 }

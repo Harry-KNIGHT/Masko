@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct BougeTesJambesApp: App {
+	@StateObject public var finishedSessionVM = FinishedSessionViewModel()
     var body: some Scene {
         WindowGroup {
 			StartSessionView()
+				.environmentObject(finishedSessionVM)
         }
     }
 }
