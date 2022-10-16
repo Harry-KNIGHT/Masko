@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StartSessionView: View {
-
+	@StateObject var locationManager = LocationManager()
 	@State private var path = NavigationPath()
 
 	@State private var sportChoosen: Sport = .running
@@ -52,7 +52,7 @@ struct StartSessionView: View {
 
 				NavigationLink(value: SessionModel(sportType: sportChoosen, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: sessionDistanceInKm, sessionAverageSpeed: sessionAverageSpeed)) {
 					ZStack {
-						Text("Go jhonny go")
+						Text("Go !")
 					}
 				}
 			}
@@ -72,6 +72,11 @@ struct StartSessionView: View {
 				}
 			}
 			.navigationTitle("Start session")
+			.onAppear {
+				if locationManager.userLocation == nil {
+					locationManager.requestLocation()
+				}
+			}
 		}
     }
 }

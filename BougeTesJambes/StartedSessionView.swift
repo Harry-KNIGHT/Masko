@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StartedSessionView: View {
 	let session: SessionModel
+	@StateObject var locationManager = LocationManager()
 	@Binding var path: NavigationPath
 	@EnvironmentObject public var finishedSesionVM: FinishedSessionViewModel
 	@EnvironmentObject public var convertTimeVM: ConvertTimeViewModel
@@ -24,11 +25,13 @@ struct StartedSessionView: View {
 				SessionInformation(objectif: "Temps obj: \(String(session.timeObjectif))min", sessionValue: "Actual time \(String(convertTimeVM.convertSecInTime(timeInSeconds: sessionTimer)))")
 					.foregroundColor(convertTimeVM.compareConvertedTimeAndSessionTime(convertedSecInMin: session.timeObjectif, sessionTime: sessionTimer) == true ? .green : .primary)
 
-
-
 				SessionInformation(objectif: "Distance obj: \(String(session.ditanceObjectifInKm))km", sessionValue: "Session distance: \(String(sessionDistanceInKm))")
 
-				SessionInformation(objectif: "Speed obj: \(String(session.averageSpeedObjectif))km/h", sessionValue: "Session speed: \(String(sessionAverageSpeed))")
+				if locationManager.userLocation != nil {
+					if let location = locationManager.userLocation {
+						SessionInformation(objectif: "Speed obj: \(String(session.averageSpeedObjectif))km/h", sessionValue: "Session speed: \(String(format: "%.2f", location.speed * 3.6))")
+					}
+				}
 			}
 
 			Button(action: {
