@@ -23,15 +23,23 @@ struct StartedSessionView: View {
     var body: some View {
 		VStack {
 			List {
-				SessionInformation(objectif: "Temps obj: \(String(session.timeObjectif))min", sessionValue: "Actual time \(String(convertTimeVM.convertSecInTime(timeInSeconds: sessionTimer)))")
+				SessionInformation(
+					objectif: "\(String(session.timeObjectif))min",
+					sessionValue: "\(String(convertTimeVM.convertSecInTime(timeInSeconds: sessionTimer)))"
+				)
 					.foregroundColor(convertTimeVM.compareConvertedTimeAndSessionTime(convertedSecInMin: session.timeObjectif, sessionTime: sessionTimer) == true ? .green : .primary)
 
-				SessionInformation(objectif: "Distance obj: \(String(session.ditanceObjectifInKm))km", sessionValue: "Session distance: \(String(sessionDistanceInKm))")
+				SessionInformation(
+					objectif: "\(String(session.ditanceObjectifInKm))km",
+					sessionValue: "Session distance: \(String(sessionDistanceInKm))km"
+				)
 
 
 					if let location = locationManager.userLocation {
-						SessionInformation(objectif: "Speed obj: \(String(session.averageSpeedObjectif))km/h", sessionValue: "Session speed: \(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: location.speed))")
-					
+						SessionInformation(
+							objectif: "\(String(session.averageSpeedObjectif))km/h",
+							sessionValue: "User Speed: \(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: location.speed))"
+						)
 				}
 			}
 
@@ -88,7 +96,9 @@ struct SessionInformation: View {
 	var body: some View {
 		VStack(alignment: .leading, spacing: 10) {
 			Text("\(objectif)")
+				.foregroundColor(.secondary)
 			Text("\(sessionValue)")
+				.font(.headline)
 		}
 	}
 }
