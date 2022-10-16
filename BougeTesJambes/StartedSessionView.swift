@@ -14,7 +14,7 @@ struct StartedSessionView: View {
 	@EnvironmentObject public var finishedSesionVM: FinishedSessionViewModel
 	@EnvironmentObject public var convertTimeVM: ConvertTimeViewModel
 	@ObservedObject public var playSongVM = PlaySongViewModel()
-	var timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
+	let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
 	@State private var sessionTimer: Int = 0
 	@State private var sessionDistanceInKm: Int = 2
 	@State private var sessionAverageSpeed: Double = 5.6
@@ -45,6 +45,14 @@ struct StartedSessionView: View {
 			.backgroundStyle(.blue)
 
 		}
+		.onChange(of: locationManager.userLocation, perform: {  location in
+			if let location {
+				if location.speed > 0 {
+					sessionAverageSpeed = location.speed
+				}
+			}
+
+		})
 		.onReceive(timer) { _ in
 			sessionTimer += 1
 
