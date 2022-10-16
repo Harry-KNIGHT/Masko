@@ -21,6 +21,11 @@
 		3C9AEA5A28FC1B970080415E /* FinishedSessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA5928FC1B970080415E /* FinishedSessionDetailView.swift */; };
 		3C9AEA5C28FC1E230080415E /* ConvertTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA5B28FC1E230080415E /* ConvertTimeViewModel.swift */; };
 		3C9AEA5E28FC20430080415E /* ConvertTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA5D28FC20430080415E /* ConvertTimeTests.swift */; };
+		3C9AEA6228FC24DA0080415E /* PlaySongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA6128FC24DA0080415E /* PlaySongViewModel.swift */; };
+		3C9AEA6828FC25310080415E /* mixkit-service.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3C9AEA6428FC25310080415E /* mixkit-service.wav */; };
+		3C9AEA6928FC25310080415E /* mixkit-happy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3C9AEA6528FC25310080415E /* mixkit-happy.wav */; };
+		3C9AEA6A28FC25310080415E /* mixkit-horror.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3C9AEA6628FC25310080415E /* mixkit-horror.wav */; };
+		3C9AEA6B28FC25310080415E /* mixkit-arcade.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3C9AEA6728FC25310080415E /* mixkit-arcade.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +63,11 @@
 		3C9AEA5928FC1B970080415E /* FinishedSessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedSessionDetailView.swift; sourceTree = "<group>"; };
 		3C9AEA5B28FC1E230080415E /* ConvertTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertTimeViewModel.swift; sourceTree = "<group>"; };
 		3C9AEA5D28FC20430080415E /* ConvertTimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertTimeTests.swift; sourceTree = "<group>"; };
+		3C9AEA6128FC24DA0080415E /* PlaySongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySongViewModel.swift; sourceTree = "<group>"; };
+		3C9AEA6428FC25310080415E /* mixkit-service.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "mixkit-service.wav"; sourceTree = "<group>"; };
+		3C9AEA6528FC25310080415E /* mixkit-happy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "mixkit-happy.wav"; sourceTree = "<group>"; };
+		3C9AEA6628FC25310080415E /* mixkit-horror.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "mixkit-horror.wav"; sourceTree = "<group>"; };
+		3C9AEA6728FC25310080415E /* mixkit-arcade.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "mixkit-arcade.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +125,7 @@
 				3C9AEA5928FC1B970080415E /* FinishedSessionDetailView.swift */,
 				3C9AEA5628FC063E0080415E /* ViewModel */,
 				3C9AEA5128FBF8910080415E /* Model */,
+				3C9AEA6328FC25310080415E /* Songs */,
 				3C9AEA2928FBF6360080415E /* Assets.xcassets */,
 				3C9AEA2B28FBF6360080415E /* Preview Content */,
 			);
@@ -160,8 +171,20 @@
 			children = (
 				3C9AEA5428FC063A0080415E /* FinishedSessionViewModel.swift */,
 				3C9AEA5B28FC1E230080415E /* ConvertTimeViewModel.swift */,
+				3C9AEA6128FC24DA0080415E /* PlaySongViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3C9AEA6328FC25310080415E /* Songs */ = {
+			isa = PBXGroup;
+			children = (
+				3C9AEA6428FC25310080415E /* mixkit-service.wav */,
+				3C9AEA6528FC25310080415E /* mixkit-happy.wav */,
+				3C9AEA6628FC25310080415E /* mixkit-horror.wav */,
+				3C9AEA6728FC25310080415E /* mixkit-arcade.wav */,
+			);
+			path = Songs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,8 +291,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C9AEA6B28FC25310080415E /* mixkit-arcade.wav in Resources */,
 				3C9AEA2D28FBF6360080415E /* Preview Assets.xcassets in Resources */,
+				3C9AEA6928FC25310080415E /* mixkit-happy.wav in Resources */,
+				3C9AEA6A28FC25310080415E /* mixkit-horror.wav in Resources */,
 				3C9AEA2A28FBF6360080415E /* Assets.xcassets in Resources */,
+				3C9AEA6828FC25310080415E /* mixkit-service.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C9AEA2828FBF6350080415E /* StartSessionView.swift in Sources */,
+				3C9AEA6228FC24DA0080415E /* PlaySongViewModel.swift in Sources */,
 				3C9AEA5C28FC1E230080415E /* ConvertTimeViewModel.swift in Sources */,
 				3C9AEA5828FC09730080415E /* FinishedSessionListView.swift in Sources */,
 				3C9AEA5528FC063A0080415E /* FinishedSessionViewModel.swift in Sources */,

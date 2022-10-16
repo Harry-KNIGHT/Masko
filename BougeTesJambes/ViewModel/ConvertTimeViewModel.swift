@@ -22,7 +22,7 @@ class ConvertTimeViewModel: ObservableObject {
 
 	func compareConvertedTimeAndSessionTime(convertedSecInMin: Int, sessionTime: Int) -> Bool {
 		let convertedSecInMin = convertSecInMin(second: convertedSecInMin)
-		
+
 		return sessionTime > convertedSecInMin
 	}
 }
