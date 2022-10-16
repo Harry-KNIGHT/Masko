@@ -21,15 +21,14 @@ struct StartedSessionView: View {
     var body: some View {
 		VStack {
 			List {
-				SessionInformation(objectif: String(session.timeObjectif), sessionValue: String(convertTimeVM.convertSecInTime(timeInSeconds: sessionTimer)))
+				SessionInformation(objectif: "Temps obj: \(String(session.timeObjectif))min", sessionValue: "Actual time \(String(convertTimeVM.convertSecInTime(timeInSeconds: sessionTimer)))")
 					.foregroundColor(convertTimeVM.compareConvertedTimeAndSessionTime(convertedSecInMin: session.timeObjectif, sessionTime: sessionTimer) == true ? .green : .primary)
 
 
 
-				SessionInformation(objectif: String(session.ditanceObjectifInKm), sessionValue: String(sessionDistanceInKm))
+				SessionInformation(objectif: "Distance obj: \(String(session.ditanceObjectifInKm))km", sessionValue: "Session distance: \(String(sessionDistanceInKm))")
 
-				SessionInformation(objectif: String(session.averageSpeedObjectif), sessionValue: String(sessionAverageSpeed))
-
+				SessionInformation(objectif: "Speed obj: \(String(session.averageSpeedObjectif))km/h", sessionValue: "Session speed: \(String(sessionAverageSpeed))")
 			}
 
 			Button(action: {
@@ -74,9 +73,9 @@ struct SessionInformation: View {
 	var sessionValue: String
 
 	var body: some View {
-		VStack(alignment: .leading) {
-			Text("Objectif: \(objectif) min")
-			Text("Actual time: \(sessionValue) ")
+		VStack(alignment: .leading, spacing: 10) {
+			Text("\(objectif)")
+			Text("\(sessionValue)")
 		}
 	}
 }
