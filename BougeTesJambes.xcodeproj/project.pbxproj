@@ -16,6 +16,7 @@
 		3C9AEA4328FBF6360080415E /* BougeTesJambesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA4228FBF6360080415E /* BougeTesJambesUITestsLaunchTests.swift */; };
 		3C9AEA5028FBF6B90080415E /* SessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA4F28FBF6B90080415E /* SessionModel.swift */; };
 		3C9AEA5328FBFD0B0080415E /* StartedSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA5228FBFD0B0080415E /* StartedSessionView.swift */; };
+		3C9AEA5528FC063A0080415E /* FinishedSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA5428FC063A0080415E /* FinishedSessionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		3C9AEA4228FBF6360080415E /* BougeTesJambesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BougeTesJambesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3C9AEA4F28FBF6B90080415E /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
 		3C9AEA5228FBFD0B0080415E /* StartedSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartedSessionView.swift; sourceTree = "<group>"; };
+		3C9AEA5428FC063A0080415E /* FinishedSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedSessionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */,
 				3C9AEA2728FBF6350080415E /* StartSessionView.swift */,
 				3C9AEA5228FBFD0B0080415E /* StartedSessionView.swift */,
+				3C9AEA5628FC063E0080415E /* ViewModel */,
 				3C9AEA5128FBF8910080415E /* Model */,
 				3C9AEA2928FBF6360080415E /* Assets.xcassets */,
 				3C9AEA2B28FBF6360080415E /* Preview Content */,
@@ -139,6 +142,14 @@
 				3C9AEA4F28FBF6B90080415E /* SessionModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3C9AEA5628FC063E0080415E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3C9AEA5428FC063A0080415E /* FinishedSessionViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C9AEA2828FBF6350080415E /* StartSessionView.swift in Sources */,
+				3C9AEA5528FC063A0080415E /* FinishedSessionViewModel.swift in Sources */,
 				3C9AEA5328FBFD0B0080415E /* StartedSessionView.swift in Sources */,
 				3C9AEA2628FBF6350080415E /* BougeTesJambesApp.swift in Sources */,
 				3C9AEA5028FBF6B90080415E /* SessionModel.swift in Sources */,
