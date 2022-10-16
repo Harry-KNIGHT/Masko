@@ -9,6 +9,8 @@ import SwiftUI
 
 struct FinishedSessionListView: View {
 	@EnvironmentObject var finishedSessionVM: FinishedSessionViewModel
+	@ObservedObject var convertLocValueVM = ConvertLocationValuesViewModel()
+	@ObservedObject var convertTimeVM = ConvertTimeViewModel()
     var body: some View {
 		NavigationStack {
 			List {
@@ -16,18 +18,20 @@ struct FinishedSessionListView: View {
 					NavigationLink(destination: FinishedSessionDetailView(session: session)) {
 						VStack(alignment: .leading) {
 							HStack {
-								Text("\(session.timeObjectif) min / ")
-								Text("\(session.sessionTime) min")
+								Text("\(convertTimeVM.convertSecInTime(timeInSeconds: session.sessionTime)) / ")
+								Text("\(session.timeObjectif) min")
+
 							}
 
 							HStack {
-								Text("\(session.ditanceObjectifInKm) km / ")
-								Text("\(session.sessionDistanceInKm) km  ")
+								Text("\(session.sessionDistanceInKm) km / ")
+								Text("\(session.ditanceObjectifInKm) km")
+
 							}
 
 							HStack {
 								Text("\(session.averageSpeedObjectif) km/h / ")
-								Text("\(session.sessionAverageSpeed * 3.6) km/h ")
+								Text("\(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: session.sessionAverageSpeed))")
 							}
 						}
 					}
@@ -41,5 +45,7 @@ struct FinishedSessionListView_Previews: PreviewProvider {
     static var previews: some View {
         FinishedSessionListView()
 			.environmentObject(FinishedSessionViewModel())
+			.environmentObject(ConvertLocationValuesViewModel())
+			.environmentObject(ConvertTimeViewModel())
     }
 }

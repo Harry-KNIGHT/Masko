@@ -9,24 +9,26 @@ import SwiftUI
 
 struct FinishedSessionDetailView: View {
 	let session: SessionModel
+	@ObservedObject public var convertLocValueVM = ConvertLocationValuesViewModel()
+	@ObservedObject public var convertTimeVM = ConvertTimeViewModel()
     var body: some View {
 		VStack(alignment: .leading) {
 			Text("Temps")
 				.font(.title)
-			HStack {
-				Text("Temps: \(session.sessionTime) / \(session.timeObjectif)")
-			}
+
+				Text("Temps: \(convertTimeVM.convertSecInTime(timeInSeconds: session.sessionTime)) / \(session.timeObjectif)min")
+
+
 			Text("Distance")
 				.font(.title)
-			HStack {
+
 				Text("Distance: \(session.sessionDistanceInKm) / \(session.averageSpeedObjectif)")
-			}
+
 
 			Text("Vitesse")
 				.font(.title)
-			HStack {
-				Text("Vitesse: \(session.sessionAverageSpeed) / \(session.averageSpeedObjectif)")
-			}
+
+				Text("Vitesse: \(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: session.sessionAverageSpeed)) / \(session.averageSpeedObjectif)")
 		}
     }
 }
@@ -34,5 +36,7 @@ struct FinishedSessionDetailView: View {
 struct FinishedSessionDetailView_Previews: PreviewProvider {
     static var previews: some View {
 		FinishedSessionDetailView(session: .sample)
+			.environmentObject(ConvertLocationValuesViewModel())
+			.environmentObject(ConvertTimeViewModel())
     }
 }

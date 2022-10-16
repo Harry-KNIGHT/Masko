@@ -13,11 +13,12 @@ struct StartedSessionView: View {
 	@Binding var path: NavigationPath
 	@EnvironmentObject public var finishedSesionVM: FinishedSessionViewModel
 	@EnvironmentObject public var convertTimeVM: ConvertTimeViewModel
+	@ObservedObject public var convertLocValueVM = ConvertLocationValuesViewModel()
 	@ObservedObject public var playSongVM = PlaySongViewModel()
 	let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
 	@State private var sessionTimer: Int = 0
 	@State private var sessionDistanceInKm: Int = 2
-	@State private var sessionAverageSpeed: Double = 5.6
+	@State private var sessionAverageSpeed: Double = 1
 
     var body: some View {
 		VStack {
@@ -29,7 +30,7 @@ struct StartedSessionView: View {
 
 
 					if let location = locationManager.userLocation {
-						SessionInformation(objectif: "Speed obj: \(String(session.averageSpeedObjectif))km/h", sessionValue: "Session speed: \(String(format: "%.2f", location.speed * 3.6))")
+						SessionInformation(objectif: "Speed obj: \(String(session.averageSpeedObjectif))km/h", sessionValue: "Session speed: \(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: location.speed))")
 					
 				}
 			}
@@ -76,6 +77,7 @@ struct StartedSessionView_Previews: PreviewProvider {
 			.environmentObject(FinishedSessionViewModel())
 			.environmentObject(ConvertTimeViewModel())
 			.environmentObject(PlaySongViewModel())
+			.environmentObject(ConvertLocationValuesViewModel())
     }
 }
 
