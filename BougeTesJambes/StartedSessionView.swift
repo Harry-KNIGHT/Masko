@@ -14,7 +14,7 @@ struct StartedSessionView: View {
 	@State private var showAlert: Bool = false
 
 	var timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
-	@Binding var sessionTimer: Int
+	@State private var sessionTimer: Int = 0
     var body: some View {
 		VStack {
 			List {
@@ -49,6 +49,6 @@ struct StartedSessionView: View {
 
 struct StartedSessionView_Previews: PreviewProvider {
     static var previews: some View {
-		StartedSessionView(session: .sample, path: .constant(NavigationPath()), sessionTimer: .constant(0))
+		StartedSessionView(session: .sample, path: .constant(NavigationPath()))
     }
 }
