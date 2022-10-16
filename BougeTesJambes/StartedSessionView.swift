@@ -22,7 +22,7 @@ struct StartedSessionView: View {
 		VStack {
 			List {
 				SessionInformation(objectif: String(session.timeObjectif), sessionValue: String(convertTimeVM.convertSecInTime(timeInSeconds: sessionTimer)))
-					.foregroundColor(convertTimeVM.compareConvertedTimeAndSessionTime(convertedSecInMin: session.timeObjectif, sessionTime: sessionTimer) == true ? .green : .white)
+					.foregroundColor(convertTimeVM.compareConvertedTimeAndSessionTime(convertedSecInMin: session.timeObjectif, sessionTime: sessionTimer) == true ? .green : .primary)
 
 
 
