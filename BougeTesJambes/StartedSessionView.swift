@@ -9,14 +9,16 @@ import SwiftUI
 
 struct StartedSessionView: View {
 	let session: SessionModel
+	@StateObject var locationManager = LocationManager()
 	@Binding var path: NavigationPath
 	@EnvironmentObject public var finishedSesionVM: FinishedSessionViewModel
 	@EnvironmentObject public var convertTimeVM: ConvertTimeViewModel
+	@ObservedObject public var convertLocValueVM = ConvertLocationValuesViewModel()
 	@ObservedObject public var playSongVM = PlaySongViewModel()
-	var timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
+	let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
 	@State private var sessionTimer: Int = 0
 	@State private var sessionDistanceInKm: Int = 2
-	@State private var sessionAverageSpeed: Double = 5.6
+	@State private var sessionAverageSpeed: Double = 1
 
     var body: some View {
 		VStack {
@@ -24,11 +26,13 @@ struct StartedSessionView: View {
 				SessionInformation(objectif: "Temps obj: \(String(session.timeObjectif))min", sessionValue: "Actual time \(String(convertTimeVM.convertSecInTime(timeInSeconds: sessionTimer)))")
 					.foregroundColor(convertTimeVM.compareConvertedTimeAndSessionTime(convertedSecInMin: session.timeObjectif, sessionTime: sessionTimer) == true ? .green : .primary)
 
-
-
 				SessionInformation(objectif: "Distance obj: \(String(session.ditanceObjectifInKm))km", sessionValue: "Session distance: \(String(sessionDistanceInKm))")
 
-				SessionInformation(objectif: "Speed obj: \(String(session.averageSpeedObjectif))km/h", sessionValue: "Session speed: \(String(sessionAverageSpeed))")
+
+					if let location = locationManager.userLocation {
+						SessionInformation(objectif: "Speed obj: \(String(session.averageSpeedObjectif))km/h", sessionValue: "Session speed: \(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: location.speed))")
+					
+				}
 			}
 
 			Button(action: {
@@ -42,6 +46,14 @@ struct StartedSessionView: View {
 			.backgroundStyle(.blue)
 
 		}
+		.onChange(of: locationManager.userLocation, perform: {  location in
+			if let location {
+				if location.speed > 0 {
+					sessionAverageSpeed = location.speed
+				}
+			}
+
+		})
 		.onReceive(timer) { _ in
 			sessionTimer += 1
 
@@ -65,6 +77,7 @@ struct StartedSessionView_Previews: PreviewProvider {
 			.environmentObject(FinishedSessionViewModel())
 			.environmentObject(ConvertTimeViewModel())
 			.environmentObject(PlaySongViewModel())
+			.environmentObject(ConvertLocationValuesViewModel())
     }
 }
 
