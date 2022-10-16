@@ -11,6 +11,7 @@ struct StartedSessionView: View {
 	let session: SessionModel
 	@Binding var path: NavigationPath
 	@EnvironmentObject public var finishedSesionVM: FinishedSessionViewModel
+	@EnvironmentObject public var convertTimeVM: ConvertTimeViewModel
 
 	var timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
 	@State private var sessionTimer: Int = 0
@@ -20,7 +21,9 @@ struct StartedSessionView: View {
     var body: some View {
 		VStack {
 			List {
-				SessionInformation(objectif: String(session.timeObjectif), sessionValue: String(sessionTimer))
+				SessionInformation(objectif: String(session.timeObjectif), sessionValue: String(convertTimeVM.convertSecInTime(timeInSeconds: sessionTimer)))
+
+
 
 				SessionInformation(objectif: String(session.ditanceObjectifInKm), sessionValue: String(sessionDistanceInKm))
 
@@ -56,6 +59,7 @@ struct StartedSessionView_Previews: PreviewProvider {
     static var previews: some View {
 		StartedSessionView(session: .sample, path: .constant(NavigationPath()))
 			.environmentObject(FinishedSessionViewModel())
+			.environmentObject(ConvertTimeViewModel())
     }
 }
 

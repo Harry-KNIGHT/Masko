@@ -19,6 +19,7 @@
 		3C9AEA5528FC063A0080415E /* FinishedSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA5428FC063A0080415E /* FinishedSessionViewModel.swift */; };
 		3C9AEA5828FC09730080415E /* FinishedSessionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA5728FC09730080415E /* FinishedSessionListView.swift */; };
 		3C9AEA5A28FC1B970080415E /* FinishedSessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA5928FC1B970080415E /* FinishedSessionDetailView.swift */; };
+		3C9AEA5C28FC1E230080415E /* ConvertTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA5B28FC1E230080415E /* ConvertTimeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		3C9AEA5428FC063A0080415E /* FinishedSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedSessionViewModel.swift; sourceTree = "<group>"; };
 		3C9AEA5728FC09730080415E /* FinishedSessionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedSessionListView.swift; sourceTree = "<group>"; };
 		3C9AEA5928FC1B970080415E /* FinishedSessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedSessionDetailView.swift; sourceTree = "<group>"; };
+		3C9AEA5B28FC1E230080415E /* ConvertTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertTimeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				3C9AEA5428FC063A0080415E /* FinishedSessionViewModel.swift */,
+				3C9AEA5B28FC1E230080415E /* ConvertTimeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C9AEA2828FBF6350080415E /* StartSessionView.swift in Sources */,
+				3C9AEA5C28FC1E230080415E /* ConvertTimeViewModel.swift in Sources */,
 				3C9AEA5828FC09730080415E /* FinishedSessionListView.swift in Sources */,
 				3C9AEA5528FC063A0080415E /* FinishedSessionViewModel.swift in Sources */,
 				3C9AEA5A28FC1B970080415E /* FinishedSessionDetailView.swift in Sources */,
