@@ -27,10 +27,10 @@ struct StartedSessionView: View {
 
 				SessionInformation(objectif: "Distance obj: \(String(session.ditanceObjectifInKm))km", sessionValue: "Session distance: \(String(sessionDistanceInKm))")
 
-				if locationManager.userLocation != nil {
+
 					if let location = locationManager.userLocation {
 						SessionInformation(objectif: "Speed obj: \(String(session.averageSpeedObjectif))km/h", sessionValue: "Session speed: \(String(format: "%.2f", location.speed * 3.6))")
-					}
+					
 				}
 			}
 

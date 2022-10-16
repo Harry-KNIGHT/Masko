@@ -27,7 +27,7 @@ struct FinishedSessionListView: View {
 
 							HStack {
 								Text("\(session.averageSpeedObjectif) km/h / ")
-								Text("\(session.sessionAverageSpeed) km/h ")
+								Text("\(session.sessionAverageSpeed * 3.6) km/h ")
 							}
 						}
 					}
