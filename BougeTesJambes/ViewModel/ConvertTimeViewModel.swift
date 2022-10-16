@@ -19,4 +19,10 @@ class ConvertTimeViewModel: ObservableObject {
 
 		return String(format: "%02d:%02d", minutes, seconds)
 	}
+
+	func compareConvertedTimeAndSessionTime(convertedSecInMin: Int, sessionTime: Int) -> Bool {
+		let convertedSecInMin = convertSecInMin(second: convertedSecInMin)
+		
+		return sessionTime > convertedSecInMin
+	}
 }
