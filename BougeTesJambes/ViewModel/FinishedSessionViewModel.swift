@@ -10,7 +10,7 @@ import Foundation
 class FinishedSessionViewModel: ObservableObject {
 	@Published public var fishishedSessions: [SessionModel] = []
 
-	func addFinishedSession(sportType: Sport, timeObjectif: Int, ditanceObjectifInKm: Int, averageSpeedObjectif: Double, sessionTime: Int, sessionDistanceInKm: Int, sessionAverageSpeed: Double) {
+	func addFinishedSession(sportType: Sport, timeObjectif: Int, ditanceObjectifInKm: Int, averageSpeedObjectif: Int, sessionTime: Int, sessionDistanceInKm: Int, sessionAverageSpeed: Double) {
 
 		let finishedSession = SessionModel(sportType: sportType, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTime, sessionDistanceInKm: sessionDistanceInKm, sessionAverageSpeed: sessionAverageSpeed)
 

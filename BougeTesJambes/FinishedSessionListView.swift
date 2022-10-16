@@ -13,17 +13,17 @@ struct FinishedSessionListView: View {
 		List {
 			ForEach(finishedSessionVM.fishishedSessions) { session in
 				VStack(alignment: .leading) {
-					Text("Objectif: \(session.timeObjectif) min")
+					Text("Time obj: \(session.timeObjectif) min")
 					Text("Actual time: \(session.sessionTime) ")
 				}
 
 				VStack(alignment: .leading) {
-					Text("Objectif: \(session.ditanceObjectifInKm) km")
+					Text("Distance Obj: \(session.ditanceObjectifInKm) km")
 					Text("Actual distance: \(session.sessionDistanceInKm) km  ")
 				}
 
 				VStack(alignment: .leading) {
-					Text("Objectif: \(session.averageSpeedObjectif) km/k")
+					Text("Speed obj: \(session.averageSpeedObjectif) km/k")
 					Text("Actual speed: \(session.sessionAverageSpeed) km/h ")
 				}
 			}

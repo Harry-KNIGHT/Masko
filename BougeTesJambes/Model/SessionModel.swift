@@ -12,7 +12,7 @@ struct SessionModel: Identifiable, Hashable {
 	let sportType: Sport
 	let timeObjectif: Int
 	let ditanceObjectifInKm: Int
-	let averageSpeedObjectif: Double
+	let averageSpeedObjectif: Int
 
 	let sessionTime: Int
 	let sessionDistanceInKm: Int

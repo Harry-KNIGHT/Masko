@@ -14,12 +14,12 @@ struct StartSessionView: View {
 	@State private var sportChoosen: Sport = .running
 	@State private var timeObjectif: Int = 1
 	@State private var ditanceObjectifInKm: Int = 5
-	@State private var averageSpeedObjectif: Double = 5.0
+	@State private var averageSpeedObjectif: Int = 5
 
 
 	@State private var sessionTimer: Int = 0
 	@State private var sessionDistanceInKm: Int = 0
-	@State private var sessionAverageSpeed: Double = 0.0
+	@State private var sessionAverageSpeed: Double = 1
 
 	@State private var showSheet: Bool = false
     var body: some View {
@@ -44,7 +44,7 @@ struct StartSessionView: View {
 					}
 
 					Picker("Average speed objectif", selection: $averageSpeedObjectif) {
-						ForEach(1...25, id: \.self) { speed in
+						ForEach(1...20, id: \.self) { speed in
 							Text(String(speed))
 						}
 					}

@@ -27,17 +27,18 @@ struct StartedSessionView: View {
 
 				VStack(alignment: .leading) {
 					Text("Objectif: \(session.ditanceObjectifInKm) km")
-					Text("Actual distance: \(session.sessionDistanceInKm) km  ")
+					Text("Actual distance: \(sessionDistanceInKm) km  ")
 				}
 
 				VStack(alignment: .leading) {
 					Text("Objectif: \(session.averageSpeedObjectif) km/k")
-					Text("Actual speed: \(session.sessionAverageSpeed) km/h ")
+					Text("Actual speed: \(sessionAverageSpeed) km/h ")
 				}
 			}
 			Button(action: {
 				path.removeLast()
-				self.finishedSesionVM.fishishedSessions.append(SessionModel(sportType: session.sportType, timeObjectif: session.timeObjectif, ditanceObjectifInKm: session.sessionDistanceInKm, averageSpeedObjectif: session.averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: sessionDistanceInKm, sessionAverageSpeed: sessionAverageSpeed))
+
+				self.finishedSesionVM.fishishedSessions.append(SessionModel(sportType: session.sportType, timeObjectif: session.timeObjectif, ditanceObjectifInKm: session.ditanceObjectifInKm, averageSpeedObjectif: session.averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: sessionDistanceInKm, sessionAverageSpeed: sessionAverageSpeed))
 			}, label: {
 				Text("go back to first view")
 					.padding()
@@ -49,7 +50,13 @@ struct StartedSessionView: View {
 			sessionTimer += 1
 		}
 		.navigationBarBackButtonHidden(true)
+		.toolbar {
+			ToolbarItem(placement: .principal) {
+				Text(session.sportType.rawValue)
+			}
+		}
     }
+
 }
 
 struct StartedSessionView_Previews: PreviewProvider {
