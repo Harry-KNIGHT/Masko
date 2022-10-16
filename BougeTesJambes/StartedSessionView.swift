@@ -20,21 +20,14 @@ struct StartedSessionView: View {
     var body: some View {
 		VStack {
 			List {
-				VStack(alignment: .leading) {
-					Text("Objectif: \(session.timeObjectif) min")
-					Text("Actual time: \(sessionTimer) ")
-				}
+				SessionInformation(objectif: String(session.timeObjectif), sessionValue: String(sessionTimer))
 
-				VStack(alignment: .leading) {
-					Text("Objectif: \(session.ditanceObjectifInKm) km")
-					Text("Actual distance: \(sessionDistanceInKm) km  ")
-				}
+				SessionInformation(objectif: String(session.ditanceObjectifInKm), sessionValue: String(sessionDistanceInKm))
 
-				VStack(alignment: .leading) {
-					Text("Objectif: \(session.averageSpeedObjectif) km/k")
-					Text("Actual speed: \(sessionAverageSpeed) km/h ")
-				}
+				SessionInformation(objectif: String(session.averageSpeedObjectif), sessionValue: String(sessionAverageSpeed))
+
 			}
+
 			Button(action: {
 				path.removeLast()
 
@@ -64,4 +57,16 @@ struct StartedSessionView_Previews: PreviewProvider {
 		StartedSessionView(session: .sample, path: .constant(NavigationPath()))
 			.environmentObject(FinishedSessionViewModel())
     }
+}
+
+struct SessionInformation: View {
+	var objectif: String
+	var sessionValue: String
+
+	var body: some View {
+		VStack(alignment: .leading) {
+			Text("Objectif: \(objectif) min")
+			Text("Actual time: \(sessionValue) ")
+		}
+	}
 }

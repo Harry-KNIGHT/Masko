@@ -10,21 +10,27 @@ import SwiftUI
 struct FinishedSessionListView: View {
 	@EnvironmentObject var finishedSessionVM: FinishedSessionViewModel
     var body: some View {
-		List {
-			ForEach(finishedSessionVM.fishishedSessions) { session in
-				VStack(alignment: .leading) {
-					Text("Time obj: \(session.timeObjectif) min")
-					Text("Actual time: \(session.sessionTime) ")
-				}
+		NavigationStack {
+			List {
+				ForEach(finishedSessionVM.fishishedSessions) { session in
+					NavigationLink(destination: FinishedSessionDetailView(session: session)) {
+						VStack(alignment: .leading) {
+							HStack {
+								Text("\(session.timeObjectif) min / ")
+								Text("\(session.sessionTime) min")
+							}
 
-				VStack(alignment: .leading) {
-					Text("Distance Obj: \(session.ditanceObjectifInKm) km")
-					Text("Actual distance: \(session.sessionDistanceInKm) km  ")
-				}
+							HStack {
+								Text("\(session.ditanceObjectifInKm) km / ")
+								Text("\(session.sessionDistanceInKm) km  ")
+							}
 
-				VStack(alignment: .leading) {
-					Text("Speed obj: \(session.averageSpeedObjectif) km/k")
-					Text("Actual speed: \(session.sessionAverageSpeed) km/h ")
+							HStack {
+								Text("\(session.averageSpeedObjectif) km/h / ")
+								Text("\(session.sessionAverageSpeed) km/h ")
+							}
+						}
+					}
 				}
 			}
 		}
