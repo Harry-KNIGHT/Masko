@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreMotion
 
 struct StartSessionView: View {
 	@StateObject var locationManager = LocationManager()
@@ -22,6 +23,10 @@ struct StartSessionView: View {
 	@State private var sessionAverageSpeed: Double = 1
 
 	@State private var showSheet: Bool = false
+
+
+	@StateObject var coreMotionManager = CoreMotionManager()
+
     var body: some View {
 		NavigationStack(path: $path) {
 			VStack {
@@ -50,14 +55,14 @@ struct StartSessionView: View {
 					}
 				}
 
-				NavigationLink(value: SessionModel(sportType: sportChoosen, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: sessionDistanceInKm, sessionAverageSpeed: sessionAverageSpeed)) {
+				NavigationLink(value: SessionModel(sportType: sportChoosen, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed)) {
 					ZStack {
 						Text("Go !")
 					}
 				}
 			}
 			.navigationDestination(for: SessionModel.self) { session in
-				StartedSessionView(session: SessionModel(sportType: sportChoosen, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: sessionDistanceInKm, sessionAverageSpeed: sessionAverageSpeed), path: $path)
+				StartedSessionView(session: SessionModel(sportType: sportChoosen, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed), path: $path)
 			}
 			.toolbar {
 				ToolbarItem(placement: .navigationBarLeading) {
@@ -76,6 +81,7 @@ struct StartSessionView: View {
 				if locationManager.userLocation == nil {
 					locationManager.requestLocation()
 				}
+				coreMotionManager.initializePodometer()
 			}
 		}
     }

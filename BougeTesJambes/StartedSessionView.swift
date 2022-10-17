@@ -17,9 +17,9 @@ struct StartedSessionView: View {
 	@ObservedObject public var playSongVM = PlaySongViewModel()
 	let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
 	@State private var sessionTimer: Int = 0
-	@State private var sessionDistanceInKm: Int = 2
+	@State private var sessionDistanceInKm: Double = 2
 	@State private var sessionAverageSpeed: Double = 1
-
+	@StateObject public var coreMotionManager = CoreMotionManager()
     var body: some View {
 		VStack {
 			List {
@@ -60,7 +60,12 @@ struct StartedSessionView: View {
 					sessionAverageSpeed = location.speed
 				}
 			}
+		})
 
+		.onChange(of: coreMotionManager.distance, perform: { distance in
+			if let distance = coreMotionManager.distance {
+				sessionDistanceInKm = distance
+			}
 		})
 		.onReceive(timer) { _ in
 			sessionTimer += 1
