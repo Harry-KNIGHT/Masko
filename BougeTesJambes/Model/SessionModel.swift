@@ -26,9 +26,9 @@ enum Sport: String, CaseIterable {
 	public var sportName: String {
 		switch self {
 		case .walking:
-			return "Course"
-		case .running:
 			return "Marche"
+		case .running:
+			return "Course"
 		}
 	}
 }
