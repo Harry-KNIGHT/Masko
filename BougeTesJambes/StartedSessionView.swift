@@ -87,18 +87,28 @@ struct StartedSessionView: View {
 			}
 		}
 		.navigationBarBackButtonHidden(true)
-		.navigationTitle(session.sportType.sportName)
 		.navigationBarTitleDisplayMode(.inline)
+		.toolbar {
+			ToolbarItem(placement: .principal) {
+				HStack {
+					session.sportType.sportIcon
+					Text(session.sportType.sportName)
+				}
+				.font(.title2.bold())
+			}
 		}
+	}
 }
 
 struct StartedSessionView_Previews: PreviewProvider {
 	static var previews: some View {
-		StartedSessionView(session: .sample, path: .constant(NavigationPath()))
-			.environmentObject(FinishedSessionViewModel())
-			.environmentObject(ConvertTimeViewModel())
-			.environmentObject(PlaySongViewModel())
-			.environmentObject(ConvertLocationValuesViewModel())
+		NavigationStack {
+			StartedSessionView(session: .sample, path: .constant(NavigationPath()))
+				.environmentObject(FinishedSessionViewModel())
+				.environmentObject(ConvertTimeViewModel())
+				.environmentObject(PlaySongViewModel())
+				.environmentObject(ConvertLocationValuesViewModel())
+		}
 	}
 }
 

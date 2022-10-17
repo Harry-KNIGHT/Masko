@@ -31,33 +31,44 @@ struct StartSessionView: View {
 		NavigationStack(path: $path) {
 			VStack {
 				List {
-					Picker("Session sport", selection: $sportChoosen) {
-						ForEach(Sport.allCases, id: \.self) { sport in
-							Text(sport.rawValue.capitalized)
+					Section {
+						Picker("Sport", selection: $sportChoosen) {
+							ForEach(Sport.allCases, id: \.self) { sport in
+								Text(sport.sportName)
+							}
 						}
 					}
+					Section(header: Text("Objectifs")) {
+						Picker("Durée", selection: $timeObjectif) {
+							ForEach(1..<60, id: \.self) { time in
+								Text("\(String(time))min")
+							}
+						}
+						Picker("Distance", selection: $ditanceObjectifInKm) {
+							ForEach(1...10, id: \.self) { distance in
+								Text("\(String(distance))km")
+							}
+						}
 
-					Picker("Time Objectif", selection: $timeObjectif) {
-						ForEach(1..<60, id: \.self) { time in
-							Text(String(time))
-						}
-					}
-					Picker("Distance Objectif", selection: $ditanceObjectifInKm) {
-						ForEach(1...10, id: \.self) { distance in
-							Text(String(distance))
-						}
-					}
-
-					Picker("Average speed objectif", selection: $averageSpeedObjectif) {
-						ForEach(1...20, id: \.self) { speed in
-							Text(String(speed))
+						Picker("Vitesse", selection: $averageSpeedObjectif) {
+							ForEach(1...20, id: \.self) { speed in
+								Text("\(String(speed))km/h")
+							}
 						}
 					}
 				}
-
 				NavigationLink(value: SessionModel(sportType: sportChoosen, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed)) {
 					ZStack {
-						Text("Go !")
+						Circle()
+							.fill(.blue)
+							.frame(width: 110)
+						sportChoosen.sportIcon
+							.resizable()
+							.scaledToFit()
+							.frame(height: 50)
+							.foregroundColor(.white)
+
+
 					}
 				}
 			}
@@ -65,18 +76,19 @@ struct StartSessionView: View {
 				StartedSessionView(session: SessionModel(sportType: sportChoosen, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed), path: $path)
 			}
 			.toolbar {
-				ToolbarItem(placement: .navigationBarLeading) {
+				ToolbarItem(placement: .navigationBarTrailing) {
 					Button(action: {
 						showSheet = true
 					}, label: {
-						Label("Show finished session", systemImage: "plus")
+						Label("Show finished session", systemImage: "trophy.fill")
+							.font(.title2)
 					})
 					.sheet(isPresented: $showSheet) {
 						FinishedSessionListView()
 					}
 				}
 			}
-			.navigationTitle("Start session")
+			.navigationTitle("Nouvelle session")
 			.onAppear {
 				if locationManager.userLocation == nil {
 					locationManager.requestLocation()
