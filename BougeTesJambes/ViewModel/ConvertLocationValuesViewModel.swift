@@ -10,6 +10,6 @@ import Foundation
 class ConvertLocationValuesViewModel: ObservableObject {
 
 	func convertMeterPerSecIntoKmHour(meterPerSec: Double) -> String {
-		return "\(String(format: "%.2f", (meterPerSec * 3.6))) km/h"
+		return "\(String(format: "%.2f", (meterPerSec * 3.6)))"
 	}
 }
