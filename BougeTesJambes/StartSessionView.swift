@@ -25,7 +25,7 @@ struct StartSessionView: View {
 	@State private var showSheet: Bool = false
 
 
-	@StateObject var coreMotionManager = CoreMotionManager()
+	@StateObject var coreMotionManager = CoreMotionViewModel()
 
     var body: some View {
 		NavigationStack(path: $path) {

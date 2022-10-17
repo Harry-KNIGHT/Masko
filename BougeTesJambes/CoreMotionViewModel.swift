@@ -1,5 +1,5 @@
 //
-//  CoreMotionManager.swift
+//  CoreMotionViewModel.swift
 //  BougeTesJambes
 //
 //  Created by Elliot Knight on 17/10/2022.
@@ -8,7 +8,7 @@
 import Foundation
 import CoreMotion
 
-class CoreMotionManager: ObservableObject {
+class CoreMotionViewModel: ObservableObject {
 	@Published var steps: Int?
 	@Published var distance: Double?
 	private let pedometer: CMPedometer = CMPedometer()
