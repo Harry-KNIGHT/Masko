@@ -127,7 +127,6 @@
 				3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */,
 				3C9AEA2728FBF6350080415E /* StartSessionView.swift */,
 				3C9AEA5228FBFD0B0080415E /* StartedSessionView.swift */,
-				3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */,
 				3C9AEA5728FC09730080415E /* FinishedSessionListView.swift */,
 				3C9AEA5928FC1B970080415E /* FinishedSessionDetailView.swift */,
 				3C9AEA5628FC063E0080415E /* ViewModel */,
@@ -181,6 +180,7 @@
 				3C9AEA6128FC24DA0080415E /* PlaySongViewModel.swift */,
 				3C9AEA7128FC2FE90080415E /* LocationManager.swift */,
 				3CDDBFA228FC652A00863BA7 /* ConvertLocationValuesViewModel.swift */,
+				3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -515,7 +515,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.elliot.knight.BougeTesJambes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -546,7 +546,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.elliot.knight.BougeTesJambes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
