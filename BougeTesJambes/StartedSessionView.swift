@@ -60,7 +60,7 @@ struct StartedSessionView: View {
 						.foregroundColor(.white)
 				}
 			})
-			.alert("Paused session", isPresented: $pausedSession) {
+			.alert("Arrêter la session ?", isPresented: $pausedSession) {
 				Button("Oui", role: .destructive) {
 					path.removeLast()
 
