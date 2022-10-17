@@ -15,7 +15,7 @@ struct SessionModel: Identifiable, Hashable {
 	let averageSpeedObjectif: Int
 
 	let sessionTime: Int
-	let sessionDistanceInKm: Int
+	let sessionDistanceInKm: Double
 	let sessionAverageSpeed: Double
 }
 
