@@ -21,6 +21,7 @@ struct StartedSessionView: View {
 	@State private var sessionDistanceInKm: Double = 0
 	@State private var sessionAverageSpeed: Double = 1
 
+	@State private var pausedSession: Bool = false
 	var body: some View {
 		VStack {
 			List {
@@ -50,10 +51,20 @@ struct StartedSessionView: View {
 
 				self.finishedSesionVM.fishishedSessions.append(SessionModel(sportType: session.sportType, timeObjectif: session.timeObjectif, ditanceObjectifInKm: session.ditanceObjectifInKm, averageSpeedObjectif: session.averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: sessionDistanceInKm, sessionAverageSpeed: sessionAverageSpeed))
 			}, label: {
-				Text("go back to first view")
-					.padding()
+				ZStack(alignment: .center) {
+					Circle()
+						.fill(Color(.blue).gradient)
+						.frame(height: 120)
+						.shadow(color: Color(.blue), radius: 10)
+
+					Image(systemName: pausedSession ? "pause.fill" : "play.fill")
+						.font(.custom("",size: 60, relativeTo: .largeTitle))
+						.foregroundColor(.white)
+				}
 			})
-			.backgroundStyle(.blue)
+
+
+
 
 		}
 		.onAppear {

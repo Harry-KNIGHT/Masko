@@ -60,12 +60,11 @@ struct StartSessionView: View {
 				NavigationLink(value: SessionModel(sportType: sportChoosen, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed)) {
 					ZStack {
 						Circle()
-							.fill(.blue)
-							.frame(width: 110)
+							.fill(Color(.blue).gradient)
+							.frame(height: 120)
+							.shadow(color: Color(.blue), radius: 10)
 						sportChoosen.sportIcon
-							.resizable()
-							.scaledToFit()
-							.frame(height: 50)
+							.font(.custom("",size: 60, relativeTo: .largeTitle))
 							.foregroundColor(.white)
 
 
