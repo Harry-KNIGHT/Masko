@@ -19,7 +19,7 @@ struct StartedSessionView: View {
 	let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
 	@State private var sessionTimer: Int = 0
 	@State private var sessionDistanceInKm: Double = 0
-	@State private var sessionAverageSpeed: Double = 1
+	@State private var sessionAverageSpeed: Double = 0
 
 	@State private var pausedSession: Bool = false
 	var body: some View {
