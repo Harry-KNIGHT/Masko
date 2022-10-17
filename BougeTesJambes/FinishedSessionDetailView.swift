@@ -12,31 +12,57 @@ struct FinishedSessionDetailView: View {
 	@ObservedObject public var convertLocValueVM = ConvertLocationValuesViewModel()
 	@ObservedObject public var convertTimeVM = ConvertTimeViewModel()
     var body: some View {
-		VStack(alignment: .leading) {
-			Text("Temps")
-				.font(.title)
+		List {
+			FinishedSessionInformation(
+				objectifType: "Temps",
+				sessionInfo: "\(convertTimeVM.convertSecInTime(timeInSeconds: session.sessionTime))",
+				objectif: "\(session.timeObjectif / 60)min")
 
-				Text("Temps: \(convertTimeVM.convertSecInTime(timeInSeconds: session.sessionTime)) / \(session.timeObjectif)min")
+			FinishedSessionInformation(
+				objectifType: "Distance",
+				sessionInfo: "\(String(format: "%.2tf", session.sessionDistanceInKm))",
+				objectif: "\(session.averageSpeedObjectif)km")
 
+			FinishedSessionInformation(
+				objectifType: "Vitesse",
+				sessionInfo: "\(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: session.sessionAverageSpeed))",
+				objectif: "\(session.averageSpeedObjectif)km/")
 
-			Text("Distance")
-				.font(.title)
-
-				Text("Distance: \(session.sessionDistanceInKm) / \(session.averageSpeedObjectif)")
-
-
-			Text("Vitesse")
-				.font(.title)
-
-				Text("Vitesse: \(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: session.sessionAverageSpeed)) / \(session.averageSpeedObjectif)")
+		}
+		.navigationBarTitleDisplayMode(.inline)
+		.toolbar {
+			ToolbarItem(placement: .principal) {
+				HStack {
+					session.sportType.sportIcon
+					Text(session.sportType.sportName)
+				}
+				.font(.title2.bold())
+			}
 		}
     }
 }
 
 struct FinishedSessionDetailView_Previews: PreviewProvider {
     static var previews: some View {
-		FinishedSessionDetailView(session: .sample)
-			.environmentObject(ConvertLocationValuesViewModel())
-			.environmentObject(ConvertTimeViewModel())
+		NavigationStack {
+			FinishedSessionDetailView(session: .sample)
+				.environmentObject(ConvertLocationValuesViewModel())
+				.environmentObject(ConvertTimeViewModel())
+		}
     }
 }
+
+struct FinishedSessionInformation: View {
+	var objectifType: String
+	var sessionInfo: String
+	var objectif: String
+	var body: some View {
+		VStack(alignment: .leading, spacing: 10) {
+			Text("Temps")
+				.font(.title2)
+			Text("\(sessionInfo) / \(objectif)")
+
+		}
+	}
+}
+
