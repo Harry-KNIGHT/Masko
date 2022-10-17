@@ -16,23 +16,16 @@ struct FinishedSessionListView: View {
 			List {
 				ForEach(finishedSessionVM.fishishedSessions) { session in
 					NavigationLink(destination: FinishedSessionDetailView(session: session)) {
-						VStack(alignment: .leading) {
-							HStack {
-								Text("\(convertTimeVM.convertSecInTime(timeInSeconds: session.sessionTime)) / ")
-								Text("\(session.timeObjectif)min")
+						VStack(alignment: .leading, spacing: 5) {
+							    Text(session.sportType.sportName)
+									.font(.headline)
+									.padding(.bottom, 6)
+								Text("\(convertTimeVM.convertSecInTime(timeInSeconds: session.sessionTime))min")
 
-							}
+								Text("\(String(format: "%.2f", session.sessionDistanceInKm))km")
 
-							HStack {
-								Text("\(String(format: "%.2f", session.sessionDistanceInKm)) /")
-								Text("\(session.ditanceObjectifInKm)km")
+								Text("\(session.averageSpeedObjectif)km/h")
 
-							}
-
-							HStack {
-								Text("\(session.averageSpeedObjectif) / ")
-								Text("\(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: session.sessionAverageSpeed))")
-							}
 						}
 					}
 				}
