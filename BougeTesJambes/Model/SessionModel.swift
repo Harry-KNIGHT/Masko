@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct SessionModel: Identifiable, Hashable {
 	var id = UUID()
@@ -29,6 +30,15 @@ enum Sport: String, CaseIterable {
 			return "Marche"
 		case .running:
 			return "Course"
+		}
+	}
+
+	public var sportIcon: Image {
+		switch self {
+		case .walking:
+			return Image(systemName: "figure.walk")
+		case .running:
+			return Image(systemName: "figure.run")
 		}
 	}
 }
