@@ -26,7 +26,7 @@ struct FinishedSessionDetailView: View {
 			FinishedSessionInformation(
 				objectifType: "Vitesse",
 				sessionInfo: "\(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: session.sessionAverageSpeed))",
-				objectif: "\(session.averageSpeedObjectif)km/")
+				objectif: "\(session.averageSpeedObjectif)km/h")
 
 		}
 		.navigationBarTitleDisplayMode(.inline)

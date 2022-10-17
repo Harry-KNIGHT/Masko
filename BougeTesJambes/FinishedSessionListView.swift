@@ -19,18 +19,18 @@ struct FinishedSessionListView: View {
 						VStack(alignment: .leading) {
 							HStack {
 								Text("\(convertTimeVM.convertSecInTime(timeInSeconds: session.sessionTime)) / ")
-								Text("\(session.timeObjectif) min")
+								Text("\(session.timeObjectif)min")
 
 							}
 
 							HStack {
-								Text("\(session.sessionDistanceInKm) km / ")
-								Text("\(session.ditanceObjectifInKm) km")
+								Text("\(String(format: "%.2f", session.sessionDistanceInKm)) /")
+								Text("\(session.ditanceObjectifInKm)km")
 
 							}
 
 							HStack {
-								Text("\(session.averageSpeedObjectif) km/h / ")
+								Text("\(session.averageSpeedObjectif) / ")
 								Text("\(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: session.sessionAverageSpeed))")
 							}
 						}
