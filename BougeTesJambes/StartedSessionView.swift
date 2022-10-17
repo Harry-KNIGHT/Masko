@@ -21,29 +21,27 @@ struct StartedSessionView: View {
 	@State private var sessionDistanceInKm: Double = 0
 	@State private var sessionAverageSpeed: Double = 1
 
-    var body: some View {
+	var body: some View {
 		VStack {
 			List {
 				SessionInformation(
-					objectif: "\(String(session.timeObjectif))min",
+					sfSymbol: "stopwatch", objectif: "\(String(session.timeObjectif))min",
 					sessionValue: "\(String(convertTimeVM.convertSecInTime(timeInSeconds: sessionTimer)))"
 				)
-					.foregroundColor(convertTimeVM.compareConvertedTimeAndSessionTime(convertedSecInMin: session.timeObjectif, sessionTime: sessionTimer) == true ? .green : .primary)
+				.foregroundColor(convertTimeVM.compareConvertedTimeAndSessionTime(convertedSecInMin: session.timeObjectif, sessionTime: sessionTimer) == true ? .green : .primary)
 
 				if motionManager.isPedometerAvailable {
 					SessionInformation(
-						objectif: "\(String(session.ditanceObjectifInKm))km",
-						sessionValue: "Session distance: \(String(format: "%.2tf \(sessionDistanceInKm > 1_000 ? "km" : "m")", sessionDistanceInKm))"
+						sfSymbol: "flag", objectif: "\(String(session.ditanceObjectifInKm))km",
+						sessionValue: "\(String(format: "%.2tf \(sessionDistanceInKm > 1_000 ? "km" : "m")", sessionDistanceInKm))"
 					)
-				} else {
-					Text("Go !")
 				}
 
-					if let location = locationManager.userLocation {
-						SessionInformation(
-							objectif: "\(String(session.averageSpeedObjectif))km/h",
-							sessionValue: "User Speed: \(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: location.speed))"
-						)
+				if let location = locationManager.userLocation {
+					SessionInformation(
+						sfSymbol: "speedometer", objectif: "\(String(session.averageSpeedObjectif))km/h",
+						sessionValue: "\(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: location.speed))"
+					)
 				}
 			}
 
@@ -63,7 +61,9 @@ struct StartedSessionView: View {
 		}
 		.onChange(of: motionManager.distance, perform:  { distance in
 			if let distance {
-				sessionDistanceInKm = distance
+				if distance > 0 {
+					sessionDistanceInKm = distance
+				}
 			}
 		})
 		.onChange(of: locationManager.userLocation, perform: {  location in
@@ -87,35 +87,37 @@ struct StartedSessionView: View {
 			}
 		}
 		.navigationBarBackButtonHidden(true)
-		.toolbar {
-			ToolbarItem(placement: .principal) {
-				Text(session.sportType.rawValue)
-			}
+		.navigationTitle(session.sportType.sportName)
+		.navigationBarTitleDisplayMode(.inline)
 		}
-    }
-
 }
 
 struct StartedSessionView_Previews: PreviewProvider {
-    static var previews: some View {
+	static var previews: some View {
 		StartedSessionView(session: .sample, path: .constant(NavigationPath()))
 			.environmentObject(FinishedSessionViewModel())
 			.environmentObject(ConvertTimeViewModel())
 			.environmentObject(PlaySongViewModel())
 			.environmentObject(ConvertLocationValuesViewModel())
-    }
+	}
 }
 
 struct SessionInformation: View {
+	var sfSymbol: String
 	var objectif: String
 	var sessionValue: String
 
 	var body: some View {
 		VStack(alignment: .leading, spacing: 10) {
-			Text("\(objectif)")
-				.foregroundColor(.secondary)
+			HStack {
+				Image(systemName: sfSymbol)
+				Text("\(objectif)")
+			}
+			.font(.title3)
+			.foregroundColor(.secondary)
+
 			Text("\(sessionValue)")
-				.font(.headline)
+				.font(.title2)
 		}
 	}
 }
