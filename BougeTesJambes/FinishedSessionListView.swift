@@ -37,15 +37,18 @@ struct FinishedSessionListView: View {
 					}
 				}
 			}
+			.navigationTitle("Sessions finies")
 		}
     }
 }
 
 struct FinishedSessionListView_Previews: PreviewProvider {
     static var previews: some View {
-        FinishedSessionListView()
-			.environmentObject(FinishedSessionViewModel())
-			.environmentObject(ConvertLocationValuesViewModel())
-			.environmentObject(ConvertTimeViewModel())
+		NavigationStack {
+			FinishedSessionListView()
+				.environmentObject(FinishedSessionViewModel())
+				.environmentObject(ConvertLocationValuesViewModel())
+				.environmentObject(ConvertTimeViewModel())
+		}
     }
 }
