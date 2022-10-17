@@ -9,27 +9,30 @@ import Foundation
 import CoreMotion
 
 class CoreMotionManager: ObservableObject {
-	public let pedometer: CMPedometer = CMPedometer()
-	@Published public var steps: Int?
-	@Published public var distance: Double?
+	@Published var steps: Int?
+	@Published var distance: Double?
+	private let pedometer: CMPedometer = CMPedometer()
+
+
 
 	var isPedometerAvailable: Bool {
-	   return CMPedometer.isPedometerEventTrackingAvailable() && CMPedometer.isDistanceAvailable() && CMPedometer.isCadenceAvailable()
-   }
+		return CMPedometer.isPedometerEventTrackingAvailable() && CMPedometer.isDistanceAvailable() && CMPedometer.isCadenceAvailable()
+	}
 
 
 	func updateUI(data: CMPedometerData) {
-	   steps = data.numberOfSteps.intValue
-	   guard let pedometerDistance = data.distance else { return }
-	   distance = pedometerDistance.doubleValue
+		steps = data.numberOfSteps.intValue
+		guard let pedometerDistance = data.distance else { return }
+		distance = pedometerDistance.doubleValue
 
-   }
+	}
+	
 	func initializePodometer() {
-	   if isPedometerAvailable {
-		   pedometer.startUpdates(from: Date()) { [self] (data, error) in
-			   guard let data = data, error == nil else { return }
-			   updateUI(data: data)
-		   }
-	   }
-   }
+		if isPedometerAvailable {
+			pedometer.startUpdates(from: Date()) { [self] (data, error) in
+				guard let data = data, error == nil else { return }
+				updateUI(data: data)
+			}
+		}
+	}
 }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C5D424528FD735A00005398 /* CoreMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D424428FD735900005398 /* CoreMotionManager.swift */; };
+		3C5D424728FD7B6000005398 /* CoreMotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D424628FD7B6000005398 /* CoreMotionManager.swift */; };
 		3C9AEA2628FBF6350080415E /* BougeTesJambesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */; };
 		3C9AEA2828FBF6350080415E /* StartSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA2728FBF6350080415E /* StartSessionView.swift */; };
 		3C9AEA2A28FBF6360080415E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C9AEA2928FBF6360080415E /* Assets.xcassets */; };
@@ -49,7 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3C5D424428FD735900005398 /* CoreMotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionManager.swift; sourceTree = "<group>"; };
+		3C5D424628FD7B6000005398 /* CoreMotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionManager.swift; sourceTree = "<group>"; };
 		3C9AEA2228FBF6350080415E /* BougeTesJambes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BougeTesJambes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BougeTesJambesApp.swift; sourceTree = "<group>"; };
 		3C9AEA2728FBF6350080415E /* StartSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSessionView.swift; sourceTree = "<group>"; };
@@ -126,8 +126,8 @@
 			children = (
 				3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */,
 				3C9AEA2728FBF6350080415E /* StartSessionView.swift */,
-				3C5D424428FD735900005398 /* CoreMotionManager.swift */,
 				3C9AEA5228FBFD0B0080415E /* StartedSessionView.swift */,
+				3C5D424628FD7B6000005398 /* CoreMotionManager.swift */,
 				3C9AEA5728FC09730080415E /* FinishedSessionListView.swift */,
 				3C9AEA5928FC1B970080415E /* FinishedSessionDetailView.swift */,
 				3C9AEA5628FC063E0080415E /* ViewModel */,
@@ -334,7 +334,7 @@
 				3C9AEA6228FC24DA0080415E /* PlaySongViewModel.swift in Sources */,
 				3C9AEA7228FC2FE90080415E /* LocationManager.swift in Sources */,
 				3C9AEA5C28FC1E230080415E /* ConvertTimeViewModel.swift in Sources */,
-				3C5D424528FD735A00005398 /* CoreMotionManager.swift in Sources */,
+				3C5D424728FD7B6000005398 /* CoreMotionManager.swift in Sources */,
 				3C9AEA5828FC09730080415E /* FinishedSessionListView.swift in Sources */,
 				3C9AEA5528FC063A0080415E /* FinishedSessionViewModel.swift in Sources */,
 				3C9AEA5A28FC1B970080415E /* FinishedSessionDetailView.swift in Sources */,
