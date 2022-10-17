@@ -21,10 +21,11 @@ class CoreMotionManager: ObservableObject {
 
 
 	func updateUI(data: CMPedometerData) {
-		steps = data.numberOfSteps.intValue
 		guard let pedometerDistance = data.distance else { return }
-		distance = pedometerDistance.doubleValue
-
+		DispatchQueue.main.async {
+			self.steps = data.numberOfSteps.intValue
+			self.distance = pedometerDistance.doubleValue
+		}
 	}
 	
 	func initializePodometer() {

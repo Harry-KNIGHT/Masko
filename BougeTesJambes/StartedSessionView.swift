@@ -10,6 +10,7 @@ import SwiftUI
 struct StartedSessionView: View {
 	let session: SessionModel
 	@StateObject var locationManager = LocationManager()
+	@StateObject var motionManager = CoreMotionManager()
 	@Binding var path: NavigationPath
 	@EnvironmentObject public var finishedSesionVM: FinishedSessionViewModel
 	@EnvironmentObject public var convertTimeVM: ConvertTimeViewModel
@@ -17,7 +18,7 @@ struct StartedSessionView: View {
 	@ObservedObject public var playSongVM = PlaySongViewModel()
 	let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
 	@State private var sessionTimer: Int = 0
-	@State private var sessionDistanceInKm: Double = 2
+	@State private var sessionDistanceInKm: Double = 0
 	@State private var sessionAverageSpeed: Double = 1
 	@StateObject public var coreMotionManager = CoreMotionManager()
     var body: some View {
@@ -29,11 +30,14 @@ struct StartedSessionView: View {
 				)
 					.foregroundColor(convertTimeVM.compareConvertedTimeAndSessionTime(convertedSecInMin: session.timeObjectif, sessionTime: sessionTimer) == true ? .green : .primary)
 
-				SessionInformation(
-					objectif: "\(String(session.ditanceObjectifInKm))km",
-					sessionValue: "Session distance: \(String(sessionDistanceInKm))km"
-				)
-
+				if coreMotionManager.isPedometerAvailable {
+					SessionInformation(
+						objectif: "\(String(session.ditanceObjectifInKm))km",
+						sessionValue: "Session distance: \(String(format: "%.2tf \(sessionDistanceInKm > 1_000 ? "km" : "m")", sessionDistanceInKm))"
+					)
+				} else {
+					Text("Go !")
+				}
 
 					if let location = locationManager.userLocation {
 						SessionInformation(
@@ -54,6 +58,14 @@ struct StartedSessionView: View {
 			.backgroundStyle(.blue)
 
 		}
+		.onAppear {
+			motionManager.initializePodometer()
+		}
+		.onChange(of: motionManager.distance, perform:  { distance in
+			if let distance {
+				sessionDistanceInKm = distance
+			}
+		})
 		.onChange(of: locationManager.userLocation, perform: {  location in
 			if let location {
 				if location.speed > 0 {
