@@ -47,9 +47,7 @@ struct StartedSessionView: View {
 			}
 
 			Button(action: {
-				path.removeLast()
-
-				self.finishedSesionVM.fishishedSessions.append(SessionModel(sportType: session.sportType, timeObjectif: session.timeObjectif, ditanceObjectifInKm: session.ditanceObjectifInKm, averageSpeedObjectif: session.averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: sessionDistanceInKm, sessionAverageSpeed: sessionAverageSpeed))
+				pausedSession = true
 			}, label: {
 				ZStack(alignment: .center) {
 					Circle()
@@ -57,15 +55,21 @@ struct StartedSessionView: View {
 						.frame(height: 120)
 						.shadow(color: Color(.blue), radius: 10)
 
-					Image(systemName: pausedSession ? "pause.fill" : "play.fill")
+					Image(systemName: pausedSession ? "play.fill" : "pause.fill")
 						.font(.custom("",size: 60, relativeTo: .largeTitle))
 						.foregroundColor(.white)
 				}
 			})
+			.alert("Paused session", isPresented: $pausedSession) {
+				Button("Oui", role: .destructive) {
+					path.removeLast()
 
-
-
-
+					self.finishedSesionVM.fishishedSessions.append(SessionModel(sportType: session.sportType, timeObjectif: session.timeObjectif, ditanceObjectifInKm: session.ditanceObjectifInKm, averageSpeedObjectif: session.averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: sessionDistanceInKm, sessionAverageSpeed: sessionAverageSpeed))
+				}
+				Button("Non", role: .cancel) {
+					pausedSession = false
+				}
+			}
 		}
 		.onAppear {
 			motionManager.initializePodometer()
