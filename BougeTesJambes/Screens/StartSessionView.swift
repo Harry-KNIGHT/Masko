@@ -43,45 +43,11 @@ struct StartSessionView: View {
 							Spacer()
 						}
 
-						HStack {
-							Text("Durée")
-								.font(.title)
-								.fontWeight(.medium)
-							Spacer()
-							Picker("Durée", selection: $timeObjectif) {
-								ForEach(1..<60, id: \.self) { time in
-									Text("\(String(time))min")
-								}
-							}
-							.tint(Color("textActionColor"))
-						}
-						HStack {
-							Text("Distance")
-								.font(.title)
-								.fontWeight(.medium)
+						ObjectifPickerCell(objectifIndication: "Durée", selection: $timeObjectif, tillWhichNumber: 30, objectifMinKmOrSpeed: "min")
 
-							Spacer()
-							Picker("Distance", selection: $ditanceObjectifInKm) {
-								ForEach(1...10, id: \.self) { distance in
-									Text("\(String(distance))km")
-								}
-							}
-							.tint(Color("textActionColor"))
-						}
+						ObjectifPickerCell(objectifIndication: "Distance", selection: $ditanceObjectifInKm, tillWhichNumber: 20, objectifMinKmOrSpeed: "km")
 
-						HStack {
-							Text("Vitesse")
-								.font(.title)
-								.fontWeight(.medium)
-
-							Spacer()
-							Picker("Vitesse", selection: $averageSpeedObjectif) {
-								ForEach(1...20, id: \.self) { speed in
-									Text("\(String(speed))km/h")
-								}
-							}
-							.tint(Color("textActionColor"))
-						}
+						ObjectifPickerCell(objectifIndication: "Vitesse", selection: $averageSpeedObjectif, tillWhichNumber: 20, objectifMinKmOrSpeed: "km/h")
 					}
 					.padding(.horizontal)
 					Spacer()
@@ -130,7 +96,7 @@ struct StartSessionView: View {
 						locationManager.requestLocation()
 					}
 					coreMotionManager.initializePodometer()
-			}
+				}
 			}
 		}
 	}
