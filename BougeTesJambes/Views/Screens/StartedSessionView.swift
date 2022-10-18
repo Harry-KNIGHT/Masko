@@ -31,9 +31,11 @@ struct StartedSessionView: View {
 
 				SessionInformation(
 					sfSymbol: "stopwatch", objectif: "\(String(session.timeObjectif))min",
-					sessionValue: "\(String(convertTimeVM.convertSecInTime(timeInSeconds: sessionTimer)))"
+					sessionValue: "\(String(convertTimeVM.convertSecInTime(timeInSeconds: sessionTimer)))",
+					color: convertTimeVM.isSessionTimeDone(convertedSecInMin: session.timeObjectif, sessionTime: sessionTimer) == true ? .green : .white
 				)
-				.foregroundColor(convertTimeVM.compareConvertedTimeAndSessionTime(convertedSecInMin: session.timeObjectif, sessionTime: sessionTimer) == true ? .green : .primary)
+
+
 				Spacer()
 				HStack {
 					if motionManager.isPedometerAvailable {
@@ -57,15 +59,17 @@ struct StartedSessionView: View {
 				}, label: {
 					ZStack(alignment: .center) {
 						Circle()
-							.fill(Color("actionInteractionColor").gradient)
+							.fill(	convertTimeVM.isSessionTimeDone(convertedSecInMin: session.timeObjectif, sessionTime: sessionTimer) == true ? Color("actionInteractionColor") : .gray)
+
 							.frame(height: 120)
-							.shadow(color: Color("actionInteractionColor"), radius: 10)
+							.shadow(color: convertTimeVM.isSessionTimeDone(convertedSecInMin: session.timeObjectif, sessionTime: sessionTimer) == true ? Color("actionInteractionColor") : .gray, radius: 10)
 
 						Image(systemName: pausedSession ? "play.fill" : "pause.fill")
 							.font(.custom("",size: 60, relativeTo: .largeTitle))
 							.foregroundColor(.white)
 					}
 				})
+				.padding(.bottom, 30)
 				.alert("Arrêter la session ?", isPresented: $pausedSession) {
 					Button("Oui", role: .destructive) {
 						path.removeLast()
@@ -142,6 +146,7 @@ struct SessionInformation: View {
 	var sfSymbol: String
 	var objectif: String
 	var sessionValue: String
+	var color: Color = .white
 
 	var body: some View {
 		VStack(alignment: .center, spacing: 10) {
@@ -154,6 +159,7 @@ struct SessionInformation: View {
 			Text("\(objectif)")
 				.opacity(0.5)
 				.font(.title3)
-		}.foregroundColor(.white)
+		}
+		.foregroundColor(color)
 	}
 }

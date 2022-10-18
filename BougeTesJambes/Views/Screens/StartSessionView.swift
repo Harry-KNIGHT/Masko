@@ -26,6 +26,7 @@ struct StartSessionView: View {
 
 
 	@StateObject var coreMotionManager = CoreMotionViewModel()
+	@ObservedObject var finishedSessionVM = FinishedSessionViewModel()
 
 	var body: some View {
 		NavigationStack(path: $path) {
@@ -35,7 +36,7 @@ struct StartSessionView: View {
 
 					SelectSportButtonsCell(sportChoosen: $sportChoosen)
 						.padding()
-					VStack {
+					VStack(spacing: 40) {
 						HStack {
 							Text("Objectifs")
 								.fontWeight(.semibold)
@@ -56,22 +57,26 @@ struct StartSessionView: View {
 							Circle()
 								.fill(Color("actionInteractionColor").gradient)
 								.frame(height: 120)
-								.shadow(color: Color("actionInteractionColor"), radius: 10)
+								.shadow(color: Color("actionInteractionColor").opacity(0.8), radius: 10)
 							sportChoosen.sportIcon
 								.font(.custom("",size: 60, relativeTo: .largeTitle))
 								.foregroundColor(.white)
 
 
 						}
+						.padding(.bottom, 30)
 					}
 				}
+				.padding(.top, 30)
 				.foregroundColor(.white)
 				.navigationDestination(for: SessionModel.self) { session in
 					StartedSessionView(session: SessionModel(sportType: sportChoosen, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: nil), path: $path)
 				}
 				.toolbar {
 					ToolbarItem(placement: .navigationBarTrailing) {
-						ShowFinishedSessionSheetButtonCell(showSheet: $showSheet)
+						if finishedSessionVM.fishishedSessions.count != 0 {
+							ShowFinishedSessionSheetButtonCell(showSheet: $showSheet)
+						}
 					}
 					ToolbarItem(placement: .principal) {
 						Text("Nouvelle session")
@@ -93,5 +98,6 @@ struct StartSessionView: View {
 struct StartSessionView_Previews: PreviewProvider {
 	static var previews: some View {
 		StartSessionView()
+			.environmentObject(FinishedSessionViewModel())
 	}
 }
