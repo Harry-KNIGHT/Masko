@@ -48,7 +48,7 @@ struct StartedSessionView: View {
 					if let location = locationManager.userLocation {
 						SessionInformation(
 							sfSymbol: "speedometer", objectif: "\(String(session.averageSpeedObjectif))km/h",
-							sessionValue: "\(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: location.speed))"
+							sessionValue: "\( location.speed < 0 ? "0.00" : convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: location.speed))"
 						)
 					}
 				}

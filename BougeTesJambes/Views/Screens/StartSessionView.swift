@@ -74,9 +74,7 @@ struct StartSessionView: View {
 				}
 				.toolbar {
 					ToolbarItem(placement: .navigationBarTrailing) {
-						if finishedSessionVM.fishishedSessions.count != 0 {
-							ShowFinishedSessionSheetButtonCell(showSheet: $showSheet)
-						}
+						ShowFinishedSessionSheetButtonCell(showSheet: $showSheet)
 					}
 					ToolbarItem(placement: .principal) {
 						Text("Nouvelle session")
