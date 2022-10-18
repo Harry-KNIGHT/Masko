@@ -29,94 +29,108 @@ struct StartSessionView: View {
 
 	var body: some View {
 		NavigationStack(path: $path) {
-			VStack {
-
-				SelectSportButtonsView(sportChoosen: $sportChoosen)
-					.padding()
+			ZStack {
+				Color("viewBackgroundColor").ignoresSafeArea()
 				VStack {
-					HStack {
-						Text("Objectifs")
-							.fontWeight(.semibold)
-							.font(.largeTitle)
-						Spacer()
-					}
 
-					HStack {
-						Text("Durée")
-							.font(.title)
-							.fontWeight(.medium)
-						Spacer()
-						Picker("Durée", selection: $timeObjectif) {
-							ForEach(1..<60, id: \.self) { time in
-								Text("\(String(time))min")
-							}
+					SelectSportButtonsView(sportChoosen: $sportChoosen)
+						.padding()
+					VStack {
+						HStack {
+							Text("Objectifs")
+								.fontWeight(.semibold)
+								.font(.largeTitle)
+							Spacer()
 						}
 
-					}
-					HStack {
-						Text("Distance")
-							.font(.title)
-							.fontWeight(.medium)
-
-						Spacer()
-						Picker("Distance", selection: $ditanceObjectifInKm) {
-							ForEach(1...10, id: \.self) { distance in
-								Text("\(String(distance))km")
+						HStack {
+							Text("Durée")
+								.font(.title)
+								.fontWeight(.medium)
+							Spacer()
+							Picker("Durée", selection: $timeObjectif) {
+								ForEach(1..<60, id: \.self) { time in
+									Text("\(String(time))min")
+								}
 							}
+							.tint(Color("textActionColor"))
+						}
+						HStack {
+							Text("Distance")
+								.font(.title)
+								.fontWeight(.medium)
+
+							Spacer()
+							Picker("Distance", selection: $ditanceObjectifInKm) {
+								ForEach(1...10, id: \.self) { distance in
+									Text("\(String(distance))km")
+								}
+							}
+							.tint(Color("textActionColor"))
+						}
+
+						HStack {
+							Text("Vitesse")
+								.font(.title)
+								.fontWeight(.medium)
+
+							Spacer()
+							Picker("Vitesse", selection: $averageSpeedObjectif) {
+								ForEach(1...20, id: \.self) { speed in
+									Text("\(String(speed))km/h")
+								}
+							}
+							.tint(Color("textActionColor"))
 						}
 					}
+					.padding(.horizontal)
+					Spacer()
+					NavigationLink(value: SessionModel(sportType: sportChoosen, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed)) {
+						ZStack {
+							Circle()
+								.fill(Color("actionInteractionColor").gradient)
+								.frame(height: 120)
+								.shadow(color: Color("actionInteractionColor"), radius: 10)
+							sportChoosen.sportIcon
+								.font(.custom("",size: 60, relativeTo: .largeTitle))
+								.foregroundColor(.white)
 
-					HStack {
-						Text("Vitesse")
-							.font(.title)
-							.fontWeight(.medium)
 
-						Spacer()
-						Picker("Vitesse", selection: $averageSpeedObjectif) {
-							ForEach(1...20, id: \.self) { speed in
-								Text("\(String(speed))km/h")
-							}
 						}
 					}
 				}
-				.padding(.horizontal)
-				Spacer()
-				NavigationLink(value: SessionModel(sportType: sportChoosen, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed)) {
-					ZStack {
-						Circle()
-							.fill(Color(.blue).gradient)
-							.frame(height: 120)
-							.shadow(color: Color(.blue), radius: 10)
-						sportChoosen.sportIcon
-							.font(.custom("",size: 60, relativeTo: .largeTitle))
+				.foregroundColor(.white)
+				.navigationDestination(for: SessionModel.self) { session in
+					StartedSessionView(session: SessionModel(sportType: sportChoosen, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed), path: $path)
+				}
+				.toolbar {
+					ToolbarItem(placement: .navigationBarTrailing) {
+						Button(action: {
+							showSheet = true
+						}, label: {
+							Label("Show finished session", systemImage: "trophy.fill")
+								.font(.title2)
+								.foregroundColor(Color("textActionColor"))
+
+						})
+						.sheet(isPresented: $showSheet) {
+							FinishedSessionListView()
+						}
+					}
+					ToolbarItem(placement: .principal) {
+						Text("Nouvelle session")
 							.foregroundColor(.white)
-
-
-					}
-				}
-			}
-			.navigationDestination(for: SessionModel.self) { session in
-				StartedSessionView(session: SessionModel(sportType: sportChoosen, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed), path: $path)
-			}
-			.toolbar {
-				ToolbarItem(placement: .navigationBarTrailing) {
-					Button(action: {
-						showSheet = true
-					}, label: {
-						Label("Show finished session", systemImage: "trophy.fill")
+							.fontWeight(.semibold)
 							.font(.title2)
-					})
-					.sheet(isPresented: $showSheet) {
-						FinishedSessionListView()
 					}
 				}
+				.navigationBarTitleDisplayMode(.inline)
+				.onAppear {
+					if locationManager.userLocation == nil {
+						locationManager.requestLocation()
+					}
+					coreMotionManager.initializePodometer()
 			}
-			.navigationTitle("Nouvelle session")
-			.onAppear {
-				if locationManager.userLocation == nil {
-					locationManager.requestLocation()
-				}
-				coreMotionManager.initializePodometer()
 			}
 		}
 	}

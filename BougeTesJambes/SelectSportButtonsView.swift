@@ -18,8 +18,8 @@ struct SelectSportButtonsView: View {
 					ZStack(alignment: .center) {
 						RoundedRectangle(cornerRadius: 10, style: .circular)
 							.frame(height: 50)
-							.foregroundColor(choice == sportChoosen ? .blue : .gray)
-							.shadow(color: choice == sportChoosen ? .blue : .white.opacity(0),  radius: 7)
+							.foregroundColor(choice == sportChoosen ? Color("actionInteractionColor") : .gray)
+							.shadow(color: choice == sportChoosen ? Color("actionInteractionColor") : .white.opacity(0),  radius: 7)
 						Text(choice.sportName)
 							.foregroundColor(.white)
 							.font(.title3.bold())
