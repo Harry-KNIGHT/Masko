@@ -27,29 +27,51 @@ struct StartSessionView: View {
 
 	@StateObject var coreMotionManager = CoreMotionViewModel()
 
-    var body: some View {
+	var body: some View {
 		NavigationStack(path: $path) {
 			VStack {
-				List {
-					Section {
-						Picker("Sport", selection: $sportChoosen) {
-							ForEach(Sport.allCases, id: \.self) { sport in
-								Text(sport.sportName)
-							}
-						}
+
+				SelectSportButtonsView(sportChoosen: $sportChoosen)
+					.padding()
+				VStack {
+					HStack {
+						Text("Objectifs")
+							.fontWeight(.semibold)
+							.font(.largeTitle)
+						Spacer()
 					}
-					Section(header: Text("Objectifs")) {
+
+					HStack {
+						Text("Durée")
+							.font(.title)
+							.fontWeight(.medium)
+						Spacer()
 						Picker("Durée", selection: $timeObjectif) {
 							ForEach(1..<60, id: \.self) { time in
 								Text("\(String(time))min")
 							}
 						}
+
+					}
+					HStack {
+						Text("Distance")
+							.font(.title)
+							.fontWeight(.medium)
+
+						Spacer()
 						Picker("Distance", selection: $ditanceObjectifInKm) {
 							ForEach(1...10, id: \.self) { distance in
 								Text("\(String(distance))km")
 							}
 						}
+					}
 
+					HStack {
+						Text("Vitesse")
+							.font(.title)
+							.fontWeight(.medium)
+
+						Spacer()
 						Picker("Vitesse", selection: $averageSpeedObjectif) {
 							ForEach(1...20, id: \.self) { speed in
 								Text("\(String(speed))km/h")
@@ -57,6 +79,8 @@ struct StartSessionView: View {
 						}
 					}
 				}
+				.padding(.horizontal)
+				Spacer()
 				NavigationLink(value: SessionModel(sportType: sportChoosen, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed)) {
 					ZStack {
 						Circle()
@@ -95,11 +119,11 @@ struct StartSessionView: View {
 				coreMotionManager.initializePodometer()
 			}
 		}
-    }
+	}
 }
 
 struct StartSessionView_Previews: PreviewProvider {
-    static var previews: some View {
+	static var previews: some View {
 		StartSessionView()
-    }
+	}
 }
