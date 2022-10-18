@@ -85,7 +85,7 @@ struct StartSessionView: View {
 					}
 					.padding(.horizontal)
 					Spacer()
-					NavigationLink(value: SessionModel(sportType: sportChoosen, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed)) {
+					NavigationLink(value: SessionModel(sportType: sportChoosen, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: nil)) {
 						ZStack {
 							Circle()
 								.fill(Color("actionInteractionColor").gradient)
@@ -101,7 +101,7 @@ struct StartSessionView: View {
 				}
 				.foregroundColor(.white)
 				.navigationDestination(for: SessionModel.self) { session in
-					StartedSessionView(session: SessionModel(sportType: sportChoosen, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed), path: $path)
+					StartedSessionView(session: SessionModel(sportType: sportChoosen, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: nil), path: $path)
 				}
 				.toolbar {
 					ToolbarItem(placement: .navigationBarTrailing) {

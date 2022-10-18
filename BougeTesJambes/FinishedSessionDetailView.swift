@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Charts
 
 struct FinishedSessionDetailView: View {
 	let session: SessionModel
@@ -30,6 +31,16 @@ struct FinishedSessionDetailView: View {
 					objectifType: "Vitesse",
 					sessionInfo: "\(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: session.sessionAverageSpeed))",
 					objectif: "\(session.averageSpeedObjectif)km/h")
+
+				if let distanceSpeedChart = session.distanceSpeedChart {
+					Chart(distanceSpeedChart) { value in
+						LineMark(
+							x: .value("distance", value.sessionDistance),
+							y: .value("vitesse", value.averageSpeed)
+						)
+					}
+					.frame(height: 250)
+				}
 				Spacer()
 
 			}

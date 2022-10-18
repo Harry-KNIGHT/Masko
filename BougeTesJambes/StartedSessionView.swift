@@ -22,6 +22,7 @@ struct StartedSessionView: View {
 	@State private var sessionAverageSpeed: Double = 0
 
 	@State private var pausedSession: Bool = false
+	@State private var distanceSpeedChartValues: [DistanceSpeedChart] = []
 	var body: some View {
 		ZStack {
 			Color("viewBackgroundColor").ignoresSafeArea()
@@ -69,8 +70,9 @@ struct StartedSessionView: View {
 					Button("Oui", role: .destructive) {
 						path.removeLast()
 
-						self.finishedSesionVM.fishishedSessions.append(SessionModel(sportType: session.sportType, timeObjectif: session.timeObjectif, ditanceObjectifInKm: session.ditanceObjectifInKm, averageSpeedObjectif: session.averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: sessionDistanceInKm, sessionAverageSpeed: sessionAverageSpeed))
+						self.finishedSesionVM.fishishedSessions.append(SessionModel(sportType: session.sportType, timeObjectif: session.timeObjectif, ditanceObjectifInKm: session.ditanceObjectifInKm, averageSpeedObjectif: session.averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: sessionDistanceInKm, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: distanceSpeedChartValues))
 					}
+
 					Button("Non", role: .cancel) {
 						pausedSession = false
 					}
@@ -84,6 +86,7 @@ struct StartedSessionView: View {
 				if let distance {
 					if distance > 0 {
 						sessionDistanceInKm = distance
+							self.distanceSpeedChartValues.append(DistanceSpeedChart(averageSpeed: sessionAverageSpeed, sessionDistance: sessionDistanceInKm))
 					}
 				}
 			})
