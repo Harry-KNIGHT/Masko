@@ -71,17 +71,7 @@ struct StartSessionView: View {
 				}
 				.toolbar {
 					ToolbarItem(placement: .navigationBarTrailing) {
-						Button(action: {
-							showSheet = true
-						}, label: {
-							Label("Show finished session", systemImage: "trophy.fill")
-								.font(.title2)
-								.foregroundColor(Color("textActionColor"))
-
-						})
-						.sheet(isPresented: $showSheet) {
-							FinishedSessionListView()
-						}
+						ShowFinishedSessionSheetButtonCell(showSheet: $showSheet)
 					}
 					ToolbarItem(placement: .principal) {
 						Text("Nouvelle session")
