@@ -31,6 +31,7 @@ struct FinishedSessionListView: View {
 					.listRowBackground(Color("actionInteractionColor"))
 				}
 			}
+			.foregroundColor(.white)
 			.background(Color("viewBackgroundColor"))
 			.scrollContentBackground(.hidden)
 			.toolbar {
