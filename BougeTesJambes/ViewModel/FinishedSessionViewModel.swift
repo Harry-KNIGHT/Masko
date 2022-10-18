@@ -9,10 +9,11 @@ import Foundation
 
 class FinishedSessionViewModel: ObservableObject {
 	@Published public var fishishedSessions: [SessionModel] = []
+	
+	
+	func addFinishedSession(sportType: Sport, timeObjectif: Int, ditanceObjectifInKm: Int, averageSpeedObjectif: Int, sessionTime: Int, sessionDistanceInKm: Double, sessionAverageSpeed: Double, distanceSpeedChart: [DistanceSpeedChart]) {
 
-	func addFinishedSession(sportType: Sport, timeObjectif: Int, ditanceObjectifInKm: Int, averageSpeedObjectif: Int, sessionTime: Int, sessionDistanceInKm: Double, sessionAverageSpeed: Double) {
-
-		let finishedSession = SessionModel(sportType: sportType, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTime, sessionDistanceInKm: sessionDistanceInKm, sessionAverageSpeed: sessionAverageSpeed)
+		let finishedSession = SessionModel(sportType: sportType, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTime, sessionDistanceInKm: sessionDistanceInKm, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: distanceSpeedChart)
 
 		self.fishishedSessions.append(finishedSession)
 	}
