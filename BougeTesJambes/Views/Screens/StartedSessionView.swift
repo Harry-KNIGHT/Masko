@@ -119,8 +119,7 @@ struct StartedSessionView: View {
 						Text(session.sportType.sportName)
 
 					}
-					.foregroundColor(.white)
-					.font(.title2.bold())
+					.toolbarTitleStyle()
 				}
 			}
 		}

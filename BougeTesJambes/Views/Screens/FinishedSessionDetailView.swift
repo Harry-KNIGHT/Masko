@@ -86,9 +86,7 @@ struct FinishedSessionDetailView: View {
 					session.sportType.sportIcon
 					Text(session.sportType.sportName)
 				}
-				.foregroundColor(.white)
-				.fontWeight(.semibold)
-				.font(.title2)
+				.toolbarTitleStyle()
 			}
 		}
 	}

@@ -75,9 +75,7 @@ struct StartSessionView: View {
 					}
 					ToolbarItem(placement: .principal) {
 						Text("Nouvelle session")
-							.foregroundColor(.white)
-							.fontWeight(.semibold)
-							.font(.title2)
+							.toolbarTitleStyle()
 					}
 				}
 				.navigationBarTitleDisplayMode(.inline)

@@ -37,9 +37,7 @@ struct FinishedSessionListView: View {
 			.toolbar {
 				ToolbarItem(placement: .principal) {
 					Text("Sessions finies")
-						.foregroundColor(.white)
-						.fontWeight(.semibold)
-						.font(.title2)
+						.toolbarTitleStyle()
 				}
 			}
 			.toolbarBackground(Color("viewBackgroundColor"), for: .navigationBar)
