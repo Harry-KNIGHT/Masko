@@ -30,6 +30,7 @@
 		3CAB873628FF0055009966D5 /* ObjectifPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAB873528FF0055009966D5 /* ObjectifPickerCell.swift */; };
 		3CAB873A28FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAB873928FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift */; };
 		3CAB873C28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAB873B28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift */; };
+		3CAB874028FF3D11009966D5 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAB873F28FF3D11009966D5 /* EmptyView.swift */; };
 		3CDDBFA328FC652B00863BA7 /* ConvertLocationValuesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDDBFA228FC652A00863BA7 /* ConvertLocationValuesViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		3CAB873528FF0055009966D5 /* ObjectifPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectifPickerCell.swift; sourceTree = "<group>"; };
 		3CAB873928FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFinishedSessionSheetButtonCell.swift; sourceTree = "<group>"; };
 		3CAB873B28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarTitleViewModifier.swift; sourceTree = "<group>"; };
+		3CAB873F28FF3D11009966D5 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		3CDDBFA228FC652A00863BA7 /* ConvertLocationValuesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertLocationValuesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,6 +177,7 @@
 			children = (
 				3CAB873528FF0055009966D5 /* ObjectifPickerCell.swift */,
 				3CAB873928FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift */,
+				3CAB873F28FF3D11009966D5 /* EmptyView.swift */,
 				3C6A538528FE8B8B002E6FA0 /* SelectSportButtonsCell.swift */,
 			);
 			path = Cells;
@@ -321,6 +324,7 @@
 				3C9AEA5C28FC1E230080415E /* ConvertTimeViewModel.swift in Sources */,
 				3CAB873628FF0055009966D5 /* ObjectifPickerCell.swift in Sources */,
 				3C5D424728FD7B6000005398 /* CoreMotionViewModel.swift in Sources */,
+				3CAB874028FF3D11009966D5 /* EmptyView.swift in Sources */,
 				3C9AEA5828FC09730080415E /* FinishedSessionListView.swift in Sources */,
 				3CAB873C28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift in Sources */,
 				3C9AEA5528FC063A0080415E /* FinishedSessionViewModel.swift in Sources */,

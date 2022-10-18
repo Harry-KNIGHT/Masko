@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ShowFinishedSessionSheetButtonCell: View {
 	@Binding var showSheet: Bool
+	@ObservedObject var finishedSessionVM = FinishedSessionViewModel()
     var body: some View {
 		Button(action: {
 			showSheet = true
@@ -19,14 +20,19 @@ struct ShowFinishedSessionSheetButtonCell: View {
 
 		})
 		.sheet(isPresented: $showSheet) {
-			FinishedSessionListView()
+			if finishedSessionVM.fishishedSessions.isEmpty {
+				EmptyView()
+			} else {
+				FinishedSessionListView()
+			}
 		}
-
     }
 }
 
 struct ShowFinishedSessionSheetButtonCell_Previews: PreviewProvider {
     static var previews: some View {
 		ShowFinishedSessionSheetButtonCell(showSheet: .constant(false))
+			.preferredColorScheme(.dark)
+			.previewLayout(.sizeThatFits)
     }
 }
