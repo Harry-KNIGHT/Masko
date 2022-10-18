@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SelectSportButtonsView: View {
+struct SelectSportButtonsCell: View {
 	@Binding var sportChoosen: Sport
     var body: some View {
 		HStack {
@@ -31,9 +31,9 @@ struct SelectSportButtonsView: View {
     }
 }
 
-struct SelectSportButtonsView_Previews: PreviewProvider {
+struct SelectSportButtonsCell_Previews: PreviewProvider {
     static var previews: some View {
-		SelectSportButtonsView(sportChoosen: .constant(.running))
+		SelectSportButtonsCell(sportChoosen: .constant(.running))
 			.previewLayout(.sizeThatFits)
     }
 }

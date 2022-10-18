@@ -33,7 +33,7 @@ struct StartSessionView: View {
 				Color("viewBackgroundColor").ignoresSafeArea()
 				VStack {
 
-					SelectSportButtonsView(sportChoosen: $sportChoosen)
+					SelectSportButtonsCell(sportChoosen: $sportChoosen)
 						.padding()
 					VStack {
 						HStack {
