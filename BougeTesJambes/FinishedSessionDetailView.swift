@@ -58,7 +58,7 @@ struct FinishedSessionInformation: View {
 	var objectif: String
 	var body: some View {
 		VStack(alignment: .leading, spacing: 10) {
-			Text("Temps")
+			Text(objectifType)
 				.font(.title2)
 			Text("\(sessionInfo) / \(objectif)")
 
