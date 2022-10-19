@@ -47,12 +47,12 @@
 /* Begin PBXFileReference section */
 		3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionViewModel.swift; sourceTree = "<group>"; };
 		3C6A538528FE8B8B002E6FA0 /* SelectSportButtonsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSportButtonsCell.swift; sourceTree = "<group>"; };
-		3C9AEA2228FBF6350080415E /* BougeTesJambes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BougeTesJambes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C9AEA2228FBF6350080415E /* Masko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Masko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BougeTesJambesApp.swift; sourceTree = "<group>"; };
 		3C9AEA2728FBF6350080415E /* StartSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSessionView.swift; sourceTree = "<group>"; };
 		3C9AEA2928FBF6360080415E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C9AEA2C28FBF6360080415E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		3C9AEA3228FBF6360080415E /* BougeTesJambesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BougeTesJambesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C9AEA3228FBF6360080415E /* MaskoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaskoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C9AEA3628FBF6360080415E /* BougeTesJambesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BougeTesJambesTests.swift; sourceTree = "<group>"; };
 		3C9AEA4F28FBF6B90080415E /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
 		3C9AEA5228FBFD0B0080415E /* StartedSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartedSessionView.swift; sourceTree = "<group>"; };
@@ -104,8 +104,8 @@
 		3C9AEA2328FBF6350080415E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3C9AEA2228FBF6350080415E /* BougeTesJambes.app */,
-				3C9AEA3228FBF6360080415E /* BougeTesJambesTests.xctest */,
+				3C9AEA2228FBF6350080415E /* Masko.app */,
+				3C9AEA3228FBF6360080415E /* MaskoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -216,9 +216,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3C9AEA2128FBF6350080415E /* BougeTesJambes */ = {
+		3C9AEA2128FBF6350080415E /* Masko */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3C9AEA4628FBF6360080415E /* Build configuration list for PBXNativeTarget "BougeTesJambes" */;
+			buildConfigurationList = 3C9AEA4628FBF6360080415E /* Build configuration list for PBXNativeTarget "Masko" */;
 			buildPhases = (
 				3C9AEA1E28FBF6350080415E /* Sources */,
 				3C9AEA1F28FBF6350080415E /* Frameworks */,
@@ -228,14 +228,14 @@
 			);
 			dependencies = (
 			);
-			name = BougeTesJambes;
+			name = Masko;
 			productName = BougeTesJambes;
-			productReference = 3C9AEA2228FBF6350080415E /* BougeTesJambes.app */;
+			productReference = 3C9AEA2228FBF6350080415E /* Masko.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3C9AEA3128FBF6360080415E /* BougeTesJambesTests */ = {
+		3C9AEA3128FBF6360080415E /* MaskoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3C9AEA4928FBF6360080415E /* Build configuration list for PBXNativeTarget "BougeTesJambesTests" */;
+			buildConfigurationList = 3C9AEA4928FBF6360080415E /* Build configuration list for PBXNativeTarget "MaskoTests" */;
 			buildPhases = (
 				3C9AEA2E28FBF6360080415E /* Sources */,
 				3C9AEA2F28FBF6360080415E /* Frameworks */,
@@ -246,9 +246,9 @@
 			dependencies = (
 				3C9AEA3428FBF6360080415E /* PBXTargetDependency */,
 			);
-			name = BougeTesJambesTests;
+			name = MaskoTests;
 			productName = BougeTesJambesTests;
-			productReference = 3C9AEA3228FBF6360080415E /* BougeTesJambesTests.xctest */;
+			productReference = 3C9AEA3228FBF6360080415E /* MaskoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -270,7 +270,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3C9AEA1D28FBF6350080415E /* Build configuration list for PBXProject "BougeTesJambes" */;
+			buildConfigurationList = 3C9AEA1D28FBF6350080415E /* Build configuration list for PBXProject "Masko" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -283,8 +283,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3C9AEA2128FBF6350080415E /* BougeTesJambes */,
-				3C9AEA3128FBF6360080415E /* BougeTesJambesTests */,
+				3C9AEA2128FBF6350080415E /* Masko */,
+				3C9AEA3128FBF6360080415E /* MaskoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -351,7 +351,7 @@
 /* Begin PBXTargetDependency section */
 		3C9AEA3428FBF6360080415E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3C9AEA2128FBF6350080415E /* BougeTesJambes */;
+			target = 3C9AEA2128FBF6350080415E /* Masko */;
 			targetProxy = 3C9AEA3328FBF6360080415E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -477,7 +477,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"BougeTesJambes/Preview Content\"";
 				DEVELOPMENT_TEAM = 99M75C322U;
 				ENABLE_PREVIEWS = YES;
@@ -494,10 +494,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.8;
+				MARKETING_VERSION = 0.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.elliot.knight.BougeTesJambes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -512,7 +512,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"BougeTesJambes/Preview Content\"";
 				DEVELOPMENT_TEAM = 99M75C322U;
 				ENABLE_PREVIEWS = YES;
@@ -529,10 +529,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.8;
+				MARKETING_VERSION = 0.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.elliot.knight.BougeTesJambes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -554,10 +554,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.elliot.knight.BougeTesJambesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BougeTesJambes.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BougeTesJambes";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Masko.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Masko";
 			};
 			name = Debug;
 		};
@@ -574,17 +577,20 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.elliot.knight.BougeTesJambesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BougeTesJambes.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BougeTesJambes";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Masko.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Masko";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3C9AEA1D28FBF6350080415E /* Build configuration list for PBXProject "BougeTesJambes" */ = {
+		3C9AEA1D28FBF6350080415E /* Build configuration list for PBXProject "Masko" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3C9AEA4428FBF6360080415E /* Debug */,
@@ -593,7 +599,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3C9AEA4628FBF6360080415E /* Build configuration list for PBXNativeTarget "BougeTesJambes" */ = {
+		3C9AEA4628FBF6360080415E /* Build configuration list for PBXNativeTarget "Masko" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3C9AEA4728FBF6360080415E /* Debug */,
@@ -602,7 +608,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3C9AEA4928FBF6360080415E /* Build configuration list for PBXNativeTarget "BougeTesJambesTests" */ = {
+		3C9AEA4928FBF6360080415E /* Build configuration list for PBXNativeTarget "MaskoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3C9AEA4A28FBF6360080415E /* Debug */,
