@@ -26,7 +26,7 @@ struct StartSessionView: View {
 
 
 	@StateObject var coreMotionManager = CoreMotionViewModel()
-	@ObservedObject var finishedSessionVM = FinishedSessionViewModel()
+	@EnvironmentObject var finishedSessionVM: FinishedSessionViewModel
 
 	var body: some View {
 		NavigationStack(path: $path) {
@@ -74,7 +74,9 @@ struct StartSessionView: View {
 				}
 				.toolbar {
 					ToolbarItem(placement: .navigationBarTrailing) {
-						ShowFinishedSessionSheetButtonCell(showSheet: $showSheet)
+						if !finishedSessionVM.fishishedSessions.isEmpty {
+							ShowFinishedSessionSheetButtonCell(showSheet: $showSheet)
+						}
 					}
 					ToolbarItem(placement: .principal) {
 						Text("Nouvelle session")
