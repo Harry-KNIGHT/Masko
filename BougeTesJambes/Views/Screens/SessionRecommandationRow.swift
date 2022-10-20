@@ -33,7 +33,7 @@ struct SessionRecommandationRow: View {
 							.fontWeight(.semibold)
 							.foregroundColor(.white)
 							.padding(8)
-							.background(.blue)
+							.background(Color("actionInteractionColor"))
 							.cornerRadius(10)
 					}
 				}
