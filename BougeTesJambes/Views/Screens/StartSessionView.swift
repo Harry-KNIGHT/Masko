@@ -55,6 +55,7 @@ struct StartSessionView: View {
 					NavigationLink(value: SessionModel(
 						image: sportChoosen,
 						sportType: sportChoosen,
+						difficulty: nil,
 						timeObjectif: timeObjectif,
 						ditanceObjectifInKm: ditanceObjectifInKm,
 						averageSpeedObjectif: averageSpeedObjectif,
@@ -79,7 +80,7 @@ struct StartSessionView: View {
 				.padding(.top, 30)
 				.foregroundColor(.white)
 				.navigationDestination(for: SessionModel.self) { session in
-					StartedSessionView(session: SessionModel(image: sportChoosen, sportType: sportChoosen, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: nil), path: $path)
+					StartedSessionView(session: SessionModel(image: sportChoosen, sportType: sportChoosen, difficulty: nil, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: nil), path: $path)
 				}
 				.toolbar {
 					ToolbarItem(placement: .navigationBarTrailing) {

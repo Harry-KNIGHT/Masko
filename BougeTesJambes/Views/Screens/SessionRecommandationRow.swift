@@ -52,5 +52,7 @@ struct SessionRecommandationRow: View {
 struct SessionRecommandationRow_Previews: PreviewProvider {
 	static var previews: some View {
 		SessionRecommandationRow(session: .sample)
+			.previewLayout(.sizeThatFits)
+			.preferredColorScheme(.dark)
 	}
 }

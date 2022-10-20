@@ -12,6 +12,7 @@ struct SessionModel: Identifiable, Hashable {
 	var id = UUID()
 	let image: Sport?
 	let sportType: Sport
+	let difficulty: Difficulty?
 	let timeObjectif: Int
 	let ditanceObjectifInKm: Int
 	let averageSpeedObjectif: Int
@@ -27,6 +28,7 @@ struct DistanceSpeedChart: Identifiable, Hashable {
 	let averageSpeed: Double
 	let sessionDistance: Double
 }
+
 enum Sport: String, CaseIterable {
 	case walking, running
 
@@ -57,6 +59,20 @@ enum Sport: String, CaseIterable {
 		}
 	}
 }
+enum Difficulty: String, CaseIterable {
+	case beginner, skilled, veteran
+
+	public var difficultyName: String {
+		switch self {
+		case .beginner:
+			return "Débutant"
+		case .skilled:
+			return "Expérimenté"
+		case .veteran:
+			return "Professionel"
+		}
+	}
+}
 
 var distanceSpeedArraySample = [
 		DistanceSpeedChart(averageSpeed: 3, sessionDistance: 2),
@@ -70,6 +86,7 @@ extension SessionModel {
 	static let sample = SessionModel(
 		image: .running,
 		sportType: .running,
+		difficulty: .beginner,
 		timeObjectif: 120,
 		ditanceObjectifInKm: 7,
 		averageSpeedObjectif: 6,

@@ -77,6 +77,7 @@ struct StartedSessionView: View {
 						self.finishedSesionVM.fishishedSessions.append(SessionModel(
 							image: session.sportType,
 							sportType: session.sportType,
+							difficulty: nil,
 							timeObjectif: session.timeObjectif,
 							ditanceObjectifInKm: session.ditanceObjectifInKm,
 							averageSpeedObjectif: session.averageSpeedObjectif,
