@@ -28,14 +28,14 @@ struct SessionRecommandationRow: View {
 					Text("\(session.ditanceObjectifInKm.description) km")
 						.font(.title3)
 						.fontWeight(.medium)
-
-					Text("Débutant")
-						.fontWeight(.semibold)
-						.foregroundColor(.white)
-						.padding(8)
-						.background(.blue)
-						.cornerRadius(10)
-
+					if let difficulty = session.difficulty?.difficultyName {
+						Text(difficulty)
+							.fontWeight(.semibold)
+							.foregroundColor(.white)
+							.padding(8)
+							.background(.blue)
+							.cornerRadius(10)
+					}
 				}
 			}
 			Spacer()

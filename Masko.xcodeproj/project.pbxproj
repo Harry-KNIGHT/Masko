@@ -12,6 +12,7 @@
 		3C748E0A2901CC9C004781E5 /* TrainingsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E092901CC9C004781E5 /* TrainingsListView.swift */; };
 		3C748E0C2901CDD1004781E5 /* SessionRessources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E0B2901CDD1004781E5 /* SessionRessources.swift */; };
 		3C748E0F2901D627004781E5 /* SessionRecommandationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E0E2901D627004781E5 /* SessionRecommandationRow.swift */; };
+		3C748E112901DDE5004781E5 /* Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E102901DDE5004781E5 /* Samples.swift */; };
 		3C9AEA2628FBF6350080415E /* BougeTesJambesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */; };
 		3C9AEA2828FBF6350080415E /* StartSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA2728FBF6350080415E /* StartSessionView.swift */; };
 		3C9AEA2A28FBF6360080415E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C9AEA2928FBF6360080415E /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		3C748E092901CC9C004781E5 /* TrainingsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsListView.swift; sourceTree = "<group>"; };
 		3C748E0B2901CDD1004781E5 /* SessionRessources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRessources.swift; sourceTree = "<group>"; };
 		3C748E0E2901D627004781E5 /* SessionRecommandationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRecommandationRow.swift; sourceTree = "<group>"; };
+		3C748E102901DDE5004781E5 /* Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Samples.swift; sourceTree = "<group>"; };
 		3C9AEA2228FBF6350080415E /* Masko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Masko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BougeTesJambesApp.swift; sourceTree = "<group>"; };
 		3C9AEA2728FBF6350080415E /* StartSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSessionView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		3C748E0D2901CE30004781E5 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				3C748E102901DDE5004781E5 /* Samples.swift */,
 				3C748E0B2901CDD1004781E5 /* SessionRessources.swift */,
 			);
 			path = Ressources;
@@ -342,6 +345,7 @@
 				3C9AEA5C28FC1E230080415E /* ConvertTimeViewModel.swift in Sources */,
 				3CAB873628FF0055009966D5 /* ObjectifPickerCell.swift in Sources */,
 				3C5D424728FD7B6000005398 /* CoreMotionViewModel.swift in Sources */,
+				3C748E112901DDE5004781E5 /* Samples.swift in Sources */,
 				3CAB874028FF3D11009966D5 /* EmptyView.swift in Sources */,
 				3C9AEA5828FC09730080415E /* FinishedSessionListView.swift in Sources */,
 				3CAB873C28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift in Sources */,

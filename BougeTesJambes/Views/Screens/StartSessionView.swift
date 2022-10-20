@@ -62,7 +62,7 @@ struct StartSessionView: View {
 						sessionTime: sessionTimer,
 						sessionDistanceInKm: Double(sessionDistanceInKm),
 						sessionAverageSpeed: sessionAverageSpeed,
-						distanceSpeedChart: nil)) {
+						distanceSpeedChart: nil, date: nil)) {
 						ZStack {
 							Circle()
 								.fill(Color("actionInteractionColor").gradient)
@@ -80,7 +80,7 @@ struct StartSessionView: View {
 				.padding(.top, 30)
 				.foregroundColor(.white)
 				.navigationDestination(for: SessionModel.self) { session in
-					StartedSessionView(session: SessionModel(image: sportChoosen, sportType: sportChoosen, difficulty: nil, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: nil), path: $path)
+					StartedSessionView(session: SessionModel(image: sportChoosen, sportType: sportChoosen, difficulty: nil, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: nil, date: nil), path: $path)
 				}
 				.toolbar {
 					ToolbarItem(placement: .navigationBarTrailing) {

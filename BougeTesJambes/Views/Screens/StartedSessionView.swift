@@ -84,7 +84,7 @@ struct StartedSessionView: View {
 							sessionTime: sessionTimer,
 							sessionDistanceInKm: sessionDistanceInKm,
 							sessionAverageSpeed: sessionAverageSpeed,
-							distanceSpeedChart: distanceSpeedChartValues))
+							distanceSpeedChart: distanceSpeedChartValues, date: nil))
 					}
 
 					Button("Non", role: .cancel) {
