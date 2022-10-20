@@ -74,7 +74,16 @@ struct StartedSessionView: View {
 					Button("Oui", role: .destructive) {
 						path.removeLast()
 
-						self.finishedSesionVM.fishishedSessions.append(SessionModel(sportType: session.sportType, timeObjectif: session.timeObjectif, ditanceObjectifInKm: session.ditanceObjectifInKm, averageSpeedObjectif: session.averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: sessionDistanceInKm, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: distanceSpeedChartValues))
+						self.finishedSesionVM.fishishedSessions.append(SessionModel(
+							image: session.sportType,
+							sportType: session.sportType,
+							timeObjectif: session.timeObjectif,
+							ditanceObjectifInKm: session.ditanceObjectifInKm,
+							averageSpeedObjectif: session.averageSpeedObjectif,
+							sessionTime: sessionTimer,
+							sessionDistanceInKm: sessionDistanceInKm,
+							sessionAverageSpeed: sessionAverageSpeed,
+							distanceSpeedChart: distanceSpeedChartValues))
 					}
 
 					Button("Non", role: .cancel) {

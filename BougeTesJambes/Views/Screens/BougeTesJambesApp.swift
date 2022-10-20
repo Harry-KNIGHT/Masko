@@ -15,7 +15,7 @@ struct BougeTesJambesApp: App {
 	@StateObject public var convertLocationValuesViewModel = ConvertLocationValuesViewModel()
     var body: some Scene {
         WindowGroup {
-			StartSessionView()
+			TrainingsListView()
 				.environmentObject(finishedSessionVM)
 				.environmentObject(convertTimeVM)
 				.environmentObject(playSongVM)

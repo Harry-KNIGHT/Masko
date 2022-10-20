@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3C5D424728FD7B6000005398 /* CoreMotionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */; };
 		3C6A538628FE8B8B002E6FA0 /* SelectSportButtonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A538528FE8B8B002E6FA0 /* SelectSportButtonsCell.swift */; };
+		3C748E0A2901CC9C004781E5 /* TrainingsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E092901CC9C004781E5 /* TrainingsListView.swift */; };
+		3C748E0C2901CDD1004781E5 /* SessionRessources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E0B2901CDD1004781E5 /* SessionRessources.swift */; };
+		3C748E0F2901D627004781E5 /* SessionRecommandationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E0E2901D627004781E5 /* SessionRecommandationRow.swift */; };
 		3C9AEA2628FBF6350080415E /* BougeTesJambesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */; };
 		3C9AEA2828FBF6350080415E /* StartSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA2728FBF6350080415E /* StartSessionView.swift */; };
 		3C9AEA2A28FBF6360080415E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C9AEA2928FBF6360080415E /* Assets.xcassets */; };
@@ -47,6 +50,9 @@
 /* Begin PBXFileReference section */
 		3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionViewModel.swift; sourceTree = "<group>"; };
 		3C6A538528FE8B8B002E6FA0 /* SelectSportButtonsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSportButtonsCell.swift; sourceTree = "<group>"; };
+		3C748E092901CC9C004781E5 /* TrainingsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsListView.swift; sourceTree = "<group>"; };
+		3C748E0B2901CDD1004781E5 /* SessionRessources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRessources.swift; sourceTree = "<group>"; };
+		3C748E0E2901D627004781E5 /* SessionRecommandationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRecommandationRow.swift; sourceTree = "<group>"; };
 		3C9AEA2228FBF6350080415E /* Masko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Masko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BougeTesJambesApp.swift; sourceTree = "<group>"; };
 		3C9AEA2728FBF6350080415E /* StartSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSessionView.swift; sourceTree = "<group>"; };
@@ -92,6 +98,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C748E0D2901CE30004781E5 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				3C748E0B2901CDD1004781E5 /* SessionRessources.swift */,
+			);
+			path = Ressources;
+			sourceTree = "<group>";
+		};
 		3C9AEA1928FBF6350080415E = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +130,7 @@
 				3CAB873E28FF0D97009966D5 /* Views */,
 				3C9AEA5628FC063E0080415E /* ViewModel */,
 				3C9AEA5128FBF8910080415E /* Model */,
+				3C748E0D2901CE30004781E5 /* Ressources */,
 				3C9AEA6328FC25310080415E /* Songs */,
 				3C9AEA2928FBF6360080415E /* Assets.xcassets */,
 				3C9AEA2B28FBF6360080415E /* Preview Content */,
@@ -187,6 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */,
+				3C748E092901CC9C004781E5 /* TrainingsListView.swift */,
+				3C748E0E2901D627004781E5 /* SessionRecommandationRow.swift */,
 				3C9AEA2728FBF6350080415E /* StartSessionView.swift */,
 				3C9AEA5228FBFD0B0080415E /* StartedSessionView.swift */,
 				3C9AEA5728FC09730080415E /* FinishedSessionListView.swift */,
@@ -319,6 +336,7 @@
 			files = (
 				3C6A538628FE8B8B002E6FA0 /* SelectSportButtonsCell.swift in Sources */,
 				3C9AEA2828FBF6350080415E /* StartSessionView.swift in Sources */,
+				3C748E0C2901CDD1004781E5 /* SessionRessources.swift in Sources */,
 				3C9AEA6228FC24DA0080415E /* PlaySongViewModel.swift in Sources */,
 				3C9AEA7228FC2FE90080415E /* LocationManager.swift in Sources */,
 				3C9AEA5C28FC1E230080415E /* ConvertTimeViewModel.swift in Sources */,
@@ -330,7 +348,9 @@
 				3C9AEA5528FC063A0080415E /* FinishedSessionViewModel.swift in Sources */,
 				3C9AEA5A28FC1B970080415E /* FinishedSessionDetailView.swift in Sources */,
 				3C9AEA5328FBFD0B0080415E /* StartedSessionView.swift in Sources */,
+				3C748E0F2901D627004781E5 /* SessionRecommandationRow.swift in Sources */,
 				3C9AEA2628FBF6350080415E /* BougeTesJambesApp.swift in Sources */,
+				3C748E0A2901CC9C004781E5 /* TrainingsListView.swift in Sources */,
 				3C9AEA5028FBF6B90080415E /* SessionModel.swift in Sources */,
 				3CAB873A28FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift in Sources */,
 				3CDDBFA328FC652B00863BA7 /* ConvertLocationValuesViewModel.swift in Sources */,

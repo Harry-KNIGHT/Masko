@@ -10,6 +10,7 @@ import SwiftUI
 
 struct SessionModel: Identifiable, Hashable {
 	var id = UUID()
+	let image: Sport?
 	let sportType: Sport
 	let timeObjectif: Int
 	let ditanceObjectifInKm: Int
@@ -46,6 +47,15 @@ enum Sport: String, CaseIterable {
 			return Image(systemName: "figure.run")
 		}
 	}
+
+	public var sportImage: String {
+		switch self {
+		case .walking:
+			return "walkingImage"
+		case .running:
+			return "runningImage"
+		}
+	}
 }
 
 var distanceSpeedArraySample = [
@@ -58,6 +68,7 @@ var distanceSpeedArraySample = [
 
 extension SessionModel {
 	static let sample = SessionModel(
+		image: .running,
 		sportType: .running,
 		timeObjectif: 120,
 		ditanceObjectifInKm: 7,
