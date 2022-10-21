@@ -99,7 +99,7 @@ struct TrainingsListView: View {
 			}
 			.toolbarColorScheme((colorScheme == .dark ? .dark : .light), for: .navigationBar)
 
-			.toolbarBackground(Color("topBackgroundColor"), for: .navigationBar)
+			.toolbarBackground(Color("toolbarColor"), for: .navigationBar)
 			.toolbarBackground(.visible, for: .navigationBar)
 		}
 
@@ -116,6 +116,6 @@ struct TrainingsListView_Previews: PreviewProvider {
         TrainingsListView()
 			.environmentObject(WeatherViewModel())
 			.environmentObject(FinishedSessionViewModel())
-			.preferredColorScheme(.dark)
+
     }
 }

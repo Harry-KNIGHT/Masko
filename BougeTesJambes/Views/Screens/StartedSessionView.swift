@@ -23,6 +23,8 @@ struct StartedSessionView: View {
 
 	@State private var isSessionPaused: Bool = false
 	@State private var distanceSpeedChartValues: [DistanceSpeedChart] = []
+
+	@Environment(\.colorScheme) var colorScheme
 	var body: some View {
 		ZStack {
 			BackgroundLinearColor()
@@ -115,6 +117,10 @@ struct StartedSessionView: View {
 					.toolbarTitleStyle()
 				}
 			}
+			.toolbarColorScheme((colorScheme == .dark ? .dark : .light), for: .navigationBar)
+
+			.toolbarBackground(Color("toolbarColor"), for: .navigationBar)
+			.toolbarBackground(.visible, for: .navigationBar)
 		}
 	}
 }

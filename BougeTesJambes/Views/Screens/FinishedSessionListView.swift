@@ -40,7 +40,7 @@ struct FinishedSessionListView: View {
 						.toolbarTitleStyle()
 				}
 			}
-			.toolbarBackground(Color("viewBackgroundColor"), for: .navigationBar)
+			.toolbarBackground(Color("toolbarColor"), for: .navigationBar)
 		}
 	}
 }

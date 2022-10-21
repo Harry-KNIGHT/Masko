@@ -10,7 +10,7 @@ import SwiftUI
 struct ToolbarTitleStyle: ViewModifier {
 	func body(content: Content) -> some View {
 		content
-			.foregroundColor(.white)
+			.foregroundColor(.primary)
 			.fontWeight(.semibold)
 			.font(.title2)
 	}
