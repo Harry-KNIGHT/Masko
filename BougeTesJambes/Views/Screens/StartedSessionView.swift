@@ -25,7 +25,7 @@ struct StartedSessionView: View {
 	@State private var distanceSpeedChartValues: [DistanceSpeedChart] = []
 	var body: some View {
 		ZStack {
-			Color("viewBackgroundColor").ignoresSafeArea()
+			BackgroundLinearColor()
 			VStack {
 				Spacer()
 
@@ -135,7 +135,7 @@ struct SessionInformation: View {
 	var sfSymbol: String
 	var objectif: String?
 	var sessionValue: String
-	var color: Color = .white
+	var color: Color = .primary
 
 	var body: some View {
 		VStack(alignment: .center, spacing: 10) {

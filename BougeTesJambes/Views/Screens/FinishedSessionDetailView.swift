@@ -12,10 +12,9 @@ struct FinishedSessionDetailView: View {
 	let session: SessionModel
 	@ObservedObject public var convertLocValueVM = ConvertLocationValuesViewModel()
 	@ObservedObject public var convertTimeVM = ConvertTimeViewModel()
+	@Environment(\.colorScheme) var colorScheme
 	var body: some View {
-		ZStack {
-			Color("viewBackgroundColor").ignoresSafeArea()
-			ScrollView(.vertical, showsIndicators: false) {
+			List {
 				FinishedSessionInformation(
 					objectifType: "Temps",
 					sessionInfo: "\(convertTimeVM.convertSecInTime(timeInSeconds: session.sessionTime))",
@@ -23,25 +22,27 @@ struct FinishedSessionDetailView: View {
 				)
 
 
+
 				FinishedSessionInformation(
 					objectifType: "Distance",
-					sessionInfo: "\(String(format: "%.2tf", session.sessionDistanceInKm))",
+					sessionInfo: "\(String(format: "%.2tf \(session.ditanceObjectifInKm > 1_000 ? "km" : "mètres")", session.sessionDistanceInKm))",
 					objectif: nil
 				)
+
 
 				FinishedSessionInformation(
 					objectifType: "Vitesse",
 					sessionInfo: "\(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: session.sessionAverageSpeed))",
 					objectif: nil
 				)
-				
-					if let distanceSpeedChart = session.distanceSpeedChart {
+				Section("Distance / Vitesse") {
+				if let distanceSpeedChart = session.distanceSpeedChart {
 						Chart(distanceSpeedChart) { value in
 							LineMark(
 								x: .value("distance", value.sessionDistance),
 								y: .value("vitesse", value.averageSpeed)
 							)
-							.foregroundStyle(Color("textActionColor"))
+							.foregroundStyle(.primary)
 
 						}
 						.chartYScale(domain: .automatic(includesZero: false))
@@ -55,7 +56,7 @@ struct FinishedSessionDetailView: View {
 									if let intValue = value.as(Int.self) {
 										Text("\(intValue) \(intValue > 1_000 ? "km" : "m")")
 											.font(.system(size: 10)) // style it
-											.foregroundColor(.white)
+											.foregroundColor(.primary)
 									}
 								}
 							}
@@ -63,25 +64,25 @@ struct FinishedSessionDetailView: View {
 						.chartYAxis {
 							AxisMarks(values: .automatic) { value in
 								AxisGridLine(centered: true, stroke: StrokeStyle(dash: [1, 2]))
-									.foregroundStyle(Color.cyan)
+									.foregroundStyle(Color.primary)
 								AxisTick(centered: true, stroke: StrokeStyle(lineWidth: 2))
 									.foregroundStyle(Color.red)
 								AxisValueLabel() { // construct Text here
 									if let intValue = value.as(Int.self) {
 										Text("\(intValue)km/h")
 											.font(.system(size: 10)) // style it
-											.foregroundColor(.white)
+											.foregroundColor(.primary)
 									}
 								}
 							}
 						}
-						.frame(height: 250)
+					.frame(height: 250)
 					}
+				}
 				Spacer()
-
 			}
-			.padding(.top)
-		}
+			
+
 		.navigationBarTitleDisplayMode(.inline)
 		.toolbar {
 			ToolbarItem(placement: .principal) {
@@ -89,9 +90,16 @@ struct FinishedSessionDetailView: View {
 					session.sportType.sportIcon
 					Text(session.sportType.sportName)
 				}
+				.foregroundColor(.primary)
 				.toolbarTitleStyle()
 			}
 		}
+		.toolbarColorScheme((colorScheme == .dark ? .dark : .light), for: .navigationBar)
+
+		.toolbarBackground(Color("topBackgroundColor"), for: .navigationBar)
+		.toolbarBackground(.visible, for: .navigationBar)
+
+		
 	}
 }
 
@@ -110,22 +118,17 @@ struct FinishedSessionInformation: View {
 	var sessionInfo: String
 	var objectif: String?
 	var body: some View {
-		HStack {
-			VStack(alignment: .leading, spacing: 10) {
-				Text(objectifType)
-					.font(.title2)
-				if let objectif {
-					Text("\(sessionInfo) / \(objectif)")
-				} else {
-					Text(sessionInfo)
+		Section(objectifType) {
+				VStack(alignment: .leading, spacing: 10) {
+					if let objectif {
+						Text("\(sessionInfo) / \(objectif)")
+					} else {
+						Text(sessionInfo)
+					}
 				}
-			}
-			.foregroundColor(.white)
-			.padding(.vertical, 10)
-			Spacer()
+				.foregroundColor(.primary)
+				.padding(.vertical, 10)
 		}
-		.padding(.horizontal)
-
 	}
 }
 

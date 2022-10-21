@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C23DEE92902E0E600767947 /* SessionRunningButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23DEE82902E0E600767947 /* SessionRunningButton.swift */; };
+		3C23DEEC2902E78000767947 /* BackgroundLinearColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23DEEB2902E78000767947 /* BackgroundLinearColor.swift */; };
 		3C5D424728FD7B6000005398 /* CoreMotionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */; };
 		3C6A538628FE8B8B002E6FA0 /* SelectSportButtonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A538528FE8B8B002E6FA0 /* SelectSportButtonsCell.swift */; };
 		3C748E0A2901CC9C004781E5 /* TrainingsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E092901CC9C004781E5 /* TrainingsListView.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		3C23DEE82902E0E600767947 /* SessionRunningButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRunningButton.swift; sourceTree = "<group>"; };
+		3C23DEEB2902E78000767947 /* BackgroundLinearColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundLinearColor.swift; sourceTree = "<group>"; };
 		3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionViewModel.swift; sourceTree = "<group>"; };
 		3C6A538528FE8B8B002E6FA0 /* SelectSportButtonsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSportButtonsCell.swift; sourceTree = "<group>"; };
 		3C748E092901CC9C004781E5 /* TrainingsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsListView.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				3CAB873928FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift */,
 				3CAB873F28FF3D11009966D5 /* EmptyView.swift */,
 				3C6A538528FE8B8B002E6FA0 /* SelectSportButtonsCell.swift */,
+				3C23DEEB2902E78000767947 /* BackgroundLinearColor.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				3C9AEA5C28FC1E230080415E /* ConvertTimeViewModel.swift in Sources */,
 				3C23DEE92902E0E600767947 /* SessionRunningButton.swift in Sources */,
 				3CAB873628FF0055009966D5 /* ObjectifPickerCell.swift in Sources */,
+				3C23DEEC2902E78000767947 /* BackgroundLinearColor.swift in Sources */,
 				3C5D424728FD7B6000005398 /* CoreMotionViewModel.swift in Sources */,
 				3C748E112901DDE5004781E5 /* Samples.swift in Sources */,
 				3CAB874028FF3D11009966D5 /* EmptyView.swift in Sources */,
