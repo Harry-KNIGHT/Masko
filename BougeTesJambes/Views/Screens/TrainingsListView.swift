@@ -11,6 +11,7 @@ import WeatherKit
 struct TrainingsListView: View {
 	@StateObject var locationManager = LocationManager()
 	@EnvironmentObject var weatherVM: WeatherViewModel
+	@Environment(\.colorScheme) var colorScheme
     var body: some View {
 		NavigationStack {
 			ZStack {
@@ -38,7 +39,7 @@ struct TrainingsListView: View {
 					.font(.headline)
 				}
 			}
-			.toolbarColorScheme(.dark, for: .navigationBar)
+			.toolbarColorScheme((colorScheme == .dark ? .dark : .light), for: .navigationBar)
 
 			.toolbarBackground(Color("actionInteractionColor"), for: .navigationBar)
 			.toolbarBackground(.visible, for: .navigationBar)
