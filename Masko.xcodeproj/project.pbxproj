@@ -35,6 +35,7 @@
 		3CAB873A28FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAB873928FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift */; };
 		3CAB873C28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAB873B28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift */; };
 		3CAB874028FF3D11009966D5 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAB873F28FF3D11009966D5 /* EmptyView.swift */; };
+		3CC3D5B129029C9F006DC14A /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC3D5B029029C9F006DC14A /* WeatherViewModel.swift */; };
 		3CDDBFA328FC652B00863BA7 /* ConvertLocationValuesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDDBFA228FC652A00863BA7 /* ConvertLocationValuesViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,8 @@
 		3CAB873928FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFinishedSessionSheetButtonCell.swift; sourceTree = "<group>"; };
 		3CAB873B28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarTitleViewModifier.swift; sourceTree = "<group>"; };
 		3CAB873F28FF3D11009966D5 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		3CC3D5AF29029BF8006DC14A /* Masko.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Masko.entitlements; sourceTree = "<group>"; };
+		3CC3D5B029029C9F006DC14A /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		3CDDBFA228FC652A00863BA7 /* ConvertLocationValuesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertLocationValuesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +115,7 @@
 		3C9AEA1928FBF6350080415E = {
 			isa = PBXGroup;
 			children = (
+				3CC3D5AF29029BF8006DC14A /* Masko.entitlements */,
 				3C9AEA2428FBF6350080415E /* BougeTesJambes */,
 				3C9AEA3528FBF6360080415E /* BougeTesJambesTests */,
 				3C9AEA2328FBF6350080415E /* Products */,
@@ -175,6 +179,7 @@
 				3C9AEA7128FC2FE90080415E /* LocationManager.swift */,
 				3CDDBFA228FC652A00863BA7 /* ConvertLocationValuesViewModel.swift */,
 				3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */,
+				3CC3D5B029029C9F006DC14A /* WeatherViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 				3C6A538628FE8B8B002E6FA0 /* SelectSportButtonsCell.swift in Sources */,
 				3C9AEA2828FBF6350080415E /* StartSessionView.swift in Sources */,
 				3C748E0C2901CDD1004781E5 /* SessionRessources.swift in Sources */,
+				3CC3D5B129029C9F006DC14A /* WeatherViewModel.swift in Sources */,
 				3C9AEA6228FC24DA0080415E /* PlaySongViewModel.swift in Sources */,
 				3C9AEA7228FC2FE90080415E /* LocationManager.swift in Sources */,
 				3C9AEA5C28FC1E230080415E /* ConvertTimeViewModel.swift in Sources */,
@@ -500,6 +506,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Masko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"BougeTesJambes/Preview Content\"";
@@ -536,6 +543,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Masko.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"BougeTesJambes/Preview Content\"";

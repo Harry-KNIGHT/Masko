@@ -13,6 +13,8 @@ struct BougeTesJambesApp: App {
 	@StateObject public var convertTimeVM = ConvertTimeViewModel()
 	@StateObject public var playSongVM = PlaySongViewModel()
 	@StateObject public var convertLocationValuesViewModel = ConvertLocationValuesViewModel()
+	@StateObject var weatherVM = WeatherViewModel()
+
     var body: some Scene {
         WindowGroup {
 			TrainingsListView()
@@ -20,6 +22,7 @@ struct BougeTesJambesApp: App {
 				.environmentObject(convertTimeVM)
 				.environmentObject(playSongVM)
 				.environmentObject(convertLocationValuesViewModel)
+				.environmentObject(weatherVM)
         }
     }
 }
