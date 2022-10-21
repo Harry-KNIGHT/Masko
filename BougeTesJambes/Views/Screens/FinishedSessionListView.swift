@@ -28,7 +28,7 @@ struct FinishedSessionListView: View {
 
 						}
 					}
-					.listRowBackground(Color("actionInteractionColor"))
+
 				}
 			}
 			.foregroundColor(.white)

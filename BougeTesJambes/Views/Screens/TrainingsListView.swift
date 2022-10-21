@@ -34,7 +34,7 @@ struct TrainingsListView: View {
     var body: some View {
 		NavigationStack(path: $path) {
 			ZStack {
-				LinearGradient(colors: [Color(red: 16/255, green: 54/255, blue: 56/255), Color("viewBackgroundColor")], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
+				BackgroundLinearColor()
 				ScrollView(.vertical, showsIndicators: false) {
 					ForEach(sessionPropositions) { session in
 						NavigationLink(value: SessionModel(
@@ -87,7 +87,7 @@ struct TrainingsListView: View {
 							Text(weather.currentWeather.temperature.description)
 						}
 					}
-					.foregroundColor(.white)
+					.foregroundColor(.primary)
 					.font(.headline)
 				}
 
@@ -99,7 +99,7 @@ struct TrainingsListView: View {
 			}
 			.toolbarColorScheme((colorScheme == .dark ? .dark : .light), for: .navigationBar)
 
-			.toolbarBackground(Color("actionInteractionColor"), for: .navigationBar)
+			.toolbarBackground(Color("topBackgroundColor"), for: .navigationBar)
 			.toolbarBackground(.visible, for: .navigationBar)
 		}
 
