@@ -21,7 +21,7 @@ struct StartedSessionView: View {
 	@State private var sessionDistanceInKm: Double = 0
 	@State private var sessionAverageSpeed: Double = 0
 
-	@State private var pausedSession: Bool = false
+	@State private var isSessionPaused: Bool = false
 	@State private var distanceSpeedChartValues: [DistanceSpeedChart] = []
 	var body: some View {
 		ZStack {
@@ -50,23 +50,11 @@ struct StartedSessionView: View {
 				}
 				.padding(.horizontal)
 				Spacer()
-				Button(action: {
-					pausedSession = true
-				}, label: {
-					ZStack(alignment: .center) {
-						Circle()
-							.fill(Color("actionInteractionColor"))
 
-							.frame(height: 120)
-							.shadow(color: Color("actionInteractionColor"), radius: 10)
-
-						Image(systemName: pausedSession ? "play.fill" : "pause.fill")
-							.font(.custom("",size: 60, relativeTo: .largeTitle))
-							.foregroundColor(.white)
-					}
-				})
+				SessionRunningButton(isSessionPaused: $isSessionPaused)
+				
 				.padding(.bottom, 30)
-				.alert("Arrêter la session ?", isPresented: $pausedSession) {
+				.alert("Arrêter la session ?", isPresented: $isSessionPaused) {
 					Button("Oui", role: .destructive) {
 						path.removeLast()
 
@@ -83,7 +71,7 @@ struct StartedSessionView: View {
 					}
 
 					Button("Non", role: .cancel) {
-						pausedSession = false
+						isSessionPaused = false
 					}
 				}
 			}

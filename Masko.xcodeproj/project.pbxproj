@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C23DEE92902E0E600767947 /* SessionRunningButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23DEE82902E0E600767947 /* SessionRunningButton.swift */; };
 		3C5D424728FD7B6000005398 /* CoreMotionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */; };
 		3C6A538628FE8B8B002E6FA0 /* SelectSportButtonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A538528FE8B8B002E6FA0 /* SelectSportButtonsCell.swift */; };
 		3C748E0A2901CC9C004781E5 /* TrainingsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E092901CC9C004781E5 /* TrainingsListView.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C23DEE82902E0E600767947 /* SessionRunningButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRunningButton.swift; sourceTree = "<group>"; };
 		3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionViewModel.swift; sourceTree = "<group>"; };
 		3C6A538528FE8B8B002E6FA0 /* SelectSportButtonsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSportButtonsCell.swift; sourceTree = "<group>"; };
 		3C748E092901CC9C004781E5 /* TrainingsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsListView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C23DEEA2902E15700767947 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				3C23DEE82902E0E600767947 /* SessionRunningButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		3C748E0D2901CE30004781E5 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +255,7 @@
 		3CC3D5B32902A5BB006DC14A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3C23DEEA2902E15700767947 /* Buttons */,
 				3CAB873728FF0226009966D5 /* Cells */,
 				3CC3D5B22902A5AB006DC14A /* Row */,
 			);
@@ -361,6 +372,7 @@
 				3C9AEA6228FC24DA0080415E /* PlaySongViewModel.swift in Sources */,
 				3C9AEA7228FC2FE90080415E /* LocationManager.swift in Sources */,
 				3C9AEA5C28FC1E230080415E /* ConvertTimeViewModel.swift in Sources */,
+				3C23DEE92902E0E600767947 /* SessionRunningButton.swift in Sources */,
 				3CAB873628FF0055009966D5 /* ObjectifPickerCell.swift in Sources */,
 				3C5D424728FD7B6000005398 /* CoreMotionViewModel.swift in Sources */,
 				3C748E112901DDE5004781E5 /* Samples.swift in Sources */,
