@@ -12,31 +12,76 @@ struct TrainingsListView: View {
 	@StateObject var locationManager = LocationManager()
 	@EnvironmentObject var weatherVM: WeatherViewModel
 	@Environment(\.colorScheme) var colorScheme
+	@ObservedObject var finishedSessionVM = FinishedSessionViewModel()
+	@StateObject var coreMotionManager = CoreMotionViewModel()
+
+	@State private var path = NavigationPath()
+
+	@State private var sportChoosen: Sport = .running
+	@State private var timeObjectif: Int = 1
+	@State private var ditanceObjectifInKm: Int = 5
+	@State private var averageSpeedObjectif: Int = 5
+
+
+	@State private var sessionTimer: Int = 0
+	@State private var sessionDistanceInKm: Int = 0
+	@State private var sessionAverageSpeed: Double = 1
+
+	@State private var showSheet: Bool = false
+
+
+	
     var body: some View {
-		NavigationStack {
+		NavigationStack(path: $path) {
 			ZStack {
 				LinearGradient(colors: [Color(red: 16/255, green: 54/255, blue: 56/255), Color("viewBackgroundColor")], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
 				ScrollView(.vertical, showsIndicators: false) {
 					ForEach(sessionPropositions) { session in
-						SessionRecommandationRow(session: session)
-							.shadow(color: Color("viewBackgroundColor") , radius: 5)
-							.padding(10)
+						NavigationLink(value: SessionModel(
+							image: sportChoosen,
+							sportType: sportChoosen,
+							difficulty: nil,
+							timeObjectif: timeObjectif,
+							ditanceObjectifInKm: ditanceObjectifInKm,
+							averageSpeedObjectif: averageSpeedObjectif,
+							sessionTime: sessionTimer,
+							sessionDistanceInKm: Double(sessionDistanceInKm),
+							sessionAverageSpeed: sessionAverageSpeed,
+							distanceSpeedChart: nil, date: nil)) {
+								SessionRecommandationRow(session: session)
+									.shadow(color: Color("viewBackgroundColor") , radius: 5)
+ 									.padding(10)
+							}
 					}
 				}
 			}
+			.navigationDestination(for: SessionModel.self) { session in
+				StartedSessionView(session: SessionModel(image: sportChoosen, sportType: sportChoosen, difficulty: nil, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: nil, date: nil), path: $path)
+			}
+			.onAppear {
+				if locationManager.userLocation == nil {
+					locationManager.requestLocation()
+				}
+				coreMotionManager.initializePodometer()
+			}
+
 			.navigationTitle("MASKO")
-
-
 			.toolbar {
-				ToolbarItem(placement: .navigationBarTrailing) {
+				ToolbarItem(placement: .navigationBarLeading) {
 					HStack {
 						if let weather = weatherVM.weather {
-							Text(weather.currentWeather.temperature.description)
 							Image(systemName: weather.currentWeather.symbolName)
+							Text(weather.currentWeather.temperature.description)
 						}
 					}
 					.foregroundColor(.white)
 					.font(.headline)
+				}
+
+				ToolbarItem(placement: .navigationBarTrailing) {
+					if !finishedSessionVM.fishishedSessions.isEmpty {
+						ShowFinishedSessionSheetButtonCell(showSheet: $showSheet)
+					}
 				}
 			}
 			.toolbarColorScheme((colorScheme == .dark ? .dark : .light), for: .navigationBar)
@@ -57,6 +102,7 @@ struct TrainingsListView_Previews: PreviewProvider {
     static var previews: some View {
         TrainingsListView()
 			.environmentObject(WeatherViewModel())
+			.environmentObject(FinishedSessionViewModel())
 			.preferredColorScheme(.dark)
     }
 }

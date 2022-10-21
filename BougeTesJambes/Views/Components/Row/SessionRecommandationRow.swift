@@ -42,6 +42,7 @@ struct SessionRecommandationRow: View {
 			session.sportType.sportIcon
 				.font(.title)
 		}
+		.foregroundColor(.primary)
 		.padding(8)
 		.background(.regularMaterial)
 		.cornerRadius(15)

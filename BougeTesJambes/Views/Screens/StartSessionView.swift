@@ -94,12 +94,6 @@ struct StartSessionView: View {
 					}
 				}
 				.navigationBarTitleDisplayMode(.inline)
-				.onAppear {
-					if locationManager.userLocation == nil {
-						locationManager.requestLocation()
-					}
-					coreMotionManager.initializePodometer()
-				}
 			}
 		}
 	}
