@@ -24,15 +24,14 @@ struct FinishedSessionListView: View {
 
 							Text("\(String(format: "%.2f", session.sessionDistanceInKm))km")
 
-					
-
+							Text("\(String(format: "%.2f", session.sessionDistanceInKm))km")
 						}
+						.foregroundColor(.primary)
 					}
-
 				}
 			}
-			.foregroundColor(.white)
-			.background(Color("viewBackgroundColor"))
+			.scrollContentBackground(.hidden)
+			.background(BackgroundLinearColor())
 			.scrollContentBackground(.hidden)
 			.toolbar {
 				ToolbarItem(placement: .principal) {

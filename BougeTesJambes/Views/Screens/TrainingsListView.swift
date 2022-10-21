@@ -12,7 +12,7 @@ struct TrainingsListView: View {
 	@StateObject var locationManager = LocationManager()
 	@EnvironmentObject var weatherVM: WeatherViewModel
 	@Environment(\.colorScheme) var colorScheme
-	@ObservedObject var finishedSessionVM = FinishedSessionViewModel()
+	@EnvironmentObject var finishedSessionVM: FinishedSessionViewModel
 	@StateObject var coreMotionManager = CoreMotionViewModel()
 
 	@State private var path = NavigationPath()

@@ -32,11 +32,12 @@ struct FinishedSessionDetailView: View {
 
 				FinishedSessionInformation(
 					objectifType: "Vitesse",
-					sessionInfo: "\(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: session.sessionAverageSpeed))",
+					sessionInfo: "\(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: session.sessionAverageSpeed))km/h",
 					objectif: nil
 				)
-				Section("Distance / Vitesse") {
+
 				if let distanceSpeedChart = session.distanceSpeedChart {
+					Section("Distance / Vitesse") {
 						Chart(distanceSpeedChart) { value in
 							LineMark(
 								x: .value("distance", value.sessionDistance),
@@ -79,8 +80,10 @@ struct FinishedSessionDetailView: View {
 					.frame(height: 250)
 					}
 				}
-				Spacer()
+
 			}
+			.scrollContentBackground(.hidden)
+			.background(BackgroundLinearColor())
 			
 
 		.navigationBarTitleDisplayMode(.inline)
