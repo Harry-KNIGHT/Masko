@@ -19,18 +19,21 @@ struct FinishedSessionDetailView: View {
 				FinishedSessionInformation(
 					objectifType: "Temps",
 					sessionInfo: "\(convertTimeVM.convertSecInTime(timeInSeconds: session.sessionTime))",
-					objectif: "\(session.timeObjectif / 60)min")
+					objectif: nil
+				)
 
 
 				FinishedSessionInformation(
 					objectifType: "Distance",
 					sessionInfo: "\(String(format: "%.2tf", session.sessionDistanceInKm))",
-					objectif: "\(session.averageSpeedObjectif)km")
+					objectif: nil
+				)
 
 				FinishedSessionInformation(
 					objectifType: "Vitesse",
 					sessionInfo: "\(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: session.sessionAverageSpeed))",
-					objectif: "\(session.averageSpeedObjectif)km/h")
+					objectif: nil
+				)
 				
 					if let distanceSpeedChart = session.distanceSpeedChart {
 						Chart(distanceSpeedChart) { value in
@@ -105,13 +108,17 @@ struct FinishedSessionDetailView_Previews: PreviewProvider {
 struct FinishedSessionInformation: View {
 	var objectifType: String
 	var sessionInfo: String
-	var objectif: String
+	var objectif: String?
 	var body: some View {
 		HStack {
 			VStack(alignment: .leading, spacing: 10) {
 				Text(objectifType)
 					.font(.title2)
-				Text("\(sessionInfo) / \(objectif)")
+				if let objectif {
+					Text("\(sessionInfo) / \(objectif)")
+				} else {
+					Text(sessionInfo)
+				}
 			}
 			.foregroundColor(.white)
 			.padding(.vertical, 10)

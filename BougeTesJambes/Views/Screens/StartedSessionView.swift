@@ -29,25 +29,21 @@ struct StartedSessionView: View {
 			VStack {
 				Spacer()
 
-				SessionInformation(
-					sfSymbol: "stopwatch", objectif: "\(String(session.timeObjectif))min",
-					sessionValue: "\(String(convertTimeVM.convertSecInTime(timeInSeconds: sessionTimer)))",
-					color: convertTimeVM.isSessionTimeDone(convertedSecInMin: session.timeObjectif, sessionTime: sessionTimer) == true ? .green : .white
-				)
-
+				SessionInformation(sfSymbol: "stopwatch", sessionValue: "\(String(convertTimeVM.convertSecInTime(timeInSeconds: sessionTimer)))")
 
 				Spacer()
 				HStack {
-					if motionManager.isPedometerAvailable {
+
 						SessionInformation(
-							sfSymbol: "flag", objectif: "\(String(session.ditanceObjectifInKm))km",
+							sfSymbol: "flag",
+							objectif: "\(String(session.ditanceObjectifInKm))km",
 							sessionValue: "\(String(format: "%.2tf \(sessionDistanceInKm > 1_000 ? "km" : "m")", sessionDistanceInKm))"
 						)
-					}
+
 					Spacer()
 					if let location = locationManager.userLocation {
 						SessionInformation(
-							sfSymbol: "speedometer", objectif: "\(String(session.averageSpeedObjectif))km/h",
+							sfSymbol: "speedometer",
 							sessionValue: "\( location.speed < 0 ? "0.00" : convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: location.speed))"
 						)
 					}
@@ -59,10 +55,10 @@ struct StartedSessionView: View {
 				}, label: {
 					ZStack(alignment: .center) {
 						Circle()
-							.fill(	convertTimeVM.isSessionTimeDone(convertedSecInMin: session.timeObjectif, sessionTime: sessionTimer) == true ? Color("actionInteractionColor") : .gray)
+							.fill(Color("actionInteractionColor"))
 
 							.frame(height: 120)
-							.shadow(color: convertTimeVM.isSessionTimeDone(convertedSecInMin: session.timeObjectif, sessionTime: sessionTimer) == true ? Color("actionInteractionColor") : .gray, radius: 10)
+							.shadow(color: Color("actionInteractionColor"), radius: 10)
 
 						Image(systemName: pausedSession ? "play.fill" : "pause.fill")
 							.font(.custom("",size: 60, relativeTo: .largeTitle))
@@ -78,13 +74,12 @@ struct StartedSessionView: View {
 							image: session.sportType,
 							sportType: session.sportType,
 							difficulty: nil,
-							timeObjectif: session.timeObjectif,
 							ditanceObjectifInKm: session.ditanceObjectifInKm,
-							averageSpeedObjectif: session.averageSpeedObjectif,
 							sessionTime: sessionTimer,
 							sessionDistanceInKm: sessionDistanceInKm,
 							sessionAverageSpeed: sessionAverageSpeed,
-							distanceSpeedChart: distanceSpeedChartValues, date: nil))
+							distanceSpeedChart: distanceSpeedChartValues, date: nil)
+						)
 					}
 
 					Button("Non", role: .cancel) {
@@ -119,10 +114,6 @@ struct StartedSessionView: View {
 			})
 			.onReceive(timer) { _ in
 				sessionTimer += 1
-
-				if convertTimeVM.isSessionTimeBiggerThanConvertedTime(sessionTime: sessionTimer, convertedSecInMin: session.timeObjectif) {
-					playSongVM.playsong(sound: "mixkit-arcade", type: "wav")
-				}
 			}
 			.navigationBarBackButtonHidden(true)
 			.navigationBarTitleDisplayMode(.inline)
@@ -154,7 +145,7 @@ struct StartedSessionView_Previews: PreviewProvider {
 
 struct SessionInformation: View {
 	var sfSymbol: String
-	var objectif: String
+	var objectif: String?
 	var sessionValue: String
 	var color: Color = .white
 
@@ -165,10 +156,11 @@ struct SessionInformation: View {
 
 			Text("\(sessionValue)")
 				.font(.largeTitle.bold())
-
-			Text("\(objectif)")
-				.opacity(0.5)
-				.font(.title3)
+			if let objectif {
+				Text("\(objectif)")
+					.opacity(0.5)
+					.font(.title3)
+			}
 		}
 		.foregroundColor(color)
 	}

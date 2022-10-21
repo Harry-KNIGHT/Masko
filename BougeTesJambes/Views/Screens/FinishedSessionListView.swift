@@ -24,7 +24,7 @@ struct FinishedSessionListView: View {
 
 							Text("\(String(format: "%.2f", session.sessionDistanceInKm))km")
 
-							Text("\(session.averageSpeedObjectif)km/h")
+					
 
 						}
 					}

@@ -9,18 +9,18 @@ import Foundation
 
  var sessionPropositions: [SessionModel] = [
 
-	SessionModel(image: .running, sportType: .running, difficulty: nil,	 timeObjectif: 600, ditanceObjectifInKm: 5, averageSpeedObjectif: 10, sessionTime: 50, sessionDistanceInKm: 0, sessionAverageSpeed: 0, distanceSpeedChart: nil, date: nil),
+	SessionModel(image: .running, sportType: .running, difficulty: nil, ditanceObjectifInKm: 5, sessionTime: 50, sessionDistanceInKm: 0, sessionAverageSpeed: 0, distanceSpeedChart: nil, date: nil),
 
-	SessionModel(image: .running, sportType: .running, difficulty: .beginner, timeObjectif: 1_200, ditanceObjectifInKm: 6, averageSpeedObjectif: 10, sessionTime: 50, sessionDistanceInKm: 0, sessionAverageSpeed: 0, distanceSpeedChart: nil, date: nil),
+	SessionModel(image: .running, sportType: .running, difficulty: .beginner, ditanceObjectifInKm: 6, sessionTime: 50, sessionDistanceInKm: 0, sessionAverageSpeed: 0, distanceSpeedChart: nil, date: nil),
 
-	SessionModel(image: .walking, sportType: .walking, difficulty: .veteran, timeObjectif: 24_000, ditanceObjectifInKm: 45, averageSpeedObjectif: 10, sessionTime: 50, sessionDistanceInKm: 0, sessionAverageSpeed: 0, distanceSpeedChart: nil, date: nil),
+	SessionModel(image: .walking, sportType: .walking, difficulty: .veteran, ditanceObjectifInKm: 45, sessionTime: 50, sessionDistanceInKm: 0, sessionAverageSpeed: 0, distanceSpeedChart: nil, date: nil),
 
-	SessionModel(image: .running, sportType: .running, difficulty: .skilled, timeObjectif: 44_000, ditanceObjectifInKm: 15, averageSpeedObjectif: 10, sessionTime: 50, sessionDistanceInKm: 0, sessionAverageSpeed: 0, distanceSpeedChart: nil, date: nil),
+	SessionModel(image: .running, sportType: .running, difficulty: .skilled, ditanceObjectifInKm: 15, sessionTime: 50, sessionDistanceInKm: 0, sessionAverageSpeed: 0, distanceSpeedChart: nil, date: nil),
 
-	SessionModel(image: .walking, sportType: .walking, difficulty: .skilled, timeObjectif: 950, ditanceObjectifInKm: 12, averageSpeedObjectif: 10, sessionTime: 50, sessionDistanceInKm: 0, sessionAverageSpeed: 0, distanceSpeedChart: nil, date: nil),
+	SessionModel(image: .walking, sportType: .walking, difficulty: .skilled, ditanceObjectifInKm: 12, sessionTime: 50, sessionDistanceInKm: 0, sessionAverageSpeed: 0, distanceSpeedChart: nil, date: nil),
 
-	SessionModel(image: .running, sportType: .running, difficulty: .beginner, timeObjectif: 10_000, ditanceObjectifInKm: 6, averageSpeedObjectif: 10, sessionTime: 50, sessionDistanceInKm: 0, sessionAverageSpeed: 0, distanceSpeedChart: nil, date: nil),
+	SessionModel(image: .running, sportType: .running, difficulty: .beginner, ditanceObjectifInKm: 6, sessionTime: 50, sessionDistanceInKm: 0, sessionAverageSpeed: 0, distanceSpeedChart: nil, date: nil),
 
-	SessionModel(image: .running, sportType: .running, difficulty: nil, timeObjectif: 15_000, ditanceObjectifInKm: 2, averageSpeedObjectif: 10, sessionTime: 50, sessionDistanceInKm: 0, sessionAverageSpeed: 0, distanceSpeedChart: nil, date: nil)
+	SessionModel(image: .running, sportType: .running, difficulty: .beginner, ditanceObjectifInKm: 2, sessionTime: 50, sessionDistanceInKm: 0, sessionAverageSpeed: 0, distanceSpeedChart: nil, date: nil)
 ]
 

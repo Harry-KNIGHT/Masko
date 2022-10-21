@@ -18,9 +18,9 @@ struct TrainingsListView: View {
 	@State private var path = NavigationPath()
 
 	@State private var sportChoosen: Sport = .running
-	@State private var timeObjectif: Int = 1
+	/*@State private var timeObjectif: Int = 1
 	@State private var ditanceObjectifInKm: Int = 5
-	@State private var averageSpeedObjectif: Int = 5
+	@State private var averageSpeedObjectif: Int = 5*/
 
 
 	@State private var sessionTimer: Int = 0
@@ -40,10 +40,10 @@ struct TrainingsListView: View {
 						NavigationLink(value: SessionModel(
 							image: sportChoosen,
 							sportType: sportChoosen,
-							difficulty: nil,
-							timeObjectif: timeObjectif,
-							ditanceObjectifInKm: ditanceObjectifInKm,
-							averageSpeedObjectif: averageSpeedObjectif,
+							difficulty: session.difficulty,
+
+							ditanceObjectifInKm: session.ditanceObjectifInKm,
+
 							sessionTime: sessionTimer,
 							sessionDistanceInKm: Double(sessionDistanceInKm),
 							sessionAverageSpeed: sessionAverageSpeed,
@@ -56,7 +56,20 @@ struct TrainingsListView: View {
 				}
 			}
 			.navigationDestination(for: SessionModel.self) { session in
-				StartedSessionView(session: SessionModel(image: sportChoosen, sportType: sportChoosen, difficulty: nil, timeObjectif: timeObjectif, ditanceObjectifInKm: ditanceObjectifInKm, averageSpeedObjectif: averageSpeedObjectif, sessionTime: sessionTimer, sessionDistanceInKm: Double(sessionDistanceInKm), sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: nil, date: nil), path: $path)
+				StartedSessionView(
+					session:
+						SessionModel(
+						image: sportChoosen,
+						sportType: sportChoosen,
+						difficulty: session.difficulty,
+						ditanceObjectifInKm: session.ditanceObjectifInKm,
+						sessionTime: sessionTimer,
+						sessionDistanceInKm: Double(sessionDistanceInKm),
+						sessionAverageSpeed: sessionAverageSpeed,
+						distanceSpeedChart: nil,
+						date: nil),
+					path: $path
+				)
 			}
 			.onAppear {
 				if locationManager.userLocation == nil {
