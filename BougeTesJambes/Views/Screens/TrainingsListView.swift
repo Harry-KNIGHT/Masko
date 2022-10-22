@@ -38,8 +38,8 @@ struct TrainingsListView: View {
 				ScrollView(.vertical, showsIndicators: false) {
 					ForEach(sessionPropositions) { session in
 						NavigationLink(value: SessionModel(
-							image: sportChoosen,
-							sportType: sportChoosen,
+							image: session.sportType,
+							sportType: session.sportType,
 							difficulty: session.difficulty,
 
 							ditanceObjectifInKm: session.ditanceObjectifInKm,
@@ -59,8 +59,8 @@ struct TrainingsListView: View {
 				StartedSessionView(
 					session:
 						SessionModel(
-						image: sportChoosen,
-						sportType: sportChoosen,
+							image: session.sportType,
+						sportType: session.sportType,
 						difficulty: session.difficulty,
 						ditanceObjectifInKm: session.ditanceObjectifInKm,
 						sessionTime: sessionTimer,
