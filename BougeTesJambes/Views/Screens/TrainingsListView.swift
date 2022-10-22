@@ -17,41 +17,36 @@ struct TrainingsListView: View {
 
 	@State private var path = NavigationPath()
 
-	@State private var sportChoosen: Sport = .running
-	/*@State private var timeObjectif: Int = 1
-	@State private var ditanceObjectifInKm: Int = 5
-	@State private var averageSpeedObjectif: Int = 5*/
-
-
 	@State private var sessionTimer: Int = 0
 	@State private var sessionDistanceInKm: Int = 0
 	@State private var sessionAverageSpeed: Double = 1
 
 	@State private var showSheet: Bool = false
 
-
-	
-    var body: some View {
+	var body: some View {
 		NavigationStack(path: $path) {
 			ZStack {
 				BackgroundLinearColor()
 				ScrollView(.vertical, showsIndicators: false) {
 					ForEach(sessionPropositions) { session in
-						NavigationLink(value: SessionModel(
-							image: sportChoosen,
-							sportType: sportChoosen,
-							difficulty: session.difficulty,
-
-							ditanceObjectifInKm: session.ditanceObjectifInKm,
-
-							sessionTime: sessionTimer,
-							sessionDistanceInKm: Double(sessionDistanceInKm),
-							sessionAverageSpeed: sessionAverageSpeed,
-							distanceSpeedChart: nil, date: nil)) {
-								SessionRecommandationRow(session: session)
-									.shadow(color: Color("viewBackgroundColor") , radius: 5)
- 									.padding(10)
-							}
+						NavigationLink(
+							value:
+								SessionModel(
+									image: session.sportType,
+									sportType: session.sportType,
+									difficulty: session.difficulty,
+									ditanceObjectifInKm: session.ditanceObjectifInKm,
+									sessionTime: sessionTimer,
+									sessionDistanceInKm: Double(sessionDistanceInKm),
+									sessionAverageSpeed: sessionAverageSpeed,
+									distanceSpeedChart: nil,
+									date: Date()
+								)
+						){
+							SessionRecommandationRow(session: session)
+								.shadow(color: Color("viewBackgroundColor") , radius: 5)
+								.padding(10)
+						}
 					}
 				}
 			}
@@ -59,15 +54,15 @@ struct TrainingsListView: View {
 				StartedSessionView(
 					session:
 						SessionModel(
-						image: sportChoosen,
-						sportType: sportChoosen,
-						difficulty: session.difficulty,
-						ditanceObjectifInKm: session.ditanceObjectifInKm,
-						sessionTime: sessionTimer,
-						sessionDistanceInKm: Double(sessionDistanceInKm),
-						sessionAverageSpeed: sessionAverageSpeed,
-						distanceSpeedChart: nil,
-						date: nil),
+							image: session.sportType,
+							sportType: session.sportType,
+							difficulty: session.difficulty,
+							ditanceObjectifInKm: session.ditanceObjectifInKm,
+							sessionTime: sessionTimer,
+							sessionDistanceInKm: Double(sessionDistanceInKm),
+							sessionAverageSpeed: sessionAverageSpeed,
+							distanceSpeedChart: nil,
+							date: nil),
 					path: $path
 				)
 			}
@@ -77,7 +72,6 @@ struct TrainingsListView: View {
 				}
 				coreMotionManager.initializePodometer()
 			}
-
 			.navigationTitle("MASKO")
 			.toolbar {
 				ToolbarItem(placement: .navigationBarLeading) {
@@ -108,14 +102,14 @@ struct TrainingsListView: View {
 				await weatherVM.getWeather(lat: location.coordinate.latitude, long: location.coordinate.longitude)
 			}
 		}
-    }
+	}
 }
 
 struct TrainingsListView_Previews: PreviewProvider {
-    static var previews: some View {
-        TrainingsListView()
+	static var previews: some View {
+		TrainingsListView()
 			.environmentObject(WeatherViewModel())
 			.environmentObject(FinishedSessionViewModel())
 
-    }
+	}
 }
