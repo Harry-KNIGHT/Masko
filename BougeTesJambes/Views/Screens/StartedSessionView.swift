@@ -38,8 +38,7 @@ struct StartedSessionView: View {
 
 						SessionInformation(
 							sfSymbol: "flag",
-							objectif: "\(String(session.ditanceObjectifInKm))km",
-							sessionValue: "\(String(format: "%.2tf \(sessionDistanceInKm > 1_000 ? "km" : "m")", sessionDistanceInKm))"
+							sessionValue: "\(String(format: "%.2tf", sessionDistanceInKm)) \(sessionDistanceInKm > 1_000 ? "km" : "m")"
 						)
 
 					Spacer()
@@ -115,6 +114,15 @@ struct StartedSessionView: View {
 
 					}
 					.toolbarTitleStyle()
+				}
+				ToolbarItem(placement: .navigationBarTrailing) {
+					Text("\(String(session.ditanceObjectifInKm)) km")
+						.fontWeight(.semibold)
+						.font(.title2)
+						.foregroundColor(.primary)
+						.padding(5)
+						.background(.thinMaterial)
+						.cornerRadius(10)
 				}
 			}
 			.toolbarColorScheme((colorScheme == .dark ? .dark : .light), for: .navigationBar)

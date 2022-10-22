@@ -20,11 +20,11 @@ struct FinishedSessionListView: View {
 							Text(session.sportType.sportName)
 								.font(.headline)
 								.padding(.bottom, 6)
-							Text("\(convertTimeVM.convertSecInTime(timeInSeconds: session.sessionTime))min")
+							Text("\(convertTimeVM.convertSecInTime(timeInSeconds: session.sessionTime))")
 
 							Text("\(String(format: "%.2f", session.sessionDistanceInKm))km")
 
-							Text("\(String(format: "%.2f", session.sessionDistanceInKm))km")
+							Text("\(String(format: "%.2f", session.sessionAverageSpeed))km/h")
 						}
 						.foregroundColor(.primary)
 					}
