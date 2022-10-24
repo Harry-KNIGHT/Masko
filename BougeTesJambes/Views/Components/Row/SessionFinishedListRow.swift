@@ -27,7 +27,7 @@ struct SessionFinishedListRow: View {
 }
 
 struct SessionFinishedListRow_Previews: PreviewProvider {
-    static var previews: some View {
+	static var previews: some View {
 		SessionFinishedListRow(session: .sample)
-    }
+	}
 }

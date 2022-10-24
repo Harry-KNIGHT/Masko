@@ -105,10 +105,10 @@ struct TrainingsListView: View {
 		.task  {
 			if let location = locationManager.userLocation {
 
-					await weatherVM.getWeather(
-						lat: location.coordinate.latitude,
-						long: location.coordinate.longitude
-					)
+				await weatherVM.getWeather(
+					lat: location.coordinate.latitude,
+					long: location.coordinate.longitude
+				)
 				
 			}
 		}

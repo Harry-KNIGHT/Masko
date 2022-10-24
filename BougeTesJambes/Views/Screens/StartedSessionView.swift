@@ -40,10 +40,10 @@ struct StartedSessionView: View {
 				Spacer()
 				HStack {
 
-						SessionInformation(
-							sfSymbol: "flag",
-							sessionValue: "\(convertDistanceVM.isDistanceIsKm(sessionDistanceInMeters))"
-						)
+					SessionInformation(
+						sfSymbol: "flag",
+						sessionValue: "\(convertDistanceVM.isDistanceIsKm(sessionDistanceInMeters))"
+					)
 
 					Spacer()
 					if let location = locationManager.userLocation {
@@ -58,29 +58,31 @@ struct StartedSessionView: View {
 
 				SessionRunningButton(isSessionPaused: $isSessionPaused)
 				
-				.padding(.bottom, 30)
-				.alert("Arrêter la session ?", isPresented: $isSessionPaused) {
-					Button("Oui", role: .destructive) {
-						path.removeLast()
+					.padding(.bottom, 30)
+					.alert("Arrêter la session ?", isPresented: $isSessionPaused) {
+						Button("Oui", role: .destructive) {
+							path.removeLast()
 
-						self.finishedSesionVM.fishishedSessions.append(SessionModel(
-							image: session.sportType,
-							sportType: session.sportType,
-							difficulty: nil,
-							ditanceObjectifInMeters: session.ditanceObjectifInMeters,
-							sessionTime: sessionTimer,
-							sessionDistanceInMeters: sessionDistanceInMeters,
-							sessionAverageSpeed: sessionAverageSpeed,
-							distanceSpeedChart: distanceSpeedChartValues,
-							timeSpeedChart: timeSpeedChart, // A CHANGER
-							date: nil)
-						)
-					}
+							self.finishedSesionVM.fishishedSessions.append(
+								SessionModel(
+									image: session.sportType,
+									sportType: session.sportType,
+									difficulty: nil,
+									ditanceObjectifInMeters: session.ditanceObjectifInMeters,
+									sessionTime: sessionTimer,
+									sessionDistanceInMeters: sessionDistanceInMeters,
+									sessionAverageSpeed: sessionAverageSpeed,
+									distanceSpeedChart: distanceSpeedChartValues,
+									timeSpeedChart: timeSpeedChart,
+									date: nil
+								)
+							)
+						}
 
-					Button("Non", role: .cancel) {
-						isSessionPaused = false
+						Button("Non", role: .cancel) {
+							isSessionPaused = false
+						}
 					}
-				}
 			}
 
 			.onAppear {
@@ -90,7 +92,12 @@ struct StartedSessionView: View {
 				if let distance {
 					if distance > 0 {
 						sessionDistanceInMeters = distance
-							self.distanceSpeedChartValues.append(DistanceSpeedChart(averageSpeed: sessionAverageSpeed, sessionDistance: sessionDistanceInMeters))
+						self.distanceSpeedChartValues.append(
+							DistanceSpeedChart(
+								averageSpeed: sessionAverageSpeed,
+								sessionDistance: sessionDistanceInMeters
+							)
+						)
 					}
 				}
 			})
@@ -157,7 +164,7 @@ struct SessionInformation: View {
 	var objectif: String?
 	var sessionValue: String
 	var color: Color = .primary
-
+	
 	var body: some View {
 		VStack(alignment: .center, spacing: 10) {
 			Image(systemName: sfSymbol)

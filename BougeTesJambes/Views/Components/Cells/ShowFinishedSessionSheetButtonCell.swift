@@ -20,7 +20,7 @@ struct ShowFinishedSessionSheetButtonCell: View {
 			
 		})
 		.buttonStyle(.borderless)
-
+		
 		.sheet(isPresented: $showSheet) {
 			FinishedSessionListView()
 		}

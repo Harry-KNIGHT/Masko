@@ -15,90 +15,90 @@ struct FinishedSessionDetailView: View {
 	@Environment(\.colorScheme) var colorScheme
 	var body: some View {
 		ScrollView {
-		VStack(alignment: .leading) {
-			FinishedSessionInformation(
-				objectifType: "Temps",
-				sessionInfo: "\(convertTimeVM.convertSecInTime(timeInSeconds: session.sessionTime))",
-				objectif: nil
-			)
+			VStack(alignment: .leading) {
+				FinishedSessionInformation(
+					objectifType: "Temps",
+					sessionInfo: "\(convertTimeVM.convertSecInTime(timeInSeconds: session.sessionTime))",
+					objectif: nil
+				)
 
-			FinishedSessionInformation(
-				objectifType: "Distance",
-				sessionInfo: "\(String(format: "%.2tf \(session.ditanceObjectifInMeters > 1_000 ? "km" : "mètres")", session.sessionDistanceInMeters))",
-				objectif: nil
-			)
+				FinishedSessionInformation(
+					objectifType: "Distance",
+					sessionInfo: "\(String(format: "%.2tf \(session.ditanceObjectifInMeters > 1_000 ? "km" : "mètres")", session.sessionDistanceInMeters))",
+					objectif: nil
+				)
 
 
-			FinishedSessionInformation(
-				objectifType: "Vitesse",
-				sessionInfo: "\(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: session.sessionAverageSpeed))km/h",
-				objectif: nil
-			)
-			if let timeSpeedChart = session.timeSpeedChart {
-				Chart(timeSpeedChart) { value in
-					LineMark(
-						x: .value("Temps", value.time),
-						y: .value("Vitesse", value.averageSpeed)
-					)
+				FinishedSessionInformation(
+					objectifType: "Vitesse",
+					sessionInfo: "\(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: session.sessionAverageSpeed))km/h",
+					objectif: nil
+				)
+				if let timeSpeedChart = session.timeSpeedChart {
+					Chart(timeSpeedChart) { value in
+						LineMark(
+							x: .value("Temps", value.time),
+							y: .value("Vitesse", value.averageSpeed)
+						)
 
+					}
+					.frame(height: 250)
 				}
-				.frame(height: 250)
-			}
 
-			if let distanceSpeedChart = session.distanceSpeedChart {
-				Chart(distanceSpeedChart) { value in
-					LineMark(
-						x: .value("distance", value.sessionDistance),
-						y: .value("vitesse", value.averageSpeed)
-					)
-					.foregroundStyle(.primary)
+				if let distanceSpeedChart = session.distanceSpeedChart {
+					Chart(distanceSpeedChart) { value in
+						LineMark(
+							x: .value("distance", value.sessionDistance),
+							y: .value("vitesse", value.averageSpeed)
+						)
+						.foregroundStyle(.primary)
 
-				}
-				.chartYScale(domain: .automatic(includesZero: false))
-				.chartXAxis {
-					AxisMarks(values: .automatic) { value in
-						AxisGridLine(centered: true, stroke: StrokeStyle(dash: [1, 2]))
-							.foregroundStyle(Color.cyan)
-						AxisTick(centered: true, stroke: StrokeStyle(lineWidth: 2))
-							.foregroundStyle(Color.red)
-						AxisValueLabel() {
-							if let intValue = value.as(Int.self) {
-								Text("\(intValue) \(intValue > 1_000 ? "km" : "m")")
-									.font(.system(size: 10)) // style it
-									.foregroundColor(.primary)
+					}
+					.chartYScale(domain: .automatic(includesZero: false))
+					.chartXAxis {
+						AxisMarks(values: .automatic) { value in
+							AxisGridLine(centered: true, stroke: StrokeStyle(dash: [1, 2]))
+								.foregroundStyle(Color.cyan)
+							AxisTick(centered: true, stroke: StrokeStyle(lineWidth: 2))
+								.foregroundStyle(Color.red)
+							AxisValueLabel() {
+								if let intValue = value.as(Int.self) {
+									Text("\(intValue) \(intValue > 1_000 ? "km" : "m")")
+										.font(.system(size: 10)) // style it
+										.foregroundColor(.primary)
+								}
 							}
 						}
 					}
-				}
-				.chartYAxis {
-					AxisMarks(values: .automatic) { value in
-						AxisGridLine(centered: true, stroke: StrokeStyle(dash: [1, 2]))
-							.foregroundStyle(Color.primary)
-						AxisTick(centered: true, stroke: StrokeStyle(lineWidth: 2))
-							.foregroundStyle(Color.red)
-						AxisValueLabel() { // construct Text here
-							if let intValue = value.as(Int.self) {
-								Text("\(intValue)km/h")
-									.font(.system(size: 10)) // style it
-									.foregroundColor(.primary)
+					.chartYAxis {
+						AxisMarks(values: .automatic) { value in
+							AxisGridLine(centered: true, stroke: StrokeStyle(dash: [1, 2]))
+								.foregroundStyle(Color.primary)
+							AxisTick(centered: true, stroke: StrokeStyle(lineWidth: 2))
+								.foregroundStyle(Color.red)
+							AxisValueLabel() { // construct Text here
+								if let intValue = value.as(Int.self) {
+									Text("\(intValue)km/h")
+										.font(.system(size: 10)) // style it
+										.foregroundColor(.primary)
+								}
 							}
 						}
 					}
+					.frame(height: 250)
 				}
-				.frame(height: 250)
+
 			}
+			.padding()
+			.navigationBarTitleDisplayMode(.inline)
+			.navigationTitle(session.sportType.sportName)
+
+			.toolbarColorScheme((colorScheme == .dark ? .dark : .light), for: .navigationBar)
+
+			.toolbarBackground(Color("toolbarColor"), for: .navigationBar)
+			.toolbarBackground(.visible, for: .navigationBar)
 
 		}
-		.padding()
-		.navigationBarTitleDisplayMode(.inline)
-		.navigationTitle(session.sportType.sportName)
-
-		.toolbarColorScheme((colorScheme == .dark ? .dark : .light), for: .navigationBar)
-
-		.toolbarBackground(Color("toolbarColor"), for: .navigationBar)
-		.toolbarBackground(.visible, for: .navigationBar)
-
-	}
 	}
 }
 

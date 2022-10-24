@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SelectSportButtonsCell: View {
 	@Binding var sportChoosen: Sport
-    var body: some View {
+	var body: some View {
 		HStack {
 			ForEach(Sport.allCases, id: \.self) { choice in
 				Button(action: {
@@ -28,12 +28,12 @@ struct SelectSportButtonsCell: View {
 				})
 			}
 		}
-    }
+	}
 }
 
 struct SelectSportButtonsCell_Previews: PreviewProvider {
-    static var previews: some View {
+	static var previews: some View {
 		SelectSportButtonsCell(sportChoosen: .constant(.running))
 			.previewLayout(.sizeThatFits)
-    }
+	}
 }
