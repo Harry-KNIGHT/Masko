@@ -115,7 +115,7 @@ struct StartedSessionView: View {
 			.toolbar {
 				ToolbarItem(placement: .principal) {
 					HStack {
-						session.sportType.sportIcon
+						Image(systemName: session.sportType.sportIcon)
 						Text(session.sportType.sportName)
 
 					}

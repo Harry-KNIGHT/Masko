@@ -47,12 +47,12 @@ enum Sport: String, CaseIterable {
 		}
 	}
 
-	public var sportIcon: Image {
+	public var sportIcon: String {
 		switch self {
 		case .walking:
-			return Image(systemName: "figure.walk")
+			return "figure.walk"
 		case .running:
-			return Image(systemName: "figure.run")
+			return  "figure.run"
 		}
 	}
 
