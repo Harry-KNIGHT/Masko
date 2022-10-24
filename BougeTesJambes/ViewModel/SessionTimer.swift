@@ -1,5 +1,5 @@
 //
-//  TimerPublisher.swift
+//  SessionTimer.swift
 //  Masko
 //
 //  Created by Elliot Knight on 24/10/2022.
