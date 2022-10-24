@@ -16,13 +16,15 @@ struct StartedSessionView: View {
 	@EnvironmentObject public var convertTimeVM: ConvertTimeViewModel
 	@ObservedObject public var convertLocValueVM = ConvertLocationValuesViewModel()
 	@ObservedObject public var playSongVM = PlaySongViewModel()
-	let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
+
 	@State private var sessionTimer: Int = 0
 	@State private var sessionDistanceInKm: Double = 0
 	@State private var sessionAverageSpeed: Double = 0
 
 	@State private var isSessionPaused: Bool = false
 	@State private var distanceSpeedChartValues: [DistanceSpeedChart] = []
+
+	@StateObject var timerPublisher = MyTimer()
 
 	@Environment(\.colorScheme) var colorScheme
 	var body: some View {
@@ -101,7 +103,7 @@ struct StartedSessionView: View {
 					sessionDistanceInKm = distance
 				}
 			})
-			.onReceive(timer) { _ in
+			.onReceive(timerPublisher.currentTimePublisher) { _ in
 				sessionTimer += 1
 			}
 			.navigationBarBackButtonHidden(true)

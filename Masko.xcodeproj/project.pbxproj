@@ -11,6 +11,7 @@
 		3C196FBF2903DE7900431ED5 /* SessionFinishedTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C196FBE2903DE7900431ED5 /* SessionFinishedTextCell.swift */; };
 		3C23DEE92902E0E600767947 /* SessionRunningButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23DEE82902E0E600767947 /* SessionRunningButton.swift */; };
 		3C23DEEC2902E78000767947 /* BackgroundLinearColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23DEEB2902E78000767947 /* BackgroundLinearColor.swift */; };
+		3C276BC929068CC100E633F0 /* TimerPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C276BC829068CC100E633F0 /* TimerPublisher.swift */; };
 		3C5D424728FD7B6000005398 /* CoreMotionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */; };
 		3C6A538628FE8B8B002E6FA0 /* SelectSportButtonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A538528FE8B8B002E6FA0 /* SelectSportButtonsCell.swift */; };
 		3C748E0A2901CC9C004781E5 /* TrainingsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E092901CC9C004781E5 /* TrainingsListView.swift */; };
@@ -56,6 +57,7 @@
 		3C196FBE2903DE7900431ED5 /* SessionFinishedTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFinishedTextCell.swift; sourceTree = "<group>"; };
 		3C23DEE82902E0E600767947 /* SessionRunningButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRunningButton.swift; sourceTree = "<group>"; };
 		3C23DEEB2902E78000767947 /* BackgroundLinearColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundLinearColor.swift; sourceTree = "<group>"; };
+		3C276BC829068CC100E633F0 /* TimerPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerPublisher.swift; sourceTree = "<group>"; };
 		3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionViewModel.swift; sourceTree = "<group>"; };
 		3C6A538528FE8B8B002E6FA0 /* SelectSportButtonsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSportButtonsCell.swift; sourceTree = "<group>"; };
 		3C748E092901CC9C004781E5 /* TrainingsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsListView.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				3C9AEA5428FC063A0080415E /* FinishedSessionViewModel.swift */,
+				3C276BC829068CC100E633F0 /* TimerPublisher.swift */,
 				3C9AEA5B28FC1E230080415E /* ConvertTimeViewModel.swift */,
 				3C9AEA6128FC24DA0080415E /* PlaySongViewModel.swift */,
 				3C9AEA7128FC2FE90080415E /* LocationManager.swift */,
@@ -385,6 +388,7 @@
 				3C196FBD2903DE4A00431ED5 /* SessionFinishedListRow.swift in Sources */,
 				3C196FBF2903DE7900431ED5 /* SessionFinishedTextCell.swift in Sources */,
 				3C748E112901DDE5004781E5 /* Samples.swift in Sources */,
+				3C276BC929068CC100E633F0 /* TimerPublisher.swift in Sources */,
 				3C9AEA5828FC09730080415E /* FinishedSessionListView.swift in Sources */,
 				3CAB873C28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift in Sources */,
 				3C9AEA5528FC063A0080415E /* FinishedSessionViewModel.swift in Sources */,
