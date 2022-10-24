@@ -9,7 +9,7 @@ import SwiftUI
 import WeatherKit
 
 struct TrainingsListView: View {
-	@StateObject var locationManager = LocationManager()
+	@EnvironmentObject var locationManager: LocationManager
 	@EnvironmentObject var weatherVM: WeatherViewModel
 	@Environment(\.colorScheme) var colorScheme
 	@EnvironmentObject var finishedSessionVM: FinishedSessionViewModel
@@ -102,14 +102,14 @@ struct TrainingsListView: View {
 			.toolbarBackground(.visible, for: .navigationBar)
 		}
 
-		.onAppear {
+		.task  {
 			if let location = locationManager.userLocation {
-				Task {
+
 					await weatherVM.getWeather(
 						lat: location.coordinate.latitude,
 						long: location.coordinate.longitude
 					)
-				}
+				
 			}
 		}
 	}
