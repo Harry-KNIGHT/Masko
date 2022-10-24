@@ -99,9 +99,14 @@ struct TrainingsListView: View {
 			.toolbarBackground(.visible, for: .navigationBar)
 		}
 
-		.task {
+		.onAppear {
 			if let location = locationManager.userLocation {
-				await weatherVM.getWeather(lat: location.coordinate.latitude, long: location.coordinate.longitude)
+				Task {
+					await weatherVM.getWeather(
+						lat: location.coordinate.latitude,
+						long: location.coordinate.longitude
+					)
+				}
 			}
 		}
 	}
