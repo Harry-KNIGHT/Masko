@@ -25,6 +25,7 @@ struct StartedSessionView: View {
 	@State private var distanceSpeedChartValues: [DistanceSpeedChart] = []
 
 	@StateObject var timerPublisher = SessionTimer()
+	@State private var timeSpeedChart = [TimeSpeedChart]()
 
 	@Environment(\.colorScheme) var colorScheme
 	var body: some View {
@@ -69,7 +70,9 @@ struct StartedSessionView: View {
 							sessionTime: sessionTimer,
 							sessionDistanceInKm: sessionDistanceInKm,
 							sessionAverageSpeed: sessionAverageSpeed,
-							distanceSpeedChart: distanceSpeedChartValues, date: nil)
+							distanceSpeedChart: distanceSpeedChartValues,
+							timeSpeedChart: timeSpeedChart, // A CHANGER
+							date: nil)
 						)
 					}
 
@@ -95,6 +98,7 @@ struct StartedSessionView: View {
 					if location.speed > 0 {
 						sessionAverageSpeed = location.speed
 					}
+					self.timeSpeedChart.append(TimeSpeedChart(time: sessionTimer, averageSpeed: location.speed))
 				}
 			})
 

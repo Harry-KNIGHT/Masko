@@ -34,6 +34,16 @@ struct FinishedSessionDetailView: View {
 				sessionInfo: "\(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: session.sessionAverageSpeed))km/h",
 				objectif: nil
 			)
+			if let timeSpeedChart = session.timeSpeedChart {
+				Chart(timeSpeedChart) { value in
+					BarMark(
+						x: .value("Temps", value.time),
+						y: .value("Vitesse", value.averageSpeed)
+					)
+
+				}
+				.frame(height: 250)
+			}
 
 			if let distanceSpeedChart = session.distanceSpeedChart {
 				Chart(distanceSpeedChart) { value in

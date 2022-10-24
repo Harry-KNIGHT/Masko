@@ -15,6 +15,15 @@ var distanceSpeedArraySample = [
 		DistanceSpeedChart(averageSpeed: 8, sessionDistance: 40)
 ]
 
+var timeSpeedArraySample: [TimeSpeedChart] = [
+	TimeSpeedChart(time: 0, averageSpeed: 0),
+	TimeSpeedChart(time: 10, averageSpeed: 3.0),
+	TimeSpeedChart(time: 40, averageSpeed: 3.4),
+	TimeSpeedChart(time: 60, averageSpeed: 	3.5),
+	TimeSpeedChart(time: 80, averageSpeed: 3.9),
+	TimeSpeedChart(time: 120, averageSpeed: 4.0)
+
+]
 extension SessionModel {
 	static let sample = SessionModel(
 		image: .running,
@@ -24,6 +33,6 @@ extension SessionModel {
 		sessionTime: 35, sessionDistanceInKm: 5,
 		sessionAverageSpeed: 4.5,
 		distanceSpeedChart: distanceSpeedArraySample,
-		date: Date()
+		timeSpeedChart: timeSpeedArraySample, date: Date()
 	)
 }
