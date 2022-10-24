@@ -36,7 +36,7 @@ struct FinishedSessionDetailView: View {
 			)
 			if let timeSpeedChart = session.timeSpeedChart {
 				Chart(timeSpeedChart) { value in
-					BarMark(
+					LineMark(
 						x: .value("Temps", value.time),
 						y: .value("Vitesse", value.averageSpeed)
 					)
