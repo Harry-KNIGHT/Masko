@@ -18,7 +18,7 @@ struct TrainingsListView: View {
 	@State private var path = NavigationPath()
 
 	@State private var sessionTimer: Int = 0
-	@State private var sessionDistanceInKm: Int = 0
+	@State private var sessionDistanceInMeters: Int = 0
 	@State private var sessionAverageSpeed: Double = 0
 
 	@State private var showSheet: Bool = false
@@ -35,9 +35,9 @@ struct TrainingsListView: View {
 									image: session.sportType,
 									sportType: session.sportType,
 									difficulty: session.difficulty,
-									ditanceObjectifInKm: session.ditanceObjectifInKm,
+									ditanceObjectifInMeters: session.ditanceObjectifInMeters,
 									sessionTime: sessionTimer,
-									sessionDistanceInKm: Double(sessionDistanceInKm),
+									sessionDistanceInMeters: Double(sessionDistanceInMeters),
 									sessionAverageSpeed: sessionAverageSpeed,
 									distanceSpeedChart: nil,
 									timeSpeedChart: nil,
@@ -58,9 +58,9 @@ struct TrainingsListView: View {
 							image: session.sportType,
 							sportType: session.sportType,
 							difficulty: session.difficulty,
-							ditanceObjectifInKm: session.ditanceObjectifInKm,
+							ditanceObjectifInMeters: session.ditanceObjectifInMeters,
 							sessionTime: sessionTimer,
-							sessionDistanceInKm: Double(sessionDistanceInKm),
+							sessionDistanceInMeters: Double(sessionDistanceInMeters),
 							sessionAverageSpeed: sessionAverageSpeed,
 							distanceSpeedChart: nil,
 							timeSpeedChart: nil,

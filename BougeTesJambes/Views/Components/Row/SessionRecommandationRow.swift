@@ -25,7 +25,7 @@ struct SessionRecommandationRow: View {
 				VStack(alignment: .leading, spacing: 20) {
 					Text(session.sportType.sportName)
 						.font(.title2.bold())
-					Text("\(session.ditanceObjectifInKm.description) km")
+					Text("\(session.ditanceObjectifInMeters.description) km")
 						.font(.title3)
 						.fontWeight(.medium)
 					if let difficulty = session.difficulty?.difficultyName {

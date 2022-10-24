@@ -13,10 +13,10 @@ struct SessionModel: Identifiable, Hashable {
 	let image: Sport?
 	let sportType: Sport
 	let difficulty: Difficulty?
-	let ditanceObjectifInKm: Int
+	let ditanceObjectifInMeters: Int
 
 	let sessionTime: Int
-	let sessionDistanceInKm: Double
+	let sessionDistanceInMeters: Double
 	let sessionAverageSpeed: Double
 	let distanceSpeedChart: [DistanceSpeedChart]?
 	let timeSpeedChart: [TimeSpeedChart]?

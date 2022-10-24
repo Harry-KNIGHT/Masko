@@ -29,8 +29,8 @@ extension SessionModel {
 		image: .running,
 		sportType: .running,
 		difficulty: .beginner,
-		ditanceObjectifInKm: 7,
-		sessionTime: 35, sessionDistanceInKm: 5,
+		ditanceObjectifInMeters: 7,
+		sessionTime: 35, sessionDistanceInMeters: 5,
 		sessionAverageSpeed: 4.5,
 		distanceSpeedChart: distanceSpeedArraySample,
 		timeSpeedChart: timeSpeedArraySample, date: Date()
