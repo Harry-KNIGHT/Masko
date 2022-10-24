@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class MyTimer: ObservableObject {
+class SessionTimer: ObservableObject {
 	let currentTimePublisher = Timer.TimerPublisher(interval: 1.0, runLoop: .main, mode: .default)
 	let cancellable: AnyCancellable?
 

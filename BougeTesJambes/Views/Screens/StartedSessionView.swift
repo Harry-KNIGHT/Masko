@@ -24,7 +24,7 @@ struct StartedSessionView: View {
 	@State private var isSessionPaused: Bool = false
 	@State private var distanceSpeedChartValues: [DistanceSpeedChart] = []
 
-	@StateObject var timerPublisher = MyTimer()
+	@StateObject var timerPublisher = SessionTimer()
 
 	@Environment(\.colorScheme) var colorScheme
 	var body: some View {
