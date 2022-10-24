@@ -19,7 +19,7 @@ struct TrainingsListView: View {
 
 	@State private var sessionTimer: Int = 0
 	@State private var sessionDistanceInKm: Int = 0
-	@State private var sessionAverageSpeed: Double = 1
+	@State private var sessionAverageSpeed: Double = 0
 
 	@State private var showSheet: Bool = false
 
