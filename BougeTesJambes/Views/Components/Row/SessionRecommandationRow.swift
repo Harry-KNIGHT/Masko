@@ -39,7 +39,7 @@ struct SessionRecommandationRow: View {
 				}
 			}
 			Spacer()
-			session.sportType.sportIcon
+			Image(systemName: session.sportType.sportIcon)
 				.font(.title)
 		}
 		.foregroundColor(.primary)
