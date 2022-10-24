@@ -40,6 +40,7 @@ struct TrainingsListView: View {
 									sessionDistanceInKm: Double(sessionDistanceInKm),
 									sessionAverageSpeed: sessionAverageSpeed,
 									distanceSpeedChart: nil,
+									timeSpeedChart: nil,
 									date: Date()
 								)
 						){
@@ -62,6 +63,7 @@ struct TrainingsListView: View {
 							sessionDistanceInKm: Double(sessionDistanceInKm),
 							sessionAverageSpeed: sessionAverageSpeed,
 							distanceSpeedChart: nil,
+							timeSpeedChart: nil,
 							date: nil),
 					path: $path
 				)

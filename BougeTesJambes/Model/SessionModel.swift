@@ -19,6 +19,7 @@ struct SessionModel: Identifiable, Hashable {
 	let sessionDistanceInKm: Double
 	let sessionAverageSpeed: Double
 	let distanceSpeedChart: [DistanceSpeedChart]?
+	let timeSpeedChart: [TimeSpeedChart]?
 	let date: Date?
 }
 
@@ -26,6 +27,12 @@ struct DistanceSpeedChart: Identifiable, Hashable {
 	var id = UUID()
 	let averageSpeed: Double
 	let sessionDistance: Double
+}
+
+struct TimeSpeedChart: Identifiable, Hashable {
+	var id = UUID()
+	let time: Int
+	let averageSpeed: Double
 }
 
 enum Sport: String, CaseIterable {
