@@ -45,7 +45,7 @@ struct TrainingsListView: View {
 								)
 						){
 							SessionRecommandationRow(session: session)
-								.shadow(color: Color("viewBackgroundColor") , radius: 5)
+								.shadow(color: Color("topBackgroundColor") , radius: 5)
 								.padding(10)
 						}
 					}
