@@ -66,7 +66,7 @@ enum Sport: String, CaseIterable {
 	}
 }
 enum Difficulty: String, CaseIterable {
-	case beginner, skilled, veteran
+	case beginner, skilled, expert
 
 	public var difficultyName: String {
 		switch self {
@@ -74,8 +74,8 @@ enum Difficulty: String, CaseIterable {
 			return "Débutant"
 		case .skilled:
 			return "Expérimenté"
-		case .veteran:
-			return "Professionel"
+		case .expert:
+			return "Expert"
 		}
 	}
 }

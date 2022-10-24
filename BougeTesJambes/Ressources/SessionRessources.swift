@@ -13,7 +13,7 @@ import Foundation
 
 	SessionModel(image: .running, sportType: .running, difficulty: .beginner, ditanceObjectifInMeters: 6, sessionTime: 50, sessionDistanceInMeters: 0, sessionAverageSpeed: 0, distanceSpeedChart: nil, timeSpeedChart: nil, date: nil),
 
-	SessionModel(image: .walking, sportType: .walking, difficulty: .veteran, ditanceObjectifInMeters: 45, sessionTime: 50, sessionDistanceInMeters: 0, sessionAverageSpeed: 0, distanceSpeedChart: nil, timeSpeedChart: nil, date: nil),
+	SessionModel(image: .walking, sportType: .walking, difficulty: .expert, ditanceObjectifInMeters: 45, sessionTime: 50, sessionDistanceInMeters: 0, sessionAverageSpeed: 0, distanceSpeedChart: nil, timeSpeedChart: nil, date: nil),
 
 	SessionModel(image: .running, sportType: .running, difficulty: .skilled, ditanceObjectifInMeters: 15, sessionTime: 50, sessionDistanceInMeters: 0, sessionAverageSpeed: 0, distanceSpeedChart: nil, timeSpeedChart: nil, date: nil),
 
