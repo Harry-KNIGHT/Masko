@@ -18,7 +18,7 @@ struct SessionFinishedListRow: View {
 
 			SessionFinishedTextCell(icon: "stopwatch", value: "\(convertTimeVM.convertSecInTime(timeInSeconds: session.sessionTime))")
 
-			SessionFinishedTextCell(icon: "flag", value: "\(String(format: "%.2f", session.sessionDistanceInKm))km")
+			SessionFinishedTextCell(icon: "flag", value: "\(String(format: "%.2f", session.sessionDistanceInMeters))km")
 
 			SessionFinishedTextCell(icon: "speedometer", value: "\(String(format: "%.2f", session.sessionAverageSpeed))km/h")
 		}

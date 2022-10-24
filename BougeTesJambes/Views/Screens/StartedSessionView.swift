@@ -18,7 +18,7 @@ struct StartedSessionView: View {
 	@ObservedObject public var playSongVM = PlaySongViewModel()
 
 	@State private var sessionTimer: Int = 0
-	@State private var sessionDistanceInKm: Double = 0
+	@State private var sessionDistanceInMeters: Double = 0
 	@State private var sessionAverageSpeed: Double = 0
 
 	@State private var isSessionPaused: Bool = false
@@ -41,7 +41,7 @@ struct StartedSessionView: View {
 
 						SessionInformation(
 							sfSymbol: "flag",
-							sessionValue: "\(String(format: "%.2tf", sessionDistanceInKm)) \(sessionDistanceInKm > 1_000 ? "km" : "m")"
+							sessionValue: "\(String(format: "%.2tf", sessionDistanceInMeters)) \(sessionDistanceInMeters > 1_000 ? "km" : "m")"
 						)
 
 					Spacer()
@@ -66,9 +66,9 @@ struct StartedSessionView: View {
 							image: session.sportType,
 							sportType: session.sportType,
 							difficulty: nil,
-							ditanceObjectifInKm: session.ditanceObjectifInKm,
+							ditanceObjectifInMeters: session.ditanceObjectifInMeters,
 							sessionTime: sessionTimer,
-							sessionDistanceInKm: sessionDistanceInKm,
+							sessionDistanceInMeters: sessionDistanceInMeters,
 							sessionAverageSpeed: sessionAverageSpeed,
 							distanceSpeedChart: distanceSpeedChartValues,
 							timeSpeedChart: timeSpeedChart, // A CHANGER
@@ -88,8 +88,8 @@ struct StartedSessionView: View {
 			.onChange(of: motionManager.distance, perform:  { distance in
 				if let distance {
 					if distance > 0 {
-						sessionDistanceInKm = distance
-							self.distanceSpeedChartValues.append(DistanceSpeedChart(averageSpeed: sessionAverageSpeed, sessionDistance: sessionDistanceInKm))
+						sessionDistanceInMeters = distance
+							self.distanceSpeedChartValues.append(DistanceSpeedChart(averageSpeed: sessionAverageSpeed, sessionDistance: sessionDistanceInMeters))
 					}
 				}
 			})
@@ -104,7 +104,7 @@ struct StartedSessionView: View {
 
 			.onChange(of: motionManager.distance, perform: { distance in
 				if let distance = motionManager.distance {
-					sessionDistanceInKm = distance
+					sessionDistanceInMeters = distance
 				}
 			})
 			.onReceive(timerPublisher.currentTimePublisher) { _ in
@@ -122,7 +122,7 @@ struct StartedSessionView: View {
 					.toolbarTitleStyle()
 				}
 				ToolbarItem(placement: .navigationBarTrailing) {
-					Text("\(String(session.ditanceObjectifInKm)) km")
+					Text("\(String(session.ditanceObjectifInMeters)) km")
 						.fontWeight(.semibold)
 						.font(.title2)
 						.foregroundColor(.primary)
