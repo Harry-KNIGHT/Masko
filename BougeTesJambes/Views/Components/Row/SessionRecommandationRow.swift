@@ -16,13 +16,13 @@ struct SessionRecommandationRow: View {
 					Image(image)
 						.resizable()
 						.scaledToFit()
-						.frame(height: 150)
-						.cornerRadius(15)
+						.frame(height: 120)
+						.cornerRadius(10)
 				} else {
-					RoundedRectangle(cornerRadius: 15)
-						.frame(height: 150)
+					RoundedRectangle(cornerRadius: 10)
+						.frame(height: 120)
 				}
-				VStack(alignment: .leading, spacing: 20) {
+				VStack(alignment: .leading, spacing: 10) {
 					Text(session.sportType.sportName)
 						.font(.title2.bold())
 					Text("\(session.ditanceObjectifInMeters.description) km")
