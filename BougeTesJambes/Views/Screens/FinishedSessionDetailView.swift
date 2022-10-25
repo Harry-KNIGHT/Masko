@@ -43,6 +43,7 @@ struct FinishedSessionDetailView: View {
 
 					}
 					.frame(height: 250)
+					.padding(.top, 10)
 				}
 			}
 			.padding()
@@ -53,8 +54,8 @@ struct FinishedSessionDetailView: View {
 
 			.toolbarBackground(Color("toolbarColor"), for: .navigationBar)
 			.toolbarBackground(.visible, for: .navigationBar)
-
 		}
+		.background(BackgroundLinearColor())
 	}
 }
 
