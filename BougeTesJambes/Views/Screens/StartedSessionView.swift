@@ -35,7 +35,11 @@ struct StartedSessionView: View {
 			VStack {
 				Spacer()
 
-				SessionInformation(sfSymbol: "stopwatch", sessionValue: "\(String(convertTimeVM.convertSecInTime(timeInSeconds: sessionTimer)))")
+				SessionInformation(
+					sfSymbol: "stopwatch",
+					sessionValue: "\(String(convertTimeVM.convertSecInTime(timeInSeconds: sessionTimer)))",
+					sessionValueFont: Font.largeTitle.monospacedDigit().bold()
+				)
 
 				Spacer()
 				HStack {
@@ -163,6 +167,7 @@ struct SessionInformation: View {
 	var sfSymbol: String
 	var objectif: String?
 	var sessionValue: String
+	var sessionValueFont: Font = .largeTitle.bold()
 	var color: Color = .primary
 	
 	var body: some View {
@@ -171,7 +176,7 @@ struct SessionInformation: View {
 				.font(.title)
 
 			Text("\(sessionValue)")
-				.font(.largeTitle.bold())
+				.font(sessionValueFont)
 			if let objectif {
 				Text("\(objectif)")
 					.opacity(0.5)
