@@ -37,8 +37,7 @@ struct StartedSessionView: View {
 
 				SessionInformation(
 					sfSymbol: "stopwatch",
-					sessionValue: "\(String(convertTimeVM.convertSecInTime(timeInSeconds: sessionTimer)))",
-					sessionValueFont: Font.largeTitle.monospacedDigit().bold()
+					sessionValue: "\(String(convertTimeVM.convertSecInTime(timeInSeconds: sessionTimer)))"
 				)
 
 				Spacer()
@@ -46,6 +45,7 @@ struct StartedSessionView: View {
 
 					SessionInformation(
 						sfSymbol: "flag",
+						objectif: "\(sessionDistanceInMeters > 1_000 ? "km" : "m")",
 						sessionValue: "\(convertDistanceVM.isDistanceIsKm(sessionDistanceInMeters))"
 					)
 
@@ -53,6 +53,7 @@ struct StartedSessionView: View {
 					if let location = locationManager.userLocation {
 						SessionInformation(
 							sfSymbol: "speedometer",
+							objectif: "km/h",
 							sessionValue: "\( location.speed < 0 ? "0.00" : convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: location.speed))"
 						)
 					}
@@ -167,9 +168,9 @@ struct SessionInformation: View {
 	var sfSymbol: String
 	var objectif: String?
 	var sessionValue: String
-	var sessionValueFont: Font = .largeTitle.bold()
+	var sessionValueFont: Font = Font.largeTitle.monospacedDigit().bold()
 	var color: Color = .primary
-	
+
 	var body: some View {
 		VStack(alignment: .center, spacing: 10) {
 			Image(systemName: sfSymbol)
