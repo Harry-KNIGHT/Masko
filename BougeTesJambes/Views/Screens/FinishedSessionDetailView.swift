@@ -34,47 +34,7 @@ struct FinishedSessionDetailView: View {
 					sessionInfo: "\(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: session.sessionAverageSpeed))km/h",
 					objectif: nil
 				)
-				if let timeSpeedChart = session.timeSpeedChart {
-					Chart(timeSpeedChart) { value in
-						LineMark(
-							x: .value("Temps", value.time),
-							y: .value("Vitesse", value.averageSpeed)
-						)
-
-					}
-					.chartXAxis {
-						AxisMarks(values: .automatic) { value in
-							AxisGridLine(centered: true, stroke: StrokeStyle(dash: [1, 2]))
-								.foregroundStyle(Color.cyan)
-							AxisTick(centered: true, stroke: StrokeStyle(lineWidth: 2))
-								.foregroundStyle(Color.red)
-							AxisValueLabel() {
-								if let intValue = value.as(Int.self) {
-									Text("\(intValue < 60 ? intValue : intValue / 60) \(intValue < 60 ? "sec" : "min")")
-										.font(.system(size: 10)) // style it
-										.foregroundColor(.primary)
-								}
-							}
-						}
-					}
-					.chartYAxis {
-						AxisMarks(values: .automatic) { value in
-							AxisGridLine(centered: true, stroke: StrokeStyle(dash: [1, 2]))
-								.foregroundStyle(Color.primary)
-							AxisTick(centered: true, stroke: StrokeStyle(lineWidth: 2))
-								.foregroundStyle(Color.red)
-							AxisValueLabel() { // construct Text here
-								if let intValue = value.as(Int.self) {
-									Text("\(intValue)km/h")
-										.font(.system(size: 10)) // style it
-										.foregroundColor(.primary)
-								}
-							}
-						}
-					}
-					.frame(height: 250)
-					.padding(.top, 10)
-				}
+				ChartCell(session: session)
 			}
 			.padding()
 			.navigationBarTitleDisplayMode(.inline)

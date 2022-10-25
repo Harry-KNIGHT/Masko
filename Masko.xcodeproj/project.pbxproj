@@ -14,6 +14,7 @@
 		3C23DEEC2902E78000767947 /* BackgroundLinearColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23DEEB2902E78000767947 /* BackgroundLinearColor.swift */; };
 		3C276BC929068CC100E633F0 /* SessionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C276BC829068CC100E633F0 /* SessionTimer.swift */; };
 		3C47EB04290843FF0096D1D7 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C47EB03290843FF0096D1D7 /* DoubleExtension.swift */; };
+		3C47EB0729086A050096D1D7 /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C47EB0629086A050096D1D7 /* ChartCell.swift */; };
 		3C5D424728FD7B6000005398 /* CoreMotionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */; };
 		3C6A538628FE8B8B002E6FA0 /* SelectSportButtonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A538528FE8B8B002E6FA0 /* SelectSportButtonsCell.swift */; };
 		3C748E0A2901CC9C004781E5 /* TrainingsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E092901CC9C004781E5 /* TrainingsListView.swift */; };
@@ -62,6 +63,7 @@
 		3C23DEEB2902E78000767947 /* BackgroundLinearColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundLinearColor.swift; sourceTree = "<group>"; };
 		3C276BC829068CC100E633F0 /* SessionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTimer.swift; sourceTree = "<group>"; };
 		3C47EB03290843FF0096D1D7 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		3C47EB0629086A050096D1D7 /* ChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
 		3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionViewModel.swift; sourceTree = "<group>"; };
 		3C6A538528FE8B8B002E6FA0 /* SelectSportButtonsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSportButtonsCell.swift; sourceTree = "<group>"; };
 		3C748E092901CC9C004781E5 /* TrainingsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsListView.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				3C6A538528FE8B8B002E6FA0 /* SelectSportButtonsCell.swift */,
 				3C23DEEB2902E78000767947 /* BackgroundLinearColor.swift */,
 				3C196FBE2903DE7900431ED5 /* SessionFinishedTextCell.swift */,
+				3C47EB0629086A050096D1D7 /* ChartCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				3C47EB04290843FF0096D1D7 /* DoubleExtension.swift in Sources */,
 				3C9AEA7228FC2FE90080415E /* LocationManager.swift in Sources */,
 				3C9AEA5C28FC1E230080415E /* ConvertTimeViewModel.swift in Sources */,
+				3C47EB0729086A050096D1D7 /* ChartCell.swift in Sources */,
 				3C23DEE92902E0E600767947 /* SessionRunningButton.swift in Sources */,
 				3CAB873628FF0055009966D5 /* ObjectifPickerCell.swift in Sources */,
 				3C23DEEC2902E78000767947 /* BackgroundLinearColor.swift in Sources */,
