@@ -9,7 +9,7 @@ import Foundation
 
 class ConvertDistanceViewModel: ObservableObject {
 
-	func isDistanceIsKm(_ distance: Double) -> String {
-		(distance > 1_000 ? "\(String(format: "%02d", distance))" : "\(String(format: "%.2f", distance))")
+	func turnThousandMToSimpleKM(_ distance: Double) -> Double {
+		(distance > 1_000 ?  distance / 1_000 : distance )
 	}
 }

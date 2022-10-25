@@ -46,7 +46,7 @@ struct StartedSessionView: View {
 					SessionInformation(
 						sfSymbol: "flag",
 						objectif: "\(sessionDistanceInMeters > 1_000 ? "km" : "m")",
-						sessionValue: "\(convertDistanceVM.isDistanceIsKm(sessionDistanceInMeters))"
+						sessionValue: "\(convertDistanceVM.turnThousandMToSimpleKM(sessionDistanceInMeters))"
 					)
 
 					Spacer()
