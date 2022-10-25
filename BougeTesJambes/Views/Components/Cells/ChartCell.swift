@@ -22,7 +22,7 @@ struct ChartCell: View {
 			.chartXAxis {
 				AxisMarks(values: .automatic) { value in
 					AxisGridLine(centered: true, stroke: StrokeStyle(dash: [1, 2]))
-						.foregroundStyle(Color.cyan)
+						.foregroundStyle(Color.primary)
 					AxisTick(centered: true, stroke: StrokeStyle(lineWidth: 2))
 						.foregroundStyle(Color.red)
 					AxisValueLabel() {
