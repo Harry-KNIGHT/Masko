@@ -42,7 +42,6 @@
 		3CAB873A28FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAB873928FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift */; };
 		3CAB873C28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAB873B28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift */; };
 		3CC3D5B129029C9F006DC14A /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC3D5B029029C9F006DC14A /* WeatherViewModel.swift */; };
-		3CDDBFA328FC652B00863BA7 /* ConvertLocationValuesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CDDBFA228FC652A00863BA7 /* ConvertLocationValuesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,7 +93,6 @@
 		3CAB873B28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarTitleViewModifier.swift; sourceTree = "<group>"; };
 		3CC3D5AF29029BF8006DC14A /* Masko.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Masko.entitlements; sourceTree = "<group>"; };
 		3CC3D5B029029C9F006DC14A /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
-		3CDDBFA228FC652A00863BA7 /* ConvertLocationValuesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertLocationValuesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,7 +206,6 @@
 				3C16376F29071A540014636F /* ConvertDistanceViewModel.swift */,
 				3C9AEA6128FC24DA0080415E /* PlaySongViewModel.swift */,
 				3C9AEA7128FC2FE90080415E /* LocationManager.swift */,
-				3CDDBFA228FC652A00863BA7 /* ConvertLocationValuesViewModel.swift */,
 				3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */,
 				3CC3D5B029029C9F006DC14A /* WeatherViewModel.swift */,
 			);
@@ -419,7 +416,6 @@
 				3C748E0A2901CC9C004781E5 /* TrainingsListView.swift in Sources */,
 				3C9AEA5028FBF6B90080415E /* SessionModel.swift in Sources */,
 				3CAB873A28FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift in Sources */,
-				3CDDBFA328FC652B00863BA7 /* ConvertLocationValuesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,7 +12,6 @@ struct BougeTesJambesApp: App {
 	@StateObject public var finishedSessionVM = FinishedSessionViewModel()
 	@StateObject public var convertTimeVM = ConvertTimeViewModel()
 	@StateObject public var playSongVM = PlaySongViewModel()
-	@StateObject public var convertLocationValuesViewModel = ConvertLocationValuesViewModel()
 	@StateObject var weatherVM = WeatherViewModel()
 	@StateObject var locationManager = LocationManager()
 
@@ -22,7 +21,6 @@ struct BougeTesJambesApp: App {
 				.environmentObject(finishedSessionVM)
 				.environmentObject(convertTimeVM)
 				.environmentObject(playSongVM)
-				.environmentObject(convertLocationValuesViewModel)
 				.environmentObject(weatherVM)
 				.environmentObject(locationManager)
         }

@@ -10,7 +10,6 @@ import Charts
 
 struct FinishedSessionDetailView: View {
 	let session: SessionModel
-	@ObservedObject public var convertLocValueVM = ConvertLocationValuesViewModel()
 	@ObservedObject public var convertTimeVM = ConvertTimeViewModel()
 	@Environment(\.colorScheme) var colorScheme
 	var body: some View {
@@ -31,7 +30,7 @@ struct FinishedSessionDetailView: View {
 
 				FinishedSessionInformation(
 					objectifType: "Vitesse",
-					sessionInfo: "\(convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: session.sessionAverageSpeed))km/h",
+					sessionInfo: "\(String(format: "%.2f", session.sessionAverageSpeed.turnMPerSecToKmPerH))km/h",
 					objectif: nil
 				)
 				ChartCell(session: session)
@@ -53,7 +52,6 @@ struct FinishedSessionDetailView_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationStack {
 			FinishedSessionDetailView(session: .sample)
-				.environmentObject(ConvertLocationValuesViewModel())
 				.environmentObject(ConvertTimeViewModel())
 		}
 	}

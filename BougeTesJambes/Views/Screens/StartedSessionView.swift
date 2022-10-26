@@ -14,7 +14,7 @@ struct StartedSessionView: View {
 	@Binding var path: NavigationPath
 	@EnvironmentObject public var finishedSesionVM: FinishedSessionViewModel
 	@EnvironmentObject public var convertTimeVM: ConvertTimeViewModel
-	@ObservedObject public var convertLocValueVM = ConvertLocationValuesViewModel()
+
 	@ObservedObject public var playSongVM = PlaySongViewModel()
 
 	@State private var sessionTimer: Int = 0
@@ -54,8 +54,9 @@ struct StartedSessionView: View {
 						SessionInformation(
 							sfSymbol: "speedometer",
 							objectif: "km/h",
-							sessionValue: "\( location.speed < 0 ? "0.00" : convertLocValueVM.convertMeterPerSecIntoKmHour(meterPerSec: location.speed))"
+							sessionValue: "\( location.speed < 0 ? "0.00" : String(format: "%.2f", location.speed.turnMPerSecToKmPerH))"
 						)
+						
 					}
 				}
 				.padding(.horizontal)
@@ -159,7 +160,6 @@ struct StartedSessionView_Previews: PreviewProvider {
 				.environmentObject(FinishedSessionViewModel())
 				.environmentObject(ConvertTimeViewModel())
 				.environmentObject(PlaySongViewModel())
-				.environmentObject(ConvertLocationValuesViewModel())
 		}
 	}
 }

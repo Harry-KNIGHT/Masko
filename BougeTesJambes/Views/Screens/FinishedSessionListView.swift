@@ -9,7 +9,6 @@ import SwiftUI
 
 struct FinishedSessionListView: View {
 	@EnvironmentObject var finishedSessionVM: FinishedSessionViewModel
-	@ObservedObject var convertLocValueVM = ConvertLocationValuesViewModel()
 	@ObservedObject var convertTimeVM = ConvertTimeViewModel()
 	var body: some View {
 		NavigationStack {
@@ -39,7 +38,6 @@ struct FinishedSessionListView_Previews: PreviewProvider {
 		NavigationStack {
 			FinishedSessionListView()
 				.environmentObject(FinishedSessionViewModel())
-				.environmentObject(ConvertLocationValuesViewModel())
 				.environmentObject(ConvertTimeViewModel())
 		}
 	}
