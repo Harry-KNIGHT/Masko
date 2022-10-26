@@ -69,7 +69,7 @@ struct StartedSessionView: View {
 						Button("Oui", role: .destructive) {
 							path.removeLast()
 
-							self.finishedSesionVM.fishishedSessions.append(
+							self.finishedSesionVM.fishishedSessions.insert(
 								SessionModel(
 									image: session.sportType,
 									sportType: session.sportType,
@@ -81,7 +81,8 @@ struct StartedSessionView: View {
 									distanceSpeedChart: distanceSpeedChartValues,
 									timeSpeedChart: timeSpeedChart,
 									date: nil
-								)
+								),
+								at: 0
 							)
 						}
 
