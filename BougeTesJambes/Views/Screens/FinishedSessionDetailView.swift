@@ -34,6 +34,9 @@ struct FinishedSessionDetailView: View {
 					objectif: nil
 				)
 				ChartCell(session: session)
+					.padding()
+					.background(.ultraThickMaterial)
+					.cornerRadius(15)
 			}
 			.padding()
 			.navigationBarTitleDisplayMode(.inline)
@@ -77,7 +80,7 @@ struct FinishedSessionInformation: View {
 			Spacer()
 
 		}
-		.background(.thinMaterial)
+		.background(.ultraThickMaterial)
 		.cornerRadius(15)
 	}
 }
