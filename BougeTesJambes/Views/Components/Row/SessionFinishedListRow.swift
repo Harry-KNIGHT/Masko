@@ -20,7 +20,7 @@ struct SessionFinishedListRow: View {
 
 			SessionFinishedTextCell(icon: "flag", value: "\(String(format: "%.2f", session.sessionDistanceInMeters))km")
 
-			SessionFinishedTextCell(icon: "speedometer", value: "\(String(format: "%.2f", session.sessionAverageSpeed))km/h")
+			SessionFinishedTextCell(icon: "speedometer", value: "\(String(format: "%.2f", session.sessionAverageSpeed.turnMPerSecToKmPerH))km/h")
 		}
 		.foregroundColor(.primary)
 	}
