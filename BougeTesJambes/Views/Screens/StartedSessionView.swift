@@ -25,7 +25,7 @@ struct StartedSessionView: View {
 	@State private var distanceSpeedChartValues: [DistanceSpeedChart] = []
 
 	@StateObject var timerPublisher = SessionTimer()
-	@StateObject var convertDistanceVM = ConvertDistanceViewModel()
+
 	@State private var timeSpeedChart = [TimeSpeedChart]()
 
 	@Environment(\.colorScheme) var colorScheme
@@ -46,7 +46,7 @@ struct StartedSessionView: View {
 					SessionInformation(
 						sfSymbol: "flag",
 						objectif: "\(sessionDistanceInMeters > 1_000 ? "km" : "m")",
-						sessionValue: "\(convertDistanceVM.turnThousandMToSimpleKM(sessionDistanceInMeters))"
+						sessionValue: "\(sessionDistanceInMeters.turnThousandMToKm)"
 					)
 
 					Spacer()

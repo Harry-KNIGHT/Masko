@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C16377029071A540014636F /* ConvertDistanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C16376F29071A540014636F /* ConvertDistanceViewModel.swift */; };
 		3C196FBD2903DE4A00431ED5 /* SessionFinishedListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C196FBC2903DE4A00431ED5 /* SessionFinishedListRow.swift */; };
 		3C196FBF2903DE7900431ED5 /* SessionFinishedTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C196FBE2903DE7900431ED5 /* SessionFinishedTextCell.swift */; };
 		3C23DEE92902E0E600767947 /* SessionRunningButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23DEE82902E0E600767947 /* SessionRunningButton.swift */; };
@@ -55,7 +54,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3C16376F29071A540014636F /* ConvertDistanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertDistanceViewModel.swift; sourceTree = "<group>"; };
 		3C196FBC2903DE4A00431ED5 /* SessionFinishedListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFinishedListRow.swift; sourceTree = "<group>"; };
 		3C196FBE2903DE7900431ED5 /* SessionFinishedTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFinishedTextCell.swift; sourceTree = "<group>"; };
 		3C23DEE82902E0E600767947 /* SessionRunningButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRunningButton.swift; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 				3C9AEA5428FC063A0080415E /* FinishedSessionViewModel.swift */,
 				3C276BC829068CC100E633F0 /* SessionTimer.swift */,
 				3C9AEA5B28FC1E230080415E /* ConvertTimeViewModel.swift */,
-				3C16376F29071A540014636F /* ConvertDistanceViewModel.swift */,
 				3C9AEA6128FC24DA0080415E /* PlaySongViewModel.swift */,
 				3C9AEA7128FC2FE90080415E /* LocationManager.swift */,
 				3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */,
@@ -390,7 +387,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C6A538628FE8B8B002E6FA0 /* SelectSportButtonsCell.swift in Sources */,
-				3C16377029071A540014636F /* ConvertDistanceViewModel.swift in Sources */,
 				3C748E0C2901CDD1004781E5 /* SessionRessources.swift in Sources */,
 				3CC3D5B129029C9F006DC14A /* WeatherViewModel.swift in Sources */,
 				3C9AEA6228FC24DA0080415E /* PlaySongViewModel.swift in Sources */,
