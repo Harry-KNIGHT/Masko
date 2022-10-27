@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import BougeTesJambes
+@testable import Masko
 final class ConvertTimeTests: XCTestCase {
 	var sut: ConvertTimeViewModel!
 

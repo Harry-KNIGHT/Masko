@@ -23,7 +23,6 @@
 		3C9AEA2628FBF6350080415E /* BougeTesJambesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */; };
 		3C9AEA2A28FBF6360080415E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C9AEA2928FBF6360080415E /* Assets.xcassets */; };
 		3C9AEA2D28FBF6360080415E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C9AEA2C28FBF6360080415E /* Preview Assets.xcassets */; };
-		3C9AEA3728FBF6360080415E /* BougeTesJambesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA3628FBF6360080415E /* BougeTesJambesTests.swift */; };
 		3C9AEA5028FBF6B90080415E /* SessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA4F28FBF6B90080415E /* SessionModel.swift */; };
 		3C9AEA5328FBFD0B0080415E /* StartedSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA5228FBFD0B0080415E /* StartedSessionView.swift */; };
 		3C9AEA5528FC063A0080415E /* FinishedSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA5428FC063A0080415E /* FinishedSessionViewModel.swift */; };
@@ -71,7 +70,6 @@
 		3C9AEA2928FBF6360080415E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C9AEA2C28FBF6360080415E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3C9AEA3228FBF6360080415E /* MaskoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaskoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3C9AEA3628FBF6360080415E /* BougeTesJambesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BougeTesJambesTests.swift; sourceTree = "<group>"; };
 		3C9AEA4F28FBF6B90080415E /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
 		3C9AEA5228FBFD0B0080415E /* StartedSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartedSessionView.swift; sourceTree = "<group>"; };
 		3C9AEA5428FC063A0080415E /* FinishedSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedSessionViewModel.swift; sourceTree = "<group>"; };
@@ -139,7 +137,7 @@
 			children = (
 				3CC3D5AF29029BF8006DC14A /* Masko.entitlements */,
 				3C9AEA2428FBF6350080415E /* BougeTesJambes */,
-				3C9AEA3528FBF6360080415E /* BougeTesJambesTests */,
+				3C9AEA3528FBF6360080415E /* MaskoTests */,
 				3C9AEA2328FBF6350080415E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -176,13 +174,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		3C9AEA3528FBF6360080415E /* BougeTesJambesTests */ = {
+		3C9AEA3528FBF6360080415E /* MaskoTests */ = {
 			isa = PBXGroup;
 			children = (
-				3C9AEA3628FBF6360080415E /* BougeTesJambesTests.swift */,
 				3C9AEA5D28FC20430080415E /* ConvertTimeTests.swift */,
 			);
-			path = BougeTesJambesTests;
+			path = MaskoTests;
 			sourceTree = "<group>";
 		};
 		3C9AEA5128FBF8910080415E /* Model */ = {
@@ -416,7 +413,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C9AEA5E28FC20430080415E /* ConvertTimeTests.swift in Sources */,
-				3C9AEA3728FBF6360080415E /* BougeTesJambesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
