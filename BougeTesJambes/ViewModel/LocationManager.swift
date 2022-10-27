@@ -18,6 +18,8 @@ class LocationManager: NSObject, ObservableObject {
 				manager.delegate = self
 				manager.desiredAccuracy = kCLLocationAccuracyBest
 				manager.startUpdatingLocation()
+				manager.showsBackgroundLocationIndicator = true
+				manager.allowsBackgroundLocationUpdates = true
 	}
 
 	func requestLocation() {

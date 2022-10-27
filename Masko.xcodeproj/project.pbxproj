@@ -54,6 +54,7 @@
 /* Begin PBXFileReference section */
 		3C196FBC2903DE4A00431ED5 /* SessionFinishedListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFinishedListRow.swift; sourceTree = "<group>"; };
 		3C196FBE2903DE7900431ED5 /* SessionFinishedTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFinishedTextCell.swift; sourceTree = "<group>"; };
+		3C2173A9290A9DE400B785A0 /* Masko-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Masko-Info.plist"; sourceTree = "<group>"; };
 		3C23DEE82902E0E600767947 /* SessionRunningButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRunningButton.swift; sourceTree = "<group>"; };
 		3C23DEEB2902E78000767947 /* BackgroundLinearColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundLinearColor.swift; sourceTree = "<group>"; };
 		3C276BC829068CC100E633F0 /* SessionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTimer.swift; sourceTree = "<group>"; };
@@ -135,6 +136,7 @@
 		3C9AEA1928FBF6350080415E = {
 			isa = PBXGroup;
 			children = (
+				3C2173A9290A9DE400B785A0 /* Masko-Info.plist */,
 				3CC3D5AF29029BF8006DC14A /* Masko.entitlements */,
 				3C9AEA2428FBF6350080415E /* BougeTesJambes */,
 				3C9AEA3528FBF6360080415E /* MaskoTests */,
@@ -553,6 +555,7 @@
 				DEVELOPMENT_TEAM = 99M75C322U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Masko-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nous avons besoin de votre localisation pour hestimer votre vitesses moyenne lors de vos sessions";
@@ -590,6 +593,7 @@
 				DEVELOPMENT_TEAM = 99M75C322U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Masko-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nous avons besoin de votre localisation pour hestimer votre vitesses moyenne lors de vos sessions";
