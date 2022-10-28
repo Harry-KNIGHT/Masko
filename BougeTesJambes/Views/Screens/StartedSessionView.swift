@@ -10,7 +10,7 @@ import SwiftUI
 struct StartedSessionView: View {
 	let session: SessionModel
 	@EnvironmentObject var locationManager: LocationManager
-	@StateObject var motionManager = CoreMotionViewModel()
+	@EnvironmentObject var motionManager: CoreMotionViewModel
 	@Binding var path: NavigationPath
 	@EnvironmentObject public var finishedSesionVM: FinishedSessionViewModel
 	@EnvironmentObject public var convertTimeVM: ConvertTimeViewModel
@@ -111,6 +111,12 @@ struct StartedSessionView: View {
 					}
 				}
 			})
+			.onAppear {
+				if locationManager.userLocation == nil {
+					locationManager.requestLocation()
+				}
+				motionManager.initializePodometer()
+			}
 			.onChange(of: locationManager.userLocation, perform: {  location in
 				if let location {
 					if location.speed > 0 {
@@ -164,6 +170,7 @@ struct StartedSessionView_Previews: PreviewProvider {
 				.environmentObject(FinishedSessionViewModel())
 				.environmentObject(ConvertTimeViewModel())
 				.environmentObject(PlaySongViewModel())
+				.environmentObject(CoreMotionViewModel())
 		}
 	}
 }

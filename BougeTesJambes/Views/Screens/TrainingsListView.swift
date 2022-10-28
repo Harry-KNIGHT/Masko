@@ -13,7 +13,6 @@ struct TrainingsListView: View {
 	@EnvironmentObject var weatherVM: WeatherViewModel
 	@Environment(\.colorScheme) var colorScheme
 	@EnvironmentObject var finishedSessionVM: FinishedSessionViewModel
-	@StateObject var coreMotionManager = CoreMotionViewModel()
 
 	@State private var path = NavigationPath()
 
@@ -69,12 +68,6 @@ struct TrainingsListView: View {
 							date: nil),
 					path: $path
 				)
-			}
-			.onAppear {
-				if locationManager.userLocation == nil {
-					locationManager.requestLocation()
-				}
-				coreMotionManager.initializePodometer()
 			}
 			.navigationTitle("MASKO")
 			.toolbar {
