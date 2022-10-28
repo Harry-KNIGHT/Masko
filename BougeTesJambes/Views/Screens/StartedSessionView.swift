@@ -30,6 +30,10 @@ struct StartedSessionView: View {
 
 	@Environment(\.colorScheme) var colorScheme
 	@Environment(\.scenePhase) var scenePhase
+
+	@State private var appInBackgroundSceneEpoch: Int = 0
+	@State private var appGoBackInActiveSceneEpoch: Int = 0
+	@State private var calculBackgroundTimePassed: Int = 0
 	var body: some View {
 		ZStack {
 			BackgroundLinearColor()
@@ -168,8 +172,12 @@ struct StartedSessionView: View {
 				print("Inactive")
 			} else if newPhase == .active {
 				print("Active")
+				appGoBackInActiveSceneEpoch = Int(Date().timeIntervalSince1970)
+				self.calculBackgroundTimePassed = ((appGoBackInActiveSceneEpoch - appInBackgroundSceneEpoch) / 60)
+				sessionTimer += calculBackgroundTimePassed
 			} else if newPhase == .background {
 				print("Background")
+				appInBackgroundSceneEpoch = Int(Date().timeIntervalSince1970)
 			}
 		}
 	}
