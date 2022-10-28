@@ -132,7 +132,9 @@ struct StartedSessionView: View {
 				}
 			})
 			.onReceive(timerPublisher.currentTimePublisher) { _ in
-				sessionTimer += 1
+				if locationManager.userLocation != nil {
+					sessionTimer += 1
+				}
 			}
 			.navigationBarBackButtonHidden(true)
 			.navigationBarTitleDisplayMode(.inline)
