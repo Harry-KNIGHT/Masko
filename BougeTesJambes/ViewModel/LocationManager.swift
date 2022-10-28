@@ -12,14 +12,18 @@ class LocationManager: NSObject, ObservableObject {
 	private let manager = CLLocationManager()
 	@Published public var userLocation: CLLocation?
 	static let shared = LocationManager()
-
+	@Published public var showAndUseBackgroundActivity = false {
+		didSet {
+			manager.allowsBackgroundLocationUpdates = showAndUseBackgroundActivity
+		}
+	}
 	override init() {
 		super.init()
 				manager.delegate = self
 				manager.desiredAccuracy = kCLLocationAccuracyBest
 				manager.startUpdatingLocation()
-				manager.showsBackgroundLocationIndicator = true
-				manager.allowsBackgroundLocationUpdates = true
+				manager.showsBackgroundLocationIndicator = showAndUseBackgroundActivity
+				manager.allowsBackgroundLocationUpdates = showAndUseBackgroundActivity
 	}
 
 	func requestLocation() {
