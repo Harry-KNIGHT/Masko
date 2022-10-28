@@ -116,6 +116,14 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		3C371BD5290C00CE00DFD619 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				3C9AEA7128FC2FE90080415E /* LocationManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		3C47EB05290844680096D1D7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +167,7 @@
 				3CAB873E28FF0D97009966D5 /* Views */,
 				3C47EB05290844680096D1D7 /* Extensions */,
 				3C9AEA5628FC063E0080415E /* ViewModel */,
+				3C371BD5290C00CE00DFD619 /* Manager */,
 				3C9AEA5128FBF8910080415E /* Model */,
 				3C748E0D2901CE30004781E5 /* Ressources */,
 				3C9AEA6328FC25310080415E /* Songs */,
@@ -199,7 +208,6 @@
 				3C276BC829068CC100E633F0 /* SessionTimer.swift */,
 				3C9AEA5B28FC1E230080415E /* ConvertTimeViewModel.swift */,
 				3C9AEA6128FC24DA0080415E /* PlaySongViewModel.swift */,
-				3C9AEA7128FC2FE90080415E /* LocationManager.swift */,
 				3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */,
 				3CC3D5B029029C9F006DC14A /* WeatherViewModel.swift */,
 			);
