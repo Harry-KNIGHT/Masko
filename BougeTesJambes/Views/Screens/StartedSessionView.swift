@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StartedSessionView: View {
 	let session: SessionModel
-	@StateObject var locationManager = LocationManager()
+	@EnvironmentObject var locationManager: LocationManager
 	@StateObject var motionManager = CoreMotionViewModel()
 	@Binding var path: NavigationPath
 	@EnvironmentObject public var finishedSesionVM: FinishedSessionViewModel
@@ -69,6 +69,8 @@ struct StartedSessionView: View {
 						Button("Oui", role: .destructive) {
 							path.removeLast()
 
+							locationManager.showAndUseBackgroundActivity = false
+
 							self.finishedSesionVM.fishishedSessions.insert(
 								SessionModel(
 									image: session.sportType,
@@ -94,6 +96,7 @@ struct StartedSessionView: View {
 
 			.onAppear {
 				motionManager.initializePodometer()
+				locationManager.showAndUseBackgroundActivity = true
 			}
 			.onChange(of: motionManager.distance, perform:  { distance in
 				if let distance {
