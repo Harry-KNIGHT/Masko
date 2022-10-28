@@ -29,6 +29,11 @@ struct StartedSessionView: View {
 	@State private var timeSpeedChart = [TimeSpeedChart]()
 
 	@Environment(\.colorScheme) var colorScheme
+	@Environment(\.scenePhase) var scenePhase
+
+	@State private var appInBackgroundSceneEpoch: Int = 0
+	@State private var appGoBackInActiveSceneEpoch: Int = 0
+	@State private var calculBackgroundTimePassed: Int = 0
 	var body: some View {
 		ZStack {
 			BackgroundLinearColor()
@@ -162,6 +167,19 @@ struct StartedSessionView: View {
 			.toolbarBackground(Color("toolbarColor"), for: .navigationBar)
 			.toolbarBackground(.visible, for: .navigationBar)
 		}
+		.onChange(of: scenePhase) { newPhase in
+			if newPhase == .inactive {
+				print("Inactive")
+			} else if newPhase == .active {
+				print("Active")
+				appGoBackInActiveSceneEpoch = Int(Date().timeIntervalSince1970)
+				self.calculBackgroundTimePassed = ((appGoBackInActiveSceneEpoch - appInBackgroundSceneEpoch) / 60)
+				sessionTimer += calculBackgroundTimePassed
+			} else if newPhase == .background {
+				print("Background")
+				appInBackgroundSceneEpoch = Int(Date().timeIntervalSince1970)
+			}
+		}
 	}
 }
 
@@ -173,6 +191,7 @@ struct StartedSessionView_Previews: PreviewProvider {
 				.environmentObject(ConvertTimeViewModel())
 				.environmentObject(PlaySongViewModel())
 				.environmentObject(CoreMotionViewModel())
+				.environmentObject(LocationManager())
 		}
 	}
 }
