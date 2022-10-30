@@ -15,7 +15,7 @@ struct FinishedSessionListView: View {
 			List {
 				ForEach(finishedSessionVM.fishishedSessions) { session in
 					NavigationLink(destination: FinishedSessionDetailView(session: session)) {
-						SessionFinishedListRow(session: session)
+						Text(session.sessionTime.description)
 					}
 				}
 			}

@@ -26,29 +26,20 @@ struct TrainingsListView: View {
 		NavigationStack(path: $path) {
 			ZStack {
 				BackgroundLinearColor()
-				ScrollView(.vertical, showsIndicators: false) {
-					ForEach(sessionPropositions) { session in
-						NavigationLink(
-							value:
-								SessionModel(
-									image: session.sportType,
-									sportType: session.sportType,
-									difficulty: session.difficulty,
-									ditanceObjectifInMeters: session.ditanceObjectifInMeters,
-									sessionTime: sessionTimer,
-									sessionDistanceInMeters: Double(sessionDistanceInMeters),
-									sessionAverageSpeed: sessionAverageSpeed,
-									distanceSpeedChart: nil,
-									timeSpeedChart: nil,
-									date: Date()
-								)
-						){
-							SessionRecommandationRow(session: session)
-								.padding(.top, session == sessionPropositions[0] ? 20 : 0)
-								.padding(.horizontal, 10)
-								.padding(.vertical, 5)
+				VStack {
+					NavigationLink(
+						value:
+							SessionModel(
+								sessionTime: sessionTimer,
+								sessionDistanceInMeters: Double(sessionDistanceInMeters),
+								sessionAverageSpeed: sessionAverageSpeed,
+								distanceSpeedChart: nil,
+								timeSpeedChart: nil,
+								date: Date()
+							)
+					){
 
-						}
+						Text("Hello world")
 					}
 				}
 			}
@@ -56,10 +47,6 @@ struct TrainingsListView: View {
 				StartedSessionView(
 					session:
 						SessionModel(
-							image: session.sportType,
-							sportType: session.sportType,
-							difficulty: session.difficulty,
-							ditanceObjectifInMeters: session.ditanceObjectifInMeters,
 							sessionTime: sessionTimer,
 							sessionDistanceInMeters: Double(sessionDistanceInMeters),
 							sessionAverageSpeed: sessionAverageSpeed,
