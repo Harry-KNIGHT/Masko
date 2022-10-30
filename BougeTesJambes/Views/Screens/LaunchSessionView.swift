@@ -8,7 +8,7 @@
 import SwiftUI
 import WeatherKit
 
-struct TrainingsListView: View {
+struct LaunchSessionView: View {
 	@EnvironmentObject var locationManager: LocationManager
 	@EnvironmentObject var weatherVM: WeatherViewModel
 	@Environment(\.colorScheme) var colorScheme
@@ -94,9 +94,9 @@ struct TrainingsListView: View {
 	}
 }
 
-struct TrainingsListView_Previews: PreviewProvider {
+struct LaunchSessionView_Previews: PreviewProvider {
 	static var previews: some View {
-		TrainingsListView()
+		LaunchSessionView()
 			.environmentObject(WeatherViewModel())
 			.environmentObject(FinishedSessionViewModel())
 

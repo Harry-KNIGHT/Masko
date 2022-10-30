@@ -14,7 +14,7 @@
 		3C47EB04290843FF0096D1D7 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C47EB03290843FF0096D1D7 /* DoubleExtension.swift */; };
 		3C47EB0729086A050096D1D7 /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C47EB0629086A050096D1D7 /* ChartCell.swift */; };
 		3C5D424728FD7B6000005398 /* CoreMotionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */; };
-		3C748E0A2901CC9C004781E5 /* TrainingsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E092901CC9C004781E5 /* TrainingsListView.swift */; };
+		3C748E0A2901CC9C004781E5 /* LaunchSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E092901CC9C004781E5 /* LaunchSessionView.swift */; };
 		3C748E0C2901CDD1004781E5 /* SessionRessources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E0B2901CDD1004781E5 /* SessionRessources.swift */; };
 		3C748E112901DDE5004781E5 /* Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E102901DDE5004781E5 /* Samples.swift */; };
 		3C9AEA2628FBF6350080415E /* BougeTesJambesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */; };
@@ -36,6 +36,7 @@
 		3CAB873A28FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAB873928FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift */; };
 		3CAB873C28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAB873B28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift */; };
 		3CC3D5B129029C9F006DC14A /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC3D5B029029C9F006DC14A /* WeatherViewModel.swift */; };
+		3CEFD55C290E7E7100501ADD /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEFD55B290E7E7100501ADD /* AppTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +58,7 @@
 		3C47EB03290843FF0096D1D7 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		3C47EB0629086A050096D1D7 /* ChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
 		3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionViewModel.swift; sourceTree = "<group>"; };
-		3C748E092901CC9C004781E5 /* TrainingsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsListView.swift; sourceTree = "<group>"; };
+		3C748E092901CC9C004781E5 /* LaunchSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchSessionView.swift; sourceTree = "<group>"; };
 		3C748E0B2901CDD1004781E5 /* SessionRessources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRessources.swift; sourceTree = "<group>"; };
 		3C748E102901DDE5004781E5 /* Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Samples.swift; sourceTree = "<group>"; };
 		3C9AEA2228FBF6350080415E /* Masko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Masko.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +83,7 @@
 		3CAB873B28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarTitleViewModifier.swift; sourceTree = "<group>"; };
 		3CC3D5AF29029BF8006DC14A /* Masko.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Masko.entitlements; sourceTree = "<group>"; };
 		3CC3D5B029029C9F006DC14A /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		3CEFD55B290E7E7100501ADD /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			children = (
 				3C2173A9290A9DE400B785A0 /* Masko-Info.plist */,
 				3CC3D5AF29029BF8006DC14A /* Masko.entitlements */,
+				3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */,
 				3C9AEA2428FBF6350080415E /* BougeTesJambes */,
 				3C9AEA3528FBF6360080415E /* MaskoTests */,
 				3C9AEA2328FBF6350080415E /* Products */,
@@ -233,8 +236,8 @@
 		3CAB873828FF0237009966D5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */,
-				3C748E092901CC9C004781E5 /* TrainingsListView.swift */,
+				3C748E092901CC9C004781E5 /* LaunchSessionView.swift */,
+				3CEFD55B290E7E7100501ADD /* AppTabView.swift */,
 				3C9AEA5228FBFD0B0080415E /* StartedSessionView.swift */,
 				3C9AEA5728FC09730080415E /* FinishedSessionListView.swift */,
 				3C9AEA5928FC1B970080415E /* FinishedSessionDetailView.swift */,
@@ -385,6 +388,7 @@
 				3CC3D5B129029C9F006DC14A /* WeatherViewModel.swift in Sources */,
 				3C9AEA6228FC24DA0080415E /* PlaySongViewModel.swift in Sources */,
 				3C47EB04290843FF0096D1D7 /* DoubleExtension.swift in Sources */,
+				3CEFD55C290E7E7100501ADD /* AppTabView.swift in Sources */,
 				3C9AEA7228FC2FE90080415E /* LocationManager.swift in Sources */,
 				3C9AEA5C28FC1E230080415E /* ConvertTimeViewModel.swift in Sources */,
 				3C47EB0729086A050096D1D7 /* ChartCell.swift in Sources */,
@@ -400,7 +404,7 @@
 				3C9AEA5A28FC1B970080415E /* FinishedSessionDetailView.swift in Sources */,
 				3C9AEA5328FBFD0B0080415E /* StartedSessionView.swift in Sources */,
 				3C9AEA2628FBF6350080415E /* BougeTesJambesApp.swift in Sources */,
-				3C748E0A2901CC9C004781E5 /* TrainingsListView.swift in Sources */,
+				3C748E0A2901CC9C004781E5 /* LaunchSessionView.swift in Sources */,
 				3C9AEA5028FBF6B90080415E /* SessionModel.swift in Sources */,
 				3CAB873A28FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift in Sources */,
 			);
