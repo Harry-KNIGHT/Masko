@@ -36,7 +36,7 @@ struct StartedSessionView: View {
 	@State private var appGoBackInActiveSceneEpoch: Int = 0
 	@State private var calculBackgroundTimePassed: Int = 0
 
-	@State private var stopSession: Bool = false
+	@Binding var stopTrainingSession: Bool
 	var body: some View {
 		ZStack {
 			BackgroundLinearColor()
@@ -177,7 +177,7 @@ struct StartedSessionView: View {
 struct StartedSessionView_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationStack {
-			StartedSessionView(session: .sample)
+			StartedSessionView(session: .sample, stopTrainingSession: .constant(false))
 				.environmentObject(FinishedSessionViewModel())
 				.environmentObject(ConvertTimeViewModel())
 				.environmentObject(PlaySongViewModel())

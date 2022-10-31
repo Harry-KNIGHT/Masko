@@ -19,40 +19,39 @@ struct LaunchSessionView: View {
 	@State private var sessionAverageSpeed: Double = 0
 
 	@State private var showSheet: Bool = false
-	@State private var startTrainingSession: Bool = false
+	@State private var willStartTrainingSession: Bool = true
+	@State private var stopTrainingSession: Bool = false
 	var body: some View {
 		NavigationStack {
 			ZStack {
 				BackgroundLinearColor()
-				VStack {
-					Text("Appuie et fonce !")
-						.fontWeight(.semibold)
-						.font(.title)
+				if willStartTrainingSession {
+					VStack {
+						Text("Appuie et fonce !")
+							.fontWeight(.semibold)
+							.font(.title)
 
-						.foregroundColor(.accentColor)
-					NavigationLink(
-						value:
-							SessionModel(
-								sessionTime: sessionTimer,
-								sessionDistanceInMeters: Double(sessionDistanceInMeters),
-								sessionAverageSpeed: sessionAverageSpeed,
-								distanceSpeedChart: nil,
-								timeSpeedChart: nil,
-								date: Date()
-							)
-					){
+							.foregroundColor(.accentColor)
 
-						Image(systemName: "hare.fill")
-							.font(.custom("",size: 100, relativeTo: .largeTitle))
-							.foregroundColor(.white)
-							.padding(50)
-							.background(Color("buttonColor"))
-							.clipShape(Circle())
-							.shadow(color: .accentColor, radius: 10)
+						Button {
+							willStartTrainingSession = false
+						} label: {
+							Image(systemName: "hare.fill")
+							 .font(.custom("",size: 100, relativeTo: .largeTitle))
+							 .foregroundColor(.white)
+							 .padding(50)
+							 .background(Color("buttonColor"))
+							 .clipShape(Circle())
+							 .shadow(color: .accentColor, radius: 10)
+						}
+					}
+				} else {
+					Button("go back ") {
+						willStartTrainingSession = true
 					}
 				}
 			}
-			
+
 			.navigationTitle("MASKO")
 			.toolbar {
 				ToolbarItem(placement: .navigationBarLeading) {
