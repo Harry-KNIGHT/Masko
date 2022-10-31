@@ -100,7 +100,10 @@ struct LaunchSessionView: View {
 					lat: location.coordinate.latitude,
 					long: location.coordinate.longitude
 				)
-				
+			}
+			if let weather = weatherVM.weather {
+				weatherVM.weatherIcon = weather.currentWeather.symbolName
+				weatherVM.weatherTemperature = weather.currentWeather.temperature.description
 			}
 		}
 	}

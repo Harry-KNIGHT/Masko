@@ -14,6 +14,7 @@ struct StartedSessionView: View {
 	@Binding var path: NavigationPath
 	@EnvironmentObject public var finishedSesionVM: FinishedSessionViewModel
 	@EnvironmentObject public var convertTimeVM: ConvertTimeViewModel
+	@EnvironmentObject var weatherVM: WeatherViewModel
 
 	@ObservedObject public var playSongVM = PlaySongViewModel()
 
@@ -144,6 +145,16 @@ struct StartedSessionView: View {
 
 			.toolbarBackground(Color("toolbarColor"), for: .navigationBar)
 			.toolbarBackground(.visible, for: .navigationBar)
+			.toolbar {
+				ToolbarItem(placement: .navigationBarLeading) {
+					HStack {
+						Image(systemName: weatherVM.weatherIcon)
+						Text(weatherVM.weatherTemperature)
+					}
+					.foregroundColor(.accentColor)
+					.font(.headline)
+				}
+			}
 		}
 		.onChange(of: scenePhase) { newPhase in
 			if newPhase == .inactive {
@@ -170,6 +181,7 @@ struct StartedSessionView_Previews: PreviewProvider {
 				.environmentObject(PlaySongViewModel())
 				.environmentObject(CoreMotionViewModel())
 				.environmentObject(LocationManager())
+				.environmentObject(WeatherViewModel())
 		}
 	}
 }
