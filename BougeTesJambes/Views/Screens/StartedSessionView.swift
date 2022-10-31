@@ -18,23 +18,23 @@ struct StartedSessionView: View {
 
 	@ObservedObject public var playSongVM = PlaySongViewModel()
 
-	@State private var sessionTimer: Int = 0
-	@State private var sessionDistanceInMeters: Double = 0
-	@State private var sessionAverageSpeed: Double = 0
+	@Binding var sessionTimer: Int
+	@Binding var sessionDistanceInMeters: Double
+	@Binding var sessionAverageSpeed: Double
 
-	@State private var isSessionPaused: Bool = false
-	@State private var distanceSpeedChartValues: [DistanceSpeedChart] = []
+	@Binding var isSessionPaused: Bool
+	@Binding var distanceSpeedChartValues: [DistanceSpeedChart]
 
 	@StateObject var timerPublisher = SessionTimer()
 
-	@State private var timeSpeedChart = [TimeSpeedChart]()
+	@Binding var timeSpeedChart: [TimeSpeedChart]
 
 	@Environment(\.colorScheme) var colorScheme
 	@Environment(\.scenePhase) var scenePhase
 
-	@State private var appInBackgroundSceneEpoch: Int = 0
-	@State private var appGoBackInActiveSceneEpoch: Int = 0
-	@State private var calculBackgroundTimePassed: Int = 0
+	@Binding var appInBackgroundSceneEpoch: Int
+	@Binding var appGoBackInActiveSceneEpoch: Int
+	@Binding var calculBackgroundTimePassed: Int
 
 	@Binding var stopTrainingSession: Bool
 	var body: some View {
@@ -177,7 +177,19 @@ struct StartedSessionView: View {
 struct StartedSessionView_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationStack {
-			StartedSessionView(session: .sample, stopTrainingSession: .constant(false))
+			StartedSessionView(
+				session: .sample,
+				sessionTimer: .constant(0),
+				sessionDistanceInMeters: .constant(453),
+				sessionAverageSpeed: .constant(3.45),
+				isSessionPaused: .constant(false),
+				distanceSpeedChartValues: .constant(DistanceSpeedChart.distanceSpeedArraySample),
+				timeSpeedChart: .constant(TimeSpeedChart.timeSpeedArraySample),
+				appInBackgroundSceneEpoch: .constant(0),
+				appGoBackInActiveSceneEpoch: .constant(0),
+				calculBackgroundTimePassed: .constant(0),
+				stopTrainingSession: .constant(false)
+			)
 				.environmentObject(FinishedSessionViewModel())
 				.environmentObject(ConvertTimeViewModel())
 				.environmentObject(PlaySongViewModel())
