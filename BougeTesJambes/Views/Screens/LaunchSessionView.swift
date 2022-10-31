@@ -33,29 +33,7 @@ struct LaunchSessionView: View {
 			ZStack {
 				BackgroundLinearColor()
 				if willStartTrainingSession {
-					VStack {
-						Text("Appuie et fonce !")
-							.fontWeight(.semibold)
-							.font(.title)
-							.foregroundColor(.accentColor)
-
-						Button {
-							willStartTrainingSession = false
-						} label: {
-							Image(systemName: "hare.fill")
-							 .font(.custom("",size: 100, relativeTo: .largeTitle))
-							 .foregroundColor(.white)
-							 .padding(50)
-							 .background(Color("buttonColor"))
-							 .clipShape(Circle())
-							 .shadow(color: .accentColor, radius: 10)
-							 .scaleEffect(animationAmount)
-							 .animation(
-								.easeInOut(duration: 1.0)
-								 .repeatForever(autoreverses: true),
-								 value: animationAmount)
-						}
-					}
+					StartSessionButton(willStartTrainingSession: $willStartTrainingSession, animationAmount: $animationAmount)
 					.onAppear {
 						animationAmount = 1.035
 					}
@@ -75,6 +53,7 @@ struct LaunchSessionView: View {
 						appGoBackInActiveSceneEpoch: $appGoBackInActiveSceneEpoch,
 						calculBackgroundTimePassed: $calculBackgroundTimePassed,
 						willStartTrainingSession: $willStartTrainingSession)
+					.transition(.opacity)
 				}
 			}
 			.navigationTitle("MASKO")
