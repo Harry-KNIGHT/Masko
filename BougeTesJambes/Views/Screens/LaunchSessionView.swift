@@ -55,7 +55,12 @@ struct LaunchSessionView: View {
 								 .repeatForever(autoreverses: true),
 								 value: animationAmount)
 						}
-
+					}
+					.onAppear {
+						animationAmount = 1.035
+					}
+					.onDisappear {
+						animationAmount = 1
 					}
 				} else {
 					StartedSessionView(
@@ -71,13 +76,6 @@ struct LaunchSessionView: View {
 						calculBackgroundTimePassed: $calculBackgroundTimePassed,
 						willStartTrainingSession: $willStartTrainingSession)
 				}
-			}
-
-			.onAppear {
-				animationAmount = 1.035
-			}
-			.onDisappear {
-				animationAmount = 1
 			}
 			.navigationTitle("MASKO")
 			.toolbar {
