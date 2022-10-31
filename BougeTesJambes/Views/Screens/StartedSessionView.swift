@@ -179,7 +179,7 @@ struct SessionInformation: View {
 	var objectif: String?
 	var sessionValue: String
 	var sessionValueFont: Font = Font.largeTitle.monospacedDigit().bold()
-	var color: Color = .primary
+	var color: Color = .accentColor
 
 	var body: some View {
 		VStack(alignment: .center, spacing: 10) {

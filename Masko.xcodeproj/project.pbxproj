@@ -15,7 +15,6 @@
 		3C47EB0729086A050096D1D7 /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C47EB0629086A050096D1D7 /* ChartCell.swift */; };
 		3C5D424728FD7B6000005398 /* CoreMotionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */; };
 		3C748E0A2901CC9C004781E5 /* LaunchSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E092901CC9C004781E5 /* LaunchSessionView.swift */; };
-		3C748E0C2901CDD1004781E5 /* SessionRessources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E0B2901CDD1004781E5 /* SessionRessources.swift */; };
 		3C748E112901DDE5004781E5 /* Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E102901DDE5004781E5 /* Samples.swift */; };
 		3C9AEA2628FBF6350080415E /* BougeTesJambesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */; };
 		3C9AEA2A28FBF6360080415E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C9AEA2928FBF6360080415E /* Assets.xcassets */; };
@@ -58,7 +57,6 @@
 		3C47EB0629086A050096D1D7 /* ChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
 		3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionViewModel.swift; sourceTree = "<group>"; };
 		3C748E092901CC9C004781E5 /* LaunchSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchSessionView.swift; sourceTree = "<group>"; };
-		3C748E0B2901CDD1004781E5 /* SessionRessources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRessources.swift; sourceTree = "<group>"; };
 		3C748E102901DDE5004781E5 /* Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Samples.swift; sourceTree = "<group>"; };
 		3C9AEA2228FBF6350080415E /* Masko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Masko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BougeTesJambesApp.swift; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				3C748E102901DDE5004781E5 /* Samples.swift */,
-				3C748E0B2901CDD1004781E5 /* SessionRessources.swift */,
 			);
 			path = Ressources;
 			sourceTree = "<group>";
@@ -381,7 +378,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C748E0C2901CDD1004781E5 /* SessionRessources.swift in Sources */,
 				3CC3D5B129029C9F006DC14A /* WeatherViewModel.swift in Sources */,
 				3C9AEA6228FC24DA0080415E /* PlaySongViewModel.swift in Sources */,
 				3C47EB04290843FF0096D1D7 /* DoubleExtension.swift in Sources */,

@@ -15,10 +15,10 @@ struct SessionRunningButton: View {
 		}, label: {
 			ZStack(alignment: .center) {
 				Circle()
-					.fill(Color("actionInteractionColor"))
+					.foregroundColor(.accentColor)
 
 					.frame(height: 120)
-					.shadow(color: Color("actionInteractionColor"), radius: 10)
+					.shadow(color: .accentColor, radius: 10)
 
 				Image(systemName: isSessionPaused ? "play.fill" : "pause.fill")
 					.font(.custom("",size: 60, relativeTo: .largeTitle))
