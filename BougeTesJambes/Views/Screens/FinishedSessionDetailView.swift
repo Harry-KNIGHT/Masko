@@ -23,7 +23,7 @@ struct FinishedSessionDetailView: View {
 
 				FinishedSessionInformation(
 					objectifType: "Distance",
-					sessionInfo: "\(String(format: "%.2tf \(session.ditanceObjectifInMeters > 1_000 ? "km" : "mètres")", session.sessionDistanceInMeters))",
+					sessionInfo: "\(String(format: "%.2tf \(session.sessionDistanceInMeters > 1_000 ? "km" : "mètres")", session.sessionDistanceInMeters))",
 					objectif: nil
 				)
 
@@ -40,7 +40,7 @@ struct FinishedSessionDetailView: View {
 			}
 			.padding()
 			.navigationBarTitleDisplayMode(.inline)
-			.navigationTitle(session.sportType.sportName)
+
 
 			.toolbarColorScheme((colorScheme == .dark ? .dark : .light), for: .navigationBar)
 

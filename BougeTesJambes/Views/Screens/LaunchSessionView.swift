@@ -8,7 +8,7 @@
 import SwiftUI
 import WeatherKit
 
-struct TrainingsListView: View {
+struct LaunchSessionView: View {
 	@EnvironmentObject var locationManager: LocationManager
 	@EnvironmentObject var weatherVM: WeatherViewModel
 	@Environment(\.colorScheme) var colorScheme
@@ -26,29 +26,20 @@ struct TrainingsListView: View {
 		NavigationStack(path: $path) {
 			ZStack {
 				BackgroundLinearColor()
-				ScrollView(.vertical, showsIndicators: false) {
-					ForEach(sessionPropositions) { session in
-						NavigationLink(
-							value:
-								SessionModel(
-									image: session.sportType,
-									sportType: session.sportType,
-									difficulty: session.difficulty,
-									ditanceObjectifInMeters: session.ditanceObjectifInMeters,
-									sessionTime: sessionTimer,
-									sessionDistanceInMeters: Double(sessionDistanceInMeters),
-									sessionAverageSpeed: sessionAverageSpeed,
-									distanceSpeedChart: nil,
-									timeSpeedChart: nil,
-									date: Date()
-								)
-						){
-							SessionRecommandationRow(session: session)
-								.padding(.top, session == sessionPropositions[0] ? 20 : 0)
-								.padding(.horizontal, 10)
-								.padding(.vertical, 5)
+				VStack {
+					NavigationLink(
+						value:
+							SessionModel(
+								sessionTime: sessionTimer,
+								sessionDistanceInMeters: Double(sessionDistanceInMeters),
+								sessionAverageSpeed: sessionAverageSpeed,
+								distanceSpeedChart: nil,
+								timeSpeedChart: nil,
+								date: Date()
+							)
+					){
 
-						}
+						Text("Hello world")
 					}
 				}
 			}
@@ -56,10 +47,6 @@ struct TrainingsListView: View {
 				StartedSessionView(
 					session:
 						SessionModel(
-							image: session.sportType,
-							sportType: session.sportType,
-							difficulty: session.difficulty,
-							ditanceObjectifInMeters: session.ditanceObjectifInMeters,
 							sessionTime: sessionTimer,
 							sessionDistanceInMeters: Double(sessionDistanceInMeters),
 							sessionAverageSpeed: sessionAverageSpeed,
@@ -107,9 +94,9 @@ struct TrainingsListView: View {
 	}
 }
 
-struct TrainingsListView_Previews: PreviewProvider {
+struct LaunchSessionView_Previews: PreviewProvider {
 	static var previews: some View {
-		TrainingsListView()
+		LaunchSessionView()
 			.environmentObject(WeatherViewModel())
 			.environmentObject(FinishedSessionViewModel())
 

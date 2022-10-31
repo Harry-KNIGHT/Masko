@@ -17,7 +17,7 @@ struct BougeTesJambesApp: App {
 	@StateObject var motionManager = CoreMotionViewModel()
     var body: some Scene {
         WindowGroup {
-			TrainingsListView()
+			LaunchSessionView()
 				.environmentObject(finishedSessionVM)
 				.environmentObject(convertTimeVM)
 				.environmentObject(playSongVM)

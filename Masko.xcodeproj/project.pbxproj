@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C196FBD2903DE4A00431ED5 /* SessionFinishedListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C196FBC2903DE4A00431ED5 /* SessionFinishedListRow.swift */; };
 		3C196FBF2903DE7900431ED5 /* SessionFinishedTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C196FBE2903DE7900431ED5 /* SessionFinishedTextCell.swift */; };
 		3C23DEE92902E0E600767947 /* SessionRunningButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23DEE82902E0E600767947 /* SessionRunningButton.swift */; };
 		3C23DEEC2902E78000767947 /* BackgroundLinearColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23DEEB2902E78000767947 /* BackgroundLinearColor.swift */; };
@@ -15,10 +14,8 @@
 		3C47EB04290843FF0096D1D7 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C47EB03290843FF0096D1D7 /* DoubleExtension.swift */; };
 		3C47EB0729086A050096D1D7 /* ChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C47EB0629086A050096D1D7 /* ChartCell.swift */; };
 		3C5D424728FD7B6000005398 /* CoreMotionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */; };
-		3C6A538628FE8B8B002E6FA0 /* SelectSportButtonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6A538528FE8B8B002E6FA0 /* SelectSportButtonsCell.swift */; };
-		3C748E0A2901CC9C004781E5 /* TrainingsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E092901CC9C004781E5 /* TrainingsListView.swift */; };
+		3C748E0A2901CC9C004781E5 /* LaunchSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E092901CC9C004781E5 /* LaunchSessionView.swift */; };
 		3C748E0C2901CDD1004781E5 /* SessionRessources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E0B2901CDD1004781E5 /* SessionRessources.swift */; };
-		3C748E0F2901D627004781E5 /* SessionRecommandationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E0E2901D627004781E5 /* SessionRecommandationRow.swift */; };
 		3C748E112901DDE5004781E5 /* Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E102901DDE5004781E5 /* Samples.swift */; };
 		3C9AEA2628FBF6350080415E /* BougeTesJambesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */; };
 		3C9AEA2A28FBF6360080415E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C9AEA2928FBF6360080415E /* Assets.xcassets */; };
@@ -52,7 +49,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3C196FBC2903DE4A00431ED5 /* SessionFinishedListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFinishedListRow.swift; sourceTree = "<group>"; };
 		3C196FBE2903DE7900431ED5 /* SessionFinishedTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFinishedTextCell.swift; sourceTree = "<group>"; };
 		3C2173A9290A9DE400B785A0 /* Masko-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Masko-Info.plist"; sourceTree = "<group>"; };
 		3C23DEE82902E0E600767947 /* SessionRunningButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRunningButton.swift; sourceTree = "<group>"; };
@@ -61,10 +57,8 @@
 		3C47EB03290843FF0096D1D7 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		3C47EB0629086A050096D1D7 /* ChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCell.swift; sourceTree = "<group>"; };
 		3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionViewModel.swift; sourceTree = "<group>"; };
-		3C6A538528FE8B8B002E6FA0 /* SelectSportButtonsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSportButtonsCell.swift; sourceTree = "<group>"; };
-		3C748E092901CC9C004781E5 /* TrainingsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsListView.swift; sourceTree = "<group>"; };
+		3C748E092901CC9C004781E5 /* LaunchSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchSessionView.swift; sourceTree = "<group>"; };
 		3C748E0B2901CDD1004781E5 /* SessionRessources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRessources.swift; sourceTree = "<group>"; };
-		3C748E0E2901D627004781E5 /* SessionRecommandationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRecommandationRow.swift; sourceTree = "<group>"; };
 		3C748E102901DDE5004781E5 /* Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Samples.swift; sourceTree = "<group>"; };
 		3C9AEA2228FBF6350080415E /* Masko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Masko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BougeTesJambesApp.swift; sourceTree = "<group>"; };
@@ -146,6 +140,7 @@
 			children = (
 				3C2173A9290A9DE400B785A0 /* Masko-Info.plist */,
 				3CC3D5AF29029BF8006DC14A /* Masko.entitlements */,
+				3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */,
 				3C9AEA2428FBF6350080415E /* BougeTesJambes */,
 				3C9AEA3528FBF6360080415E /* MaskoTests */,
 				3C9AEA2328FBF6350080415E /* Products */,
@@ -229,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				3CAB873928FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift */,
-				3C6A538528FE8B8B002E6FA0 /* SelectSportButtonsCell.swift */,
 				3C23DEEB2902E78000767947 /* BackgroundLinearColor.swift */,
 				3C196FBE2903DE7900431ED5 /* SessionFinishedTextCell.swift */,
 				3C47EB0629086A050096D1D7 /* ChartCell.swift */,
@@ -240,8 +234,7 @@
 		3CAB873828FF0237009966D5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */,
-				3C748E092901CC9C004781E5 /* TrainingsListView.swift */,
+				3C748E092901CC9C004781E5 /* LaunchSessionView.swift */,
 				3C9AEA5228FBFD0B0080415E /* StartedSessionView.swift */,
 				3C9AEA5728FC09730080415E /* FinishedSessionListView.swift */,
 				3C9AEA5928FC1B970080415E /* FinishedSessionDetailView.swift */,
@@ -270,8 +263,6 @@
 		3CC3D5B22902A5AB006DC14A /* Row */ = {
 			isa = PBXGroup;
 			children = (
-				3C748E0E2901D627004781E5 /* SessionRecommandationRow.swift */,
-				3C196FBC2903DE4A00431ED5 /* SessionFinishedListRow.swift */,
 			);
 			path = Row;
 			sourceTree = "<group>";
@@ -390,7 +381,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C6A538628FE8B8B002E6FA0 /* SelectSportButtonsCell.swift in Sources */,
 				3C748E0C2901CDD1004781E5 /* SessionRessources.swift in Sources */,
 				3CC3D5B129029C9F006DC14A /* WeatherViewModel.swift in Sources */,
 				3C9AEA6228FC24DA0080415E /* PlaySongViewModel.swift in Sources */,
@@ -401,7 +391,6 @@
 				3C23DEE92902E0E600767947 /* SessionRunningButton.swift in Sources */,
 				3C23DEEC2902E78000767947 /* BackgroundLinearColor.swift in Sources */,
 				3C5D424728FD7B6000005398 /* CoreMotionViewModel.swift in Sources */,
-				3C196FBD2903DE4A00431ED5 /* SessionFinishedListRow.swift in Sources */,
 				3C196FBF2903DE7900431ED5 /* SessionFinishedTextCell.swift in Sources */,
 				3C748E112901DDE5004781E5 /* Samples.swift in Sources */,
 				3C276BC929068CC100E633F0 /* SessionTimer.swift in Sources */,
@@ -410,9 +399,8 @@
 				3C9AEA5528FC063A0080415E /* FinishedSessionViewModel.swift in Sources */,
 				3C9AEA5A28FC1B970080415E /* FinishedSessionDetailView.swift in Sources */,
 				3C9AEA5328FBFD0B0080415E /* StartedSessionView.swift in Sources */,
-				3C748E0F2901D627004781E5 /* SessionRecommandationRow.swift in Sources */,
 				3C9AEA2628FBF6350080415E /* BougeTesJambesApp.swift in Sources */,
-				3C748E0A2901CC9C004781E5 /* TrainingsListView.swift in Sources */,
+				3C748E0A2901CC9C004781E5 /* LaunchSessionView.swift in Sources */,
 				3C9AEA5028FBF6B90080415E /* SessionModel.swift in Sources */,
 				3CAB873A28FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift in Sources */,
 			);

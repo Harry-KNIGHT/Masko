@@ -78,10 +78,6 @@ struct StartedSessionView: View {
 
 							self.finishedSesionVM.fishishedSessions.insert(
 								SessionModel(
-									image: session.sportType,
-									sportType: session.sportType,
-									difficulty: nil,
-									ditanceObjectifInMeters: session.ditanceObjectifInMeters,
 									sessionTime: sessionTimer,
 									sessionDistanceInMeters: sessionDistanceInMeters,
 									sessionAverageSpeed: sessionAverageSpeed,
@@ -143,25 +139,7 @@ struct StartedSessionView: View {
 			}
 			.navigationBarBackButtonHidden(true)
 			.navigationBarTitleDisplayMode(.inline)
-			.toolbar {
-				ToolbarItem(placement: .principal) {
-					HStack {
-						Image(systemName: session.sportType.sportIcon)
-						Text(session.sportType.sportName)
-
-					}
-					.toolbarTitleStyle()
-				}
-				ToolbarItem(placement: .navigationBarTrailing) {
-					Text("\(String(session.ditanceObjectifInMeters)) km")
-						.fontWeight(.semibold)
-						.font(.title2)
-						.foregroundColor(.primary)
-						.padding(5)
-						.background(.thinMaterial)
-						.cornerRadius(10)
-				}
-			}
+			
 			.toolbarColorScheme((colorScheme == .dark ? .dark : .light), for: .navigationBar)
 
 			.toolbarBackground(Color("toolbarColor"), for: .navigationBar)
