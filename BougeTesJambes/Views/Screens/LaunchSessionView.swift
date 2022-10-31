@@ -27,6 +27,11 @@ struct LaunchSessionView: View {
 			ZStack {
 				BackgroundLinearColor()
 				VStack {
+					Text("Appuie et fonce !")
+						.fontWeight(.semibold)
+						.font(.title)
+
+						.foregroundColor(.accentColor)
 					NavigationLink(
 						value:
 							SessionModel(
