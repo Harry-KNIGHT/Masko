@@ -39,7 +39,13 @@ struct LaunchSessionView: View {
 							)
 					){
 
-						Text("Hello world")
+						Image(systemName: "hare.fill")
+							.font(.custom("",size: 100, relativeTo: .largeTitle))
+							.foregroundColor(.white)
+							.padding(50)
+							.background(Color("buttonColor"))
+							.clipShape(Circle())
+							.shadow(color: .accentColor, radius: 10)
 					}
 				}
 			}
