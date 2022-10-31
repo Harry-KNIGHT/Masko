@@ -66,7 +66,7 @@ struct LaunchSessionView: View {
 				}
 
 				ToolbarItem(placement: .navigationBarTrailing) {
-					if !finishedSessionVM.fishishedSessions.isEmpty {
+					if !finishedSessionVM.fishishedSessions.isEmpty, willStartTrainingSession {
 						ShowFinishedSessionSheetButtonCell(showSheet: $showSheet)
 					}
 				}
