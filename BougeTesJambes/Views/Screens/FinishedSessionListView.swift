@@ -15,7 +15,14 @@ struct FinishedSessionListView: View {
 			List {
 				ForEach(finishedSessionVM.fishishedSessions) { session in
 					NavigationLink(destination: FinishedSessionDetailView(session: session)) {
-						Text(session.sessionTime.description)
+						VStack(alignment: .leading, spacing: 5) {
+							if let sessionDate = session.date {
+								Text(sessionDate.description)
+							}
+							Text(convertTimeVM.convertSecInTime(timeInSeconds: session.sessionTime))
+							Text("\(String(format: "%.2f", session.sessionAverageSpeed)) km/h")
+							Text("\(String(format: "%.2f", session.sessionDistanceInMeters))\(session.sessionDistanceInMeters > 1000 ? "km" : "m")")
+						}
 					}
 				}
 			}

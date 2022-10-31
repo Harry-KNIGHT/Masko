@@ -84,7 +84,7 @@ struct StartedSessionView: View {
 									sessionAverageSpeed: sessionAverageSpeed,
 									distanceSpeedChart: distanceSpeedChartValues,
 									timeSpeedChart: timeSpeedChart,
-									date: nil
+									date: Date()
 								),
 								at: 0
 							)
