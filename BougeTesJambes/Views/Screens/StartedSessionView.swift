@@ -11,7 +11,7 @@ struct StartedSessionView: View {
 	let session: SessionModel
 	@EnvironmentObject var locationManager: LocationManager
 	@EnvironmentObject var motionManager: CoreMotionViewModel
-	@Binding var path: NavigationPath
+	
 	@EnvironmentObject public var finishedSesionVM: FinishedSessionViewModel
 	@EnvironmentObject public var convertTimeVM: ConvertTimeViewModel
 	@EnvironmentObject var weatherVM: WeatherViewModel
@@ -73,7 +73,7 @@ struct StartedSessionView: View {
 					.padding(.bottom, 30)
 					.alert("Arrêter la session ?", isPresented: $isSessionPaused) {
 						Button("Oui", role: .destructive) {
-							path.removeLast()
+
 
 							locationManager.showAndUseBackgroundActivity = false
 
@@ -175,7 +175,7 @@ struct StartedSessionView: View {
 struct StartedSessionView_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationStack {
-			StartedSessionView(session: .sample, path: .constant(NavigationPath()))
+			StartedSessionView(session: .sample)
 				.environmentObject(FinishedSessionViewModel())
 				.environmentObject(ConvertTimeViewModel())
 				.environmentObject(PlaySongViewModel())

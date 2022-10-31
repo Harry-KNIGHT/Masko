@@ -14,8 +14,6 @@ struct LaunchSessionView: View {
 	@Environment(\.colorScheme) var colorScheme
 	@EnvironmentObject var finishedSessionVM: FinishedSessionViewModel
 
-	@State private var path = NavigationPath()
-
 	@State private var sessionTimer: Int = 0
 	@State private var sessionDistanceInMeters: Int = 0
 	@State private var sessionAverageSpeed: Double = 0
@@ -23,7 +21,7 @@ struct LaunchSessionView: View {
 	@State private var showSheet: Bool = false
 
 	var body: some View {
-		NavigationStack(path: $path) {
+		NavigationStack {
 			ZStack {
 				BackgroundLinearColor()
 				VStack {
@@ -54,19 +52,7 @@ struct LaunchSessionView: View {
 					}
 				}
 			}
-			.navigationDestination(for: SessionModel.self) { session in
-				StartedSessionView(
-					session:
-						SessionModel(
-							sessionTime: sessionTimer,
-							sessionDistanceInMeters: Double(sessionDistanceInMeters),
-							sessionAverageSpeed: sessionAverageSpeed,
-							distanceSpeedChart: nil,
-							timeSpeedChart: nil,
-							date: nil),
-					path: $path
-				)
-			}
+			
 			.navigationTitle("MASKO")
 			.toolbar {
 				ToolbarItem(placement: .navigationBarLeading) {
