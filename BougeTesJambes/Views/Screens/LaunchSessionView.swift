@@ -15,12 +15,18 @@ struct LaunchSessionView: View {
 	@EnvironmentObject var finishedSessionVM: FinishedSessionViewModel
 
 	@State private var sessionTimer: Int = 0
-	@State private var sessionDistanceInMeters: Int = 0
+	@State private var sessionDistanceInMeters: Double = 0
 	@State private var sessionAverageSpeed: Double = 0
 
 	@State private var showSheet: Bool = false
 	@State private var willStartTrainingSession: Bool = true
-	@State private var stopTrainingSession: Bool = false
+	@State private var isSessionPaused: Bool = false
+	@State private var distanceSpeedChartValues = [DistanceSpeedChart]()
+	@State private var timeSpeedChart = [TimeSpeedChart]()
+	@State private var appInBackgroundSceneEpoch = 0
+	@State private var appGoBackInActiveSceneEpoch = 0
+	@State private var calculBackgroundTimePassed = 0
+	
 	var body: some View {
 		NavigationStack {
 			ZStack {
@@ -46,9 +52,18 @@ struct LaunchSessionView: View {
 						}
 					}
 				} else {
-					Button("go back ") {
-						willStartTrainingSession = true
-					}
+					StartedSessionView(
+						session: SessionModel(sessionTime: sessionTimer, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: nil, timeSpeedChart: nil, date: nil) ,
+						sessionTimer: $sessionTimer,
+						sessionDistanceInMeters: $sessionDistanceInMeters,
+						sessionAverageSpeed: $sessionAverageSpeed,
+						isSessionPaused: $isSessionPaused,
+						distanceSpeedChartValues: $distanceSpeedChartValues,
+						timeSpeedChart: $timeSpeedChart,
+						appInBackgroundSceneEpoch: $appInBackgroundSceneEpoch  ,
+						appGoBackInActiveSceneEpoch: $appGoBackInActiveSceneEpoch,
+						calculBackgroundTimePassed: $calculBackgroundTimePassed,
+						willStartTrainingSession: $willStartTrainingSession)
 				}
 			}
 

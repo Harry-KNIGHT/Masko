@@ -36,7 +36,7 @@ struct StartedSessionView: View {
 	@Binding var appGoBackInActiveSceneEpoch: Int
 	@Binding var calculBackgroundTimePassed: Int
 
-	@Binding var stopTrainingSession: Bool
+	@Binding var willStartTrainingSession: Bool
 	var body: some View {
 		ZStack {
 			BackgroundLinearColor()
@@ -78,7 +78,7 @@ struct StartedSessionView: View {
 
 
 							locationManager.showAndUseBackgroundActivity = false
-
+							willStartTrainingSession = true
 							self.finishedSesionVM.fishishedSessions.insert(
 								SessionModel(
 									sessionTime: sessionTimer,
@@ -188,7 +188,7 @@ struct StartedSessionView_Previews: PreviewProvider {
 				appInBackgroundSceneEpoch: .constant(0),
 				appGoBackInActiveSceneEpoch: .constant(0),
 				calculBackgroundTimePassed: .constant(0),
-				stopTrainingSession: .constant(false)
+				willStartTrainingSession: .constant(false)
 			)
 				.environmentObject(FinishedSessionViewModel())
 				.environmentObject(ConvertTimeViewModel())
