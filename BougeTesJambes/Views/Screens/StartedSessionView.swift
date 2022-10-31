@@ -11,30 +11,32 @@ struct StartedSessionView: View {
 	let session: SessionModel
 	@EnvironmentObject var locationManager: LocationManager
 	@EnvironmentObject var motionManager: CoreMotionViewModel
-	@Binding var path: NavigationPath
+	
 	@EnvironmentObject public var finishedSesionVM: FinishedSessionViewModel
 	@EnvironmentObject public var convertTimeVM: ConvertTimeViewModel
-	@EnvironmentObject var weatherVM: WeatherViewModel
+	
 
 	@ObservedObject public var playSongVM = PlaySongViewModel()
 
-	@State private var sessionTimer: Int = 0
-	@State private var sessionDistanceInMeters: Double = 0
-	@State private var sessionAverageSpeed: Double = 0
+	@Binding var sessionTimer: Int
+	@Binding var sessionDistanceInMeters: Double
+	@Binding var sessionAverageSpeed: Double
 
-	@State private var isSessionPaused: Bool = false
-	@State private var distanceSpeedChartValues: [DistanceSpeedChart] = []
+	@Binding var isSessionPaused: Bool
+	@Binding var distanceSpeedChartValues: [DistanceSpeedChart]
 
 	@StateObject var timerPublisher = SessionTimer()
 
-	@State private var timeSpeedChart = [TimeSpeedChart]()
+	@Binding var timeSpeedChart: [TimeSpeedChart]
 
 	@Environment(\.colorScheme) var colorScheme
 	@Environment(\.scenePhase) var scenePhase
 
-	@State private var appInBackgroundSceneEpoch: Int = 0
-	@State private var appGoBackInActiveSceneEpoch: Int = 0
-	@State private var calculBackgroundTimePassed: Int = 0
+	@Binding var appInBackgroundSceneEpoch: Int
+	@Binding var appGoBackInActiveSceneEpoch: Int
+	@Binding var calculBackgroundTimePassed: Int
+
+	@Binding var willStartTrainingSession: Bool
 	var body: some View {
 		ZStack {
 			BackgroundLinearColor()
@@ -73,10 +75,10 @@ struct StartedSessionView: View {
 					.padding(.bottom, 30)
 					.alert("Arrêter la session ?", isPresented: $isSessionPaused) {
 						Button("Oui", role: .destructive) {
-							path.removeLast()
+
 
 							locationManager.showAndUseBackgroundActivity = false
-
+							willStartTrainingSession = true
 							self.finishedSesionVM.fishishedSessions.insert(
 								SessionModel(
 									sessionTime: sessionTimer,
@@ -113,6 +115,18 @@ struct StartedSessionView: View {
 					}
 				}
 			})
+			.onDisappear {
+				sessionTimer = 0
+				sessionDistanceInMeters = 0
+				sessionAverageSpeed = 0
+				willStartTrainingSession = true
+				isSessionPaused = false
+				distanceSpeedChartValues = [DistanceSpeedChart]()
+				timeSpeedChart = [TimeSpeedChart]()
+				appInBackgroundSceneEpoch = 0
+				appGoBackInActiveSceneEpoch = 0
+				calculBackgroundTimePassed = 0
+			}
 			.onAppear {
 				if locationManager.userLocation == nil {
 					locationManager.requestLocation()
@@ -145,16 +159,6 @@ struct StartedSessionView: View {
 
 			.toolbarBackground(Color("toolbarColor"), for: .navigationBar)
 			.toolbarBackground(.visible, for: .navigationBar)
-			.toolbar {
-				ToolbarItem(placement: .navigationBarLeading) {
-					HStack {
-						Image(systemName: weatherVM.weatherIcon)
-						Text(weatherVM.weatherTemperature)
-					}
-					.foregroundColor(.accentColor)
-					.font(.headline)
-				}
-			}
 		}
 		.onChange(of: scenePhase) { newPhase in
 			if newPhase == .inactive {
@@ -175,13 +179,25 @@ struct StartedSessionView: View {
 struct StartedSessionView_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationStack {
-			StartedSessionView(session: .sample, path: .constant(NavigationPath()))
-				.environmentObject(FinishedSessionViewModel())
-				.environmentObject(ConvertTimeViewModel())
-				.environmentObject(PlaySongViewModel())
-				.environmentObject(CoreMotionViewModel())
-				.environmentObject(LocationManager())
-				.environmentObject(WeatherViewModel())
+			StartedSessionView(
+				session: .sample,
+				sessionTimer: .constant(0),
+				sessionDistanceInMeters: .constant(453),
+				sessionAverageSpeed: .constant(3.45),
+				isSessionPaused: .constant(false),
+				distanceSpeedChartValues: .constant(DistanceSpeedChart.distanceSpeedArraySample),
+				timeSpeedChart: .constant(TimeSpeedChart.timeSpeedArraySample),
+				appInBackgroundSceneEpoch: .constant(0),
+				appGoBackInActiveSceneEpoch: .constant(0),
+				calculBackgroundTimePassed: .constant(0),
+				willStartTrainingSession: .constant(false)
+			)
+			.environmentObject(FinishedSessionViewModel())
+			.environmentObject(ConvertTimeViewModel())
+			.environmentObject(PlaySongViewModel())
+			.environmentObject(CoreMotionViewModel())
+			.environmentObject(LocationManager())
+			.environmentObject(WeatherViewModel())
 		}
 	}
 }

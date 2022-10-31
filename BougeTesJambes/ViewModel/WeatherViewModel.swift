@@ -11,8 +11,7 @@ import CoreLocation
 
 class WeatherViewModel: ObservableObject {
 	@Published var weather: Weather?
-	var weatherIcon: String = ""
-	var weatherTemperature: String = ""
+	
 	@MainActor func getWeather(lat: Double, long: Double) async {
 		do {
 			weather = try await WeatherService.shared.weather(for: CLLocation(latitude: lat, longitude: long))

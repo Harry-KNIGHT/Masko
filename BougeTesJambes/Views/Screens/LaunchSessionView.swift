@@ -14,58 +14,68 @@ struct LaunchSessionView: View {
 	@Environment(\.colorScheme) var colorScheme
 	@EnvironmentObject var finishedSessionVM: FinishedSessionViewModel
 
-	@State private var path = NavigationPath()
-
 	@State private var sessionTimer: Int = 0
-	@State private var sessionDistanceInMeters: Int = 0
+	@State private var sessionDistanceInMeters: Double = 0
 	@State private var sessionAverageSpeed: Double = 0
 
 	@State private var showSheet: Bool = false
+	@State private var willStartTrainingSession: Bool = true
+	@State private var isSessionPaused: Bool = false
+	@State private var distanceSpeedChartValues = [DistanceSpeedChart]()
+	@State private var timeSpeedChart = [TimeSpeedChart]()
+	@State private var appInBackgroundSceneEpoch = 0
+	@State private var appGoBackInActiveSceneEpoch = 0
+	@State private var calculBackgroundTimePassed = 0
 
+	@State private var animationAmount = 1.0
 	var body: some View {
-		NavigationStack(path: $path) {
+		NavigationStack {
 			ZStack {
 				BackgroundLinearColor()
-				VStack {
-					Text("Appuie et fonce !")
-						.fontWeight(.semibold)
-						.font(.title)
+				if willStartTrainingSession {
+					VStack {
+						Text("Appuie et fonce !")
+							.fontWeight(.semibold)
+							.font(.title)
+							.foregroundColor(.accentColor)
 
-						.foregroundColor(.accentColor)
-					NavigationLink(
-						value:
-							SessionModel(
-								sessionTime: sessionTimer,
-								sessionDistanceInMeters: Double(sessionDistanceInMeters),
-								sessionAverageSpeed: sessionAverageSpeed,
-								distanceSpeedChart: nil,
-								timeSpeedChart: nil,
-								date: Date()
-							)
-					){
-
-						Image(systemName: "hare.fill")
-							.font(.custom("",size: 100, relativeTo: .largeTitle))
-							.foregroundColor(.white)
-							.padding(50)
-							.background(Color("buttonColor"))
-							.clipShape(Circle())
-							.shadow(color: .accentColor, radius: 10)
+						Button {
+							willStartTrainingSession = false
+						} label: {
+							Image(systemName: "hare.fill")
+							 .font(.custom("",size: 100, relativeTo: .largeTitle))
+							 .foregroundColor(.white)
+							 .padding(50)
+							 .background(Color("buttonColor"))
+							 .clipShape(Circle())
+							 .shadow(color: .accentColor, radius: 10)
+							 .scaleEffect(animationAmount)
+							 .animation(
+								.easeInOut(duration: 1.0)
+								 .repeatForever(autoreverses: true),
+								 value: animationAmount)
+						}
 					}
+					.onAppear {
+						animationAmount = 1.035
+					}
+					.onDisappear {
+						animationAmount = 1
+					}
+				} else {
+					StartedSessionView(
+						session: SessionModel(sessionTime: sessionTimer, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: nil, timeSpeedChart: nil, date: nil) ,
+						sessionTimer: $sessionTimer,
+						sessionDistanceInMeters: $sessionDistanceInMeters,
+						sessionAverageSpeed: $sessionAverageSpeed,
+						isSessionPaused: $isSessionPaused,
+						distanceSpeedChartValues: $distanceSpeedChartValues,
+						timeSpeedChart: $timeSpeedChart,
+						appInBackgroundSceneEpoch: $appInBackgroundSceneEpoch  ,
+						appGoBackInActiveSceneEpoch: $appGoBackInActiveSceneEpoch,
+						calculBackgroundTimePassed: $calculBackgroundTimePassed,
+						willStartTrainingSession: $willStartTrainingSession)
 				}
-			}
-			.navigationDestination(for: SessionModel.self) { session in
-				StartedSessionView(
-					session:
-						SessionModel(
-							sessionTime: sessionTimer,
-							sessionDistanceInMeters: Double(sessionDistanceInMeters),
-							sessionAverageSpeed: sessionAverageSpeed,
-							distanceSpeedChart: nil,
-							timeSpeedChart: nil,
-							date: nil),
-					path: $path
-				)
 			}
 			.navigationTitle("MASKO")
 			.toolbar {
@@ -101,10 +111,7 @@ struct LaunchSessionView: View {
 					long: location.coordinate.longitude
 				)
 			}
-			if let weather = weatherVM.weather {
-				weatherVM.weatherIcon = weather.currentWeather.symbolName
-				weatherVM.weatherTemperature = weather.currentWeather.temperature.description
-			}
+
 		}
 	}
 }
@@ -114,6 +121,7 @@ struct LaunchSessionView_Previews: PreviewProvider {
 		LaunchSessionView()
 			.environmentObject(WeatherViewModel())
 			.environmentObject(FinishedSessionViewModel())
+			.environmentObject(LocationManager())
 
 	}
 }
