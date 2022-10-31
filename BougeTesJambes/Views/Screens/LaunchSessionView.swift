@@ -26,7 +26,8 @@ struct LaunchSessionView: View {
 	@State private var appInBackgroundSceneEpoch = 0
 	@State private var appGoBackInActiveSceneEpoch = 0
 	@State private var calculBackgroundTimePassed = 0
-	
+
+	@State private var animationAmount = 1.0
 	var body: some View {
 		NavigationStack {
 			ZStack {
@@ -36,7 +37,6 @@ struct LaunchSessionView: View {
 						Text("Appuie et fonce !")
 							.fontWeight(.semibold)
 							.font(.title)
-
 							.foregroundColor(.accentColor)
 
 						Button {
@@ -49,7 +49,13 @@ struct LaunchSessionView: View {
 							 .background(Color("buttonColor"))
 							 .clipShape(Circle())
 							 .shadow(color: .accentColor, radius: 10)
+							 .scaleEffect(animationAmount)
+							 .animation(
+								.easeInOut(duration: 1.0)
+								 .repeatForever(autoreverses: true),
+								 value: animationAmount)
 						}
+
 					}
 				} else {
 					StartedSessionView(
@@ -67,6 +73,12 @@ struct LaunchSessionView: View {
 				}
 			}
 
+			.onAppear {
+				animationAmount = 1.035
+			}
+			.onDisappear {
+				animationAmount = 1
+			}
 			.navigationTitle("MASKO")
 			.toolbar {
 				ToolbarItem(placement: .navigationBarLeading) {
