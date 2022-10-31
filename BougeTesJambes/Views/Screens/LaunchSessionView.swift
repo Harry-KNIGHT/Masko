@@ -71,7 +71,7 @@ struct LaunchSessionView: View {
 							Text(weather.currentWeather.temperature.description)
 						}
 					}
-					.foregroundColor(.primary)
+					.foregroundColor(.accentColor)
 					.font(.headline)
 				}
 

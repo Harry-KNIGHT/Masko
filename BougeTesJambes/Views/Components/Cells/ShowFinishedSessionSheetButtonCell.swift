@@ -16,7 +16,7 @@ struct ShowFinishedSessionSheetButtonCell: View {
 		}, label: {
 			Label("Show finished session", systemImage: "trophy.fill")
 				.font(.title2)
-				.foregroundColor(Color("toolbarButtonColor"))
+				.foregroundColor(.accentColor)
 			
 		})
 		.buttonStyle(.borderless)
