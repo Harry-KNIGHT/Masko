@@ -19,7 +19,7 @@ struct LaunchSessionView: View {
 	@State private var sessionAverageSpeed: Double = 0
 
 	@State private var showSheet: Bool = false
-
+	@State private var startTrainingSession: Bool = false
 	var body: some View {
 		NavigationStack {
 			ZStack {
@@ -100,6 +100,7 @@ struct LaunchSessionView_Previews: PreviewProvider {
 		LaunchSessionView()
 			.environmentObject(WeatherViewModel())
 			.environmentObject(FinishedSessionViewModel())
+			.environmentObject(LocationManager())
 
 	}
 }

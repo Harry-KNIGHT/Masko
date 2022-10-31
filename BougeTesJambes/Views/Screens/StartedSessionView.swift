@@ -35,6 +35,8 @@ struct StartedSessionView: View {
 	@State private var appInBackgroundSceneEpoch: Int = 0
 	@State private var appGoBackInActiveSceneEpoch: Int = 0
 	@State private var calculBackgroundTimePassed: Int = 0
+
+	@State private var stopSession: Bool = false
 	var body: some View {
 		ZStack {
 			BackgroundLinearColor()
