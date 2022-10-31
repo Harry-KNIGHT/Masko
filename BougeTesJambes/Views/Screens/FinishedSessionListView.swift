@@ -17,7 +17,9 @@ struct FinishedSessionListView: View {
 					NavigationLink(destination: FinishedSessionDetailView(session: session)) {
 						VStack(alignment: .leading, spacing: 5) {
 							if let sessionDate = session.date {
-								Text(sessionDate.description)
+								Text(convertTimeVM.convertDateFormat(date: sessionDate))
+									.fontWeight(.semibold)
+									.font(.title3)
 							}
 							Text(convertTimeVM.convertSecInTime(timeInSeconds: session.sessionTime))
 							Text("\(String(format: "%.2f", session.sessionAverageSpeed)) km/h")

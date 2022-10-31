@@ -31,4 +31,12 @@ class ConvertTimeViewModel: ObservableObject {
 		let convertedSecInMin = convertSecInMin(second: convertedSecInMin)
 		return sessionTime == convertedSecInMin
 	}
+
+	func convertDateFormat(date: Date) -> String {
+		let formatter = DateFormatter()
+
+		formatter.dateFormat = "dd/MM/YY"
+
+		return formatter.string(from: date)
+	}
 }
