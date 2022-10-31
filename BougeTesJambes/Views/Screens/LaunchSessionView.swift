@@ -33,35 +33,9 @@ struct LaunchSessionView: View {
 			ZStack {
 				BackgroundLinearColor()
 				if willStartTrainingSession {
-					VStack {
-						Text("Appuie et fonce !")
-							.fontWeight(.semibold)
-							.font(.title)
-							.foregroundColor(.accentColor)
-
-						Button {
-							willStartTrainingSession = false
-						} label: {
-							Image(systemName: "hare.fill")
-							 .font(.custom("",size: 100, relativeTo: .largeTitle))
-							 .foregroundColor(.white)
-							 .padding(50)
-							 .background(Color("buttonColor"))
-							 .clipShape(Circle())
-							 .shadow(color: .accentColor, radius: 10)
-							 .scaleEffect(animationAmount)
-							 .animation(
-								.easeInOut(duration: 1.0)
-								 .repeatForever(autoreverses: true),
-								 value: animationAmount)
-						}
-					}
-					.onAppear {
-						animationAmount = 1.035
-					}
-					.onDisappear {
-						animationAmount = 1
-					}
+					StartSessionButton(willStartTrainingSession: $willStartTrainingSession, animationAmount: $animationAmount)
+						.transition(AnyTransition.opacity.animation(.easeOut(duration: 1.5)))
+					
 				} else {
 					StartedSessionView(
 						session: SessionModel(sessionTime: sessionTimer, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: nil, timeSpeedChart: nil, date: nil) ,
@@ -75,6 +49,7 @@ struct LaunchSessionView: View {
 						appGoBackInActiveSceneEpoch: $appGoBackInActiveSceneEpoch,
 						calculBackgroundTimePassed: $calculBackgroundTimePassed,
 						willStartTrainingSession: $willStartTrainingSession)
+					.transition(AnyTransition.opacity.animation(.easeIn(duration: 1.44)))
 				}
 			}
 			.navigationTitle("MASKO")
@@ -91,7 +66,7 @@ struct LaunchSessionView: View {
 				}
 
 				ToolbarItem(placement: .navigationBarTrailing) {
-					if !finishedSessionVM.fishishedSessions.isEmpty {
+					if !finishedSessionVM.fishishedSessions.isEmpty, willStartTrainingSession {
 						ShowFinishedSessionSheetButtonCell(showSheet: $showSheet)
 					}
 				}
