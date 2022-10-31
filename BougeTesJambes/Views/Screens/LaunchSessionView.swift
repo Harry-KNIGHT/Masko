@@ -79,6 +79,7 @@ struct LaunchSessionView: View {
 
 			.toolbarBackground(Color("toolbarColor"), for: .navigationBar)
 			.toolbarBackground(.visible, for: .navigationBar)
+			.navigationBarTitleDisplayMode(.inline)
 		}
 
 		.task  {
