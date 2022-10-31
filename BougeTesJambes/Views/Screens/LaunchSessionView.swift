@@ -34,12 +34,8 @@ struct LaunchSessionView: View {
 				BackgroundLinearColor()
 				if willStartTrainingSession {
 					StartSessionButton(willStartTrainingSession: $willStartTrainingSession, animationAmount: $animationAmount)
-					.onAppear {
-						animationAmount = 1.035
-					}
-					.onDisappear {
-						animationAmount = 1
-					}
+						.transition(AnyTransition.opacity.animation(.easeOut(duration: 1.5)))
+					
 				} else {
 					StartedSessionView(
 						session: SessionModel(sessionTime: sessionTimer, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: nil, timeSpeedChart: nil, date: nil) ,
@@ -53,7 +49,7 @@ struct LaunchSessionView: View {
 						appGoBackInActiveSceneEpoch: $appGoBackInActiveSceneEpoch,
 						calculBackgroundTimePassed: $calculBackgroundTimePassed,
 						willStartTrainingSession: $willStartTrainingSession)
-					.transition(.opacity)
+					.transition(AnyTransition.opacity.animation(.easeIn(duration: 1.44)))
 				}
 			}
 			.navigationTitle("MASKO")

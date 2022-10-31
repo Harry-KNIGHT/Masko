@@ -34,6 +34,12 @@ struct StartSessionButton: View {
 					 value: animationAmount)
 			}
 		}
+		.onAppear {
+			animationAmount = 1.035
+		}
+		.onDisappear {
+			animationAmount = 1
+		}
     }
 }
 
