@@ -115,6 +115,18 @@ struct StartedSessionView: View {
 					}
 				}
 			})
+			.onDisappear {
+				sessionTimer = 0
+				sessionDistanceInMeters = 0
+				sessionAverageSpeed = 0
+				willStartTrainingSession = true
+				isSessionPaused = false
+				distanceSpeedChartValues = [DistanceSpeedChart]()
+				timeSpeedChart = [TimeSpeedChart]()
+				appInBackgroundSceneEpoch = 0
+				appGoBackInActiveSceneEpoch = 0
+				calculBackgroundTimePassed = 0
+			}
 			.onAppear {
 				if locationManager.userLocation == nil {
 					locationManager.requestLocation()
@@ -190,12 +202,12 @@ struct StartedSessionView_Previews: PreviewProvider {
 				calculBackgroundTimePassed: .constant(0),
 				willStartTrainingSession: .constant(false)
 			)
-				.environmentObject(FinishedSessionViewModel())
-				.environmentObject(ConvertTimeViewModel())
-				.environmentObject(PlaySongViewModel())
-				.environmentObject(CoreMotionViewModel())
-				.environmentObject(LocationManager())
-				.environmentObject(WeatherViewModel())
+			.environmentObject(FinishedSessionViewModel())
+			.environmentObject(ConvertTimeViewModel())
+			.environmentObject(PlaySongViewModel())
+			.environmentObject(CoreMotionViewModel())
+			.environmentObject(LocationManager())
+			.environmentObject(WeatherViewModel())
 		}
 	}
 }
