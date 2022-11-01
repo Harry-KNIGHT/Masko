@@ -39,6 +39,14 @@ struct FinishedSessionDetailView: View {
 		}
 		.listStyle(.plain)
 		.navigationBarTitleDisplayMode(.inline)
+		.toolbar {
+			ToolbarItem(placement: .principal) {
+				if let date = session.date {
+					Text(convertTimeVM.convertDateFormat(date: date))
+						.fontWeight(.semibold)
+				}
+			}
+		}
 
 	}
 }
