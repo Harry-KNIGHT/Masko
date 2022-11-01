@@ -13,41 +13,33 @@ struct FinishedSessionDetailView: View {
 	@ObservedObject public var convertTimeVM = ConvertTimeViewModel()
 	@Environment(\.colorScheme) var colorScheme
 	var body: some View {
-		ScrollView {
-			VStack(alignment: .leading) {
-				FinishedSessionInformation(
-					objectifType: "Temps",
-					sessionInfo: "\(convertTimeVM.convertSecInTimeInListAndDetailView(timeInSec: session.sessionTime))",
-					objectif: nil
-				)
-
-				FinishedSessionInformation(
-					objectifType: "Distance",
-					sessionInfo: "\(String(format: "%.2tf \(session.sessionDistanceInMeters > 1_000 ? "km" : "mètres")", session.sessionDistanceInMeters))",
-					objectif: nil
-				)
+		List {
+			FinishedSessionInformation(
+				objectifType: "Temps",
+				sessionInfo: "\(convertTimeVM.convertSecInTimeInListAndDetailView(timeInSec: session.sessionTime))",
+				objectif: nil
+			)
 
 
-				FinishedSessionInformation(
-					objectifType: "Vitesse",
-					sessionInfo: "\(String(format: "%.2f", session.sessionAverageSpeed.turnMPerSecToKmPerH))km/h",
-					objectif: nil
-				)
+			FinishedSessionInformation(
+				objectifType: "Distance",
+				sessionInfo: "\(String(format: "%.2tf \(session.sessionDistanceInMeters > 1_000 ? "km" : "mètres")", session.sessionDistanceInMeters))",
+				objectif: nil
+			)
+
+
+			FinishedSessionInformation(
+				objectifType: "Vitesse",
+				sessionInfo: "\(String(format: "%.2f", session.sessionAverageSpeed.turnMPerSecToKmPerH))km/h",
+				objectif: nil
+			)
+			Section(header: Text("Temps / Vitesse")) {
 				ChartCell(session: session)
-					.padding()
-					.background(.ultraThickMaterial)
-					.cornerRadius(15)
 			}
-			.padding()
-			.navigationBarTitleDisplayMode(.inline)
-
-
-			.toolbarColorScheme((colorScheme == .dark ? .dark : .light), for: .navigationBar)
-
-			.toolbarBackground(Color("toolbarColor"), for: .navigationBar)
-			.toolbarBackground(.visible, for: .navigationBar)
 		}
-		.background(BackgroundLinearColor())
+		.listStyle(.plain)
+		.navigationBarTitleDisplayMode(.inline)
+
 	}
 }
 
@@ -65,23 +57,13 @@ struct FinishedSessionInformation: View {
 	var sessionInfo: String
 	var objectif: String?
 	var body: some View {
-		HStack {
-			VStack(alignment: .leading, spacing: 10) {
-				Text(objectifType)
-					.font(.title3.bold())
-				if let objectif {
-					Text("\(sessionInfo) / \(objectif)")
-				} else {
-					Text(sessionInfo)
-				}
+		Section(header: Text(objectifType)) {
+			if let objectif {
+				Text("\(sessionInfo) / \(objectif)")
+			} else {
+				Text(sessionInfo)
 			}
-			.foregroundColor(.primary)
-			.padding(10)
-			Spacer()
-
 		}
-		.background(.ultraThickMaterial)
-		.cornerRadius(15)
 	}
 }
 

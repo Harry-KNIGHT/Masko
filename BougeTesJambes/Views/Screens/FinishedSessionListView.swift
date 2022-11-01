@@ -28,16 +28,12 @@ struct FinishedSessionListView: View {
 					}
 				}
 			}
-			.scrollContentBackground(.hidden)
-			.background(BackgroundLinearColor())
-			.scrollContentBackground(.hidden)
 			.toolbar {
 				ToolbarItem(placement: .principal) {
 					Text("Sessions finies")
 						.toolbarTitleStyle()
 				}
 			}
-			.toolbarBackground(Color("toolbarColor"), for: .navigationBar)
 		}
 	}
 }
