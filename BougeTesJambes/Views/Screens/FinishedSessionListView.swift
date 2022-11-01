@@ -21,7 +21,7 @@ struct FinishedSessionListView: View {
 									.fontWeight(.semibold)
 									.font(.title3)
 							}
-							Text(convertTimeVM.convertSecInTime(timeInSeconds: session.sessionTime))
+							Text(convertTimeVM.convertSecInTimeInListAndDetailView(timeInSec: session.sessionTime))
 							Text("\(String(format: "%.2f", session.sessionAverageSpeed)) km/h")
 							Text("\(String(format: "%.2f", session.sessionDistanceInMeters))\(session.sessionDistanceInMeters > 1000 ? "km" : "m")")
 						}

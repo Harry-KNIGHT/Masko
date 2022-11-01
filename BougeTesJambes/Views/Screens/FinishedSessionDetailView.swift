@@ -17,7 +17,7 @@ struct FinishedSessionDetailView: View {
 			VStack(alignment: .leading) {
 				FinishedSessionInformation(
 					objectifType: "Temps",
-					sessionInfo: "\(convertTimeVM.convertSecInTime(timeInSeconds: session.sessionTime))",
+					sessionInfo: "\(convertTimeVM.convertSecInTimeInListAndDetailView(timeInSec: session.sessionTime))",
 					objectif: nil
 				)
 
