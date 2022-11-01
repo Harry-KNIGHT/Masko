@@ -27,8 +27,8 @@ struct FinishedSessionDetailView: View {
 			)
 
 			FinishedSessionInformation(
-				objectifType: "Vitesse",
-				sessionInfo: "\(String(format: "%.2f", session.sessionAverageSpeed.turnMPerSecToKmPerH))km/h",
+				objectifType: "Vitesse moyenne",
+				sessionInfo: "\(String(format: "%.2f km/h", session.sessionAverageSpeed))",
 				objectif: nil
 			)
 			Section(header: Text("Temps / Vitesse")) {
