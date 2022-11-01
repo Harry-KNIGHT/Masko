@@ -21,6 +21,19 @@ class ConvertTimeViewModel: ObservableObject {
 		return String(format: "%02d:%02d:%02d", hour, minutes, seconds)
 	}
 
+	func convertSecInTimeInListAndDetailView(timeInSec: Int) -> String {
+		let hour = timeInSec / 3600
+		let minutes = timeInSec / 60
+		let seconds = timeInSec % 60
+
+		if timeInSec >= 3600 {
+			return String(format: "%02d:%02d:%02d", hour, minutes, seconds)
+		} else if timeInSec >= 60 {
+			return String(format: "%02d.%02d min", minutes, seconds)
+		}
+		return String(format: "%02d sec", seconds)
+	}
+
 	func isSessionTimeDone(convertedSecInMin: Int, sessionTime: Int) -> Bool {
 		let convertedSecInMin = convertSecInMin(second: convertedSecInMin)
 
