@@ -143,7 +143,6 @@ struct StartedSessionView: View {
 			}
 			.navigationBarBackButtonHidden(true)
 			.navigationBarTitleDisplayMode(.inline)
-			
 			.toolbarColorScheme((colorScheme == .dark ? .dark : .light), for: .navigationBar)
 
 			.toolbarBackground(Color("toolbarColor"), for: .navigationBar)
