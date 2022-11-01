@@ -54,7 +54,7 @@ struct StartedSessionView: View {
 					SessionInformation(
 						sfSymbol: "flag",
 						objectif: "\(sessionDistanceInMeters > 1_000 ? "km" : "m")",
-						sessionValue: "\(String(format: "%.1f", sessionDistanceInMeters.turnThousandMToKm))"
+						sessionValue: "\(String(format: "%.2f", sessionDistanceInMeters.turnThousandMToKm))"
 					)
 
 					Spacer()
@@ -62,7 +62,7 @@ struct StartedSessionView: View {
 						SessionInformation(
 							sfSymbol: "speedometer",
 							objectif: "km/h",
-							sessionValue: "\( location.speed < 0 ? "0.00" : String(format: "%.1f", location.speed.turnMPerSecToKmPerH))"
+							sessionValue: "\( location.speed < 0 ? "0.00" : String(format: "%.2f", location.speed.turnMPerSecToKmPerH))"
 						)
 						
 					}
