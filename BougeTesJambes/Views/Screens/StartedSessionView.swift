@@ -79,17 +79,8 @@ struct StartedSessionView: View {
 
 							locationManager.showAndUseBackgroundActivity = false
 							willStartTrainingSession = true
-							self.finishedSesionVM.fishishedSessions.insert(
-								SessionModel(
-									sessionTime: sessionTimer,
-									sessionDistanceInMeters: sessionDistanceInMeters,
-									sessionAverageSpeed: sessionAverageSpeed,
-									distanceSpeedChart: distanceSpeedChartValues,
-									timeSpeedChart: timeSpeedChart,
-									date: Date()
-								),
-								at: 0
-							)
+							
+							self.finishedSesionVM.addFinishedSession(sessionTime: sessionTimer, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: distanceSpeedChartValues, timeSpeedChart: timeSpeedChart, date: Date.now)
 						}
 
 						Button("Non", role: .cancel) {

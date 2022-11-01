@@ -15,6 +15,6 @@ class FinishedSessionViewModel: ObservableObject {
 
 		let finishedSession = SessionModel(sessionTime: sessionTime, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: distanceSpeedChart, timeSpeedChart: timeSpeedChart, date: date)
 
-		self.fishishedSessions.append(finishedSession)
+		self.fishishedSessions.insert(finishedSession, at: 0)
 	}
 }
