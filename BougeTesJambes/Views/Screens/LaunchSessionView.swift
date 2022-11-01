@@ -28,13 +28,17 @@ struct LaunchSessionView: View {
 	@State private var calculBackgroundTimePassed = 0
 
 	@State private var animationAmount = 1.0
+
+	@Namespace private var nameSpace
 	var body: some View {
 		NavigationStack {
 			ZStack {
 				BackgroundLinearColor()
 				if willStartTrainingSession {
 					StartSessionButton(willStartTrainingSession: $willStartTrainingSession, animationAmount: $animationAmount)
-						.transition(AnyTransition.opacity.animation(.easeOut(duration: 1.5)))
+						.matchedGeometryEffect(id: "button", in: nameSpace, properties: .position)
+
+					.transition(AnyTransition.opacity.animation(.easeOut(duration: 1.5)))
 
 				} else {
 					StartedSessionView(
@@ -48,8 +52,16 @@ struct LaunchSessionView: View {
 						appInBackgroundSceneEpoch: $appInBackgroundSceneEpoch,
 						appGoBackInActiveSceneEpoch: $appGoBackInActiveSceneEpoch,
 						calculBackgroundTimePassed: $calculBackgroundTimePassed,
-						willStartTrainingSession: $willStartTrainingSession)
+						willStartTrainingSession: $willStartTrainingSession,
+						nameSpace: nameSpace
+					)
+
 					.transition(AnyTransition.opacity.animation(.easeIn(duration: 1.44)))
+				}
+			}
+			.onTapGesture {
+				withAnimation(.easeOut(duration: 1.3)) {
+					willStartTrainingSession = false
 				}
 			}
 			.navigationTitle("MASKO")
