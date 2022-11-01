@@ -20,13 +20,11 @@ struct FinishedSessionDetailView: View {
 				objectif: nil
 			)
 
-
 			FinishedSessionInformation(
 				objectifType: "Distance",
 				sessionInfo: "\(String(format: "%.2tf \(session.sessionDistanceInMeters > 1_000 ? "km" : "mètres")", session.sessionDistanceInMeters))",
 				objectif: nil
 			)
-
 
 			FinishedSessionInformation(
 				objectifType: "Vitesse",
@@ -74,5 +72,3 @@ struct FinishedSessionInformation: View {
 		}
 	}
 }
-
-

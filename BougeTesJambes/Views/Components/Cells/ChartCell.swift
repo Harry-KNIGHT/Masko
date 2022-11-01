@@ -24,7 +24,7 @@ struct ChartCell: View {
 						.foregroundStyle(Color.primary)
 					AxisTick(centered: true, stroke: StrokeStyle(lineWidth: 2))
 						.foregroundStyle(Color.red)
-					AxisValueLabel() {
+					AxisValueLabel {
 						if let intValue = value.as(Int.self) {
 							Text("\(intValue < 60 ? intValue : intValue / 60) \(intValue < 60 ? "sec" : "min")")
 								.font(.system(size: 10)) // style it
@@ -39,7 +39,7 @@ struct ChartCell: View {
 						.foregroundStyle(Color.primary)
 					AxisTick(centered: true, stroke: StrokeStyle(lineWidth: 2))
 						.foregroundStyle(Color.red)
-					AxisValueLabel() { // construct Text here
+					AxisValueLabel { // construct Text here
 						if let intValue = value.as(Int.self) {
 							Text("\(intValue)km/h")
 								.font(.system(size: 10)) // style it

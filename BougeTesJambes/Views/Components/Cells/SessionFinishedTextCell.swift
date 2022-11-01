@@ -22,7 +22,6 @@ struct SessionFinishedTextCell: View {
 	}
 }
 
-
 struct SessionFinishedTextCell_Previews: PreviewProvider {
 	static var previews: some View {
 		SessionFinishedTextCell(icon: "stopwatch", value: "00:34")

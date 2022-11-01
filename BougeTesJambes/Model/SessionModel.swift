@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SessionModel: Identifiable, Hashable {
 	var id = UUID()
-	
+
 	let sessionTime: Int
 	let sessionDistanceInMeters: Double
 	let sessionAverageSpeed: Double

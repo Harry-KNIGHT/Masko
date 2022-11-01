@@ -13,12 +13,9 @@ class CoreMotionViewModel: ObservableObject {
 	@Published var distance: Double?
 	private let pedometer: CMPedometer = CMPedometer()
 
-
-
 	var isPedometerAvailable: Bool {
 		return CMPedometer.isPedometerEventTrackingAvailable() && CMPedometer.isDistanceAvailable() && CMPedometer.isCadenceAvailable()
 	}
-
 
 	func updateUI(data: CMPedometerData) {
 		guard let pedometerDistance = data.distance else { return }
@@ -27,7 +24,7 @@ class CoreMotionViewModel: ObservableObject {
 			self.distance = pedometerDistance.doubleValue
 		}
 	}
-	
+
 	func initializePodometer() {
 		if isPedometerAvailable {
 			pedometer.startUpdates(from: Date()) { [self] (data, error) in

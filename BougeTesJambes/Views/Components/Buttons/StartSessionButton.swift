@@ -21,7 +21,7 @@ struct StartSessionButton: View {
 				willStartTrainingSession = false
 			} label: {
 				Image(systemName: "hare.fill")
-				 .font(.custom("",size: 100, relativeTo: .largeTitle))
+				 .font(.custom("", size: 100, relativeTo: .largeTitle))
 				 .foregroundColor(.white)
 				 .padding(50)
 				 .background(Color("buttonColor"))

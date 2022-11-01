@@ -21,7 +21,7 @@ extension TimeSpeedChart {
 		TimeSpeedChart(time: 0, averageSpeed: 0),
 		TimeSpeedChart(time: 10, averageSpeed: 3.0),
 		TimeSpeedChart(time: 40, averageSpeed: 3.4),
-		TimeSpeedChart(time: 60, averageSpeed: 	3.5),
+		TimeSpeedChart(time: 60, averageSpeed: 3.5),
 		TimeSpeedChart(time: 80, averageSpeed: 3.9),
 		TimeSpeedChart(time: 120, averageSpeed: 4.0)
 	]
