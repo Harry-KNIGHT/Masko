@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SessionRunningButton: View {
 	@Binding var isSessionPaused: Bool
-	var nameSpace: Namespace.ID
+
 	var body: some View {
 			Image(systemName: isSessionPaused ? "play.fill" : "pause.fill")
 				.font(.custom("", size: 60, relativeTo: .largeTitle))
@@ -18,12 +18,9 @@ struct SessionRunningButton: View {
 				.background(Color("buttonColor"))
 				.clipShape(Circle())
 				.shadow(color: .accentColor, radius: 10)
-				.matchedGeometryEffect(id: "button", in: nameSpace)
 
 				.onTapGesture {
-					withAnimation {
 						isSessionPaused = true
-					}
 				}
 
 		}
@@ -32,7 +29,6 @@ struct SessionRunningButton: View {
 struct SessionRunningButton_Previews: PreviewProvider {
 	@Namespace static var nameSpace
 	static var previews: some View {
-		SessionRunningButton(isSessionPaused: .constant(false), nameSpace: nameSpace)
-
+		SessionRunningButton(isSessionPaused: .constant(false))
 	}
 }

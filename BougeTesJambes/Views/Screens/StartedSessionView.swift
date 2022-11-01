@@ -71,13 +71,15 @@ struct StartedSessionView: View {
 				.padding(.horizontal)
 				Spacer()
 
-				SessionRunningButton(isSessionPaused: $isSessionPaused, nameSpace: nameSpace)
+				SessionRunningButton(isSessionPaused: $isSessionPaused)
+					.matchedGeometryEffect(id: "button", in: nameSpace, properties: .position)
+
 					.padding(.bottom, 30)
 					.alert("Arrêter la session ?", isPresented: $isSessionPaused) {
 						Button("Oui", role: .destructive) {
 
 							locationManager.showAndUseBackgroundActivity = false
-							withAnimation {
+							withAnimation(.easeOut(duration: 2.2)) {
 								willStartTrainingSession = true
 							}
 

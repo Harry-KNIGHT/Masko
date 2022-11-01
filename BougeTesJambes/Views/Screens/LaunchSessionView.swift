@@ -35,7 +35,8 @@ struct LaunchSessionView: View {
 			ZStack {
 				BackgroundLinearColor()
 				if willStartTrainingSession {
-					StartSessionButton(willStartTrainingSession: $willStartTrainingSession, animationAmount: $animationAmount, nameSpace: nameSpace)
+					StartSessionButton(willStartTrainingSession: $willStartTrainingSession, animationAmount: $animationAmount)
+						.matchedGeometryEffect(id: "button", in: nameSpace, properties: .position)
 
 					.transition(AnyTransition.opacity.animation(.easeOut(duration: 1.5)))
 
