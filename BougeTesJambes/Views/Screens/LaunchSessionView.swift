@@ -60,7 +60,7 @@ struct LaunchSessionView: View {
 				}
 			}
 			.onTapGesture {
-				withAnimation {
+				withAnimation(.easeOut(duration: 1.3)) {
 					willStartTrainingSession = false
 				}
 			}

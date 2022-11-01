@@ -79,7 +79,7 @@ struct StartedSessionView: View {
 						Button("Oui", role: .destructive) {
 
 							locationManager.showAndUseBackgroundActivity = false
-							withAnimation(.easeOut(duration: 2.2)) {
+							withAnimation(.easeOut(duration: 1.1)) {
 								willStartTrainingSession = true
 							}
 
