@@ -13,8 +13,7 @@ struct BackgroundLinearColor: View {
 			Color("topBackgroundColor"),
 			Color("secondTopBackgroundColor"),
 			Color("secondBottomBgColor"),
-			Color("bottomBackgroundColor"),
-
+			Color("bottomBackgroundColor")
 		], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
     }
 }

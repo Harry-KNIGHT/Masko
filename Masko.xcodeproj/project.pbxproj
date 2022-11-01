@@ -284,6 +284,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C9AEA4628FBF6360080415E /* Build configuration list for PBXNativeTarget "Masko" */;
 			buildPhases = (
+				3C394A202911120D00A6771C /* Swiftlint */,
 				3C9AEA1E28FBF6350080415E /* Sources */,
 				3C9AEA1F28FBF6350080415E /* Frameworks */,
 				3C9AEA2028FBF6350080415E /* Resources */,
@@ -375,6 +376,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C394A202911120D00A6771C /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3C9AEA1E28FBF6350080415E /* Sources */ = {
