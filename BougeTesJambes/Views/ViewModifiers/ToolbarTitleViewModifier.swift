@@ -16,7 +16,6 @@ struct ToolbarTitleStyle: ViewModifier {
 	}
 }
 
-
 extension View {
 	func toolbarTitleStyle() -> some View {
 		modifier(ToolbarTitleStyle())

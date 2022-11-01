@@ -17,13 +17,11 @@ struct StartSessionView: View {
 	@State private var ditanceObjectifInKm: Int = 5
 	@State private var averageSpeedObjectif: Int = 5
 
-
 	@State private var sessionTimer: Int = 0
 	@State private var sessionDistanceInKm: Int = 0
 	@State private var sessionAverageSpeed: Double = 1
 
 	@State private var showSheet: Bool = false
-
 
 	@StateObject var coreMotionManager = CoreMotionViewModel()
 	@EnvironmentObject var finishedSessionVM: FinishedSessionViewModel
@@ -69,9 +67,8 @@ struct StartSessionView: View {
 								.frame(height: 120)
 								.shadow(color: Color("actionInteractionColor").opacity(0.8), radius: 10)
 							sportChoosen.sportIcon
-								.font(.custom("",size: 60, relativeTo: .largeTitle))
+								.font(.custom("", size: 60, relativeTo: .largeTitle))
 								.foregroundColor(.white)
-
 
 						}
 						.padding(.bottom, 30)

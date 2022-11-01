@@ -35,17 +35,17 @@ struct LaunchSessionView: View {
 				if willStartTrainingSession {
 					StartSessionButton(willStartTrainingSession: $willStartTrainingSession, animationAmount: $animationAmount)
 						.transition(AnyTransition.opacity.animation(.easeOut(duration: 1.5)))
-					
+
 				} else {
 					StartedSessionView(
-						session: SessionModel(sessionTime: sessionTimer, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: nil, timeSpeedChart: nil, date: nil) ,
+						session: SessionModel(sessionTime: sessionTimer, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: nil, timeSpeedChart: nil, date: nil),
 						sessionTimer: $sessionTimer,
 						sessionDistanceInMeters: $sessionDistanceInMeters,
 						sessionAverageSpeed: $sessionAverageSpeed,
 						isSessionPaused: $isSessionPaused,
 						distanceSpeedChartValues: $distanceSpeedChartValues,
 						timeSpeedChart: $timeSpeedChart,
-						appInBackgroundSceneEpoch: $appInBackgroundSceneEpoch  ,
+						appInBackgroundSceneEpoch: $appInBackgroundSceneEpoch,
 						appGoBackInActiveSceneEpoch: $appGoBackInActiveSceneEpoch,
 						calculBackgroundTimePassed: $calculBackgroundTimePassed,
 						willStartTrainingSession: $willStartTrainingSession)
@@ -78,7 +78,7 @@ struct LaunchSessionView: View {
 			.navigationBarTitleDisplayMode(.inline)
 		}
 
-		.task  {
+		.task {
 			if let location = locationManager.userLocation {
 
 				await weatherVM.getWeather(
@@ -86,7 +86,6 @@ struct LaunchSessionView: View {
 					long: location.coordinate.longitude
 				)
 			}
-
 		}
 	}
 }

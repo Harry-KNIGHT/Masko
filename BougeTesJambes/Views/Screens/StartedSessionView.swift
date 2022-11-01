@@ -11,10 +11,9 @@ struct StartedSessionView: View {
 	let session: SessionModel
 	@EnvironmentObject var locationManager: LocationManager
 	@EnvironmentObject var motionManager: CoreMotionViewModel
-	
+
 	@EnvironmentObject public var finishedSesionVM: FinishedSessionViewModel
 	@EnvironmentObject public var convertTimeVM: ConvertTimeViewModel
-	
 
 	@ObservedObject public var playSongVM = PlaySongViewModel()
 
@@ -64,22 +63,21 @@ struct StartedSessionView: View {
 							objectif: "km/h",
 							sessionValue: "\( location.speed < 0 ? "0.00" : String(format: "%.2f", location.speed.turnMPerSecToKmPerH))"
 						)
-						
+
 					}
 				}
 				.padding(.horizontal)
 				Spacer()
 
 				SessionRunningButton(isSessionPaused: $isSessionPaused)
-				
+
 					.padding(.bottom, 30)
 					.alert("Arrêter la session ?", isPresented: $isSessionPaused) {
 						Button("Oui", role: .destructive) {
 
-
 							locationManager.showAndUseBackgroundActivity = false
 							willStartTrainingSession = true
-							
+
 							self.finishedSesionVM.addFinishedSession(sessionTime: sessionTimer, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: distanceSpeedChartValues, timeSpeedChart: timeSpeedChart, date: Date.now)
 						}
 
@@ -93,7 +91,7 @@ struct StartedSessionView: View {
 				motionManager.initializePodometer()
 				locationManager.showAndUseBackgroundActivity = true
 			}
-			.onChange(of: motionManager.distance, perform:  { distance in
+			.onChange(of: motionManager.distance, perform: { distance in
 				if let distance {
 					if distance > 0 {
 						sessionDistanceInMeters = distance
@@ -145,7 +143,6 @@ struct StartedSessionView: View {
 			}
 			.navigationBarBackButtonHidden(true)
 			.navigationBarTitleDisplayMode(.inline)
-			
 			.toolbarColorScheme((colorScheme == .dark ? .dark : .light), for: .navigationBar)
 
 			.toolbarBackground(Color("toolbarColor"), for: .navigationBar)

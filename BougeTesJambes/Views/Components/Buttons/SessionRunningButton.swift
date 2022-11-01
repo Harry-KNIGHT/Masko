@@ -21,7 +21,7 @@ struct SessionRunningButton: View {
 					.shadow(color: .accentColor, radius: 10)
 
 				Image(systemName: isSessionPaused ? "play.fill" : "pause.fill")
-					.font(.custom("",size: 60, relativeTo: .largeTitle))
+					.font(.custom("", size: 60, relativeTo: .largeTitle))
 					.foregroundColor(.white)
 			}
 		})

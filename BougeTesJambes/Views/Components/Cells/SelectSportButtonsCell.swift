@@ -19,7 +19,7 @@ struct SelectSportButtonsCell: View {
 						RoundedRectangle(cornerRadius: 10, style: .circular)
 							.frame(height: 50)
 							.foregroundColor(choice == sportChoosen ? Color("actionInteractionColor") : .gray)
-							.shadow(color: choice == sportChoosen ? Color("actionInteractionColor").opacity(5) : .white.opacity(0),  radius: 5)
+							.shadow(color: choice == sportChoosen ? Color("actionInteractionColor").opacity(5) : .white.opacity(0), radius: 5)
 						Text(choice.sportName)
 							.foregroundColor(.white)
 							.font(.title3.bold())

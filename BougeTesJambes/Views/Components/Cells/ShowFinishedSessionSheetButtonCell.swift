@@ -17,10 +17,10 @@ struct ShowFinishedSessionSheetButtonCell: View {
 			Label("Show finished session", systemImage: "trophy.fill")
 				.font(.title2)
 				.foregroundColor(.accentColor)
-			
+
 		})
 		.buttonStyle(.borderless)
-		
+
 		.sheet(isPresented: $showSheet) {
 			FinishedSessionListView()
 		}
