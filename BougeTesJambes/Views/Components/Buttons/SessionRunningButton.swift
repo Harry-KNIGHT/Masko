@@ -9,27 +9,30 @@ import SwiftUI
 
 struct SessionRunningButton: View {
 	@Binding var isSessionPaused: Bool
+	var nameSpace: Namespace.ID
 	var body: some View {
-		Button(action: {
-			isSessionPaused = true
-		}, label: {
-			ZStack(alignment: .center) {
-				Circle()
-					.foregroundColor(.accentColor)
+			Image(systemName: isSessionPaused ? "play.fill" : "pause.fill")
+				.font(.custom("", size: 60, relativeTo: .largeTitle))
+				.foregroundColor(.white)
+				.padding(30)
+				.background(Color("buttonColor"))
+				.clipShape(Circle())
+				.shadow(color: .accentColor, radius: 10)
+				.matchedGeometryEffect(id: "button", in: nameSpace)
 
-					.frame(height: 120)
-					.shadow(color: .accentColor, radius: 10)
+				.onTapGesture {
+					withAnimation {
+						isSessionPaused = true
+					}
+				}
 
-				Image(systemName: isSessionPaused ? "play.fill" : "pause.fill")
-					.font(.custom("", size: 60, relativeTo: .largeTitle))
-					.foregroundColor(.white)
-			}
-		})
-	}
+		}
 }
 
 struct SessionRunningButton_Previews: PreviewProvider {
+	@Namespace static var nameSpace
 	static var previews: some View {
-		SessionRunningButton(isSessionPaused: .constant(false))
+		SessionRunningButton(isSessionPaused: .constant(false), nameSpace: nameSpace)
+
 	}
 }

@@ -36,6 +36,8 @@ struct StartedSessionView: View {
 	@Binding var calculBackgroundTimePassed: Int
 
 	@Binding var willStartTrainingSession: Bool
+
+	var nameSpace: Namespace.ID
 	var body: some View {
 		ZStack {
 			BackgroundLinearColor()
@@ -69,14 +71,15 @@ struct StartedSessionView: View {
 				.padding(.horizontal)
 				Spacer()
 
-				SessionRunningButton(isSessionPaused: $isSessionPaused)
-
+				SessionRunningButton(isSessionPaused: $isSessionPaused, nameSpace: nameSpace)
 					.padding(.bottom, 30)
 					.alert("Arrêter la session ?", isPresented: $isSessionPaused) {
 						Button("Oui", role: .destructive) {
 
 							locationManager.showAndUseBackgroundActivity = false
-							willStartTrainingSession = true
+							withAnimation {
+								willStartTrainingSession = true
+							}
 
 							self.finishedSesionVM.addFinishedSession(sessionTime: sessionTimer, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: distanceSpeedChartValues, timeSpeedChart: timeSpeedChart, date: Date.now)
 						}
@@ -165,6 +168,7 @@ struct StartedSessionView: View {
 }
 
 struct StartedSessionView_Previews: PreviewProvider {
+	@Namespace static var nameSpace
 	static var previews: some View {
 		NavigationStack {
 			StartedSessionView(
@@ -178,7 +182,8 @@ struct StartedSessionView_Previews: PreviewProvider {
 				appInBackgroundSceneEpoch: .constant(0),
 				appGoBackInActiveSceneEpoch: .constant(0),
 				calculBackgroundTimePassed: .constant(0),
-				willStartTrainingSession: .constant(false)
+				willStartTrainingSession: .constant(false),
+				nameSpace: nameSpace
 			)
 			.environmentObject(FinishedSessionViewModel())
 			.environmentObject(ConvertTimeViewModel())
