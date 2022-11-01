@@ -130,7 +130,7 @@ struct StartedSessionView: View {
 			.onChange(of: locationManager.userLocation, perform: {  location in
 				if let location {
 					if location.speed > 0 {
-						sessionAverageSpeed = location.speed
+						finishedSesionVM.speedSessionValues.append(location.speed.turnMPerSecToKmPerH)
 					}
 					self.timeSpeedChart.append(TimeSpeedChart(time: sessionTimer, averageSpeed: location.speed.turnMPerSecToKmPerH))
 				}
