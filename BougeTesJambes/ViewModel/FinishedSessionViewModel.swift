@@ -13,13 +13,13 @@ class FinishedSessionViewModel: ObservableObject {
 
 	func addFinishedSession(sessionTime: Int, sessionDistanceInMeters: Double, sessionAverageSpeed: Double, distanceSpeedChart: [DistanceSpeedChart], timeSpeedChart: [TimeSpeedChart], date: Date) {
 
-		let finishedSession = SessionModel(sessionTime: sessionTime, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: averageSpeedFun, distanceSpeedChart: distanceSpeedChart, timeSpeedChart: timeSpeedChart, date: date)
+		let finishedSession = SessionModel(sessionTime: sessionTime, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: averageSpeed, distanceSpeedChart: distanceSpeedChart, timeSpeedChart: timeSpeedChart, date: date)
 
 		self.fishishedSessions.insert(finishedSession, at: 0)
 		speedSessionValues.removeAll()
 	}
 
-	var averageSpeedFun: Double {
+	var averageSpeed: Double {
 		let sum = speedSessionValues.reduce(0, +)
 		return sum / Double(speedSessionValues.count)
 
