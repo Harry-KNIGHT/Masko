@@ -10,7 +10,7 @@ import SwiftUI
 struct StartSessionButton: View {
 	@Binding var willStartTrainingSession: Bool
 	@Binding var animationAmount: Double
-
+	var nameSpace: Namespace.ID
 	var body: some View {
 		VStack {
 			Text("Appuie et fonce !")
@@ -31,6 +31,7 @@ struct StartSessionButton: View {
 					.easeInOut(duration: 1.0)
 					.repeatForever(autoreverses: true),
 					value: animationAmount)
+				.matchedGeometryEffect(id: "button", in: nameSpace, properties: .position)
 		}
 		.onAppear {
 			animationAmount = 1.035
@@ -42,7 +43,8 @@ struct StartSessionButton: View {
 }
 
 struct StartSessionButton_Previews: PreviewProvider {
+	@Namespace static var nameSpace
 	static var previews: some View {
-		StartSessionButton(willStartTrainingSession: .constant(false), animationAmount: .constant(1))
+		StartSessionButton(willStartTrainingSession: .constant(false), animationAmount: .constant(1), nameSpace: nameSpace)
 	}
 }

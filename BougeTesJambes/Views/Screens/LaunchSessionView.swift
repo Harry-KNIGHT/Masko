@@ -35,10 +35,9 @@ struct LaunchSessionView: View {
 			ZStack {
 				BackgroundLinearColor()
 				if willStartTrainingSession {
-					StartSessionButton(willStartTrainingSession: $willStartTrainingSession, animationAmount: $animationAmount)
-						.matchedGeometryEffect(id: "button", in: nameSpace, properties: .position)
+					StartSessionButton(willStartTrainingSession: $willStartTrainingSession, animationAmount: $animationAmount, nameSpace: nameSpace)
 
-					.transition(AnyTransition.opacity.animation(.easeOut(duration: 1.5)))
+					 .transition(AnyTransition.opacity.animation(.easeOut(duration: 1)))
 
 				} else {
 					StartedSessionView(
@@ -56,11 +55,11 @@ struct LaunchSessionView: View {
 						nameSpace: nameSpace
 					)
 
-					.transition(AnyTransition.opacity.animation(.easeIn(duration: 1.44)))
+					.transition(AnyTransition.opacity.animation(.easeIn(duration: 1)))
 				}
 			}
 			.onTapGesture {
-				withAnimation(.easeOut(duration: 1.3)) {
+				withAnimation(.interpolatingSpring(stiffness: 20, damping: 5)) {
 					willStartTrainingSession = false
 				}
 			}
