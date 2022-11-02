@@ -7,7 +7,9 @@
 
 import SwiftUI
 import WeatherKit
+import ActivityKit
 
+@available(iOS 16.1, *)
 struct LaunchSessionView: View {
 	@EnvironmentObject var locationManager: LocationManager
 	@EnvironmentObject var weatherVM: WeatherViewModel
@@ -30,6 +32,8 @@ struct LaunchSessionView: View {
 	@State private var animationAmount = 1.0
 
 	@Namespace private var nameSpace
+	@State private var activity: Activity<SessionAtributes>?
+
 	var body: some View {
 		NavigationStack {
 			ZStack {
@@ -40,27 +44,37 @@ struct LaunchSessionView: View {
 					 .transition(AnyTransition.opacity.animation(.easeOut(duration: 1)))
 
 				} else {
-					StartedSessionView(
-						session: SessionModel(sessionTime: sessionTimer, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: nil, timeSpeedChart: nil, date: nil),
-						sessionTimer: $sessionTimer,
-						sessionDistanceInMeters: $sessionDistanceInMeters,
-						sessionAverageSpeed: $sessionAverageSpeed,
-						isSessionPaused: $isSessionPaused,
-						distanceSpeedChartValues: $distanceSpeedChartValues,
-						timeSpeedChart: $timeSpeedChart,
-						appInBackgroundSceneEpoch: $appInBackgroundSceneEpoch,
-						appGoBackInActiveSceneEpoch: $appGoBackInActiveSceneEpoch,
-						calculBackgroundTimePassed: $calculBackgroundTimePassed,
-						willStartTrainingSession: $willStartTrainingSession,
-						nameSpace: nameSpace
-					)
+					if #available(iOS 16.1, *) {
+						StartedSessionView(
+							session: SessionModel(sessionTime: sessionTimer, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: nil, timeSpeedChart: nil, date: nil),
+							sessionTimer: $sessionTimer,
+							sessionDistanceInMeters: $sessionDistanceInMeters,
+							sessionAverageSpeed: $sessionAverageSpeed,
+							isSessionPaused: $isSessionPaused,
+							distanceSpeedChartValues: $distanceSpeedChartValues,
+							timeSpeedChart: $timeSpeedChart,
+							appInBackgroundSceneEpoch: $appInBackgroundSceneEpoch,
+							appGoBackInActiveSceneEpoch: $appGoBackInActiveSceneEpoch,
+							calculBackgroundTimePassed: $calculBackgroundTimePassed,
+							willStartTrainingSession: $willStartTrainingSession,
+							nameSpace: nameSpace
+						)
 
-					.transition(AnyTransition.opacity.animation(.easeIn(duration: 1)))
+						.transition(AnyTransition.opacity.animation(.easeIn(duration: 1)))
+					} else {
+						// Fallback on earlier versions
+					}
 				}
 			}
 			.onTapGesture {
 				withAnimation(.interpolatingSpring(stiffness: 20, damping: 5)) {
 					willStartTrainingSession = false
+
+					// Start Live Activities
+					let attribute = SessionAtributes()
+					let state = SessionAtributes.ContentState(timer: sessionTimer, speed: sessionAverageSpeed, distance: sessionDistanceInMeters)
+
+					activity = try? Activity<SessionAtributes>.request(attributes: attribute, contentState: state, pushType: nil)
 				}
 			}
 			.navigationTitle("MASKO")
@@ -103,10 +117,14 @@ struct LaunchSessionView: View {
 
 struct LaunchSessionView_Previews: PreviewProvider {
 	static var previews: some View {
-		LaunchSessionView()
-			.environmentObject(WeatherViewModel())
-			.environmentObject(FinishedSessionViewModel())
-			.environmentObject(LocationManager())
+		if #available(iOS 16.1, *) {
+			LaunchSessionView()
+				.environmentObject(WeatherViewModel())
+				.environmentObject(FinishedSessionViewModel())
+				.environmentObject(LocationManager())
+		} else {
+			// Fallback on earlier versions
+		}
 
 	}
 }
