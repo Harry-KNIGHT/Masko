@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
+import ActivityKit
 
+@available(iOS 16.1, *)
 struct StartedSessionView: View {
 	let session: SessionModel
 	@EnvironmentObject var locationManager: LocationManager
@@ -38,6 +40,9 @@ struct StartedSessionView: View {
 	@Binding var willStartTrainingSession: Bool
 
 	var nameSpace: Namespace.ID
+
+	@State private var activity: Activity<SessionAtributes>?
+	@Binding var dateTimer: Date?
 	var body: some View {
 		ZStack {
 			BackgroundLinearColor()
@@ -84,6 +89,15 @@ struct StartedSessionView: View {
 							}
 
 							self.finishedSesionVM.addFinishedSession(sessionTime: sessionTimer, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: distanceSpeedChartValues, timeSpeedChart: timeSpeedChart, date: Date.now)
+
+							// Stop Live activities
+							guard let dateTimer else { return }
+							let state = SessionAtributes.ContentState(dateTimer: dateTimer)
+
+							Task {
+								await activity?.end(using: state, dismissalPolicy: .immediate)
+							}
+							self.dateTimer = nil
 						}
 
 						Button("Non", role: .cancel) {
@@ -95,6 +109,14 @@ struct StartedSessionView: View {
 			.onAppear {
 				motionManager.initializePodometer()
 				locationManager.showAndUseBackgroundActivity = true
+
+				// Start Live Activities
+				dateTimer = .now
+				guard dateTimer != nil else { return }
+				let attribute = SessionAtributes()
+				let state = SessionAtributes.ContentState(dateTimer: .now)
+
+				activity = try? Activity<SessionAtributes>.request(attributes: attribute, contentState: state, pushType: nil)
 			}
 			.onChange(of: motionManager.distance, perform: { distance in
 				if let distance {
@@ -120,6 +142,7 @@ struct StartedSessionView: View {
 				appInBackgroundSceneEpoch = 0
 				appGoBackInActiveSceneEpoch = 0
 				calculBackgroundTimePassed = 0
+				dateTimer = nil
 			}
 			.onAppear {
 				if locationManager.userLocation == nil {
@@ -173,26 +196,31 @@ struct StartedSessionView_Previews: PreviewProvider {
 	@Namespace static var nameSpace
 	static var previews: some View {
 		NavigationStack {
-			StartedSessionView(
-				session: .sample,
-				sessionTimer: .constant(0),
-				sessionDistanceInMeters: .constant(453),
-				sessionAverageSpeed: .constant(3.45),
-				isSessionPaused: .constant(false),
-				distanceSpeedChartValues: .constant(DistanceSpeedChart.distanceSpeedArraySample),
-				timeSpeedChart: .constant(TimeSpeedChart.timeSpeedArraySample),
-				appInBackgroundSceneEpoch: .constant(0),
-				appGoBackInActiveSceneEpoch: .constant(0),
-				calculBackgroundTimePassed: .constant(0),
-				willStartTrainingSession: .constant(false),
-				nameSpace: nameSpace
-			)
-			.environmentObject(FinishedSessionViewModel())
-			.environmentObject(ConvertTimeViewModel())
-			.environmentObject(PlaySongViewModel())
-			.environmentObject(CoreMotionViewModel())
-			.environmentObject(LocationManager())
-			.environmentObject(WeatherViewModel())
+			if #available(iOS 16.1, *) {
+				StartedSessionView(
+					session: .sample,
+					sessionTimer: .constant(0),
+					sessionDistanceInMeters: .constant(453),
+					sessionAverageSpeed: .constant(3.45),
+					isSessionPaused: .constant(false),
+					distanceSpeedChartValues: .constant(DistanceSpeedChart.distanceSpeedArraySample),
+					timeSpeedChart: .constant(TimeSpeedChart.timeSpeedArraySample),
+					appInBackgroundSceneEpoch: .constant(0),
+					appGoBackInActiveSceneEpoch: .constant(0),
+					calculBackgroundTimePassed: .constant(0),
+					willStartTrainingSession: .constant(false),
+					nameSpace: nameSpace,
+					dateTimer: .constant(.now)
+				)
+				.environmentObject(FinishedSessionViewModel())
+				.environmentObject(ConvertTimeViewModel())
+				.environmentObject(PlaySongViewModel())
+				.environmentObject(CoreMotionViewModel())
+				.environmentObject(LocationManager())
+				.environmentObject(WeatherViewModel())
+			} else {
+				// Fallback on earlier versions
+			}
 		}
 	}
 }

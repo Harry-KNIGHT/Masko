@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import ActivityKit
 
 class SessionTimer: ObservableObject {
 	let currentTimePublisher = Timer.TimerPublisher(interval: 1.0, runLoop: .main, mode: .default)
@@ -18,5 +19,13 @@ class SessionTimer: ObservableObject {
 
 	deinit {
 		self.cancellable?.cancel()
+	}
+}
+
+struct SessionAtributes: ActivityAttributes {
+	public typealias SessionStatus = ContentState
+
+	public struct ContentState: Codable, Hashable {
+		var dateTimer: Date
 	}
 }
