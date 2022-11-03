@@ -17,17 +17,13 @@ struct BougeTesJambesApp: App {
 	@StateObject var motionManager = CoreMotionViewModel()
     var body: some Scene {
         WindowGroup {
-			if #available(iOS 16.1, *) {
-				LaunchSessionView()
-					.environmentObject(finishedSessionVM)
-					.environmentObject(convertTimeVM)
-					.environmentObject(playSongVM)
-					.environmentObject(weatherVM)
-					.environmentObject(locationManager)
-					.environmentObject(motionManager)
-			} else {
-				// Fallback on earlier versions
-			}
+			LaunchSessionView()
+				.environmentObject(finishedSessionVM)
+				.environmentObject(convertTimeVM)
+				.environmentObject(playSongVM)
+				.environmentObject(weatherVM)
+				.environmentObject(locationManager)
+				.environmentObject(motionManager)
         }
     }
 }
