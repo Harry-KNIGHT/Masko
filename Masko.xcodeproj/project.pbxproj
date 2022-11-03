@@ -37,7 +37,14 @@
 		3CAB873C28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAB873B28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift */; };
 		3CC3D5B129029C9F006DC14A /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC3D5B029029C9F006DC14A /* WeatherViewModel.swift */; };
 		3CC54E5B291265E10013E75F /* FinishedSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC54E5A291265E10013E75F /* FinishedSessionTests.swift */; };
-		3CE7F21F2912DBED00B0ED83 /* SessionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C276BC829068CC100E633F0 /* SessionTimer.swift */; };
+		3CE7F2272912DD1D00B0ED83 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE7F2262912DD1D00B0ED83 /* WidgetKit.framework */; };
+		3CE7F2292912DD1D00B0ED83 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE7F2282912DD1D00B0ED83 /* SwiftUI.framework */; };
+		3CE7F22C2912DD1D00B0ED83 /* MaskoLiveActivityWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7F22B2912DD1D00B0ED83 /* MaskoLiveActivityWidgetBundle.swift */; };
+		3CE7F22E2912DD1D00B0ED83 /* MaskoLiveActivityWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7F22D2912DD1D00B0ED83 /* MaskoLiveActivityWidgetLiveActivity.swift */; };
+		3CE7F2302912DD1D00B0ED83 /* MaskoLiveActivityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7F22F2912DD1D00B0ED83 /* MaskoLiveActivityWidget.swift */; };
+		3CE7F2322912DD1E00B0ED83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CE7F2312912DD1E00B0ED83 /* Assets.xcassets */; };
+		3CE7F2362912DD1E00B0ED83 /* MaskoLiveActivityWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3CE7F2242912DD1D00B0ED83 /* MaskoLiveActivityWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3CE7F23B2912DD4E00B0ED83 /* SessionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C276BC829068CC100E633F0 /* SessionTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +55,28 @@
 			remoteGlobalIDString = 3C9AEA2128FBF6350080415E;
 			remoteInfo = BougeTesJambes;
 		};
+		3CE7F2342912DD1E00B0ED83 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3C9AEA1A28FBF6350080415E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3CE7F2232912DD1D00B0ED83;
+			remoteInfo = MaskoLiveActivityWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3CE7F2372912DD1E00B0ED83 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3CE7F2362912DD1E00B0ED83 /* MaskoLiveActivityWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3C196FBE2903DE7900431ED5 /* SessionFinishedTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionFinishedTextCell.swift; sourceTree = "<group>"; };
@@ -85,6 +113,14 @@
 		3CC3D5AF29029BF8006DC14A /* Masko.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Masko.entitlements; sourceTree = "<group>"; };
 		3CC3D5B029029C9F006DC14A /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		3CC54E5A291265E10013E75F /* FinishedSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedSessionTests.swift; sourceTree = "<group>"; };
+		3CE7F2242912DD1D00B0ED83 /* MaskoLiveActivityWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MaskoLiveActivityWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CE7F2262912DD1D00B0ED83 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		3CE7F2282912DD1D00B0ED83 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		3CE7F22B2912DD1D00B0ED83 /* MaskoLiveActivityWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskoLiveActivityWidgetBundle.swift; sourceTree = "<group>"; };
+		3CE7F22D2912DD1D00B0ED83 /* MaskoLiveActivityWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskoLiveActivityWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		3CE7F22F2912DD1D00B0ED83 /* MaskoLiveActivityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskoLiveActivityWidget.swift; sourceTree = "<group>"; };
+		3CE7F2312912DD1E00B0ED83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3CE7F2332912DD1E00B0ED83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +135,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CE7F2212912DD1D00B0ED83 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CE7F2292912DD1D00B0ED83 /* SwiftUI.framework in Frameworks */,
+				3CE7F2272912DD1D00B0ED83 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +191,8 @@
 				3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */,
 				3C9AEA2428FBF6350080415E /* BougeTesJambes */,
 				3C9AEA3528FBF6360080415E /* MaskoTests */,
+				3CE7F22A2912DD1D00B0ED83 /* MaskoLiveActivityWidget */,
+				3CE7F2252912DD1D00B0ED83 /* Frameworks */,
 				3C9AEA2328FBF6350080415E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -155,6 +202,7 @@
 			children = (
 				3C9AEA2228FBF6350080415E /* Masko.app */,
 				3C9AEA3228FBF6360080415E /* MaskoTests.xctest */,
+				3CE7F2242912DD1D00B0ED83 /* MaskoLiveActivityWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -281,6 +329,27 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		3CE7F2252912DD1D00B0ED83 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3CE7F2262912DD1D00B0ED83 /* WidgetKit.framework */,
+				3CE7F2282912DD1D00B0ED83 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3CE7F22A2912DD1D00B0ED83 /* MaskoLiveActivityWidget */ = {
+			isa = PBXGroup;
+			children = (
+				3CE7F22B2912DD1D00B0ED83 /* MaskoLiveActivityWidgetBundle.swift */,
+				3CE7F22D2912DD1D00B0ED83 /* MaskoLiveActivityWidgetLiveActivity.swift */,
+				3CE7F22F2912DD1D00B0ED83 /* MaskoLiveActivityWidget.swift */,
+				3CE7F2312912DD1E00B0ED83 /* Assets.xcassets */,
+				3CE7F2332912DD1E00B0ED83 /* Info.plist */,
+			);
+			path = MaskoLiveActivityWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -292,10 +361,12 @@
 				3C9AEA1E28FBF6350080415E /* Sources */,
 				3C9AEA1F28FBF6350080415E /* Frameworks */,
 				3C9AEA2028FBF6350080415E /* Resources */,
+				3CE7F2372912DD1E00B0ED83 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3CE7F2352912DD1E00B0ED83 /* PBXTargetDependency */,
 			);
 			name = Masko;
 			productName = BougeTesJambes;
@@ -320,6 +391,23 @@
 			productReference = 3C9AEA3228FBF6360080415E /* MaskoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		3CE7F2232912DD1D00B0ED83 /* MaskoLiveActivityWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CE7F23A2912DD1E00B0ED83 /* Build configuration list for PBXNativeTarget "MaskoLiveActivityWidgetExtension" */;
+			buildPhases = (
+				3CE7F2202912DD1D00B0ED83 /* Sources */,
+				3CE7F2212912DD1D00B0ED83 /* Frameworks */,
+				3CE7F2222912DD1D00B0ED83 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MaskoLiveActivityWidgetExtension;
+			productName = MaskoLiveActivityWidgetExtension;
+			productReference = 3CE7F2242912DD1D00B0ED83 /* MaskoLiveActivityWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -327,7 +415,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					3C9AEA2128FBF6350080415E = {
@@ -336,6 +424,9 @@
 					3C9AEA3128FBF6360080415E = {
 						CreatedOnToolsVersion = 14.0.1;
 						TestTargetID = 3C9AEA2128FBF6350080415E;
+					};
+					3CE7F2232912DD1D00B0ED83 = {
+						CreatedOnToolsVersion = 14.1;
 					};
 				};
 			};
@@ -354,6 +445,7 @@
 			targets = (
 				3C9AEA2128FBF6350080415E /* Masko */,
 				3C9AEA3128FBF6360080415E /* MaskoTests */,
+				3CE7F2232912DD1D00B0ED83 /* MaskoLiveActivityWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -376,6 +468,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CE7F2222912DD1D00B0ED83 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CE7F2322912DD1E00B0ED83 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,8 +538,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CC54E5B291265E10013E75F /* FinishedSessionTests.swift in Sources */,
-				3CE7F21F2912DBED00B0ED83 /* SessionTimer.swift in Sources */,
 				3C9AEA5E28FC20430080415E /* ConvertTimeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CE7F2202912DD1D00B0ED83 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CE7F22C2912DD1D00B0ED83 /* MaskoLiveActivityWidgetBundle.swift in Sources */,
+				3CE7F2302912DD1D00B0ED83 /* MaskoLiveActivityWidget.swift in Sources */,
+				3CE7F23B2912DD4E00B0ED83 /* SessionTimer.swift in Sources */,
+				3CE7F22E2912DD1D00B0ED83 /* MaskoLiveActivityWidgetLiveActivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +560,11 @@
 			isa = PBXTargetDependency;
 			target = 3C9AEA2128FBF6350080415E /* Masko */;
 			targetProxy = 3C9AEA3328FBF6360080415E /* PBXContainerItemProxy */;
+		};
+		3CE7F2352912DD1E00B0ED83 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3CE7F2232912DD1D00B0ED83 /* MaskoLiveActivityWidgetExtension */;
+			targetProxy = 3CE7F2342912DD1E00B0ED83 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -571,6 +686,7 @@
 		3C9AEA4728FBF6360080415E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Masko.entitlements;
@@ -610,6 +726,7 @@
 		3C9AEA4828FBF6360080415E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Masko.entitlements;
@@ -692,6 +809,62 @@
 			};
 			name = Release;
 		};
+		3CE7F2382912DD1E00B0ED83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 99M75C322U;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MaskoLiveActivityWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MaskoLiveActivityWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.elliot.knight.BougeTesJambes.MaskoLiveActivityWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3CE7F2392912DD1E00B0ED83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 99M75C322U;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MaskoLiveActivityWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MaskoLiveActivityWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.elliot.knight.BougeTesJambes.MaskoLiveActivityWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -718,6 +891,15 @@
 			buildConfigurations = (
 				3C9AEA4A28FBF6360080415E /* Debug */,
 				3C9AEA4B28FBF6360080415E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3CE7F23A2912DD1E00B0ED83 /* Build configuration list for PBXNativeTarget "MaskoLiveActivityWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CE7F2382912DD1E00B0ED83 /* Debug */,
+				3CE7F2392912DD1E00B0ED83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

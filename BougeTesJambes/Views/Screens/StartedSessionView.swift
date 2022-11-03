@@ -42,7 +42,7 @@ struct StartedSessionView: View {
 	var nameSpace: Namespace.ID
 
 	@State private var activity: Activity<SessionAtributes>?
-
+	@Binding var dateTimer: Date?
 	var body: some View {
 		ZStack {
 			BackgroundLinearColor()
@@ -91,12 +91,13 @@ struct StartedSessionView: View {
 							self.finishedSesionVM.addFinishedSession(sessionTime: sessionTimer, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: distanceSpeedChartValues, timeSpeedChart: timeSpeedChart, date: Date.now)
 
 							// Stop Live activities
-							let state = SessionAtributes.ContentState(timer: sessionTimer, speed: sessionAverageSpeed, distance: sessionDistanceInMeters)
+							guard let dateTimer else { return }
+							let state = SessionAtributes.ContentState(dateTimer: dateTimer)
 
 							Task {
 								await activity?.end(using: state, dismissalPolicy: .immediate)
 							}
-
+							self.dateTimer = nil
 						}
 
 						Button("Non", role: .cancel) {
@@ -133,6 +134,7 @@ struct StartedSessionView: View {
 				appInBackgroundSceneEpoch = 0
 				appGoBackInActiveSceneEpoch = 0
 				calculBackgroundTimePassed = 0
+				dateTimer = nil
 			}
 			.onAppear {
 				if locationManager.userLocation == nil {
@@ -199,7 +201,8 @@ struct StartedSessionView_Previews: PreviewProvider {
 					appGoBackInActiveSceneEpoch: .constant(0),
 					calculBackgroundTimePassed: .constant(0),
 					willStartTrainingSession: .constant(false),
-					nameSpace: nameSpace
+					nameSpace: nameSpace,
+					dateTimer: .constant(.now)
 				)
 				.environmentObject(FinishedSessionViewModel())
 				.environmentObject(ConvertTimeViewModel())

@@ -26,8 +26,6 @@ struct SessionAtributes: ActivityAttributes {
 	public typealias SessionStatus = ContentState
 
 	public struct ContentState: Codable, Hashable {
-		var timer: Int
-		var speed: Double
-		var distance: Double
+		var dateTimer: Date
 	}
 }

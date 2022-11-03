@@ -33,7 +33,7 @@ struct LaunchSessionView: View {
 
 	@Namespace private var nameSpace
 	@State private var activity: Activity<SessionAtributes>?
-
+	@State private var dateTimer: Date? = nil
 	var body: some View {
 		NavigationStack {
 			ZStack {
@@ -44,7 +44,7 @@ struct LaunchSessionView: View {
 					 .transition(AnyTransition.opacity.animation(.easeOut(duration: 1)))
 
 				} else {
-					if #available(iOS 16.1, *) {
+
 						StartedSessionView(
 							session: SessionModel(sessionTime: sessionTimer, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: nil, timeSpeedChart: nil, date: nil),
 							sessionTimer: $sessionTimer,
@@ -57,22 +57,21 @@ struct LaunchSessionView: View {
 							appGoBackInActiveSceneEpoch: $appGoBackInActiveSceneEpoch,
 							calculBackgroundTimePassed: $calculBackgroundTimePassed,
 							willStartTrainingSession: $willStartTrainingSession,
-							nameSpace: nameSpace
+							nameSpace: nameSpace,
+							dateTimer: $dateTimer
 						)
-
 						.transition(AnyTransition.opacity.animation(.easeIn(duration: 1)))
-					} else {
-						// Fallback on earlier versions
-					}
 				}
 			}
 			.onTapGesture {
 				withAnimation(.interpolatingSpring(stiffness: 20, damping: 5)) {
+					dateTimer = .now
 					willStartTrainingSession = false
 
 					// Start Live Activities
+					guard let dateTimer else { return }
 					let attribute = SessionAtributes()
-					let state = SessionAtributes.ContentState(timer: sessionTimer, speed: sessionAverageSpeed, distance: sessionDistanceInMeters)
+					let state = SessionAtributes.ContentState(dateTimer: .now)
 
 					activity = try? Activity<SessionAtributes>.request(attributes: attribute, contentState: state, pushType: nil)
 				}
