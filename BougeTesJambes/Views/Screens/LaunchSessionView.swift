@@ -65,15 +65,7 @@ struct LaunchSessionView: View {
 			}
 			.onTapGesture {
 				withAnimation(.interpolatingSpring(stiffness: 20, damping: 5)) {
-					dateTimer = .now
 					willStartTrainingSession = false
-
-					// Start Live Activities
-					guard let dateTimer else { return }
-					let attribute = SessionAtributes()
-					let state = SessionAtributes.ContentState(dateTimer: .now)
-
-					activity = try? Activity<SessionAtributes>.request(attributes: attribute, contentState: state, pushType: nil)
 				}
 			}
 			.navigationTitle("MASKO")

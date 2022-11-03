@@ -109,6 +109,14 @@ struct StartedSessionView: View {
 			.onAppear {
 				motionManager.initializePodometer()
 				locationManager.showAndUseBackgroundActivity = true
+
+				// Start Live Activities
+				dateTimer = .now
+				guard dateTimer != nil else { return }
+				let attribute = SessionAtributes()
+				let state = SessionAtributes.ContentState(dateTimer: .now)
+
+				activity = try? Activity<SessionAtributes>.request(attributes: attribute, contentState: state, pushType: nil)
 			}
 			.onChange(of: motionManager.distance, perform: { distance in
 				if let distance {
