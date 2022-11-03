@@ -33,7 +33,7 @@ struct LaunchSessionView: View {
 
 	@Namespace private var nameSpace
 	@State private var activity: Activity<SessionAtributes>?
-	@State private var dateTimer: Date? = nil
+	@State private var dateTimer: Date?
 	var body: some View {
 		NavigationStack {
 			ZStack {
