@@ -40,7 +40,7 @@ struct StartedSessionView: View {
 
 	var nameSpace: Namespace.ID
 
-	@State private var activity: Activity<SessionAtributes>?
+	@State private var activity: Activity<SessionActivityAttributes>?
 	@Binding var dateTimer: Date?
 	var body: some View {
 		ZStack {
@@ -91,7 +91,7 @@ struct StartedSessionView: View {
 
 							// Stop Live activities
 							guard let dateTimer else { return }
-							let state = SessionAtributes.ContentState(dateTimer: dateTimer)
+							let state = SessionActivityAttributes.ContentState(dateTimer: dateTimer)
 
 							Task {
 								await activity?.end(using: state, dismissalPolicy: .immediate)
@@ -112,10 +112,10 @@ struct StartedSessionView: View {
 				// Start Live Activities
 				dateTimer = .now
 				guard dateTimer != nil else { return }
-				let attribute = SessionAtributes()
-				let state = SessionAtributes.ContentState(dateTimer: .now)
+				let attribute = SessionActivityAttributes()
+				let state = SessionActivityAttributes.ContentState(dateTimer: .now)
 
-				activity = try? Activity<SessionAtributes>.request(attributes: attribute, contentState: state, pushType: nil)
+				activity = try? Activity<SessionActivityAttributes>.request(attributes: attribute, contentState: state, pushType: nil)
 			}
 			.onChange(of: motionManager.distance, perform: { distance in
 				if let distance {

@@ -31,7 +31,7 @@ struct LaunchSessionView: View {
 	@State private var animationAmount = 1.0
 
 	@Namespace private var nameSpace
-	@State private var activity: Activity<SessionAtributes>?
+	@State private var activity: Activity<SessionActivityAttributes>?
 	@State private var dateTimer: Date?
 	var body: some View {
 		NavigationStack {

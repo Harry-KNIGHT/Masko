@@ -33,6 +33,8 @@
 		3C9AEA6A28FC25310080415E /* mixkit-horror.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3C9AEA6628FC25310080415E /* mixkit-horror.wav */; };
 		3C9AEA6B28FC25310080415E /* mixkit-arcade.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3C9AEA6728FC25310080415E /* mixkit-arcade.wav */; };
 		3C9AEA7228FC2FE90080415E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA7128FC2FE90080415E /* LocationManager.swift */; };
+		3CA5FFEA291425B200A789CF /* SessionActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA5FFE9291425B200A789CF /* SessionActivityAttributes.swift */; };
+		3CA5FFEB291425C500A789CF /* SessionActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA5FFE9291425B200A789CF /* SessionActivityAttributes.swift */; };
 		3CAB873A28FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAB873928FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift */; };
 		3CAB873C28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAB873B28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift */; };
 		3CC3D5B129029C9F006DC14A /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC3D5B029029C9F006DC14A /* WeatherViewModel.swift */; };
@@ -44,7 +46,6 @@
 		3CE7F2302912DD1D00B0ED83 /* MaskoLiveActivityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7F22F2912DD1D00B0ED83 /* MaskoLiveActivityWidget.swift */; };
 		3CE7F2322912DD1E00B0ED83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CE7F2312912DD1E00B0ED83 /* Assets.xcassets */; };
 		3CE7F2362912DD1E00B0ED83 /* MaskoLiveActivityWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3CE7F2242912DD1D00B0ED83 /* MaskoLiveActivityWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		3CE7F23B2912DD4E00B0ED83 /* SessionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C276BC829068CC100E633F0 /* SessionTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		3C9AEA6628FC25310080415E /* mixkit-horror.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "mixkit-horror.wav"; sourceTree = "<group>"; };
 		3C9AEA6728FC25310080415E /* mixkit-arcade.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "mixkit-arcade.wav"; sourceTree = "<group>"; };
 		3C9AEA7128FC2FE90080415E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		3CA5FFE9291425B200A789CF /* SessionActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionActivityAttributes.swift; sourceTree = "<group>"; };
 		3CAB873928FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFinishedSessionSheetButtonCell.swift; sourceTree = "<group>"; };
 		3CAB873B28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarTitleViewModifier.swift; sourceTree = "<group>"; };
 		3CC3D5AF29029BF8006DC14A /* Masko.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Masko.entitlements; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			children = (
 				3C9AEA5428FC063A0080415E /* FinishedSessionViewModel.swift */,
 				3C276BC829068CC100E633F0 /* SessionTimer.swift */,
+				3CA5FFE9291425B200A789CF /* SessionActivityAttributes.swift */,
 				3C9AEA5B28FC1E230080415E /* ConvertTimeViewModel.swift */,
 				3C9AEA6128FC24DA0080415E /* PlaySongViewModel.swift */,
 				3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */,
@@ -509,6 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CC3D5B129029C9F006DC14A /* WeatherViewModel.swift in Sources */,
+				3CA5FFEA291425B200A789CF /* SessionActivityAttributes.swift in Sources */,
 				3C9AEA6228FC24DA0080415E /* PlaySongViewModel.swift in Sources */,
 				3C47EB04290843FF0096D1D7 /* DoubleExtension.swift in Sources */,
 				3C9AEA7228FC2FE90080415E /* LocationManager.swift in Sources */,
@@ -546,9 +550,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CA5FFEB291425C500A789CF /* SessionActivityAttributes.swift in Sources */,
 				3CE7F22C2912DD1D00B0ED83 /* MaskoLiveActivityWidgetBundle.swift in Sources */,
 				3CE7F2302912DD1D00B0ED83 /* MaskoLiveActivityWidget.swift in Sources */,
-				3CE7F23B2912DD4E00B0ED83 /* SessionTimer.swift in Sources */,
 				3CE7F22E2912DD1D00B0ED83 /* MaskoLiveActivityWidgetLiveActivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

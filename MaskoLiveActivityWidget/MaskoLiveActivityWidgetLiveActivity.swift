@@ -10,7 +10,7 @@ import WidgetKit
 import SwiftUI
 
 struct SessionTrackingWidgetView: View {
-	let context: ActivityViewContext<SessionAtributes>
+	let context: ActivityViewContext<SessionActivityAttributes>
 	var body: some View {
 		Text("Test 1")
 	}
@@ -18,7 +18,7 @@ struct SessionTrackingWidgetView: View {
 
 struct MaskoLiveActivityWidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {
-        ActivityConfiguration(for: SessionAtributes.self) { context in
+        ActivityConfiguration(for: SessionActivityAttributes.self) { context in
             // Lock screen/banner UI goes here
 			Text(context.state.dateTimer, style: .timer)
 

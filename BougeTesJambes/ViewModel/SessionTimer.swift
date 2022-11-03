@@ -21,11 +21,3 @@ class SessionTimer: ObservableObject {
 		self.cancellable?.cancel()
 	}
 }
-
-struct SessionAtributes: ActivityAttributes {
-	public typealias SessionStatus = ContentState
-
-	public struct ContentState: Codable, Hashable {
-		var dateTimer: Date
-	}
-}
