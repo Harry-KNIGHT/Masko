@@ -9,7 +9,6 @@ import SwiftUI
 import WeatherKit
 import ActivityKit
 
-@available(iOS 16.1, *)
 struct LaunchSessionView: View {
 	@EnvironmentObject var locationManager: LocationManager
 	@EnvironmentObject var weatherVM: WeatherViewModel
@@ -108,14 +107,9 @@ struct LaunchSessionView: View {
 
 struct LaunchSessionView_Previews: PreviewProvider {
 	static var previews: some View {
-		if #available(iOS 16.1, *) {
-			LaunchSessionView()
-				.environmentObject(WeatherViewModel())
-				.environmentObject(FinishedSessionViewModel())
-				.environmentObject(LocationManager())
-		} else {
-			// Fallback on earlier versions
-		}
-
+		LaunchSessionView()
+			.environmentObject(WeatherViewModel())
+			.environmentObject(FinishedSessionViewModel())
+			.environmentObject(LocationManager())
 	}
 }
