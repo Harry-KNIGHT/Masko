@@ -11,19 +11,21 @@ struct SessionRunningButton: View {
 	@Binding var isSessionPaused: Bool
 
 	var body: some View {
+		ZStack {
+			Circle()
+				.frame(width: 100)
+				.foregroundColor(Color("buttonColor"))
+				.shadow(color: .accentColor, radius: 10)
+
 			Image(systemName: isSessionPaused ? "play.fill" : "pause.fill")
 				.font(.custom("", size: 60, relativeTo: .largeTitle))
 				.foregroundColor(.white)
-				.padding(30)
-				.background(Color("buttonColor"))
-				.clipShape(Circle())
-				.shadow(color: .accentColor, radius: 10)
-
-				.onTapGesture {
-						isSessionPaused = true
-				}
-
 		}
+		.onTapGesture {
+			isSessionPaused = true
+		}
+
+	}
 }
 
 struct SessionRunningButton_Previews: PreviewProvider {

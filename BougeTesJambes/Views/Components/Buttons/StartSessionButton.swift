@@ -17,21 +17,23 @@ struct StartSessionButton: View {
 				.fontWeight(.semibold)
 				.font(.title)
 				.foregroundColor(.accentColor)
+			ZStack {
+				Circle()
+					.frame(width: 220)
+					.foregroundColor(Color("buttonColor"))
+					.shadow(color: .accentColor, radius: 10)
 
-			Image(systemName: "hare.fill")
-				.font(.custom("", size: 100, relativeTo: .largeTitle))
-				.foregroundColor(.white)
-				.padding(50)
-				.background(Color("buttonColor"))
-				.clipShape(Circle())
-				.shadow(color: .accentColor, radius: 10)
-				.scaleEffect(animationAmount)
+				Image(systemName: "hare.fill")
+					.font(.custom("", size: 100, relativeTo: .largeTitle))
+					.foregroundColor(.white)
+			}
+			.scaleEffect(animationAmount)
 
-				.animation(
-					.easeInOut(duration: 1.0)
-					.repeatForever(autoreverses: true),
-					value: animationAmount)
-				.matchedGeometryEffect(id: "button", in: nameSpace, properties: .position)
+			.animation(
+				.easeInOut(duration: 1.0)
+				.repeatForever(autoreverses: true),
+				value: animationAmount)
+			.matchedGeometryEffect(id: "button", in: nameSpace, properties: .position)
 		}
 		.onAppear {
 			animationAmount = 1.035
