@@ -42,6 +42,7 @@ struct StartedSessionView: View {
 
 	@State private var activity: Activity<SessionActivityAttributes>?
 	@Binding var dateTimer: Date?
+	@Binding var endSessionAnimationButton: Bool
 	var body: some View {
 		ZStack {
 			BackgroundLinearColor()
@@ -97,6 +98,9 @@ struct StartedSessionView: View {
 								await activity?.end(using: state, dismissalPolicy: .immediate)
 							}
 							self.dateTimer = nil
+
+							// Start animate button from bottom to top
+							self.endSessionAnimationButton = true
 						}
 
 						Button("Non", role: .cancel) {
@@ -208,7 +212,8 @@ struct StartedSessionView_Previews: PreviewProvider {
 				calculBackgroundTimePassed: .constant(0),
 				willStartTrainingSession: .constant(false),
 				nameSpace: nameSpace,
-				dateTimer: .constant(.now)
+				dateTimer: .constant(.now),
+				endSessionAnimationButton: .constant(false)
 			)
 			.environmentObject(FinishedSessionViewModel())
 			.environmentObject(ConvertTimeViewModel())

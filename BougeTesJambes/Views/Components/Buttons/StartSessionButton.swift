@@ -9,8 +9,10 @@ import SwiftUI
 
 struct StartSessionButton: View {
 	@Binding var willStartTrainingSession: Bool
-	@State private var animationAmount: Double = 1
+	@State private var animationAmount: CGFloat = 1
+	@State private var buttonWidth: CGFloat = 0.5
 	var nameSpace: Namespace.ID
+	@Binding var endSessionAnimationButton: Bool
 	var body: some View {
 		VStack {
 			Text("Appuie et fonce !")
@@ -47,6 +49,6 @@ struct StartSessionButton: View {
 struct StartSessionButton_Previews: PreviewProvider {
 	@Namespace static var nameSpace
 	static var previews: some View {
-		StartSessionButton(willStartTrainingSession: .constant(false), nameSpace: nameSpace)
+		StartSessionButton(willStartTrainingSession: .constant(false), nameSpace: nameSpace, endSessionAnimationButton: .constant(false))
 	}
 }

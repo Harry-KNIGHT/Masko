@@ -31,12 +31,13 @@ struct LaunchSessionView: View {
 	@Namespace private var nameSpace
 	@State private var activity: Activity<SessionActivityAttributes>?
 	@State private var dateTimer: Date?
+	@State private var endSessionAnimationButton: Bool = false
 	var body: some View {
 		NavigationStack {
 			ZStack {
 				BackgroundLinearColor()
 				if willStartTrainingSession {
-					StartSessionButton(willStartTrainingSession: $willStartTrainingSession, nameSpace: nameSpace)
+					StartSessionButton(willStartTrainingSession: $willStartTrainingSession, nameSpace: nameSpace, endSessionAnimationButton: $endSessionAnimationButton)
 
 					 .transition(AnyTransition.opacity.animation(.easeOut(duration: 1)))
 
@@ -55,7 +56,7 @@ struct LaunchSessionView: View {
 							calculBackgroundTimePassed: $calculBackgroundTimePassed,
 							willStartTrainingSession: $willStartTrainingSession,
 							nameSpace: nameSpace,
-							dateTimer: $dateTimer
+							dateTimer: $dateTimer, endSessionAnimationButton: $endSessionAnimationButton
 						)
 						.transition(AnyTransition.opacity.animation(.easeIn(duration: 1)))
 				}
