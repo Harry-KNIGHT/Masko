@@ -28,8 +28,6 @@ struct LaunchSessionView: View {
 	@State private var appGoBackInActiveSceneEpoch = 0
 	@State private var calculBackgroundTimePassed = 0
 
-	@State private var animationAmount = 1.0
-
 	@Namespace private var nameSpace
 	@State private var activity: Activity<SessionActivityAttributes>?
 	@State private var dateTimer: Date?
@@ -38,7 +36,7 @@ struct LaunchSessionView: View {
 			ZStack {
 				BackgroundLinearColor()
 				if willStartTrainingSession {
-					StartSessionButton(willStartTrainingSession: $willStartTrainingSession, animationAmount: $animationAmount, nameSpace: nameSpace)
+					StartSessionButton(willStartTrainingSession: $willStartTrainingSession, nameSpace: nameSpace)
 
 					 .transition(AnyTransition.opacity.animation(.easeOut(duration: 1)))
 

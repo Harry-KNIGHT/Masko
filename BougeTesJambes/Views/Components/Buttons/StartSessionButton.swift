@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StartSessionButton: View {
 	@Binding var willStartTrainingSession: Bool
-	@Binding var animationAmount: Double
+	@State private var animationAmount: Double = 1
 	var nameSpace: Namespace.ID
 	var body: some View {
 		VStack {
@@ -47,6 +47,6 @@ struct StartSessionButton: View {
 struct StartSessionButton_Previews: PreviewProvider {
 	@Namespace static var nameSpace
 	static var previews: some View {
-		StartSessionButton(willStartTrainingSession: .constant(false), animationAmount: .constant(1), nameSpace: nameSpace)
+		StartSessionButton(willStartTrainingSession: .constant(false), nameSpace: nameSpace)
 	}
 }
