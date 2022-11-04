@@ -29,7 +29,7 @@ struct StartSessionButton: View {
 					.font(.custom("", size: 100, relativeTo: .largeTitle))
 					.foregroundColor(.white)
 			}
-			.scaleEffect(animationAmount)
+			.scaleEffect(endSessionAnimationButton ? 0.5 : animationAmount)
 
 			.animation(
 				.easeInOut(duration: 1.0)
@@ -38,6 +38,12 @@ struct StartSessionButton: View {
 			.matchedGeometryEffect(id: "button", in: nameSpace, properties: .position)
 		}
 		.onAppear {
+			DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+				if endSessionAnimationButton {
+					endSessionAnimationButton = false
+					print(endSessionAnimationButton)
+				}
+			}
 			animationAmount = 1.035
 		}
 		.onDisappear {
