@@ -23,7 +23,7 @@ struct SessionRunningButton: View {
 				.font(.custom("", size: 60, relativeTo: .largeTitle))
 				.foregroundColor(.white)
 		}
-		.scaleEffect(buttonWidth)
+		.scaleEffect(isSessionPaused ? buttonWidth + 0.134 : buttonWidth)
 		.onAppear {
 			withAnimation(.easeOut(duration: 0.7)) {
 				buttonWidth = 1
@@ -34,7 +34,9 @@ struct SessionRunningButton: View {
 		}
 
 		.onTapGesture {
-			isSessionPaused = true
+			withAnimation(.easeOut(duration: 0.4)) {
+				isSessionPaused = true
+			}
 		}
 
 	}

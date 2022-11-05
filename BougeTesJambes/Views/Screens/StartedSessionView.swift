@@ -105,7 +105,9 @@ struct StartedSessionView: View {
 						}
 
 						Button("Non", role: .cancel) {
-							isSessionPaused = false
+							withAnimation(.easeIn(duration: 0.4)) {
+								isSessionPaused = false
+							}
 						}
 					}
 			}
