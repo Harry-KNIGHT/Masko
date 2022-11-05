@@ -821,7 +821,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = 99M75C322U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MaskoLiveActivityWidget/Info.plist;
@@ -833,7 +833,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.2.9;
+				MARKETING_VERSION = 0.2.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.elliot.knight.BougeTesJambes.MaskoLiveActivityWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -849,7 +849,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 29;
+				CURRENT_PROJECT_VERSION = 30;
 				DEVELOPMENT_TEAM = 99M75C322U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MaskoLiveActivityWidget/Info.plist;
@@ -861,7 +861,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 0.2.9;
+				MARKETING_VERSION = 0.2.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.elliot.knight.BougeTesJambes.MaskoLiveActivityWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
