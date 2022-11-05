@@ -40,7 +40,7 @@ struct StartSessionButton: View {
 		.onAppear {
 			DispatchQueue.main.asyncAfter(deadline: .now()) {
 				if endSessionAnimationButton {
-					withAnimation(.easeOut(duration: 1.2)) {
+					withAnimation(.easeOut(duration: 0.455)) {
 						endSessionAnimationButton = false
 					}
 				} else {
