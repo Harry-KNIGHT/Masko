@@ -43,9 +43,9 @@ struct StartSessionButton: View {
 					withAnimation(.easeOut(duration: 0.455)) {
 						endSessionAnimationButton = false
 					}
-				} else {
-					animationAmount = 1.035
 				}
+				animationAmount = 1.033
+
 			}
 		}
 		.onDisappear {
