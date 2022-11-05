@@ -28,17 +28,17 @@ struct LaunchSessionView: View {
 	@State private var appGoBackInActiveSceneEpoch = 0
 	@State private var calculBackgroundTimePassed = 0
 
-	@State private var animationAmount = 1.0
-
 	@Namespace private var nameSpace
 	@State private var activity: Activity<SessionActivityAttributes>?
 	@State private var dateTimer: Date?
+	@State private var endSessionAnimationButton: Bool = false
+	@State private var startSessionAnimationButton: Bool = false
 	var body: some View {
 		NavigationStack {
 			ZStack {
 				BackgroundLinearColor()
 				if willStartTrainingSession {
-					StartSessionButton(willStartTrainingSession: $willStartTrainingSession, animationAmount: $animationAmount, nameSpace: nameSpace)
+					StartSessionButton(willStartTrainingSession: $willStartTrainingSession, nameSpace: nameSpace, endSessionAnimationButton: $endSessionAnimationButton)
 
 					 .transition(AnyTransition.opacity.animation(.easeOut(duration: 1)))
 
@@ -57,7 +57,8 @@ struct LaunchSessionView: View {
 							calculBackgroundTimePassed: $calculBackgroundTimePassed,
 							willStartTrainingSession: $willStartTrainingSession,
 							nameSpace: nameSpace,
-							dateTimer: $dateTimer
+							dateTimer: $dateTimer, endSessionAnimationButton: $endSessionAnimationButton,
+							startSessionAnimationButton: $startSessionAnimationButton
 						)
 						.transition(AnyTransition.opacity.animation(.easeIn(duration: 1)))
 				}
@@ -65,6 +66,7 @@ struct LaunchSessionView: View {
 			.onTapGesture {
 				withAnimation(.interpolatingSpring(stiffness: 20, damping: 5)) {
 					willStartTrainingSession = false
+					startSessionAnimationButton = true
 				}
 			}
 			.navigationTitle("MASKO")

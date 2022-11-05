@@ -9,8 +9,10 @@ import SwiftUI
 
 struct StartSessionButton: View {
 	@Binding var willStartTrainingSession: Bool
-	@Binding var animationAmount: Double
+	@State private var animationAmount: CGFloat = 1
+	@State private var buttonWidth: CGFloat = 0.5
 	var nameSpace: Namespace.ID
+	@Binding var endSessionAnimationButton: Bool
 	var body: some View {
 		VStack {
 			Text("Appuie et fonce !")
@@ -23,11 +25,11 @@ struct StartSessionButton: View {
 					.foregroundColor(Color("buttonColor"))
 					.shadow(color: .accentColor, radius: 10)
 
-				Image(systemName: "hare.fill")
+				Image(systemName: endSessionAnimationButton ? "play.fill" : "hare.fill")
 					.font(.custom("", size: 100, relativeTo: .largeTitle))
 					.foregroundColor(.white)
 			}
-			.scaleEffect(animationAmount)
+			.scaleEffect(endSessionAnimationButton ? 0.5 : animationAmount)
 
 			.animation(
 				.easeInOut(duration: 1.0)
@@ -36,7 +38,15 @@ struct StartSessionButton: View {
 			.matchedGeometryEffect(id: "button", in: nameSpace, properties: .position)
 		}
 		.onAppear {
-			animationAmount = 1.035
+			DispatchQueue.main.asyncAfter(deadline: .now()) {
+				if endSessionAnimationButton {
+					withAnimation(.easeOut(duration: 1.2)) {
+						endSessionAnimationButton = false
+					}
+				} else {
+					animationAmount = 1.035
+				}
+			}
 		}
 		.onDisappear {
 			animationAmount = 1
@@ -47,6 +57,25 @@ struct StartSessionButton: View {
 struct StartSessionButton_Previews: PreviewProvider {
 	@Namespace static var nameSpace
 	static var previews: some View {
-		StartSessionButton(willStartTrainingSession: .constant(false), animationAmount: .constant(1), nameSpace: nameSpace)
+		StartSessionButton(willStartTrainingSession: .constant(false), nameSpace: nameSpace, endSessionAnimationButton: .constant(false))
 	}
 }
+/*
+ .onAppear {
+	 DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+		 if endSessionAnimationButton {
+			 withAnimation {
+				 endSessionAnimationButton = false
+			 }
+		 }
+	 }
+	 withAnimation(.easeOut(duration: 0.7)) {
+		 if endSessionAnimationButton {
+			 animationAmount = 1
+		 } else {
+			 animationAmount = 1.035
+		 }
+
+	 }
+ }
+ */
