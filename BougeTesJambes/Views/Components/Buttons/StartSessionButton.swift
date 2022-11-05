@@ -25,7 +25,7 @@ struct StartSessionButton: View {
 					.foregroundColor(Color("buttonColor"))
 					.shadow(color: .accentColor, radius: 10)
 
-				Image(systemName: "hare.fill")
+				Image(systemName: endSessionAnimationButton ? "play.fill" : "hare.fill")
 					.font(.custom("", size: 100, relativeTo: .largeTitle))
 					.foregroundColor(.white)
 			}
