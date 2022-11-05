@@ -32,6 +32,7 @@ struct LaunchSessionView: View {
 	@State private var activity: Activity<SessionActivityAttributes>?
 	@State private var dateTimer: Date?
 	@State private var endSessionAnimationButton: Bool = false
+	@State private var startSessionAnimationButton: Bool = false
 	var body: some View {
 		NavigationStack {
 			ZStack {
@@ -56,7 +57,8 @@ struct LaunchSessionView: View {
 							calculBackgroundTimePassed: $calculBackgroundTimePassed,
 							willStartTrainingSession: $willStartTrainingSession,
 							nameSpace: nameSpace,
-							dateTimer: $dateTimer, endSessionAnimationButton: $endSessionAnimationButton
+							dateTimer: $dateTimer, endSessionAnimationButton: $endSessionAnimationButton,
+							startSessionAnimationButton: $startSessionAnimationButton
 						)
 						.transition(AnyTransition.opacity.animation(.easeIn(duration: 1)))
 				}
@@ -64,6 +66,7 @@ struct LaunchSessionView: View {
 			.onTapGesture {
 				withAnimation(.interpolatingSpring(stiffness: 20, damping: 5)) {
 					willStartTrainingSession = false
+					startSessionAnimationButton = true
 				}
 			}
 			.navigationTitle("MASKO")

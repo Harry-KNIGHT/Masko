@@ -43,6 +43,7 @@ struct StartedSessionView: View {
 	@State private var activity: Activity<SessionActivityAttributes>?
 	@Binding var dateTimer: Date?
 	@Binding var endSessionAnimationButton: Bool
+	@Binding var startSessionAnimationButton: Bool
 	var body: some View {
 		ZStack {
 			BackgroundLinearColor()
@@ -76,7 +77,7 @@ struct StartedSessionView: View {
 				.padding(.horizontal)
 				Spacer()
 
-				SessionRunningButton(isSessionPaused: $isSessionPaused)
+				SessionRunningButton(isSessionPaused: $isSessionPaused, startSessionAnimationButton: $startSessionAnimationButton)
 					.matchedGeometryEffect(id: "button", in: nameSpace, properties: .position)
 
 					.padding(.bottom, 30)
@@ -213,7 +214,8 @@ struct StartedSessionView_Previews: PreviewProvider {
 				willStartTrainingSession: .constant(false),
 				nameSpace: nameSpace,
 				dateTimer: .constant(.now),
-				endSessionAnimationButton: .constant(false)
+				endSessionAnimationButton: .constant(false),
+				startSessionAnimationButton: .constant(false)
 			)
 			.environmentObject(FinishedSessionViewModel())
 			.environmentObject(ConvertTimeViewModel())
