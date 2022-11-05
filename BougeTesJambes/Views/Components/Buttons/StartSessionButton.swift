@@ -38,13 +38,15 @@ struct StartSessionButton: View {
 			.matchedGeometryEffect(id: "button", in: nameSpace, properties: .position)
 		}
 		.onAppear {
-			DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+			DispatchQueue.main.asyncAfter(deadline: .now()) {
 				if endSessionAnimationButton {
-					endSessionAnimationButton = false
-					print(endSessionAnimationButton)
+					withAnimation(.easeOut(duration: 1.2)) {
+						endSessionAnimationButton = false
+					}
+				} else {
+					animationAmount = 1.035
 				}
 			}
-			animationAmount = 1.035
 		}
 		.onDisappear {
 			animationAmount = 1
@@ -58,3 +60,22 @@ struct StartSessionButton_Previews: PreviewProvider {
 		StartSessionButton(willStartTrainingSession: .constant(false), nameSpace: nameSpace, endSessionAnimationButton: .constant(false))
 	}
 }
+/*
+ .onAppear {
+	 DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+		 if endSessionAnimationButton {
+			 withAnimation {
+				 endSessionAnimationButton = false
+			 }
+		 }
+	 }
+	 withAnimation(.easeOut(duration: 0.7)) {
+		 if endSessionAnimationButton {
+			 animationAmount = 1
+		 } else {
+			 animationAmount = 1.035
+		 }
+
+	 }
+ }
+ */
