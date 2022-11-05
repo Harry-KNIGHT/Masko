@@ -45,7 +45,15 @@ struct LaunchSessionView: View {
 				} else {
 
 						StartedSessionView(
-							session: SessionModel(sessionTime: sessionTimer, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: nil, timeSpeedChart: nil, date: nil),
+							session:
+								SessionModel(
+									sessionTime: sessionTimer,
+									sessionDistanceInMeters: sessionDistanceInMeters,
+									sessionAverageSpeed: sessionAverageSpeed,
+									distanceSpeedChart: nil,
+									timeSpeedChart: nil,
+									date: nil
+								),
 							sessionTimer: $sessionTimer,
 							sessionDistanceInMeters: $sessionDistanceInMeters,
 							sessionAverageSpeed: $sessionAverageSpeed,
@@ -57,7 +65,8 @@ struct LaunchSessionView: View {
 							calculBackgroundTimePassed: $calculBackgroundTimePassed,
 							willStartTrainingSession: $willStartTrainingSession,
 							nameSpace: nameSpace,
-							dateTimer: $dateTimer, endSessionAnimationButton: $endSessionAnimationButton,
+							dateTimer: $dateTimer,
+							endSessionAnimationButton: $endSessionAnimationButton,
 							startSessionAnimationButton: $startSessionAnimationButton
 						)
 						.transition(AnyTransition.opacity.animation(.easeIn(duration: 1)))
