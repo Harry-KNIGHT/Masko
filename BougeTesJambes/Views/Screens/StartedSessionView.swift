@@ -93,7 +93,7 @@ struct StartedSessionView: View {
 
 							// Stop Live activities
 							guard let dateTimer else { return }
-							let state = SessionActivityAttributes.ContentState(dateTimer: dateTimer)
+							let state = SessionActivityAttributes.ContentState(dateTimer: dateTimer, sessionDistanceDone: sessionDistanceInMeters)
 
 							Task {
 								await activity?.end(using: state, dismissalPolicy: .immediate)
@@ -120,7 +120,7 @@ struct StartedSessionView: View {
 				dateTimer = .now
 				guard dateTimer != nil else { return }
 				let attribute = SessionActivityAttributes()
-				let state = SessionActivityAttributes.ContentState(dateTimer: .now)
+				let state = SessionActivityAttributes.ContentState(dateTimer: .now, sessionDistanceDone: sessionDistanceInMeters)
 
 				activity = try? Activity<SessionActivityAttributes>.request(attributes: attribute, contentState: state, pushType: nil)
 			}
