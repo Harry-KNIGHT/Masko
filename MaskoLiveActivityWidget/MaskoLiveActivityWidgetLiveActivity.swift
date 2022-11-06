@@ -20,10 +20,14 @@ struct MaskoLiveActivityWidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: SessionActivityAttributes.self) { context in
             // Lock screen/banner UI goes here
-			Text(context.state.dateTimer, style: .timer)
-
+			VStack(alignment: .leading) {
+				Text(context.state.dateTimer, style: .timer)
+				Text("\(context.state.sessionDistanceDone) mètres")
+				Text("\(String(format: "%.2f", context.state.sessionSpeed.turnMPerSecToKmPerH)) km/h")
+			}
             .activityBackgroundTint(Color.cyan)
             .activitySystemActionForegroundColor(Color.black)
+			.padding()
         } dynamicIsland: { context in
             DynamicIsland {
                 // Expanded UI goes here.  Compose the expanded UI through
