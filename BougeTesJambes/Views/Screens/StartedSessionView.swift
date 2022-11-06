@@ -146,19 +146,6 @@ struct StartedSessionView: View {
 					}
 				}
 			})
-			.onDisappear {
-				sessionTimer = 0
-				sessionDistanceInMeters = 0
-				sessionAverageSpeed = 0
-				willStartTrainingSession = true
-				isSessionPaused = false
-				distanceSpeedChartValues = [DistanceSpeedChart]()
-				timeSpeedChart = [TimeSpeedChart]()
-				appInBackgroundSceneEpoch = 0
-				appGoBackInActiveSceneEpoch = 0
-				calculBackgroundTimePassed = 0
-				dateTimer = nil
-			}
 			.onAppear {
 				if locationManager.userLocation == nil {
 					locationManager.requestLocation()
@@ -189,6 +176,19 @@ struct StartedSessionView: View {
 				if locationManager.userLocation != nil {
 					sessionTimer += 1
 				}
+			}
+			.onDisappear {
+				sessionTimer = 0
+				sessionDistanceInMeters = 0
+				sessionAverageSpeed = 0
+				willStartTrainingSession = true
+				isSessionPaused = false
+				distanceSpeedChartValues = [DistanceSpeedChart]()
+				timeSpeedChart = [TimeSpeedChart]()
+				appInBackgroundSceneEpoch = 0
+				appGoBackInActiveSceneEpoch = 0
+				calculBackgroundTimePassed = 0
+				dateTimer = nil
 			}
 			.navigationBarBackButtonHidden(true)
 			.navigationBarTitleDisplayMode(.inline)
