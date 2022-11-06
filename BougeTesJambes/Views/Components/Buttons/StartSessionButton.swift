@@ -23,7 +23,7 @@ struct StartSessionButton: View {
 				Circle()
 					.frame(width: 220)
 					.foregroundColor(Color("buttonColor"))
-					.shadow(color: .accentColor, radius: 10)
+					.shadow(color: Color("buttonShadow"), radius: 10)
 
 				Image(systemName: endSessionAnimationButton ? "play.fill" : "hare.fill")
 					.font(.custom("", size: 100, relativeTo: .largeTitle))
