@@ -165,19 +165,19 @@ struct StartedSessionView: View {
 				}
 				motionManager.initializePodometer()
 			}
-			.onChange(of: locationManager.userLocation, perform: {  location in
+			.onChange(of: locationManager.userLocation) {  location in
 				if let location {
 					if location.speed > 0 {
 						finishedSesionVM.speedSessionValues.append(location.speed.turnMPerSecToKmPerH)
 					}
 					self.timeSpeedChart.append(TimeSpeedChart(time: sessionTimer, averageSpeed: location.speed.turnMPerSecToKmPerH))
 
-					let updateActivity = SessionActivityAttributes.SessionStatus(dateTimer: .now, sessionDistanceDone: 13, sessionSpeed: location.speed)
+					let updateActivity = SessionActivityAttributes.SessionStatus(dateTimer: .now, sessionDistanceDone: sessionDistanceInMeters, sessionSpeed: location.speed)
 					Task {
 						await activity?.update(using: updateActivity)
 					}
 				}
-			})
+			}
 
 			.onChange(of: motionManager.distance, perform: { distance in
 				if let distance = motionManager.distance {
