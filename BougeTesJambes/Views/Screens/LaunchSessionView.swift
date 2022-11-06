@@ -76,6 +76,18 @@ struct LaunchSessionView: View {
 				withAnimation(.interpolatingSpring(stiffness: 20, damping: 5)) {
 					willStartTrainingSession = false
 					startSessionAnimationButton = true
+
+					// Start Live Activities
+					dateTimer = .now
+
+					guard dateTimer != nil else { return }
+
+					//	End distance and verifications
+
+					let attribute = SessionActivityAttributes()
+					let state = SessionActivityAttributes.ContentState(dateTimer: .now, sessionDistanceDone: sessionDistanceInMeters, sessionSpeed: sessionAverageSpeed)
+
+					activity = try? Activity<SessionActivityAttributes>.request(attributes: attribute, contentState: state, pushType: nil)
 				}
 			}
 			.navigationTitle("MASKO")

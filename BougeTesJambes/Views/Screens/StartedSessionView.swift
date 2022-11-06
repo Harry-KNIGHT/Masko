@@ -100,8 +100,6 @@ struct StartedSessionView: View {
 							}
 							self.dateTimer = nil
 
-							// Start animate button from bottom to top
-							self.endSessionAnimationButton = true
 						}
 
 						Button("Non", role: .cancel) {
@@ -116,22 +114,6 @@ struct StartedSessionView: View {
 				motionManager.initializePodometer()
 				locationManager.showAndUseBackgroundActivity = true
 
-				// Start Live Activities
-				dateTimer = .now
-
-				guard dateTimer != nil else { return }
-
-				// Start Distance verifications
-				guard motionManager.isPedometerAvailable else { return }
-				if let distance = motionManager.distance { self.sessionDistanceInMeters = distance }
-				sessionAverageSpeed = Double.random(in: 0...10)
-
-				//	End distance and verifications
-
-				let attribute = SessionActivityAttributes()
-				let state = SessionActivityAttributes.ContentState(dateTimer: .now, sessionDistanceDone: sessionDistanceInMeters, sessionSpeed: sessionAverageSpeed)
-
-				activity = try? Activity<SessionActivityAttributes>.request(attributes: attribute, contentState: state, pushType: nil)
 			}
 			.onChange(of: motionManager.distance, perform: { distance in
 				if let distance {
