@@ -39,6 +39,7 @@
 		3CAB873C28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAB873B28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift */; };
 		3CC3D5B129029C9F006DC14A /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC3D5B029029C9F006DC14A /* WeatherViewModel.swift */; };
 		3CC54E5B291265E10013E75F /* FinishedSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC54E5A291265E10013E75F /* FinishedSessionTests.swift */; };
+		3CD200662917F6EB0076D77E /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C47EB03290843FF0096D1D7 /* DoubleExtension.swift */; };
 		3CE7F2272912DD1D00B0ED83 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE7F2262912DD1D00B0ED83 /* WidgetKit.framework */; };
 		3CE7F2292912DD1D00B0ED83 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE7F2282912DD1D00B0ED83 /* SwiftUI.framework */; };
 		3CE7F22C2912DD1D00B0ED83 /* MaskoLiveActivityWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7F22B2912DD1D00B0ED83 /* MaskoLiveActivityWidgetBundle.swift */; };
@@ -215,6 +216,7 @@
 				3CAB873E28FF0D97009966D5 /* Views */,
 				3C47EB05290844680096D1D7 /* Extensions */,
 				3C9AEA5628FC063E0080415E /* ViewModel */,
+				3CD200652917E2300076D77E /* ActivityAttributes */,
 				3C371BD5290C00CE00DFD619 /* Manager */,
 				3C9AEA5128FBF8910080415E /* Model */,
 				3C748E0D2901CE30004781E5 /* Ressources */,
@@ -255,7 +257,6 @@
 			children = (
 				3C9AEA5428FC063A0080415E /* FinishedSessionViewModel.swift */,
 				3C276BC829068CC100E633F0 /* SessionTimer.swift */,
-				3CA5FFE9291425B200A789CF /* SessionActivityAttributes.swift */,
 				3C9AEA5B28FC1E230080415E /* ConvertTimeViewModel.swift */,
 				3C9AEA6128FC24DA0080415E /* PlaySongViewModel.swift */,
 				3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */,
@@ -330,6 +331,14 @@
 				3CC3D5B22902A5AB006DC14A /* Row */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		3CD200652917E2300076D77E /* ActivityAttributes */ = {
+			isa = PBXGroup;
+			children = (
+				3CA5FFE9291425B200A789CF /* SessionActivityAttributes.swift */,
+			);
+			path = ActivityAttributes;
 			sourceTree = "<group>";
 		};
 		3CE7F2252912DD1D00B0ED83 /* Frameworks */ = {
@@ -550,6 +559,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CD200662917F6EB0076D77E /* DoubleExtension.swift in Sources */,
 				3CA5FFEB291425C500A789CF /* SessionActivityAttributes.swift in Sources */,
 				3CE7F22C2912DD1D00B0ED83 /* MaskoLiveActivityWidgetBundle.swift in Sources */,
 				3CE7F2302912DD1D00B0ED83 /* MaskoLiveActivityWidget.swift in Sources */,
