@@ -243,10 +243,13 @@ struct SessionInformation: View {
 
 			Text("\(sessionValue)")
 				.font(sessionValueFont)
+				.fontDesign(.rounded)
+
 			if let objectif {
 				Text("\(objectif)")
 					.opacity(0.5)
 					.font(.title3)
+ 					.fontDesign(.rounded)
 			}
 		}
 		.foregroundColor(color)
