@@ -17,7 +17,7 @@ struct SessionRunningButton: View {
 			Circle()
 				.frame(width: 100)
 				.foregroundColor(Color("buttonColor"))
-				.shadow(color: .accentColor, radius: 10)
+				.shadow(color: Color("buttonShadow"), radius: 10)
 
 			Image(systemName: startSessionAnimationButton ? "hare.fill" : isSessionPaused ? "play.fill" : "pause.fill")
 				.font(.custom("", size: 60, relativeTo: .largeTitle))
