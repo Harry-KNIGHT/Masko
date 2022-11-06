@@ -20,23 +20,46 @@ struct MaskoLiveActivityWidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: SessionActivityAttributes.self) { context in
             // Lock screen/banner UI goes here
-			VStack(alignment: .leading) {
-				Text(context.state.dateTimer, style: .timer)
-				Text("\(context.state.sessionDistanceDone) mètres")
-				Text("\(String(format: "%.2f", context.state.sessionSpeed.turnMPerSecToKmPerH)) km/h")
+			VStack(alignment: .leading, spacing: 6) {
+
+				LiveActivityViewInfomation(
+					sfSymbol: "figure.walk",
+					sessionValue: context.state.sessionDistanceDone.twoDecimalDigits,
+					objectifType: "m"
+				)
+
+				LiveActivityViewInfomation(
+					sfSymbol: "flag.fill",
+					sessionValue: context.state.sessionSpeed.turnMPerSecToKmPerH.twoDecimalDigits,
+					objectifType: "km/h"
+				)
 			}
-            .activityBackgroundTint(Color.cyan)
-            .activitySystemActionForegroundColor(Color.black)
 			.padding()
         } dynamicIsland: { context in
             DynamicIsland {
                 // Expanded UI goes here.  Compose the expanded UI through
                 // various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.leading) {
-					Text(context.state.dateTimer, style: .timer)
+					VStack(alignment: .leading, spacing: 6) {
+						LiveActivityViewInfomation(
+							sfSymbol: "figure.walk",
+							sessionValue: context.state.sessionDistanceDone.twoDecimalDigits,
+							objectifType: "m"
+						)
+						LiveActivityViewInfomation(
+							sfSymbol: "flag.fill",
+							sessionValue: context.state.sessionSpeed.turnMPerSecToKmPerH.twoDecimalDigits,
+							objectifType: "km/h"
+						)
+					}
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-					Text(context.state.dateTimer, style: .timer)
+					VStack {
+						Spacer()
+						Text(Date.now.description)
+						Spacer()
+					}
+					.padding()
                 }
                 DynamicIslandExpandedRegion(.bottom) {
 					Text(context.state.dateTimer, style: .timer)
@@ -45,11 +68,34 @@ struct MaskoLiveActivityWidgetLiveActivity: Widget {
             } compactLeading: {
 				Image(systemName: "hare.fill")
             } compactTrailing: {
-				Text(context.state.dateTimer, style: .timer)
+				Text(context.state.sessionDistanceDone.twoDecimalDigits)
 
             } minimal: {
 				Image(systemName: "hare.fill")
             }
         }
     }
+}
+
+struct LiveActivityViewInfomation: View {
+	var sfSymbol: String
+	var sessionValue: String
+	var objectifType: String
+	var sessionValueFont: Font = Font.title2.monospacedDigit().bold()
+
+	var body: some View {
+		HStack(alignment: .bottom, spacing: 10) {
+			Image(systemName: sfSymbol)
+				.font(.title2)
+
+			Text("\(sessionValue)")
+				.font(sessionValueFont)
+				.fontDesign(.rounded)
+
+				Text("\(objectifType)")
+					.opacity(0.8)
+					.font(.title3)
+					.fontDesign(.rounded)
+		}
+	}
 }

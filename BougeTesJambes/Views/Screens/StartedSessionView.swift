@@ -172,6 +172,7 @@ struct StartedSessionView: View {
 					}
 					self.timeSpeedChart.append(TimeSpeedChart(time: sessionTimer, averageSpeed: location.speed.turnMPerSecToKmPerH))
 
+					// Update live activity in background
 					let updateActivity = SessionActivityAttributes.SessionStatus(dateTimer: .now, sessionDistanceDone: sessionDistanceInMeters, sessionSpeed: location.speed)
 					Task {
 						await activity?.update(using: updateActivity)

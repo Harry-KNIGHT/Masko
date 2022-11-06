@@ -15,4 +15,8 @@ extension Double {
 	var turnThousandMToKm: Double {
 		(self > 1_000 ?  (self / 1_000) : self )
 	}
+
+	var twoDecimalDigits: String {
+		String(format: "%.2f", self)
+	}
 }
