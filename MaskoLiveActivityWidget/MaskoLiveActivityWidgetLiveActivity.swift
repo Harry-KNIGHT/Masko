@@ -41,16 +41,18 @@ struct MaskoLiveActivityWidgetLiveActivity: Widget {
                 // various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.leading) {
 					VStack(alignment: .leading, spacing: 6) {
+						Spacer()
 						LiveActivityViewInfomation(
-							sfSymbol: "figure.walk",
+							sfSymbol: nil,
 							sessionValue: context.state.sessionDistanceDone.twoDecimalDigits,
 							objectifType: "m"
 						)
 						LiveActivityViewInfomation(
-							sfSymbol: "flag.fill",
+							sfSymbol: nil,
 							sessionValue: context.state.sessionSpeed.turnMPerSecToKmPerH.twoDecimalDigits,
 							objectifType: "km/h"
 						)
+						Spacer()
 					}
                 }
                 DynamicIslandExpandedRegion(.trailing) {
@@ -62,7 +64,6 @@ struct MaskoLiveActivityWidgetLiveActivity: Widget {
 					.padding()
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-					Text(context.state.dateTimer, style: .timer)
                     // more content
                 }
             } compactLeading: {
@@ -78,16 +79,17 @@ struct MaskoLiveActivityWidgetLiveActivity: Widget {
 }
 
 struct LiveActivityViewInfomation: View {
-	var sfSymbol: String
+	var sfSymbol: String?
 	var sessionValue: String
 	var objectifType: String
 	var sessionValueFont: Font = Font.title2.monospacedDigit().bold()
 
 	var body: some View {
-		HStack(alignment: .bottom, spacing: 10) {
-			Image(systemName: sfSymbol)
-				.font(.title2)
-
+		HStack(alignment: .bottom) {
+			if let sfSymbol {
+				Image(systemName: sfSymbol)
+					.font(.title3)
+			}
 			Text("\(sessionValue)")
 				.font(sessionValueFont)
 				.fontDesign(.rounded)
