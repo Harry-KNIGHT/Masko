@@ -18,6 +18,7 @@ struct StartSessionButton: View {
 			Text("Appuie et fonce !")
 				.fontWeight(.semibold)
 				.font(.title)
+				.fontDesign(.rounded)
 				.foregroundColor(.accentColor)
 			ZStack {
 				Circle()
