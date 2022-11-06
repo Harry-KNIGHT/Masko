@@ -90,6 +90,18 @@ struct LaunchSessionView: View {
 					activity = try? Activity<SessionActivityAttributes>.request(attributes: attribute, contentState: state, pushType: nil)
 				}
 			}
+			.onChange(of: willStartTrainingSession) { _ in
+				if willStartTrainingSession {
+					// Stop Live activities
+					guard let dateTimer else { return }
+					let state = SessionActivityAttributes.ContentState(dateTimer: dateTimer, sessionDistanceDone: sessionDistanceInMeters, sessionSpeed: sessionAverageSpeed)
+
+					Task {
+						await activity?.end(using: state, dismissalPolicy: .immediate)
+					}
+					self.dateTimer = nil
+				}
+			}
 			.navigationTitle("MASKO")
 			.toolbar {
 				ToolbarItem(placement: .navigationBarLeading) {

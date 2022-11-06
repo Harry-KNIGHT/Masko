@@ -91,14 +91,7 @@ struct StartedSessionView: View {
 
 							self.finishedSesionVM.addFinishedSession(sessionTime: sessionTimer, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: distanceSpeedChartValues, timeSpeedChart: timeSpeedChart, date: Date.now)
 
-							// Stop Live activities
-							guard let dateTimer else { return }
-							let state = SessionActivityAttributes.ContentState(dateTimer: dateTimer, sessionDistanceDone: sessionDistanceInMeters, sessionSpeed: sessionAverageSpeed)
-
-							Task {
-								await activity?.end(using: state, dismissalPolicy: .immediate)
-							}
-							self.dateTimer = nil
+							self.endSessionAnimationButton = true
 
 						}
 
