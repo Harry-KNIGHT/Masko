@@ -93,7 +93,7 @@ struct StartedSessionView: View {
 
 							// Stop Live activities
 							guard let dateTimer else { return }
-							let state = SessionActivityAttributes.ContentState(dateTimer: dateTimer, sessionDistanceDone: sessionDistanceInMeters)
+							let state = SessionActivityAttributes.ContentState(dateTimer: dateTimer, sessionDistanceDone: sessionDistanceInMeters, sessionSpeed: sessionAverageSpeed)
 
 							Task {
 								await activity?.end(using: state, dismissalPolicy: .immediate)
@@ -118,9 +118,18 @@ struct StartedSessionView: View {
 
 				// Start Live Activities
 				dateTimer = .now
+
 				guard dateTimer != nil else { return }
+
+				// Start Distance verifications
+				guard motionManager.isPedometerAvailable else { return }
+				if let distance = motionManager.distance { self.sessionDistanceInMeters = distance }
+				sessionAverageSpeed = Double.random(in: 0...10)
+
+				//	End distance and verifications
+
 				let attribute = SessionActivityAttributes()
-				let state = SessionActivityAttributes.ContentState(dateTimer: .now, sessionDistanceDone: sessionDistanceInMeters)
+				let state = SessionActivityAttributes.ContentState(dateTimer: .now, sessionDistanceDone: sessionDistanceInMeters, sessionSpeed: sessionAverageSpeed)
 
 				activity = try? Activity<SessionActivityAttributes>.request(attributes: attribute, contentState: state, pushType: nil)
 			}
@@ -162,6 +171,11 @@ struct StartedSessionView: View {
 						finishedSesionVM.speedSessionValues.append(location.speed.turnMPerSecToKmPerH)
 					}
 					self.timeSpeedChart.append(TimeSpeedChart(time: sessionTimer, averageSpeed: location.speed.turnMPerSecToKmPerH))
+
+					let updateActivity = SessionActivityAttributes.SessionStatus(dateTimer: .now, sessionDistanceDone: 13, sessionSpeed: location.speed)
+					Task {
+						await activity?.update(using: updateActivity)
+					}
 				}
 			})
 
