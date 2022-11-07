@@ -14,6 +14,7 @@ struct LaunchSessionView: View {
 	@EnvironmentObject var weatherVM: WeatherViewModel
 	@Environment(\.colorScheme) var colorScheme
 	@EnvironmentObject var finishedSessionVM: FinishedSessionViewModel
+	@EnvironmentObject var motionManager: CoreMotionViewModel
 
 	@State private var sessionTimer: Int = 0
 	@State private var sessionDistanceInMeters: Double = 0
@@ -40,36 +41,51 @@ struct LaunchSessionView: View {
 				if willStartTrainingSession {
 					StartSessionButton(willStartTrainingSession: $willStartTrainingSession, nameSpace: nameSpace, endSessionAnimationButton: $endSessionAnimationButton)
 
-					 .transition(AnyTransition.opacity.animation(.easeOut(duration: 1)))
+						.transition(AnyTransition.opacity.animation(.easeOut(duration: 1)))
 
 				} else {
 
-						StartedSessionView(
-							session:
-								SessionModel(
-									sessionTime: sessionTimer,
-									sessionDistanceInMeters: sessionDistanceInMeters,
-									sessionAverageSpeed: sessionAverageSpeed,
-									distanceSpeedChart: nil,
-									timeSpeedChart: nil,
-									date: nil
-								),
-							sessionTimer: $sessionTimer,
-							sessionDistanceInMeters: $sessionDistanceInMeters,
-							sessionAverageSpeed: $sessionAverageSpeed,
-							isSessionPaused: $isSessionPaused,
-							distanceSpeedChartValues: $distanceSpeedChartValues,
-							timeSpeedChart: $timeSpeedChart,
-							appInBackgroundSceneEpoch: $appInBackgroundSceneEpoch,
-							appGoBackInActiveSceneEpoch: $appGoBackInActiveSceneEpoch,
-							calculBackgroundTimePassed: $calculBackgroundTimePassed,
-							willStartTrainingSession: $willStartTrainingSession,
-							nameSpace: nameSpace,
-							dateTimer: $dateTimer,
-							endSessionAnimationButton: $endSessionAnimationButton,
-							startSessionAnimationButton: $startSessionAnimationButton
-						)
-						.transition(AnyTransition.opacity.animation(.easeIn(duration: 1)))
+					StartedSessionView(
+						session:
+							SessionModel(
+								sessionTime: sessionTimer,
+								sessionDistanceInMeters: sessionDistanceInMeters,
+								sessionAverageSpeed: sessionAverageSpeed,
+								distanceSpeedChart: nil,
+								timeSpeedChart: nil,
+								date: nil
+							),
+						sessionTimer: $sessionTimer,
+						sessionDistanceInMeters: $sessionDistanceInMeters,
+						sessionAverageSpeed: $sessionAverageSpeed,
+						isSessionPaused: $isSessionPaused,
+						distanceSpeedChartValues: $distanceSpeedChartValues,
+						timeSpeedChart: $timeSpeedChart,
+						appInBackgroundSceneEpoch: $appInBackgroundSceneEpoch,
+						appGoBackInActiveSceneEpoch: $appGoBackInActiveSceneEpoch,
+						calculBackgroundTimePassed: $calculBackgroundTimePassed,
+						willStartTrainingSession: $willStartTrainingSession,
+						nameSpace: nameSpace,
+						dateTimer: $dateTimer,
+						endSessionAnimationButton: $endSessionAnimationButton,
+						startSessionAnimationButton: $startSessionAnimationButton
+					)
+					.transition(AnyTransition.opacity.animation(.easeIn(duration: 1)))
+					.onChange(of: locationManager.userLocation) { location  in
+						if let location {
+							// Update live activity in background
+							let updateActivity = SessionActivityAttributes.SessionStatus(dateTimer: .now, sessionDistanceDone: sessionDistanceInMeters, sessionSpeed: location.speed)
+							Task {
+								await activity?.update(using: updateActivity)
+							}
+						}
+					}
+					.onChange(of: motionManager.distance) { _ in
+						let updateActivity = SessionActivityAttributes.SessionStatus(dateTimer: .now, sessionDistanceDone: sessionDistanceInMeters, sessionSpeed: sessionAverageSpeed)
+						Task {
+							await activity?.update(using: updateActivity)
+						}
+					}
 				}
 			}
 			.onTapGesture {
