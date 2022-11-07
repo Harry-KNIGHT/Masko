@@ -14,6 +14,7 @@ struct LaunchSessionView: View {
 	@EnvironmentObject var weatherVM: WeatherViewModel
 	@Environment(\.colorScheme) var colorScheme
 	@EnvironmentObject var finishedSessionVM: FinishedSessionViewModel
+	@EnvironmentObject var motionManager: CoreMotionViewModel
 
 	@State private var sessionTimer: Int = 0
 	@State private var sessionDistanceInMeters: Double = 0
@@ -70,6 +71,23 @@ struct LaunchSessionView: View {
 							startSessionAnimationButton: $startSessionAnimationButton
 						)
 						.transition(AnyTransition.opacity.animation(.easeIn(duration: 1)))
+						.onChange(of: locationManager.userLocation) { location  in
+							if let location {
+								// Update live activity in background
+								let updateActivity = SessionActivityAttributes.SessionStatus(dateTimer: .now, sessionDistanceDone: sessionDistanceInMeters, sessionSpeed: location.speed)
+								Task {
+									await activity?.update(using: updateActivity)
+								}
+							}
+						}
+						.onChange(of: motionManager.distance) { distance in
+							if let distance {
+								let updateActivity = SessionActivityAttributes.SessionStatus(dateTimer: .now, sessionDistanceDone: sessionDistanceInMeters, sessionSpeed: sessionAverageSpeed)
+								Task {
+									await activity?.update(using: updateActivity)
+								}
+							}
+						}
 				}
 			}
 			.onTapGesture {
