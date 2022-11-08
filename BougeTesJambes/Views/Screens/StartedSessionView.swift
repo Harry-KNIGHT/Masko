@@ -121,12 +121,6 @@ struct StartedSessionView: View {
 					}
 				}
 			})
-			.onAppear {
-				if locationManager.userLocation == nil {
-					locationManager.requestLocation()
-				}
-				motionManager.initializePodometer()
-			}
 			.onChange(of: locationManager.userLocation) {  location in
 				if let location {
 					if location.speed > 0 {

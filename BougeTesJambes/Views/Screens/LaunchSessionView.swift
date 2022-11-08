@@ -42,6 +42,12 @@ struct LaunchSessionView: View {
 					StartSessionButton(willStartTrainingSession: $willStartTrainingSession, nameSpace: nameSpace, endSessionAnimationButton: $endSessionAnimationButton)
 
 						.transition(AnyTransition.opacity.animation(.easeOut(duration: 1)))
+						.onAppear {
+							if locationManager.userLocation == nil {
+								locationManager.requestLocation()
+							}
+							motionManager.initializePodometer()
+						}
 
 				} else {
 
