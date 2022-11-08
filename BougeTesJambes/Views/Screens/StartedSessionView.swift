@@ -126,7 +126,7 @@ struct StartedSessionView: View {
 					if location.speed > 0 {
 						finishedSesionVM.speedSessionValues.append(location.speed.turnMPerSecToKmPerH)
 					}
-					self.timeSpeedChart.append(TimeSpeedChart(time: sessionTimer, averageSpeed: location.speed.turnMPerSecToKmPerH))
+					self.timeSpeedChart.append(TimeSpeedChart(time: sessionTimer, averageSpeed: sessionAverageSpeed))
 
 				}
 			}
