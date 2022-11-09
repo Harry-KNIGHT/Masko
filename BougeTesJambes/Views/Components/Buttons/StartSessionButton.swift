@@ -30,6 +30,7 @@ struct StartSessionButton: View {
 					.font(.custom("", size: 100, relativeTo: .largeTitle))
 					.foregroundColor(.white)
 			}
+			.accessibilityLabel("Bouton pour démarrer une session de course ou de marche.")
 			.scaleEffect(endSessionAnimationButton ? 0.5 : animationAmount)
 
 			.animation(

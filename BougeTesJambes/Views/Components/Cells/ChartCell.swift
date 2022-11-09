@@ -29,6 +29,7 @@ struct ChartCell: View {
 							Text("\(intValue < 60 ? intValue : intValue / 60) \(intValue < 60 ? "sec" : "min")")
 								.font(.system(size: 10)) // style it
 								.foregroundColor(.primary)
+								.accessibilityValue("\(intValue < 60 ? intValue : intValue / 60) \(intValue < 60 ? "secondes" : "minutes")")
 						}
 					}
 				}
@@ -44,6 +45,7 @@ struct ChartCell: View {
 							Text("\(intValue)km/h")
 								.font(.system(size: 10)) // style it
 								.foregroundColor(.primary)
+								.accessibilityValue("\(intValue) kilomètres par heures.")
 						}
 					}
 				}

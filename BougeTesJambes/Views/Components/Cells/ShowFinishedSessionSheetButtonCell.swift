@@ -19,6 +19,7 @@ struct ShowFinishedSessionSheetButtonCell: View {
 				.foregroundColor(.accentColor)
 
 		})
+		.accessibilityLabel("Afficher les session finies")
 		.buttonStyle(.borderless)
 
 		.sheet(isPresented: $showSheet) {
