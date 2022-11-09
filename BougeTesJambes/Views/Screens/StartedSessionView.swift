@@ -130,12 +130,6 @@ struct StartedSessionView: View {
 
 				}
 			}
-
-			.onChange(of: motionManager.distance, perform: { distance in
-				if let distance = motionManager.distance {
-					sessionDistanceInMeters = distance
-				}
-			})
 			.onReceive(timerPublisher.currentTimePublisher) { _ in
 				if locationManager.userLocation != nil {
 					sessionTimer += 1
