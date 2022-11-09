@@ -140,7 +140,7 @@ struct LaunchSessionView: View {
 					HStack {
 						if let weather = weatherVM.weather {
 							Image(systemName: weather.currentWeather.symbolName)
-							Text(weather.currentWeather.temperature.description)
+							Text( (weather.currentWeather.temperature.formatted()))
 						}
 					}
 					.foregroundColor(.accentColor)
