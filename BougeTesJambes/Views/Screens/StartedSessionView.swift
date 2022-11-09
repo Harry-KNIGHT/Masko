@@ -63,6 +63,8 @@ struct StartedSessionView: View {
 						objectif: "\(sessionDistanceInMeters > 1_000 ? "km" : "m")",
 						sessionValue: "\(String(format: "%.2f", sessionDistanceInMeters.turnThousandMToKm))"
 					)
+					.accessibilityLabel("Distance parcourue")
+					.accessibilityValue("\(sessionDistanceInMeters.turnThousandMToKm) \(sessionDistanceInMeters.turnThousandMToKm > 1_000 ? "kilomètres" : "mètres")")
 
 					Spacer()
 					if let location = locationManager.userLocation {
@@ -71,7 +73,8 @@ struct StartedSessionView: View {
 							objectif: "km/h",
 							sessionValue: "\( location.speed < 0 ? "0.00" : String(format: "%.2f", location.speed.turnMPerSecToKmPerH.description.min(0, 100)))"
 						)
-
+						.accessibilityLabel("Vitesse de déplacement")
+						.accessibilityValue("\(location.speed.turnMPerSecToKmPerH) kilomètres par heure")
 					}
 				}
 				.padding(.horizontal)
@@ -94,12 +97,14 @@ struct StartedSessionView: View {
 							self.endSessionAnimationButton = true
 
 						}
+						.accessibilityLabel("Oui, arrêter l'entrainement")
 
 						Button("Non", role: .cancel) {
 							withAnimation(.easeIn(duration: 0.4)) {
 								isSessionPaused = false
 							}
 						}
+						.accessibilityLabel("Non, continuer l'entrainement en cours")
 					}
 			}
 

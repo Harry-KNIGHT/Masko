@@ -29,6 +29,7 @@ struct FinishedSessionListView: View {
 				}
 				.onDelete(perform: finishedSessionVM.deletFinishedSesion)
 			}
+			.accessibilityLabel("Toutes vos sessions finies.")
 			.toolbar {
 				ToolbarItem(placement: .principal) {
 					Text("Sessions finies")

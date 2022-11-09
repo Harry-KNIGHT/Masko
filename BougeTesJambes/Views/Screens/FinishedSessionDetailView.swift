@@ -34,6 +34,7 @@ struct FinishedSessionDetailView: View {
 			Section(header: Text("Temps / Vitesse")) {
 				ChartCell(session: session)
 			}
+			.accessibilityLabel("Graphique représentant vos performances temps / vitesse")
 		}
 		.listStyle(.plain)
 		.navigationBarTitleDisplayMode(.inline)

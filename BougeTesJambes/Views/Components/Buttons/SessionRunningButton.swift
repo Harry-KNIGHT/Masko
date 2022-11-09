@@ -23,6 +23,7 @@ struct SessionRunningButton: View {
 				.font(.custom("", size: 60, relativeTo: .largeTitle))
 				.foregroundColor(.white)
 		}
+		.accessibilityLabel("Mettre la session en pause")
 		.scaleEffect(isSessionPaused ? buttonWidth + 0.134 : buttonWidth)
 		.onAppear {
 			withAnimation(.easeOut(duration: 0.7)) {
@@ -38,7 +39,6 @@ struct SessionRunningButton: View {
 				isSessionPaused = true
 			}
 		}
-
 	}
 }
 
