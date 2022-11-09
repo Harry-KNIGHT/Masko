@@ -58,7 +58,10 @@ struct MaskoLiveActivityWidgetLiveActivity: Widget {
                 DynamicIslandExpandedRegion(.trailing) {
 					VStack {
 						Spacer()
-						Text(Date.now.description)
+						withAnimation {
+							Image(systemName: context.state.sessionSpeed.turnMPerSecToKmPerH > 6 ? "figure.run" : "figure.walk")
+								.font(.system(size: 50))
+						}
 						Spacer()
 					}
 					.padding()
