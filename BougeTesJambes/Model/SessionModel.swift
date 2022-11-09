@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct SessionModel: Identifiable, Hashable {
+struct SessionModel: Identifiable, Hashable, Codable {
 	var id = UUID()
 
 	let sessionTime: Int
@@ -19,13 +19,13 @@ struct SessionModel: Identifiable, Hashable {
 	let date: Date?
 }
 
-struct DistanceSpeedChart: Identifiable, Hashable {
+struct DistanceSpeedChart: Identifiable, Hashable, Codable {
 	var id = UUID()
 	let averageSpeed: Double
 	let sessionDistance: Double
 }
 
-struct TimeSpeedChart: Identifiable, Hashable {
+struct TimeSpeedChart: Identifiable, Hashable, Codable {
 	var id = UUID()
 	let time: Int
 	let averageSpeed: Double
