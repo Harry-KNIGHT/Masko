@@ -8,8 +8,25 @@
 import Foundation
 
 class FinishedSessionViewModel: ObservableObject {
-	@Published public var fishishedSessions: [SessionModel] = []
+	@Published public var fishishedSessions: [SessionModel]
 	@Published public var speedSessionValues = [Double]()
+
+	init() {
+		if let data = UserDefaults.standard.data(forKey: "SavedData") {
+			if let decoded = try? JSONDecoder().decode([SessionModel].self, from: data) {
+				fishishedSessions = decoded
+				return
+			}
+		}
+		fishishedSessions = []
+	}
+
+	func save() {
+		if let encoded = try? JSONEncoder().encode(fishishedSessions) {
+			UserDefaults.standard.set(encoded, forKey: "SavedData")
+
+		}
+	}
 
 	func addFinishedSession(sessionTime: Int, sessionDistanceInMeters: Double, sessionAverageSpeed: Double, distanceSpeedChart: [DistanceSpeedChart], timeSpeedChart: [TimeSpeedChart], date: Date) {
 
@@ -17,6 +34,7 @@ class FinishedSessionViewModel: ObservableObject {
 
 		self.fishishedSessions.insert(finishedSession, at: 0)
 		speedSessionValues.removeAll()
+		save()
 	}
 
 	var averageSpeed: Double {
