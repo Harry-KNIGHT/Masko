@@ -124,6 +124,16 @@ struct LaunchSessionView: View {
 					self.dateTimer = nil
 				}
 			}
+			.onAppear {
+				Task {
+					if let location = locationManager.userLocation {
+						await weatherVM.getWeather(
+							lat: location.coordinate.latitude,
+							long: location.coordinate.longitude
+						)
+					}
+				}
+			}
 			.navigationTitle("MASKO")
 			.toolbar {
 				ToolbarItem(placement: .navigationBarLeading) {
@@ -148,16 +158,6 @@ struct LaunchSessionView: View {
 			.toolbarBackground(Color("toolbarColor"), for: .navigationBar)
 			.toolbarBackground(.visible, for: .navigationBar)
 			.navigationBarTitleDisplayMode(.inline)
-		}
-
-		.task {
-			if let location = locationManager.userLocation {
-
-				await weatherVM.getWeather(
-					lat: location.coordinate.latitude,
-					long: location.coordinate.longitude
-				)
-			}
 		}
 	}
 }
