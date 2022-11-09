@@ -37,6 +37,11 @@ class FinishedSessionViewModel: ObservableObject {
 		save()
 	}
 
+	func deletFinishedSesion(at offsets: IndexSet) {
+		self.fishishedSessions.remove(atOffsets: offsets)
+		save()
+	}
+
 	var averageSpeed: Double {
 		let sum = speedSessionValues.reduce(0, +)
 		return sum / Double(speedSessionValues.count)

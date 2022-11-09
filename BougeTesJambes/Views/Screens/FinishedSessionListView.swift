@@ -27,6 +27,7 @@ struct FinishedSessionListView: View {
 						}
 					}
 				}
+				.onDelete(perform: finishedSessionVM.deletFinishedSesion)
 			}
 			.toolbar {
 				ToolbarItem(placement: .principal) {
