@@ -69,7 +69,7 @@ struct StartedSessionView: View {
 						SessionInformation(
 							sfSymbol: "speedometer",
 							objectif: "km/h",
-							sessionValue: "\( location.speed < 0 ? "0.00" : String(format: "%.2f", location.speed.turnMPerSecToKmPerH))"
+							sessionValue: "\( location.speed < 0 ? "0.00" : String(format: "%.2f", location.speed.turnMPerSecToKmPerH.description.min(0, 100)))"
 						)
 
 					}
@@ -124,7 +124,7 @@ struct StartedSessionView: View {
 			.onChange(of: locationManager.userLocation) {  location in
 				if let location {
 					if location.speed > 0 {
-						finishedSesionVM.speedSessionValues.append(location.speed.turnMPerSecToKmPerH)
+						finishedSesionVM.speedSessionValues.append(location.speed.description.min(0, 100).turnMPerSecToKmPerH)
 					}
 					self.timeSpeedChart.append(TimeSpeedChart(time: sessionTimer, averageSpeed: sessionAverageSpeed))
 
