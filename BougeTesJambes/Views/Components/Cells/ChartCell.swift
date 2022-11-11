@@ -11,10 +11,10 @@ import Charts
 struct ChartCell: View {
 	let session: SessionModel
 	var body: some View {
-		if let timeSpeedChart = session.timeSpeedChart {
-			Chart(timeSpeedChart) { value in
+		if let distanceSpeed = session.distanceSpeedChart {
+			Chart(distanceSpeed) { value in
 				LineMark(
-					x: .value("Temps", value.time),
+					x: .value("Temps", value.sessionDistance),
 					y: .value("Vitesse", value.averageSpeed)
 				)
 			}
@@ -29,7 +29,7 @@ struct ChartCell: View {
 							Text("\(intValue < 60 ? intValue : intValue / 60) \(intValue < 60 ? "sec" : "min")")
 								.font(.system(size: 10)) // style it
 								.foregroundColor(.primary)
-								.accessibilityValue("\(intValue < 60 ? intValue : intValue / 60) \(intValue < 60 ? "secondes" : "minutes")")
+								.accessibilityValue("\(intValue > 1_000 ? "\(intValue / 1000)km" : "\(intValue)m" )")
 						}
 					}
 				}
