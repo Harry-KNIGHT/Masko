@@ -25,16 +25,13 @@ struct StartedSessionView: View {
 	@Binding var isSessionPaused: Bool
 	@Binding var distanceSpeedChartValues: [DistanceSpeedChart]
 
-	@StateObject var timerPublisher = SessionTimer()
-
 	@Binding var timeSpeedChart: [TimeSpeedChart]
 
 	@Environment(\.colorScheme) var colorScheme
 	@Environment(\.scenePhase) var scenePhase
 
-	@Binding var appInBackgroundSceneEpoch: Int
-	@Binding var appGoBackInActiveSceneEpoch: Int
-	@Binding var calculBackgroundTimePassed: Int
+	@Binding var startSessionEpoch: Int?
+	@State private var endSessionEpoch: Int?
 
 	@Binding var willStartTrainingSession: Bool
 
@@ -49,12 +46,18 @@ struct StartedSessionView: View {
 			BackgroundLinearColor()
 			VStack {
 				Spacer()
+				if let dateTimer {
+					VStack(spacing: 10) {
+						Image(systemName: "stopwatch")
+							.font(.title)
 
-				SessionInformation(
-					sfSymbol: "stopwatch",
-					sessionValue: "\(String(convertTimeVM.convertSecInTime(timeInSeconds: sessionTimer)))"
-				)
+						Text(dateTimer, style: .timer)
 
+							.font(Font.largeTitle.monospacedDigit().bold())
+							.fontDesign(.rounded)
+					}
+					.foregroundColor(.accentColor)
+				}
 				Spacer()
 				HStack {
 
@@ -92,9 +95,18 @@ struct StartedSessionView: View {
 								willStartTrainingSession = true
 							}
 
+							self.endSessionAnimationButton = true
+							endSessionEpoch = Int(Date().timeIntervalSince1970)
+
+							if let endSessionEpoch, let startSessionEpoch {
+								 sessionTimer = (endSessionEpoch - startSessionEpoch)
+							}
+							print("Session was \(sessionTimer) time")
+
 							self.finishedSesionVM.addFinishedSession(sessionTime: sessionTimer, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: distanceSpeedChartValues, timeSpeedChart: timeSpeedChart, date: Date.now)
 
-							self.endSessionAnimationButton = true
+							startSessionEpoch = nil
+							endSessionEpoch = nil
 
 						}
 						.accessibilityLabel("Oui, arrêter l'entrainement")
@@ -111,7 +123,6 @@ struct StartedSessionView: View {
 			.onAppear {
 				motionManager.initializePodometer()
 				locationManager.showAndUseBackgroundActivity = true
-
 			}
 			.onChange(of: motionManager.distance, perform: { distance in
 				if let distance {
@@ -135,11 +146,6 @@ struct StartedSessionView: View {
 
 				}
 			}
-			.onReceive(timerPublisher.currentTimePublisher) { _ in
-				if locationManager.userLocation != nil {
-					sessionTimer += 1
-				}
-			}
 			.onDisappear {
 				sessionTimer = 0
 				sessionDistanceInMeters = 0
@@ -148,9 +154,8 @@ struct StartedSessionView: View {
 				isSessionPaused = false
 				distanceSpeedChartValues = [DistanceSpeedChart]()
 				timeSpeedChart = [TimeSpeedChart]()
-				appInBackgroundSceneEpoch = 0
-				appGoBackInActiveSceneEpoch = 0
-				calculBackgroundTimePassed = 0
+				startSessionEpoch = nil
+				endSessionEpoch = nil
 				dateTimer = nil
 			}
 			.navigationBarBackButtonHidden(true)
@@ -159,19 +164,6 @@ struct StartedSessionView: View {
 
 			.toolbarBackground(Color("toolbarColor"), for: .navigationBar)
 			.toolbarBackground(.visible, for: .navigationBar)
-		}
-		.onChange(of: scenePhase) { newPhase in
-			if newPhase == .inactive {
-				print("Inactive")
-			} else if newPhase == .active {
-				print("Active")
-				appGoBackInActiveSceneEpoch = Int(Date().timeIntervalSince1970)
-				self.calculBackgroundTimePassed = ((appGoBackInActiveSceneEpoch - appInBackgroundSceneEpoch) / 60)
-				sessionTimer += calculBackgroundTimePassed
-			} else if newPhase == .background {
-				print("Background")
-				appInBackgroundSceneEpoch = Int(Date().timeIntervalSince1970)
-			}
 		}
 	}
 }
@@ -188,10 +180,8 @@ struct StartedSessionView_Previews: PreviewProvider {
 				isSessionPaused: .constant(false),
 				distanceSpeedChartValues: .constant(DistanceSpeedChart.distanceSpeedArraySample),
 				timeSpeedChart: .constant(TimeSpeedChart.timeSpeedArraySample),
-				appInBackgroundSceneEpoch: .constant(0),
-				appGoBackInActiveSceneEpoch: .constant(0),
-				calculBackgroundTimePassed: .constant(0),
-				willStartTrainingSession: .constant(false),
+
+				startSessionEpoch: .constant(0), willStartTrainingSession: .constant(false),
 				nameSpace: nameSpace,
 				dateTimer: .constant(.now),
 				endSessionAnimationButton: .constant(false),

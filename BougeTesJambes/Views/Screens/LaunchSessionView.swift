@@ -25,15 +25,14 @@ struct LaunchSessionView: View {
 	@State private var isSessionPaused: Bool = false
 	@State private var distanceSpeedChartValues = [DistanceSpeedChart]()
 	@State private var timeSpeedChart = [TimeSpeedChart]()
-	@State private var appInBackgroundSceneEpoch = 0
-	@State private var appGoBackInActiveSceneEpoch = 0
-	@State private var calculBackgroundTimePassed = 0
 
 	@Namespace private var nameSpace
 	@State private var activity: Activity<SessionActivityAttributes>?
 	@State private var dateTimer: Date?
 	@State private var endSessionAnimationButton: Bool = false
 	@State private var startSessionAnimationButton: Bool = false
+
+	@State private var startSessionEpoch: Int?
 	var body: some View {
 		NavigationStack {
 			ZStack {
@@ -67,10 +66,7 @@ struct LaunchSessionView: View {
 						isSessionPaused: $isSessionPaused,
 						distanceSpeedChartValues: $distanceSpeedChartValues,
 						timeSpeedChart: $timeSpeedChart,
-						appInBackgroundSceneEpoch: $appInBackgroundSceneEpoch,
-						appGoBackInActiveSceneEpoch: $appGoBackInActiveSceneEpoch,
-						calculBackgroundTimePassed: $calculBackgroundTimePassed,
-						willStartTrainingSession: $willStartTrainingSession,
+						startSessionEpoch: $startSessionEpoch, willStartTrainingSession: $willStartTrainingSession,
 						nameSpace: nameSpace,
 						dateTimer: $dateTimer,
 						endSessionAnimationButton: $endSessionAnimationButton,
@@ -110,6 +106,8 @@ struct LaunchSessionView: View {
 					let state = SessionActivityAttributes.ContentState(dateTimer: .now, sessionDistanceDone: sessionDistanceInMeters, sessionSpeed: sessionAverageSpeed)
 
 					activity = try? Activity<SessionActivityAttributes>.request(attributes: attribute, contentState: state, pushType: nil)
+
+					startSessionEpoch = Int(Date().timeIntervalSince1970)
 				}
 			}
 			.onChange(of: willStartTrainingSession) { _ in
