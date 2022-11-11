@@ -25,9 +25,7 @@ struct LaunchSessionView: View {
 	@State private var isSessionPaused: Bool = false
 	@State private var distanceSpeedChartValues = [DistanceSpeedChart]()
 	@State private var timeSpeedChart = [TimeSpeedChart]()
-	@State private var appInBackgroundSceneEpoch = 0
-	@State private var appGoBackInActiveSceneEpoch = 0
-	@State private var calculBackgroundTimePassed = 0
+	
 
 	@Namespace private var nameSpace
 	@State private var activity: Activity<SessionActivityAttributes>?
@@ -67,9 +65,6 @@ struct LaunchSessionView: View {
 						isSessionPaused: $isSessionPaused,
 						distanceSpeedChartValues: $distanceSpeedChartValues,
 						timeSpeedChart: $timeSpeedChart,
-						appInBackgroundSceneEpoch: $appInBackgroundSceneEpoch,
-						appGoBackInActiveSceneEpoch: $appGoBackInActiveSceneEpoch,
-						calculBackgroundTimePassed: $calculBackgroundTimePassed,
 						willStartTrainingSession: $willStartTrainingSession,
 						nameSpace: nameSpace,
 						dateTimer: $dateTimer,

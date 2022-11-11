@@ -32,9 +32,8 @@ struct StartedSessionView: View {
 	@Environment(\.colorScheme) var colorScheme
 	@Environment(\.scenePhase) var scenePhase
 
-	@Binding var appInBackgroundSceneEpoch: Int
-	@Binding var appGoBackInActiveSceneEpoch: Int
-	@Binding var calculBackgroundTimePassed: Int
+	@State private var startSessionEpoch: Int?
+	@State private var endSessionEpoch: Int?
 
 	@Binding var willStartTrainingSession: Bool
 
@@ -117,7 +116,6 @@ struct StartedSessionView: View {
 			.onAppear {
 				motionManager.initializePodometer()
 				locationManager.showAndUseBackgroundActivity = true
-
 			}
 			.onChange(of: motionManager.distance, perform: { distance in
 				if let distance {
@@ -149,9 +147,8 @@ struct StartedSessionView: View {
 				isSessionPaused = false
 				distanceSpeedChartValues = [DistanceSpeedChart]()
 				timeSpeedChart = [TimeSpeedChart]()
-				appInBackgroundSceneEpoch = 0
-				appGoBackInActiveSceneEpoch = 0
-				calculBackgroundTimePassed = 0
+				startSessionEpoch = nil
+				endSessionEpoch = nil
 				dateTimer = nil
 			}
 			.navigationBarBackButtonHidden(true)
@@ -176,9 +173,7 @@ struct StartedSessionView_Previews: PreviewProvider {
 				isSessionPaused: .constant(false),
 				distanceSpeedChartValues: .constant(DistanceSpeedChart.distanceSpeedArraySample),
 				timeSpeedChart: .constant(TimeSpeedChart.timeSpeedArraySample),
-				appInBackgroundSceneEpoch: .constant(0),
-				appGoBackInActiveSceneEpoch: .constant(0),
-				calculBackgroundTimePassed: .constant(0),
+
 				willStartTrainingSession: .constant(false),
 				nameSpace: nameSpace,
 				dateTimer: .constant(.now),
