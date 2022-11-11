@@ -71,7 +71,7 @@ struct StartedSessionView: View {
 						SessionInformation(
 							sfSymbol: "speedometer",
 							objectif: "km/h",
-							sessionValue: "\( location.speed < 0 ? "0.00" : String(format: "%.2f", location.speed.turnMPerSecToKmPerH.description.min(0, 100)))"
+							sessionValue: "\(location.speed > 0 ? location.speed.twoDecimalDigits : "0.00")"
 						)
 						.accessibilityLabel("Vitesse de déplacement")
 						.accessibilityValue("\(location.speed.turnMPerSecToKmPerH) kilomètres par heure")
