@@ -24,8 +24,8 @@ struct MaskoLiveActivityWidgetLiveActivity: Widget {
 
 				LiveActivityViewInfomation(
 					sfSymbol: "figure.walk",
-					sessionValue: context.state.sessionDistanceDone.twoDecimalDigits,
-					objectifType: "m"
+					sessionValue: context.state.sessionDistanceDone.turnThousandMToKm.twoDecimalDigits,
+					objectifType: "\(context.state.sessionDistanceDone > 1_000 ? "km" : "m")"
 				)
 
 				LiveActivityViewInfomation(
@@ -45,7 +45,7 @@ struct MaskoLiveActivityWidgetLiveActivity: Widget {
 						LiveActivityViewInfomation(
 							sfSymbol: nil,
 							sessionValue: context.state.sessionDistanceDone.turnThousandMToKm.twoDecimalDigits,
-							objectifType: "\(context.state.sessionDistanceDone >= 1_000 ? "km" : "m")"
+							objectifType: "\(context.state.sessionDistanceDone.isKmOrMtwoDigits)"
 						)
 						LiveActivityViewInfomation(
 							sfSymbol: nil,
