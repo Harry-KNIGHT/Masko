@@ -25,7 +25,7 @@ struct StartedSessionView: View {
 	@Binding var isSessionPaused: Bool
 	@Binding var distanceSpeedChartValues: [DistanceSpeedChart]
 
-	@StateObject var timerPublisher = SessionTimer()
+
 
 	@Binding var timeSpeedChart: [TimeSpeedChart]
 
@@ -139,11 +139,6 @@ struct StartedSessionView: View {
 					}
 					self.timeSpeedChart.append(TimeSpeedChart(time: sessionTimer, averageSpeed: sessionAverageSpeed))
 
-				}
-			}
-			.onReceive(timerPublisher.currentTimePublisher) { _ in
-				if locationManager.userLocation != nil {
-					sessionTimer += 1
 				}
 			}
 			.onDisappear {
