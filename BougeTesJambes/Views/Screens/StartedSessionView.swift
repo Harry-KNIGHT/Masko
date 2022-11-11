@@ -161,19 +161,6 @@ struct StartedSessionView: View {
 			.toolbarBackground(Color("toolbarColor"), for: .navigationBar)
 			.toolbarBackground(.visible, for: .navigationBar)
 		}
-		.onChange(of: scenePhase) { newPhase in
-			if newPhase == .inactive {
-				print("Inactive")
-			} else if newPhase == .active {
-				print("Active")
-				appGoBackInActiveSceneEpoch = Int(Date().timeIntervalSince1970)
-				self.calculBackgroundTimePassed = ((appGoBackInActiveSceneEpoch - appInBackgroundSceneEpoch) / 60)
-				sessionTimer += calculBackgroundTimePassed
-			} else if newPhase == .background {
-				print("Background")
-				appInBackgroundSceneEpoch = Int(Date().timeIntervalSince1970)
-			}
-		}
 	}
 }
 
