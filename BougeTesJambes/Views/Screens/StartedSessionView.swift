@@ -10,9 +10,14 @@ import ActivityKit
 
 struct StartedSessionView: View {
 	let session: SessionModel
+
+	var nameSpace: Namespace.ID
+
+	@Environment(\.colorScheme) var colorScheme
+	@Environment(\.scenePhase) var scenePhase
+
 	@EnvironmentObject var locationManager: LocationManager
 	@EnvironmentObject var motionManager: CoreMotionViewModel
-
 	@EnvironmentObject public var finishedSesionVM: FinishedSessionViewModel
 	@EnvironmentObject public var convertTimeVM: ConvertTimeViewModel
 
@@ -21,26 +26,18 @@ struct StartedSessionView: View {
 	@Binding var sessionTimer: Int
 	@Binding var sessionDistanceInMeters: Double
 	@Binding var sessionAverageSpeed: Double
-
 	@Binding var isSessionPaused: Bool
 	@Binding var distanceSpeedChartValues: [DistanceSpeedChart]
-
 	@Binding var timeSpeedChart: [TimeSpeedChart]
-
-	@Environment(\.colorScheme) var colorScheme
-	@Environment(\.scenePhase) var scenePhase
-
 	@Binding var startSessionEpoch: Int?
-	@State private var endSessionEpoch: Int?
-
 	@Binding var willStartTrainingSession: Bool
-
-	var nameSpace: Namespace.ID
-
-	@State private var activity: Activity<SessionActivityAttributes>?
 	@Binding var dateTimer: Date?
 	@Binding var endSessionAnimationButton: Bool
 	@Binding var startSessionAnimationButton: Bool
+
+	@State private var endSessionEpoch: Int?
+	@State private var activity: Activity<SessionActivityAttributes>?
+
 	var body: some View {
 		ZStack {
 			BackgroundLinearColor()
@@ -147,7 +144,7 @@ struct StartedSessionView_Previews: PreviewProvider {
 		NavigationStack {
 			StartedSessionView(
 				session: .sample,
-				sessionTimer: .constant(0),
+				nameSpace: nameSpace, sessionTimer: .constant(0),
 				sessionDistanceInMeters: .constant(453),
 				sessionAverageSpeed: .constant(3.45),
 				isSessionPaused: .constant(false),
@@ -155,7 +152,6 @@ struct StartedSessionView_Previews: PreviewProvider {
 				timeSpeedChart: .constant(TimeSpeedChart.timeSpeedArraySample),
 				startSessionEpoch: .constant(0),
 				willStartTrainingSession: .constant(false),
-				nameSpace: nameSpace,
 				dateTimer: .constant(.now),
 				endSessionAnimationButton: .constant(false),
 				startSessionAnimationButton: .constant(false)

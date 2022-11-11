@@ -11,27 +11,28 @@ import ActivityKit
 
 struct LaunchSessionView: View {
 	@Namespace private var nameSpace
+
+	@Environment(\.colorScheme) var colorScheme
+
 	@EnvironmentObject var locationManager: LocationManager
 	@EnvironmentObject var weatherVM: WeatherViewModel
-	@Environment(\.colorScheme) var colorScheme
 	@EnvironmentObject var finishedSessionVM: FinishedSessionViewModel
 	@EnvironmentObject var motionManager: CoreMotionViewModel
 
 	@State private var sessionTimer: Int = 0
 	@State private var sessionDistanceInMeters: Double = 0
 	@State private var sessionAverageSpeed: Double = 0
-
 	@State private var showSheet: Bool = false
 	@State private var willStartTrainingSession: Bool = true
 	@State private var isSessionPaused: Bool = false
 	@State private var distanceSpeedChartValues = [DistanceSpeedChart]()
 	@State private var timeSpeedChart = [TimeSpeedChart]()
-
 	@State private var activity: Activity<SessionActivityAttributes>?
 	@State private var dateTimer: Date?
 	@State private var endSessionAnimationButton: Bool = false
 	@State private var startSessionAnimationButton: Bool = false
 	@State private var startSessionEpoch: Int?
+
 	var body: some View {
 		NavigationStack {
 			ZStack {
@@ -79,14 +80,13 @@ struct LaunchSessionView: View {
 								timeSpeedChart: nil,
 								date: nil
 							),
-						sessionTimer: $sessionTimer,
+						nameSpace: nameSpace, sessionTimer: $sessionTimer,
 						sessionDistanceInMeters: $sessionDistanceInMeters,
 						sessionAverageSpeed: $sessionAverageSpeed,
 						isSessionPaused: $isSessionPaused,
 						distanceSpeedChartValues: $distanceSpeedChartValues,
 						timeSpeedChart: $timeSpeedChart,
 						startSessionEpoch: $startSessionEpoch, willStartTrainingSession: $willStartTrainingSession,
-						nameSpace: nameSpace,
 						dateTimer: $dateTimer,
 						endSessionAnimationButton: $endSessionAnimationButton,
 						startSessionAnimationButton: $startSessionAnimationButton
