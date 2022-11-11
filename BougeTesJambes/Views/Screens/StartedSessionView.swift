@@ -135,6 +135,7 @@ struct StartedSessionView: View {
 				if let location {
 					if location.speed > 0 {
 						finishedSesionVM.speedSessionValues.append(location.speed.description.min(0, 100).turnMPerSecToKmPerH)
+						finishedSesionVM.speedSessionValues.append(location.speed)
 					}
 				}
 			}
