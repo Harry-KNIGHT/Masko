@@ -22,7 +22,7 @@ struct FinishedSessionDetailView: View {
 
 			FinishedSessionInformation(
 				objectifType: "Distance",
-				sessionInfo: "\(String(format: "%.2tf \(session.sessionDistanceInMeters > 1_000 ? "km" : "mètres")", session.sessionDistanceInMeters))",
+				sessionInfo: "\(session.sessionDistanceInMeters.isKmOrMtwoDigits)",
 				objectif: nil
 			)
 
