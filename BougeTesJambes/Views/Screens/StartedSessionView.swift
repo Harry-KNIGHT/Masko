@@ -61,7 +61,7 @@ struct StartedSessionView: View {
 				Spacer()
 				HStack {
 
-					SessionInformation(
+					SessionInformationView(
 						sfSymbol: "flag",
 						objectif: "\(sessionDistanceInMeters > 1_000 ? "km" : "m")",
 						sessionValue: "\(String(format: "%.2f", sessionDistanceInMeters.turnThousandMToKm))"
@@ -71,7 +71,7 @@ struct StartedSessionView: View {
 
 					Spacer()
 					if let location = locationManager.userLocation {
-						SessionInformation(
+						SessionInformationView(
 							sfSymbol: "speedometer",
 							objectif: "km/h",
 							sessionValue: "\(location.speed > 0 ? location.speed.twoDecimalDigits : "0.00")"
@@ -128,12 +128,6 @@ struct StartedSessionView: View {
 				if let distance {
 					if distance > 0 {
 						sessionDistanceInMeters = distance
-						self.distanceSpeedChartValues.append(
-							DistanceSpeedChart(
-								averageSpeed: sessionAverageSpeed,
-								sessionDistance: sessionDistanceInMeters
-							)
-						)
 					}
 				}
 			})
@@ -141,9 +135,8 @@ struct StartedSessionView: View {
 				if let location {
 					if location.speed > 0 {
 						finishedSesionVM.speedSessionValues.append(location.speed.description.min(0, 100).turnMPerSecToKmPerH)
+						finishedSesionVM.speedSessionValues.append(location.speed)
 					}
-					self.timeSpeedChart.append(TimeSpeedChart(time: sessionTimer, averageSpeed: sessionAverageSpeed))
-
 				}
 			}
 			.onDisappear {
@@ -152,8 +145,8 @@ struct StartedSessionView: View {
 				sessionAverageSpeed = 0
 				willStartTrainingSession = true
 				isSessionPaused = false
-				distanceSpeedChartValues = [DistanceSpeedChart]()
-				timeSpeedChart = [TimeSpeedChart]()
+				distanceSpeedChartValues = []
+				timeSpeedChart = []
 				startSessionEpoch = nil
 				endSessionEpoch = nil
 				dateTimer = nil
@@ -197,29 +190,3 @@ struct StartedSessionView_Previews: PreviewProvider {
 	}
 }
 
-struct SessionInformation: View {
-	var sfSymbol: String
-	var objectif: String?
-	var sessionValue: String
-	var sessionValueFont: Font = Font.largeTitle.monospacedDigit().bold()
-	var color: Color = .accentColor
-
-	var body: some View {
-		VStack(alignment: .center, spacing: 10) {
-			Image(systemName: sfSymbol)
-				.font(.title)
-
-			Text("\(sessionValue)")
-				.font(sessionValueFont)
-				.fontDesign(.rounded)
-
-			if let objectif {
-				Text("\(objectif)")
-					.opacity(0.5)
-					.font(.title3)
- 					.fontDesign(.rounded)
-			}
-		}
-		.foregroundColor(color)
-	}
-}
