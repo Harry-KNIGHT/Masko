@@ -25,14 +25,12 @@ struct StartedSessionView: View {
 	@Binding var isSessionPaused: Bool
 	@Binding var distanceSpeedChartValues: [DistanceSpeedChart]
 
-
-
 	@Binding var timeSpeedChart: [TimeSpeedChart]
 
 	@Environment(\.colorScheme) var colorScheme
 	@Environment(\.scenePhase) var scenePhase
 
-	@State private var startSessionEpoch: Int?
+	@Binding var startSessionEpoch: Int?
 	@State private var endSessionEpoch: Int?
 
 	@Binding var willStartTrainingSession: Bool
@@ -97,9 +95,18 @@ struct StartedSessionView: View {
 								willStartTrainingSession = true
 							}
 
+							self.endSessionAnimationButton = true
+							endSessionEpoch = Int(Date().timeIntervalSince1970)
+
+							if let endSessionEpoch, let startSessionEpoch {
+								 sessionTimer = (endSessionEpoch - startSessionEpoch)
+							}
+							print("Session was \(sessionTimer) time")
+
 							self.finishedSesionVM.addFinishedSession(sessionTime: sessionTimer, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: distanceSpeedChartValues, timeSpeedChart: timeSpeedChart, date: Date.now)
 
-							self.endSessionAnimationButton = true
+							startSessionEpoch = nil
+							endSessionEpoch = nil
 
 						}
 						.accessibilityLabel("Oui, arrêter l'entrainement")
@@ -174,7 +181,7 @@ struct StartedSessionView_Previews: PreviewProvider {
 				distanceSpeedChartValues: .constant(DistanceSpeedChart.distanceSpeedArraySample),
 				timeSpeedChart: .constant(TimeSpeedChart.timeSpeedArraySample),
 
-				willStartTrainingSession: .constant(false),
+				startSessionEpoch: .constant(0), willStartTrainingSession: .constant(false),
 				nameSpace: nameSpace,
 				dateTimer: .constant(.now),
 				endSessionAnimationButton: .constant(false),
