@@ -22,8 +22,9 @@ struct FinishedSessionListView: View {
 									.font(.title3)
 							}
 							Text(convertTimeVM.convertSecInTimeInListAndDetailView(timeInSec: session.sessionTime))
-							Text("\(String(format: "%.2f", session.sessionAverageSpeed)) km/h")
 							Text(session.sessionDistanceInMeters.isKmOrMtwoDigits)
+							Text("\(String(format: "%.2f", session.sessionAverageSpeed)) km/h")
+
 						}
 					}
 				}
