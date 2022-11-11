@@ -83,42 +83,20 @@ struct StartedSessionView: View {
 				.padding(.horizontal)
 				Spacer()
 
-				SessionRunningButton(isSessionPaused: $isSessionPaused, startSessionAnimationButton: $startSessionAnimationButton)
+				SessionRunningButton(isSessionPaused: $isSessionPaused,
+									 startSessionAnimationButton: $startSessionAnimationButton,
+									 endSessionAnimationButton: $endSessionAnimationButton,
+									 willStartTrainingSession: $willStartTrainingSession,
+									 sessionTimer: $sessionTimer,
+									 startSessionEpoch: $startSessionEpoch,
+									 endSessionEpoch: $endSessionEpoch,
+									 sessionDistanceInMeters: $sessionDistanceInMeters,
+									 sessionAverageSpeed: $sessionAverageSpeed,
+									 distanceSpeedChartValues: $distanceSpeedChartValues,
+									 timeSpeedChart: $timeSpeedChart)
 					.matchedGeometryEffect(id: "button", in: nameSpace, properties: .position)
-
 					.padding(.bottom, 30)
-					.alert("Arrêter la session ?", isPresented: $isSessionPaused) {
-						Button("Oui", role: .destructive) {
-
-							locationManager.showAndUseBackgroundActivity = false
-							withAnimation(.interpolatingSpring(stiffness: 20, damping: 5)) {
-								willStartTrainingSession = true
-							}
-
-							self.endSessionAnimationButton = true
-							endSessionEpoch = Int(Date().timeIntervalSince1970)
-
-							if let endSessionEpoch, let startSessionEpoch {
-								 sessionTimer = (endSessionEpoch - startSessionEpoch)
-							}
-							print("Session was \(sessionTimer) time")
-
-							self.finishedSesionVM.addFinishedSession(sessionTime: sessionTimer, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, distanceSpeedChart: distanceSpeedChartValues, timeSpeedChart: timeSpeedChart, date: Date.now)
-
-							startSessionEpoch = nil
-							endSessionEpoch = nil
-
-						}
-						.accessibilityLabel("Oui, arrêter l'entrainement")
-
-						Button("Non", role: .cancel) {
-							withAnimation(.easeIn(duration: 0.4)) {
-								isSessionPaused = false
-							}
-						}
-						.accessibilityLabel("Non, continuer l'entrainement en cours")
-					}
-			}
+ 			}
 
 			.onAppear {
 				motionManager.initializePodometer()
@@ -189,4 +167,3 @@ struct StartedSessionView_Previews: PreviewProvider {
 		}
 	}
 }
-
