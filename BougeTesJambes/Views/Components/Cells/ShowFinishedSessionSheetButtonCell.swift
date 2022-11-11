@@ -21,7 +21,6 @@ struct ShowFinishedSessionSheetButtonCell: View {
 		})
 		.accessibilityLabel("Afficher les session finies")
 		.buttonStyle(.borderless)
-
 		.sheet(isPresented: $showSheet) {
 			FinishedSessionListView()
 		}

@@ -10,6 +10,7 @@ import WeatherKit
 import ActivityKit
 
 struct LaunchSessionView: View {
+	@Namespace private var nameSpace
 	@EnvironmentObject var locationManager: LocationManager
 	@EnvironmentObject var weatherVM: WeatherViewModel
 	@Environment(\.colorScheme) var colorScheme
@@ -26,12 +27,10 @@ struct LaunchSessionView: View {
 	@State private var distanceSpeedChartValues = [DistanceSpeedChart]()
 	@State private var timeSpeedChart = [TimeSpeedChart]()
 
-	@Namespace private var nameSpace
 	@State private var activity: Activity<SessionActivityAttributes>?
 	@State private var dateTimer: Date?
 	@State private var endSessionAnimationButton: Bool = false
 	@State private var startSessionAnimationButton: Bool = false
-
 	@State private var startSessionEpoch: Int?
 	var body: some View {
 		NavigationStack {

@@ -83,20 +83,22 @@ struct StartedSessionView: View {
 				.padding(.horizontal)
 				Spacer()
 
-				SessionRunningButton(isSessionPaused: $isSessionPaused,
-									 startSessionAnimationButton: $startSessionAnimationButton,
-									 endSessionAnimationButton: $endSessionAnimationButton,
-									 willStartTrainingSession: $willStartTrainingSession,
-									 sessionTimer: $sessionTimer,
-									 startSessionEpoch: $startSessionEpoch,
-									 endSessionEpoch: $endSessionEpoch,
-									 sessionDistanceInMeters: $sessionDistanceInMeters,
-									 sessionAverageSpeed: $sessionAverageSpeed,
-									 distanceSpeedChartValues: $distanceSpeedChartValues,
-									 timeSpeedChart: $timeSpeedChart)
-					.matchedGeometryEffect(id: "button", in: nameSpace, properties: .position)
-					.padding(.bottom, 30)
- 			}
+				SessionRunningButton(
+					isSessionPaused: $isSessionPaused,
+					startSessionAnimationButton: $startSessionAnimationButton,
+					endSessionAnimationButton: $endSessionAnimationButton,
+					willStartTrainingSession: $willStartTrainingSession,
+					sessionTimer: $sessionTimer,
+					startSessionEpoch: $startSessionEpoch,
+					endSessionEpoch: $endSessionEpoch,
+					sessionDistanceInMeters: $sessionDistanceInMeters,
+					sessionAverageSpeed: $sessionAverageSpeed,
+					distanceSpeedChartValues: $distanceSpeedChartValues,
+					timeSpeedChart: $timeSpeedChart
+				)
+				.matchedGeometryEffect(id: "button", in: nameSpace, properties: .position)
+				.padding(.bottom, 30)
+			}
 
 			.onAppear {
 				motionManager.initializePodometer()
@@ -151,8 +153,8 @@ struct StartedSessionView_Previews: PreviewProvider {
 				isSessionPaused: .constant(false),
 				distanceSpeedChartValues: .constant(DistanceSpeedChart.distanceSpeedArraySample),
 				timeSpeedChart: .constant(TimeSpeedChart.timeSpeedArraySample),
-
-				startSessionEpoch: .constant(0), willStartTrainingSession: .constant(false),
+				startSessionEpoch: .constant(0),
+				willStartTrainingSession: .constant(false),
 				nameSpace: nameSpace,
 				dateTimer: .constant(.now),
 				endSessionAnimationButton: .constant(false),

@@ -64,20 +64,20 @@ struct StartSessionButton_Previews: PreviewProvider {
 }
 /*
  .onAppear {
-	 DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-		 if endSessionAnimationButton {
-			 withAnimation {
-				 endSessionAnimationButton = false
-			 }
-		 }
-	 }
-	 withAnimation(.easeOut(duration: 0.7)) {
-		 if endSessionAnimationButton {
-			 animationAmount = 1
-		 } else {
-			 animationAmount = 1.035
-		 }
+ DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+ if endSessionAnimationButton {
+ withAnimation {
+ endSessionAnimationButton = false
+ }
+ }
+ }
+ withAnimation(.easeOut(duration: 0.7)) {
+ if endSessionAnimationButton {
+ animationAmount = 1
+ } else {
+ animationAmount = 1.035
+ }
 
-	 }
+ }
  }
  */
