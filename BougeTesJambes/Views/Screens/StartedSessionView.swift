@@ -49,12 +49,18 @@ struct StartedSessionView: View {
 			BackgroundLinearColor()
 			VStack {
 				Spacer()
+				if let dateTimer {
+					VStack(spacing: 10) {
+						Image(systemName: "stopwatch")
+							.font(.title)
 
-				SessionInformation(
-					sfSymbol: "stopwatch",
-					sessionValue: "\(String(convertTimeVM.convertSecInTime(timeInSeconds: sessionTimer)))"
-				)
+						Text(dateTimer, style: .timer)
 
+							.font(Font.largeTitle.monospacedDigit().bold())
+							.fontDesign(.rounded)
+					}
+					.foregroundColor(.accentColor)
+				}
 				Spacer()
 				HStack {
 
