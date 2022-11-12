@@ -41,7 +41,6 @@
 		3CE7F2292912DD1D00B0ED83 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE7F2282912DD1D00B0ED83 /* SwiftUI.framework */; };
 		3CE7F22C2912DD1D00B0ED83 /* MaskoLiveActivityWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7F22B2912DD1D00B0ED83 /* MaskoLiveActivityWidgetBundle.swift */; };
 		3CE7F22E2912DD1D00B0ED83 /* MaskoLiveActivityWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7F22D2912DD1D00B0ED83 /* MaskoLiveActivityWidgetLiveActivity.swift */; };
-		3CE7F2302912DD1D00B0ED83 /* MaskoLiveActivityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7F22F2912DD1D00B0ED83 /* MaskoLiveActivityWidget.swift */; };
 		3CE7F2322912DD1E00B0ED83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CE7F2312912DD1E00B0ED83 /* Assets.xcassets */; };
 		3CE7F2362912DD1E00B0ED83 /* MaskoLiveActivityWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3CE7F2242912DD1D00B0ED83 /* MaskoLiveActivityWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3CEE2D07291EB1B500C62F5E /* SessionInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEE2D06291EB1B500C62F5E /* SessionInformationView.swift */; };
@@ -116,7 +115,6 @@
 		3CE7F2282912DD1D00B0ED83 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		3CE7F22B2912DD1D00B0ED83 /* MaskoLiveActivityWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskoLiveActivityWidgetBundle.swift; sourceTree = "<group>"; };
 		3CE7F22D2912DD1D00B0ED83 /* MaskoLiveActivityWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskoLiveActivityWidgetLiveActivity.swift; sourceTree = "<group>"; };
-		3CE7F22F2912DD1D00B0ED83 /* MaskoLiveActivityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaskoLiveActivityWidget.swift; sourceTree = "<group>"; };
 		3CE7F2312912DD1E00B0ED83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CE7F2332912DD1E00B0ED83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CEE2D06291EB1B500C62F5E /* SessionInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionInformationView.swift; sourceTree = "<group>"; };
@@ -349,7 +347,6 @@
 			children = (
 				3CE7F22B2912DD1D00B0ED83 /* MaskoLiveActivityWidgetBundle.swift */,
 				3CE7F22D2912DD1D00B0ED83 /* MaskoLiveActivityWidgetLiveActivity.swift */,
-				3CE7F22F2912DD1D00B0ED83 /* MaskoLiveActivityWidget.swift */,
 				3CE7F2312912DD1E00B0ED83 /* Assets.xcassets */,
 				3CE7F2332912DD1E00B0ED83 /* Info.plist */,
 			);
@@ -554,7 +551,6 @@
 				3CD200662917F6EB0076D77E /* DoubleExtension.swift in Sources */,
 				3CA5FFEB291425C500A789CF /* SessionActivityAttributes.swift in Sources */,
 				3CE7F22C2912DD1D00B0ED83 /* MaskoLiveActivityWidgetBundle.swift in Sources */,
-				3CE7F2302912DD1D00B0ED83 /* MaskoLiveActivityWidget.swift in Sources */,
 				3CE7F22E2912DD1D00B0ED83 /* MaskoLiveActivityWidgetLiveActivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
