@@ -35,38 +35,51 @@ struct LaunchSessionView: View {
 
 	var body: some View {
 		NavigationStack {
-			ZStack {
+			ZStack(alignment: .center) {
 				BackgroundLinearColor()
 				if willStartTrainingSession {
-					StartSessionButton(willStartTrainingSession: $willStartTrainingSession, nameSpace: nameSpace, endSessionAnimationButton: $endSessionAnimationButton)
-						.onTapGesture {
-							withAnimation(.interpolatingSpring(stiffness: 20, damping: 5)) {
-								willStartTrainingSession = false
-								startSessionAnimationButton = true
-
-								// Start Live Activities
-								dateTimer = .now
-
-								guard dateTimer != nil else { return }
-
-								//	End distance and verifications
-
-								let attribute = SessionActivityAttributes()
-								let state = SessionActivityAttributes.ContentState(dateTimer: .now, sessionDistanceDone: sessionDistanceInMeters, sessionSpeed: sessionAverageSpeed)
-
-								activity = try? Activity<SessionActivityAttributes>.request(attributes: attribute, contentState: state, pushType: nil)
-
-								startSessionEpoch = Int(Date().timeIntervalSince1970)
+					VStack {
+						HStack {
+							if weatherVM.weather != nil {
+								AppleWeatherTrademarkView()
+									.padding(.top, 5)
+									.padding(.leading, 15)
 							}
+							Spacer()
 						}
 
-						.transition(AnyTransition.opacity.animation(.easeOut(duration: 1)))
-						.onAppear {
-							if locationManager.userLocation == nil {
-								locationManager.requestLocation()
+						Spacer()
+						StartSessionButton(willStartTrainingSession: $willStartTrainingSession, nameSpace: nameSpace, endSessionAnimationButton: $endSessionAnimationButton)
+							.onTapGesture {
+								withAnimation(.interpolatingSpring(stiffness: 20, damping: 5)) {
+									willStartTrainingSession = false
+									startSessionAnimationButton = true
+
+									// Start Live Activities
+									dateTimer = .now
+
+									guard dateTimer != nil else { return }
+
+									//	End distance and verifications
+
+									let attribute = SessionActivityAttributes()
+									let state = SessionActivityAttributes.ContentState(dateTimer: .now, sessionDistanceDone: sessionDistanceInMeters, sessionSpeed: sessionAverageSpeed)
+
+									activity = try? Activity<SessionActivityAttributes>.request(attributes: attribute, contentState: state, pushType: nil)
+
+									startSessionEpoch = Int(Date().timeIntervalSince1970)
+								}
 							}
-							motionManager.initializePodometer()
+						Spacer()
+					}
+
+					.transition(AnyTransition.opacity.animation(.easeOut(duration: 1)))
+					.onAppear {
+						if locationManager.userLocation == nil {
+							locationManager.requestLocation()
 						}
+						motionManager.initializePodometer()
+					}
 
 				} else {
 
@@ -165,5 +178,6 @@ struct LaunchSessionView_Previews: PreviewProvider {
 			.environmentObject(WeatherViewModel())
 			.environmentObject(FinishedSessionViewModel())
 			.environmentObject(LocationManager())
+			.environmentObject(CoreMotionViewModel())
 	}
 }
