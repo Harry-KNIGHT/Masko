@@ -11,7 +11,6 @@ import SwiftUI
 @main
 struct MaskoLiveActivityWidgetBundle: WidgetBundle {
     var body: some Widget {
-        MaskoLiveActivityWidget()
         MaskoLiveActivityWidgetLiveActivity()
     }
 }
