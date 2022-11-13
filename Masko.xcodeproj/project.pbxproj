@@ -10,6 +10,7 @@
 		3C23DEE92902E0E600767947 /* SessionRunningButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23DEE82902E0E600767947 /* SessionRunningButton.swift */; };
 		3C23DEEC2902E78000767947 /* BackgroundLinearColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C23DEEB2902E78000767947 /* BackgroundLinearColor.swift */; };
 		3C2954472920003200CA1FDF /* AppleWeatherTrademarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2954462920003200CA1FDF /* AppleWeatherTrademarkView.swift */; };
+		3C2954FB2921358400CA1FDF /* FinishedInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2954FA2921358400CA1FDF /* FinishedInformationCell.swift */; };
 		3C47EB04290843FF0096D1D7 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C47EB03290843FF0096D1D7 /* DoubleExtension.swift */; };
 		3C52FFFF291035EB0047FC18 /* StartSessionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52FFFE291035EB0047FC18 /* StartSessionButton.swift */; };
 		3C5D424728FD7B6000005398 /* CoreMotionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */; };
@@ -83,6 +84,7 @@
 		3C23DEE82902E0E600767947 /* SessionRunningButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRunningButton.swift; sourceTree = "<group>"; };
 		3C23DEEB2902E78000767947 /* BackgroundLinearColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundLinearColor.swift; sourceTree = "<group>"; };
 		3C2954462920003200CA1FDF /* AppleWeatherTrademarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleWeatherTrademarkView.swift; sourceTree = "<group>"; };
+		3C2954FA2921358400CA1FDF /* FinishedInformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedInformationCell.swift; sourceTree = "<group>"; };
 		3C47EB03290843FF0096D1D7 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		3C52FFFE291035EB0047FC18 /* StartSessionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSessionButton.swift; sourceTree = "<group>"; };
 		3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionViewModel.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				3CAB873928FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift */,
 				3C23DEEB2902E78000767947 /* BackgroundLinearColor.swift */,
 				3C2954462920003200CA1FDF /* AppleWeatherTrademarkView.swift */,
+				3C2954FA2921358400CA1FDF /* FinishedInformationCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				3C9AEA5C28FC1E230080415E /* ConvertTimeViewModel.swift in Sources */,
 				3C23DEE92902E0E600767947 /* SessionRunningButton.swift in Sources */,
 				3C52FFFF291035EB0047FC18 /* StartSessionButton.swift in Sources */,
+				3C2954FB2921358400CA1FDF /* FinishedInformationCell.swift in Sources */,
 				3CEE2D07291EB1B500C62F5E /* SessionInformationView.swift in Sources */,
 				3C23DEEC2902E78000767947 /* BackgroundLinearColor.swift in Sources */,
 				3C5D424728FD7B6000005398 /* CoreMotionViewModel.swift in Sources */,

@@ -14,22 +14,19 @@ struct FinishedSessionDetailView: View {
 	@Environment(\.colorScheme) var colorScheme
 	var body: some View {
 		List {
-			FinishedSessionInformation(
+			FinishedSessionInformationCell(
 				objectifType: "Temps",
-				sessionInfo: "\(convertTimeVM.convertSecInTimeInListAndDetailView(timeInSec: session.sessionTime))",
-				objectif: nil
+				sessionInfo: "\(convertTimeVM.convertSecInTimeInListAndDetailView(timeInSec: session.sessionTime))"
 			)
 
-			FinishedSessionInformation(
+			FinishedSessionInformationCell(
 				objectifType: "Distance",
-				sessionInfo: "\(session.sessionDistanceInMeters.isKmOrMtwoDigits)",
-				objectif: nil
+				sessionInfo: "\(session.sessionDistanceInMeters.isKmOrMtwoDigits)"
 			)
 
-			FinishedSessionInformation(
+			FinishedSessionInformationCell(
 				objectifType: "Vitesse moyenne",
-				sessionInfo: "\(String(format: "%.2f km/h", session.sessionAverageSpeed))",
-				objectif: nil
+				sessionInfo: "\(String(format: "%.2f km/h", session.sessionAverageSpeed))"
 			)
 		}
 		.listStyle(.plain)
@@ -50,21 +47,6 @@ struct FinishedSessionDetailView_Previews: PreviewProvider {
 		NavigationStack {
 			FinishedSessionDetailView(session: .sample)
 				.environmentObject(ConvertTimeViewModel())
-		}
-	}
-}
-
-struct FinishedSessionInformation: View {
-	var objectifType: String
-	var sessionInfo: String
-	var objectif: String?
-	var body: some View {
-		Section(header: Text(objectifType)) {
-			if let objectif {
-				Text("\(sessionInfo) / \(objectif)")
-			} else {
-				Text(sessionInfo)
-			}
 		}
 	}
 }
