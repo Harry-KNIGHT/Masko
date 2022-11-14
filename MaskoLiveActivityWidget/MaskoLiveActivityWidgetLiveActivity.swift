@@ -30,7 +30,7 @@ struct MaskoLiveActivityWidgetLiveActivity: Widget {
 
 				LiveActivityViewInfomation(
 					sfSymbol: "flag.fill",
-					sessionValue: context.state.sessionSpeed.turnMPerSecToKmPerH.twoDecimalDigits,
+					sessionValue: context.state.sessionSpeed.twoDecimalDigits,
 					objectifType: "km/h"
 				)
 			}
@@ -49,7 +49,7 @@ struct MaskoLiveActivityWidgetLiveActivity: Widget {
 						)
 						LiveActivityViewInfomation(
 							sfSymbol: nil,
-							sessionValue: "\(context.state.sessionSpeed.turnMPerSecToKmPerH.twoDecimalDigits.min(0, 100))",
+							sessionValue: "\(context.state.sessionSpeed.twoDecimalDigits)",
 							objectifType: "km/h"
 						)
 						Spacer()
