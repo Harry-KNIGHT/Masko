@@ -45,7 +45,7 @@ struct MaskoLiveActivityWidgetLiveActivity: Widget {
 						LiveActivityViewInfomation(
 							sfSymbol: nil,
 							sessionValue: context.state.sessionDistanceDone.turnThousandMToKm.twoDecimalDigits,
-							objectifType: "\(context.state.sessionDistanceDone.isKmOrMtwoDigits)"
+							objectifType: "\(context.state.sessionDistanceDone > 1_000 ? "km" : "m")"
 						)
 						LiveActivityViewInfomation(
 							sfSymbol: nil,
