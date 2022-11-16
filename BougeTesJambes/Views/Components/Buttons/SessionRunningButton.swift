@@ -26,10 +26,7 @@ struct SessionRunningButton: View {
 
 	var body: some View {
 		ZStack {
-			Circle()
-				.frame(width: 100)
-				.foregroundColor(Color("buttonColor"))
-				.shadow(color: Color("buttonShadow"), radius: 10)
+			CircleButtonCell(width: 100)
 
 			Image(systemName: startSessionAnimationButton ? "hare.fill" : isSessionPaused ? "play.fill" : "pause.fill")
 				.font(.custom("", size: 60, relativeTo: .largeTitle))

@@ -39,6 +39,7 @@
 		3CC3D5B129029C9F006DC14A /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC3D5B029029C9F006DC14A /* WeatherViewModel.swift */; };
 		3CC54E5B291265E10013E75F /* FinishedSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC54E5A291265E10013E75F /* FinishedSessionTests.swift */; };
 		3CD200662917F6EB0076D77E /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C47EB03290843FF0096D1D7 /* DoubleExtension.swift */; };
+		3CD8B2C72924CDBF00A558BB /* CircleButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8B2C62924CDBF00A558BB /* CircleButtonCell.swift */; };
 		3CE7F2272912DD1D00B0ED83 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE7F2262912DD1D00B0ED83 /* WidgetKit.framework */; };
 		3CE7F2292912DD1D00B0ED83 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CE7F2282912DD1D00B0ED83 /* SwiftUI.framework */; };
 		3CE7F22C2912DD1D00B0ED83 /* MaskoLiveActivityWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7F22B2912DD1D00B0ED83 /* MaskoLiveActivityWidgetBundle.swift */; };
@@ -114,6 +115,7 @@
 		3CC3D5AF29029BF8006DC14A /* Masko.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Masko.entitlements; sourceTree = "<group>"; };
 		3CC3D5B029029C9F006DC14A /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		3CC54E5A291265E10013E75F /* FinishedSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedSessionTests.swift; sourceTree = "<group>"; };
+		3CD8B2C62924CDBF00A558BB /* CircleButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonCell.swift; sourceTree = "<group>"; };
 		3CE7F2242912DD1D00B0ED83 /* MaskoLiveActivityWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MaskoLiveActivityWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CE7F2262912DD1D00B0ED83 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		3CE7F2282912DD1D00B0ED83 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -154,8 +156,8 @@
 		3C23DEEA2902E15700767947 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				3C23DEE82902E0E600767947 /* SessionRunningButton.swift */,
 				3C52FFFE291035EB0047FC18 /* StartSessionButton.swift */,
+				3C23DEE82902E0E600767947 /* SessionRunningButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -281,6 +283,7 @@
 				3C23DEEB2902E78000767947 /* BackgroundLinearColor.swift */,
 				3C2954462920003200CA1FDF /* AppleWeatherTrademarkView.swift */,
 				3C2954FA2921358400CA1FDF /* FinishedInformationCell.swift */,
+				3CD8B2C62924CDBF00A558BB /* CircleButtonCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				3C5D424728FD7B6000005398 /* CoreMotionViewModel.swift in Sources */,
 				3C748E112901DDE5004781E5 /* Samples.swift in Sources */,
 				3C9AEA5828FC09730080415E /* FinishedSessionListView.swift in Sources */,
+				3CD8B2C72924CDBF00A558BB /* CircleButtonCell.swift in Sources */,
 				3CAB873C28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift in Sources */,
 				3C9AEA5528FC063A0080415E /* FinishedSessionViewModel.swift in Sources */,
 				3C9AEA5A28FC1B970080415E /* FinishedSessionDetailView.swift in Sources */,

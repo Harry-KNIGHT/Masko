@@ -21,10 +21,7 @@ struct StartSessionButton: View {
 				.fontDesign(.rounded)
 				.foregroundColor(.accentColor)
 			ZStack {
-				Circle()
-					.frame(width: 220)
-					.foregroundColor(Color("buttonColor"))
-					.shadow(color: Color("buttonShadow"), radius: 10)
+				CircleButtonCell(width: 220)
 
 				Image(systemName: endSessionAnimationButton ? "play.fill" : "hare.fill")
 					.font(.custom("", size: 100, relativeTo: .largeTitle))
