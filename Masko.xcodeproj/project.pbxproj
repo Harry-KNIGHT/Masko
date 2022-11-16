@@ -726,7 +726,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.20;
+				MARKETING_VERSION = 0.2.21;
 				PRODUCT_BUNDLE_IDENTIFIER = com.elliot.knight.BougeTesJambes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -767,7 +767,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.20;
+				MARKETING_VERSION = 0.2.21;
 				PRODUCT_BUNDLE_IDENTIFIER = com.elliot.knight.BougeTesJambes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
