@@ -26,6 +26,7 @@ struct StartedSessionView: View {
 	@Binding var sessionTimer: Int
 	@Binding var sessionDistanceInMeters: Double
 	@Binding var sessionAverageSpeed: Double
+	@Binding var sessionPace: Double
 	@Binding var isSessionPaused: Bool
 	@Binding var distanceSpeedChartValues: [DistanceSpeedChart]
 	@Binding var timeSpeedChart: [TimeSpeedChart]
@@ -67,15 +68,15 @@ struct StartedSessionView: View {
 					.accessibilityValue("\(sessionDistanceInMeters.turnThousandMToKm) \(sessionDistanceInMeters.turnThousandMToKm > 1_000 ? "kilomètres" : "mètres")")
 
 					Spacer()
-					if let location = locationManager.userLocation {
+
 						SessionInformationView(
 							sfSymbol: "speedometer",
-							objectif: "km/h",
-							sessionValue: "\(location.speed > 0 ? location.speed.twoDecimalDigits : "0.00")"
+							objectif: "km / min",
+							sessionValue: "\(motionManager.pace?.description ?? "0.00")"
 						)
-						.accessibilityLabel("Vitesse de déplacement")
-						.accessibilityValue("\(location.speed.turnMPerSecToKmPerH) kilomètres par heure")
-					}
+						.accessibilityLabel("Pace indicator")
+						.accessibilityValue("\(motionManager.pace?.twoDecimalDigits ?? "0") kilomètres par minutes")
+
 				}
 				.padding(.horizontal)
 				Spacer()
@@ -108,6 +109,11 @@ struct StartedSessionView: View {
 					}
 				}
 			})
+			.onChange(of: motionManager.pace) { pace in
+				if let pace {
+					sessionPace = pace
+				}
+			}
 			.onChange(of: locationManager.userLocation) {  location in
 				if let location {
 					if location.speed > 0 {
@@ -147,6 +153,7 @@ struct StartedSessionView_Previews: PreviewProvider {
 				nameSpace: nameSpace, sessionTimer: .constant(0),
 				sessionDistanceInMeters: .constant(453),
 				sessionAverageSpeed: .constant(3.45),
+				sessionPace: .constant(345),
 				isSessionPaused: .constant(false),
 				distanceSpeedChartValues: .constant(DistanceSpeedChart.distanceSpeedArraySample),
 				timeSpeedChart: .constant(TimeSpeedChart.timeSpeedArraySample),

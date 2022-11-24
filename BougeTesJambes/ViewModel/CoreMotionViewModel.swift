@@ -11,6 +11,7 @@ import CoreMotion
 class CoreMotionViewModel: ObservableObject {
 	@Published var steps: Int?
 	@Published var distance: Double?
+	@Published var pace: Double?
 	private let pedometer: CMPedometer = CMPedometer()
 
 	var isPedometerAvailable: Bool {
@@ -22,6 +23,7 @@ class CoreMotionViewModel: ObservableObject {
 		DispatchQueue.main.async {
 			self.steps = data.numberOfSteps.intValue
 			self.distance = pedometerDistance.doubleValue
+			self.pace = data.currentPace?.doubleValue
 		}
 	}
 

@@ -22,6 +22,8 @@ struct LaunchSessionView: View {
 	@State private var sessionTimer: Int = 0
 	@State private var sessionDistanceInMeters: Double = 0
 	@State private var sessionAverageSpeed: Double = 0
+	@State private var sessionPace: Double = 0
+
 	@State private var showSheet: Bool = false
 	@State private var willStartTrainingSession: Bool = true
 	@State private var isSessionPaused: Bool = false
@@ -96,10 +98,12 @@ struct LaunchSessionView: View {
 						nameSpace: nameSpace, sessionTimer: $sessionTimer,
 						sessionDistanceInMeters: $sessionDistanceInMeters,
 						sessionAverageSpeed: $sessionAverageSpeed,
+						sessionPace: $sessionPace,
 						isSessionPaused: $isSessionPaused,
 						distanceSpeedChartValues: $distanceSpeedChartValues,
 						timeSpeedChart: $timeSpeedChart,
-						startSessionEpoch: $startSessionEpoch, willStartTrainingSession: $willStartTrainingSession,
+						startSessionEpoch: $startSessionEpoch,
+						willStartTrainingSession: $willStartTrainingSession,
 						dateTimer: $dateTimer,
 						endSessionAnimationButton: $endSessionAnimationButton,
 						startSessionAnimationButton: $startSessionAnimationButton
@@ -156,7 +160,6 @@ struct LaunchSessionView: View {
 					.foregroundColor(.accentColor)
 					.font(.headline)
 				}
-
 				ToolbarItem(placement: .navigationBarTrailing) {
 					if !finishedSessionVM.fishishedSessions.isEmpty, willStartTrainingSession {
 						ShowFinishedSessionSheetButtonCell(showSheet: $showSheet)
