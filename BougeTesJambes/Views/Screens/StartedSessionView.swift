@@ -72,10 +72,10 @@ struct StartedSessionView: View {
 						SessionInformationView(
 							sfSymbol: "speedometer",
 							objectif: "km / min",
-							sessionValue: "\(motionManager.pace?.description ?? "0.00")"
+							sessionValue: "\(motionManager.pace?.turnMperSecToKmPerMin ?? "0.00")"
 						)
 						.accessibilityLabel("Pace indicator")
-						.accessibilityValue("\(motionManager.pace?.twoDecimalDigits ?? "0") kilomètres par minutes")
+						.accessibilityValue("\(motionManager.pace?.turnMperSecToKmPerMin ?? "0") kilomètre par minutes")
 
 				}
 				.padding(.horizontal)
