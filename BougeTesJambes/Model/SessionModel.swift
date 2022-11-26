@@ -13,7 +13,7 @@ struct SessionModel: Identifiable, Hashable, Codable {
 
 	let sessionTime: Int
 	let sessionDistanceInMeters: Double
-	let sessionAverageSpeed: Double
+	let sessionAverageSpeed: Int
 	let pace: Int
 	let distanceSpeedChart: [DistanceSpeedChart]?
 	let timeSpeedChart: [TimeSpeedChart]?

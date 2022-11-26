@@ -14,6 +14,5 @@ struct SessionActivityAttributes: ActivityAttributes {
 	public struct ContentState: Codable, Hashable {
 		var dateTimer: Date
 		var sessionDistanceDone: Double
-		var sessionSpeed: Double
 	}
 }

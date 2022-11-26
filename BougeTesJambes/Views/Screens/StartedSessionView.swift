@@ -26,7 +26,7 @@ struct StartedSessionView: View {
 
 	@Binding var sessionTimer: Int
 	@Binding var sessionDistanceInMeters: Double
-	@Binding var sessionAverageSpeed: Double
+	@Binding var sessionAverageSpeed: Int
 	@Binding var sessionPace: Int
 	@Binding var isSessionPaused: Bool
 	@Binding var distanceSpeedChartValues: [DistanceSpeedChart]
@@ -154,7 +154,7 @@ struct StartedSessionView_Previews: PreviewProvider {
 				session: .sample,
 				nameSpace: nameSpace, sessionTimer: .constant(0),
 				sessionDistanceInMeters: .constant(453),
-				sessionAverageSpeed: .constant(3.45),
+				sessionAverageSpeed: .constant(3),
 				sessionPace: .constant(345),
 				isSessionPaused: .constant(false),
 				distanceSpeedChartValues: .constant(DistanceSpeedChart.distanceSpeedArraySample),

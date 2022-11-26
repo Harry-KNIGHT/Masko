@@ -21,7 +21,7 @@ struct LaunchSessionView: View {
 
 	@State private var sessionTimer: Int = 0
 	@State private var sessionDistanceInMeters: Double = 0
-	@State private var sessionAverageSpeed: Double = 0
+	@State private var sessionAverageSpeed: Int = 0
 	@State private var sessionPace: Int = 0
 
 	@State private var showSheet: Bool = false
@@ -65,7 +65,7 @@ struct LaunchSessionView: View {
 									//	End distance and verifications
 
 									let attribute = SessionActivityAttributes()
-									let state = SessionActivityAttributes.ContentState(dateTimer: .now, sessionDistanceDone: sessionDistanceInMeters, sessionSpeed: sessionAverageSpeed)
+									let state = SessionActivityAttributes.ContentState(dateTimer: .now, sessionDistanceDone: sessionDistanceInMeters)
 
 									activity = try? Activity<SessionActivityAttributes>.request(attributes: attribute, contentState: state, pushType: nil)
 
@@ -110,17 +110,9 @@ struct LaunchSessionView: View {
 						startSessionAnimationButton: $startSessionAnimationButton
 					)
 					.transition(AnyTransition.opacity.animation(.easeIn(duration: 1)))
-					.onChange(of: locationManager.userLocation) { location  in
-						if let location {
-							// Update live activity in background
-							let updateActivity = SessionActivityAttributes.SessionStatus(dateTimer: .now, sessionDistanceDone: sessionDistanceInMeters, sessionSpeed: location.speed)
-							Task {
-								await activity?.update(using: updateActivity)
-							}
-						}
-					}
+
 					.onChange(of: motionManager.distance) { _ in
-						let updateActivity = SessionActivityAttributes.SessionStatus(dateTimer: .now, sessionDistanceDone: sessionDistanceInMeters, sessionSpeed: sessionAverageSpeed)
+						let updateActivity = SessionActivityAttributes.SessionStatus(dateTimer: .now, sessionDistanceDone: sessionDistanceInMeters)
 						Task {
 							await activity?.update(using: updateActivity)
 						}
@@ -131,7 +123,7 @@ struct LaunchSessionView: View {
 				if willStartTrainingSession {
 					// Stop Live activities
 					guard let dateTimer else { return }
-					let state = SessionActivityAttributes.ContentState(dateTimer: dateTimer, sessionDistanceDone: sessionDistanceInMeters, sessionSpeed: sessionAverageSpeed)
+					let state = SessionActivityAttributes.ContentState(dateTimer: dateTimer, sessionDistanceDone: sessionDistanceInMeters)
 
 					Task {
 						await activity?.end(using: state, dismissalPolicy: .immediate)

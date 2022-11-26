@@ -28,9 +28,9 @@ class FinishedSessionViewModel: ObservableObject {
 		}
 	}
 
-	func addFinishedSession(sessionTime: Int, sessionDistanceInMeters: Double, sessionAverageSpeed: Double, pace: Int, distanceSpeedChart: [DistanceSpeedChart], timeSpeedChart: [TimeSpeedChart], date: Date) {
+	func addFinishedSession(sessionTime: Int, sessionDistanceInMeters: Double, sessionAverageSpeed: Int, pace: Int, distanceSpeedChart: [DistanceSpeedChart], timeSpeedChart: [TimeSpeedChart], date: Date) {
 
-		let finishedSession = SessionModel(sessionTime: sessionTime, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: averageSpeed, pace: pace, distanceSpeedChart: distanceSpeedChart, timeSpeedChart: timeSpeedChart, date: date)
+		let finishedSession = SessionModel(sessionTime: sessionTime, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: Int(averageSpeed), pace: pace, distanceSpeedChart: distanceSpeedChart, timeSpeedChart: timeSpeedChart, date: date)
 
 		self.fishishedSessions.insert(finishedSession, at: 0)
 		speedSessionValues.removeAll()

@@ -20,7 +20,7 @@ struct SessionRunningButton: View {
 	@Binding var startSessionEpoch: Int?
 	@Binding var endSessionEpoch: Int?
 	@Binding var sessionDistanceInMeters: Double
-	@Binding var sessionAverageSpeed: Double
+	@Binding var sessionAverageSpeed: Int
 	@Binding var sessionPace: Int
 	@Binding var distanceSpeedChartValues: [DistanceSpeedChart]
 	@Binding var timeSpeedChart: [TimeSpeedChart]
@@ -52,7 +52,7 @@ struct SessionRunningButton: View {
 				self.finishedSesionVM.addFinishedSession(
 					sessionTime: sessionTimer,
 					sessionDistanceInMeters: sessionDistanceInMeters,
-					sessionAverageSpeed: (sessionDistanceInMeters / Double(sessionTimer / 60)),
+					sessionAverageSpeed: sessionAverageSpeed,
 					pace: sessionPace,
 					distanceSpeedChart: distanceSpeedChartValues,
 					timeSpeedChart: timeSpeedChart, date: Date.now
@@ -103,7 +103,7 @@ struct SessionRunningButton_Previews: PreviewProvider {
 			startSessionEpoch: .constant(3454310),
 			endSessionEpoch: .constant(3454332),
 			sessionDistanceInMeters: .constant(1_453),
-			sessionAverageSpeed: .constant(23.5),
+			sessionAverageSpeed: .constant(23),
 			sessionPace: .constant(600),
 			distanceSpeedChartValues: .constant(DistanceSpeedChart.distanceSpeedArraySample),
 			timeSpeedChart: .constant(TimeSpeedChart.timeSpeedArraySample)

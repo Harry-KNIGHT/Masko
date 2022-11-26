@@ -27,12 +27,6 @@ struct MaskoLiveActivityWidgetLiveActivity: Widget {
 					sessionValue: context.state.sessionDistanceDone.turnThousandMToKm.twoDecimalDigits,
 					objectifType: "\(context.state.sessionDistanceDone > 1_000 ? "km" : "m")"
 				)
-
-				LiveActivityViewInfomation(
-					sfSymbol: "flag.fill",
-					sessionValue: context.state.sessionSpeed.twoDecimalDigits,
-					objectifType: "km/h"
-				)
 			}
 			.padding()
         } dynamicIsland: { context in
@@ -47,24 +41,16 @@ struct MaskoLiveActivityWidgetLiveActivity: Widget {
 							sessionValue: context.state.sessionDistanceDone.turnThousandMToKm.twoDecimalDigits,
 							objectifType: "\(context.state.sessionDistanceDone > 1_000 ? "km" : "m")"
 						)
-						LiveActivityViewInfomation(
-							sfSymbol: nil,
-							sessionValue: "\(context.state.sessionSpeed.twoDecimalDigits)",
-							objectifType: "km/h"
-						)
+//						LiveActivityViewInfomation(
+//							sfSymbol: nil,
+//							sessionValue: "\(context.state.sessionSpeed.twoDecimalDigits)",
+//							objectifType: "km/h"
+//						)
 						Spacer()
 					}
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-					VStack {
-						Spacer()
-						withAnimation {
-							Image(systemName: context.state.sessionSpeed.turnMPerSecToKmPerH > 6 ? "figure.run" : "figure.walk")
-								.font(.system(size: 50))
-						}
-						Spacer()
-					}
-					.padding()
+					// more content
                 }
                 DynamicIslandExpandedRegion(.bottom) {
                     // more content
