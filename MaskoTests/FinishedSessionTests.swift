@@ -28,6 +28,7 @@ final class FinishedSessionTests: XCTestCase {
 			sessionTime: session.sessionTime,
 			sessionDistanceInMeters: session.sessionDistanceInMeters,
 			sessionAverageSpeed: session.sessionAverageSpeed,
+			pace: session.pace,
 			distanceSpeedChart: distance,
 			timeSpeedChart: time,
 			date: date
