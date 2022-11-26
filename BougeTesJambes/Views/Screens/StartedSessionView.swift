@@ -27,7 +27,7 @@ struct StartedSessionView: View {
 	@Binding var sessionTimer: Int
 	@Binding var sessionDistanceInMeters: Double
 	@Binding var sessionAverageSpeed: Double
-	@Binding var sessionPace: Double
+	@Binding var sessionPace: Int
 	@Binding var isSessionPaused: Bool
 	@Binding var distanceSpeedChartValues: [DistanceSpeedChart]
 	@Binding var timeSpeedChart: [TimeSpeedChart]
@@ -40,6 +40,7 @@ struct StartedSessionView: View {
 	@State private var endSessionEpoch: Int?
 	@State private var activity: Activity<SessionActivityAttributes>?
 	@State private var paceUpperThanKilometerEpoch: Double?
+
 	var body: some View {
 		ZStack {
 			BackgroundLinearColor()
@@ -92,6 +93,7 @@ struct StartedSessionView: View {
 					endSessionEpoch: $endSessionEpoch,
 					sessionDistanceInMeters: $sessionDistanceInMeters,
 					sessionAverageSpeed: $sessionAverageSpeed,
+					sessionPace: $sessionPace,
 					distanceSpeedChartValues: $distanceSpeedChartValues,
 					timeSpeedChart: $timeSpeedChart
 				)
