@@ -15,6 +15,7 @@ struct BougeTesJambesApp: App {
 	@StateObject var weatherVM = WeatherViewModel()
 	@StateObject var locationManager = LocationManager()
 	@StateObject var motionManager = CoreMotionViewModel()
+	@StateObject var calculPaceVM = CalculPaceViewModel()
     var body: some Scene {
         WindowGroup {
 			LaunchSessionView()
@@ -24,6 +25,7 @@ struct BougeTesJambesApp: App {
 				.environmentObject(weatherVM)
 				.environmentObject(locationManager)
 				.environmentObject(motionManager)
+				.environmentObject(CalculPaceViewModel())
         }
     }
 }

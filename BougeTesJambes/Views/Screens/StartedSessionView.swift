@@ -20,6 +20,7 @@ struct StartedSessionView: View {
 	@EnvironmentObject var motionManager: CoreMotionViewModel
 	@EnvironmentObject public var finishedSesionVM: FinishedSessionViewModel
 	@EnvironmentObject public var convertTimeVM: ConvertTimeViewModel
+	@EnvironmentObject var calculPaceVM: CalculPaceViewModel
 
 	@ObservedObject public var playSongVM = PlaySongViewModel()
 
@@ -38,7 +39,7 @@ struct StartedSessionView: View {
 
 	@State private var endSessionEpoch: Int?
 	@State private var activity: Activity<SessionActivityAttributes>?
-
+	@State private var paceUpperThanKilometerEpoch: Double?
 	var body: some View {
 		ZStack {
 			BackgroundLinearColor()
@@ -72,10 +73,10 @@ struct StartedSessionView: View {
 						SessionInformationView(
 							sfSymbol: "speedometer",
 							objectif: "km / min",
-							sessionValue: "\(motionManager.pace?.turnMperSecToKmPerMin ?? "0.00")"
+							sessionValue: "\(calculPaceVM.calculPace(startedSessionEpoch: Double(startSessionEpoch ?? 0), nowEpoch: (paceUpperThanKilometerEpoch ?? 0), meters: sessionDistanceInMeters))"
 						)
 						.accessibilityLabel("Pace indicator")
-						.accessibilityValue("\(motionManager.pace?.turnMperSecToKmPerMin ?? "0") kilomètre par minutes")
+						// .accessibilityValue("\(motionManager.pace?.turnMperSecToKmPerMin ?? "0") kilomètre par minutes")
 
 				}
 				.padding(.horizontal)
@@ -107,13 +108,12 @@ struct StartedSessionView: View {
 					if distance > 0 {
 						sessionDistanceInMeters = distance
 					}
+					if distance > 1_000 {
+						paceUpperThanKilometerEpoch = Date().timeIntervalSince1970
+					}
 				}
 			})
-			.onChange(of: motionManager.pace) { pace in
-				if let pace {
-					sessionPace = pace
-				}
-			}
+
 			.onChange(of: locationManager.userLocation) {  location in
 				if let location {
 					if location.speed > 0 {
@@ -169,6 +169,7 @@ struct StartedSessionView_Previews: PreviewProvider {
 			.environmentObject(CoreMotionViewModel())
 			.environmentObject(LocationManager())
 			.environmentObject(WeatherViewModel())
+			.environmentObject(CalculPaceViewModel())
 		}
 	}
 }
