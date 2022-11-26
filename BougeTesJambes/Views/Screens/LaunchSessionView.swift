@@ -22,7 +22,7 @@ struct LaunchSessionView: View {
 	@State private var sessionTimer: Int = 0
 	@State private var sessionDistanceInMeters: Double = 0
 	@State private var sessionAverageSpeed: Double = 0
-	@State private var sessionPace: Double = 0
+	@State private var sessionPace: Int = 0
 
 	@State private var showSheet: Bool = false
 	@State private var willStartTrainingSession: Bool = true
@@ -91,6 +91,7 @@ struct LaunchSessionView: View {
 								sessionTime: sessionTimer,
 								sessionDistanceInMeters: sessionDistanceInMeters,
 								sessionAverageSpeed: sessionAverageSpeed,
+								pace: sessionPace,
 								distanceSpeedChart: nil,
 								timeSpeedChart: nil,
 								date: nil

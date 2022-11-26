@@ -14,6 +14,7 @@
 		3C47EB04290843FF0096D1D7 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C47EB03290843FF0096D1D7 /* DoubleExtension.swift */; };
 		3C52FFFF291035EB0047FC18 /* StartSessionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C52FFFE291035EB0047FC18 /* StartSessionButton.swift */; };
 		3C5D424728FD7B6000005398 /* CoreMotionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */; };
+		3C6E79802932042E00018585 /* CalculPaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6E797F2932042E00018585 /* CalculPaceViewModel.swift */; };
 		3C748E0A2901CC9C004781E5 /* LaunchSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E092901CC9C004781E5 /* LaunchSessionView.swift */; };
 		3C748E112901DDE5004781E5 /* Samples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C748E102901DDE5004781E5 /* Samples.swift */; };
 		3C9AEA2628FBF6350080415E /* BougeTesJambesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA2528FBF6350080415E /* BougeTesJambesApp.swift */; };
@@ -89,6 +90,7 @@
 		3C47EB03290843FF0096D1D7 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		3C52FFFE291035EB0047FC18 /* StartSessionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSessionButton.swift; sourceTree = "<group>"; };
 		3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMotionViewModel.swift; sourceTree = "<group>"; };
+		3C6E797F2932042E00018585 /* CalculPaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculPaceViewModel.swift; sourceTree = "<group>"; };
 		3C748E092901CC9C004781E5 /* LaunchSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchSessionView.swift; sourceTree = "<group>"; };
 		3C748E102901DDE5004781E5 /* Samples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Samples.swift; sourceTree = "<group>"; };
 		3C9AEA2228FBF6350080415E /* Masko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Masko.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -258,6 +260,7 @@
 			children = (
 				3C9AEA5428FC063A0080415E /* FinishedSessionViewModel.swift */,
 				3C9AEA5B28FC1E230080415E /* ConvertTimeViewModel.swift */,
+				3C6E797F2932042E00018585 /* CalculPaceViewModel.swift */,
 				3C9AEA6128FC24DA0080415E /* PlaySongViewModel.swift */,
 				3C5D424628FD7B6000005398 /* CoreMotionViewModel.swift */,
 				3CC3D5B029029C9F006DC14A /* WeatherViewModel.swift */,
@@ -535,6 +538,7 @@
 				3C5D424728FD7B6000005398 /* CoreMotionViewModel.swift in Sources */,
 				3C748E112901DDE5004781E5 /* Samples.swift in Sources */,
 				3C9AEA5828FC09730080415E /* FinishedSessionListView.swift in Sources */,
+				3C6E79802932042E00018585 /* CalculPaceViewModel.swift in Sources */,
 				3CD8B2C72924CDBF00A558BB /* CircleButtonCell.swift in Sources */,
 				3CAB873C28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift in Sources */,
 				3C9AEA5528FC063A0080415E /* FinishedSessionViewModel.swift in Sources */,

@@ -32,6 +32,7 @@ extension SessionModel {
 		sessionTime: 35,
 		sessionDistanceInMeters: 5,
 		sessionAverageSpeed: 4.5,
+		pace: 145,
 		distanceSpeedChart: DistanceSpeedChart.distanceSpeedArraySample,
 		timeSpeedChart: TimeSpeedChart.timeSpeedArraySample,
 		date: Date()

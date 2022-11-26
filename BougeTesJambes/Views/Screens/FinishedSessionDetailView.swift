@@ -12,6 +12,7 @@ struct FinishedSessionDetailView: View {
 	let session: SessionModel
 	@ObservedObject public var convertTimeVM = ConvertTimeViewModel()
 	@Environment(\.colorScheme) var colorScheme
+	@EnvironmentObject var paceVM: CalculPaceViewModel
 	var body: some View {
 		List {
 			FinishedSessionInformationCell(
@@ -28,6 +29,8 @@ struct FinishedSessionDetailView: View {
 				objectifType: "Vitesse moyenne",
 				sessionInfo: "\(String(format: "%.2f km/h", session.sessionAverageSpeed))"
 			)
+
+			FinishedSessionInformationCell(objectifType: "Pace", sessionInfo: "\(paceVM.finalPace(sessionTime: session.sessionTime, meters: session.sessionDistanceInMeters))")
 		}
 		.listStyle(.plain)
 		.navigationBarTitleDisplayMode(.inline)
@@ -47,6 +50,7 @@ struct FinishedSessionDetailView_Previews: PreviewProvider {
 		NavigationStack {
 			FinishedSessionDetailView(session: .sample)
 				.environmentObject(ConvertTimeViewModel())
+				.environmentObject(CalculPaceViewModel())
 		}
 	}
 }

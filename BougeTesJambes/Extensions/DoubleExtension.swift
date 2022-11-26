@@ -22,9 +22,4 @@ extension Double {
 	var isKmOrMtwoDigits: String {
 		String(format: "%.2f \(self > 1_000 ? "km" : "m")", (self > 1_000 ? self.turnThousandMToKm : self))
 	}
-
-	var turnMperSecToKmPerMin: String {
-		String(format: "%.2f", self * 0.06)
-	}
-
 }
