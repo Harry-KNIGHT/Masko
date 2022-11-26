@@ -47,6 +47,7 @@
 		3CE7F22E2912DD1D00B0ED83 /* MaskoLiveActivityWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE7F22D2912DD1D00B0ED83 /* MaskoLiveActivityWidgetLiveActivity.swift */; };
 		3CE7F2322912DD1E00B0ED83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CE7F2312912DD1E00B0ED83 /* Assets.xcassets */; };
 		3CE7F2362912DD1E00B0ED83 /* MaskoLiveActivityWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3CE7F2242912DD1D00B0ED83 /* MaskoLiveActivityWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3CEDF38D2932726700B70538 /* CalculPaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6E797F2932042E00018585 /* CalculPaceViewModel.swift */; };
 		3CEE2D07291EB1B500C62F5E /* SessionInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CEE2D06291EB1B500C62F5E /* SessionInformationView.swift */; };
 /* End PBXBuildFile section */
 
@@ -564,6 +565,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CEDF38D2932726700B70538 /* CalculPaceViewModel.swift in Sources */,
 				3CD200662917F6EB0076D77E /* DoubleExtension.swift in Sources */,
 				3CA5FFEB291425C500A789CF /* SessionActivityAttributes.swift in Sources */,
 				3CE7F22C2912DD1D00B0ED83 /* MaskoLiveActivityWidgetBundle.swift in Sources */,

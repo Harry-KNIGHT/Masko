@@ -20,15 +20,17 @@ struct MaskoLiveActivityWidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: SessionActivityAttributes.self) { context in
             // Lock screen/banner UI goes here
-			VStack(alignment: .leading, spacing: 6) {
-
-				LiveActivityViewInfomation(
-					sfSymbol: "figure.walk",
-					sessionValue: context.state.sessionDistanceDone.turnThousandMToKm.twoDecimalDigits,
-					objectifType: "\(context.state.sessionDistanceDone > 1_000 ? "km" : "m")"
-				)
+			HStack {
+				VStack(alignment: .leading, spacing: 6) {
+					LiveActivityViewInfomation(
+						sfSymbol: "figure.walk",
+						sessionValue: context.state.sessionDistanceDone.turnThousandMToKm.twoDecimalDigits,
+						objectifType: "\(context.state.sessionDistanceDone > 1_000 ? "km" : "m")"
+					)
+				}
+				.padding()
+				Spacer()
 			}
-			.padding()
         } dynamicIsland: { context in
             DynamicIsland {
                 // Expanded UI goes here.  Compose the expanded UI through
@@ -41,11 +43,6 @@ struct MaskoLiveActivityWidgetLiveActivity: Widget {
 							sessionValue: context.state.sessionDistanceDone.turnThousandMToKm.twoDecimalDigits,
 							objectifType: "\(context.state.sessionDistanceDone > 1_000 ? "km" : "m")"
 						)
-//						LiveActivityViewInfomation(
-//							sfSymbol: nil,
-//							sessionValue: "\(context.state.sessionSpeed.twoDecimalDigits)",
-//							objectifType: "km/h"
-//						)
 						Spacer()
 					}
                 }
@@ -61,7 +58,7 @@ struct MaskoLiveActivityWidgetLiveActivity: Widget {
 				Text(context.state.sessionDistanceDone.twoDecimalDigits)
 
             } minimal: {
-				Image(systemName: "hare.fill")
+				Image(systemName: "figure.run")
             }
         }
     }
