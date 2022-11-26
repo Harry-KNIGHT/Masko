@@ -21,4 +21,15 @@ class CalculPaceViewModel: ObservableObject {
 
 		return (String(format: "%02i:%02i", min, sec))
 	}
+
+	func finalPace(sessionTime: Int, meters: Double) -> String {
+		guard meters >= 1_000 else { return "No pace" }
+
+		let paceInSec = (sessionTime / Int(meters))
+
+		let min = (paceInSec / 60)
+		let sec = (paceInSec % 60)
+
+		return String(format: "%02i:%02i min/km", min, sec)
+	}
 }
