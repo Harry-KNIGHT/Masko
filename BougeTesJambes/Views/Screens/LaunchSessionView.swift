@@ -21,7 +21,7 @@ struct LaunchSessionView: View {
 
 	@State private var sessionTimer: Int = 0
 	@State private var sessionDistanceInMeters: Double = 0
-	@State private var sessionAverageSpeed: Int = 0
+	@State private var sessionAverageSpeed: Double = 0
 	@State private var sessionPace: Int = 0
 
 	@State private var showSheet: Bool = false

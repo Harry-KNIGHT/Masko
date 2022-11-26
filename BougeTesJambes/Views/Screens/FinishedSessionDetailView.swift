@@ -13,6 +13,7 @@ struct FinishedSessionDetailView: View {
 	@ObservedObject public var convertTimeVM = ConvertTimeViewModel()
 	@Environment(\.colorScheme) var colorScheme
 	@EnvironmentObject var paceVM: CalculPaceViewModel
+	@EnvironmentObject var finishedSessionVM: FinishedSessionViewModel
 	var body: some View {
 		List {
 			FinishedSessionInformationCell(
@@ -51,6 +52,7 @@ struct FinishedSessionDetailView_Previews: PreviewProvider {
 			FinishedSessionDetailView(session: .sample)
 				.environmentObject(ConvertTimeViewModel())
 				.environmentObject(CalculPaceViewModel())
+				.environmentObject(FinishedSessionViewModel())
 		}
 	}
 }

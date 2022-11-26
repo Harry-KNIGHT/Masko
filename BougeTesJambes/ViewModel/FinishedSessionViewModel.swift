@@ -28,9 +28,9 @@ class FinishedSessionViewModel: ObservableObject {
 		}
 	}
 
-	func addFinishedSession(sessionTime: Int, sessionDistanceInMeters: Double, sessionAverageSpeed: Int, pace: Int, distanceSpeedChart: [DistanceSpeedChart], timeSpeedChart: [TimeSpeedChart], date: Date) {
+	func addFinishedSession(sessionTime: Int, sessionDistanceInMeters: Double, sessionAverageSpeed: Double, pace: Int, distanceSpeedChart: [DistanceSpeedChart], timeSpeedChart: [TimeSpeedChart], date: Date) {
 
-		let finishedSession = SessionModel(sessionTime: sessionTime, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: Int(averageSpeed), pace: pace, distanceSpeedChart: distanceSpeedChart, timeSpeedChart: timeSpeedChart, date: date)
+		let finishedSession = SessionModel(sessionTime: sessionTime, sessionDistanceInMeters: sessionDistanceInMeters, sessionAverageSpeed: sessionAverageSpeed, pace: pace, distanceSpeedChart: distanceSpeedChart, timeSpeedChart: timeSpeedChart, date: date)
 
 		self.fishishedSessions.insert(finishedSession, at: 0)
 		speedSessionValues.removeAll()
@@ -41,10 +41,14 @@ class FinishedSessionViewModel: ObservableObject {
 		self.fishishedSessions.remove(atOffsets: offsets)
 		save()
 	}
+	
+	func calculAverageSpeed(distanceInMeters: Double, timeInSec: Double) -> Double {
+		guard timeInSec > 0 else { return 0 }
 
-	var averageSpeed: Double {
-		let sum = speedSessionValues.reduce(0, +)
-		return sum / Double(speedSessionValues.count)
+		let distanceInKM = (distanceInMeters / 1_000)
+		let timeInH = (timeInSec / 3600)
 
+		return (distanceInKM / timeInH)
 	}
+
 }
