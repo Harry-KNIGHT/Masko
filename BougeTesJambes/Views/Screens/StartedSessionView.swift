@@ -73,7 +73,7 @@ struct StartedSessionView: View {
 
 						SessionInformationView(
 							sfSymbol: "speedometer",
-							objectif: "km / min",
+							objectif: "min/km",
 							sessionValue: "\(calculPaceVM.calculPace(startedSessionEpoch: Double(startSessionEpoch ?? 0), nowEpoch: (paceUpperThanKilometerEpoch ?? 0), meters: sessionDistanceInMeters))"
 						)
 						.accessibilityLabel("Pace indicator")
