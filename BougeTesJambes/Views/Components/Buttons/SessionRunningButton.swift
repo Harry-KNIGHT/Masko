@@ -52,7 +52,7 @@ struct SessionRunningButton: View {
 				self.finishedSesionVM.addFinishedSession(
 					sessionTime: sessionTimer,
 					sessionDistanceInMeters: sessionDistanceInMeters,
-					sessionAverageSpeed: sessionAverageSpeed,
+					sessionAverageSpeed: (sessionDistanceInMeters / Double(sessionTimer / 60)),
 					pace: sessionPace,
 					distanceSpeedChart: distanceSpeedChartValues,
 					timeSpeedChart: timeSpeedChart, date: Date.now
