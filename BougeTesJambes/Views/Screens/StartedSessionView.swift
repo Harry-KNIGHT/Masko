@@ -26,7 +26,7 @@ struct StartedSessionView: View {
 
 	@Binding var sessionTimer: Int
 	@Binding var sessionDistanceInMeters: Double
-	@Binding var sessionAverageSpeed: Int
+	@Binding var sessionAverageSpeed: Double
 	@Binding var sessionPace: Int
 	@Binding var isSessionPaused: Bool
 	@Binding var distanceSpeedChartValues: [DistanceSpeedChart]

@@ -20,7 +20,7 @@ struct SessionRunningButton: View {
 	@Binding var startSessionEpoch: Int?
 	@Binding var endSessionEpoch: Int?
 	@Binding var sessionDistanceInMeters: Double
-	@Binding var sessionAverageSpeed: Int
+	@Binding var sessionAverageSpeed: Double
 	@Binding var sessionPace: Int
 	@Binding var distanceSpeedChartValues: [DistanceSpeedChart]
 	@Binding var timeSpeedChart: [TimeSpeedChart]
@@ -52,7 +52,7 @@ struct SessionRunningButton: View {
 				self.finishedSesionVM.addFinishedSession(
 					sessionTime: sessionTimer,
 					sessionDistanceInMeters: sessionDistanceInMeters,
-					sessionAverageSpeed: sessionAverageSpeed,
+					sessionAverageSpeed: finishedSesionVM.calculAverageSpeed(distanceInMeters: sessionDistanceInMeters, timeInSec: Double(sessionTimer)),
 					pace: sessionPace,
 					distanceSpeedChart: distanceSpeedChartValues,
 					timeSpeedChart: timeSpeedChart, date: Date.now

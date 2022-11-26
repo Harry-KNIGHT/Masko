@@ -10,10 +10,9 @@ import SwiftUI
 
 struct SessionModel: Identifiable, Hashable, Codable {
 	var id = UUID()
-
 	let sessionTime: Int
 	let sessionDistanceInMeters: Double
-	let sessionAverageSpeed: Int
+	let sessionAverageSpeed: Double
 	let pace: Int
 	let distanceSpeedChart: [DistanceSpeedChart]?
 	let timeSpeedChart: [TimeSpeedChart]?
