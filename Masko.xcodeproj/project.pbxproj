@@ -35,6 +35,7 @@
 		3C9AEA7228FC2FE90080415E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9AEA7128FC2FE90080415E /* LocationManager.swift */; };
 		3CA5FFEA291425B200A789CF /* SessionActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA5FFE9291425B200A789CF /* SessionActivityAttributes.swift */; };
 		3CA5FFEB291425C500A789CF /* SessionActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA5FFE9291425B200A789CF /* SessionActivityAttributes.swift */; };
+		3CA91F132961C6DF0030069B /* CalculPaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA91F122961C6DF0030069B /* CalculPaceTests.swift */; };
 		3CAB873A28FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAB873928FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift */; };
 		3CAB873C28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAB873B28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift */; };
 		3CC3D5B129029C9F006DC14A /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC3D5B029029C9F006DC14A /* WeatherViewModel.swift */; };
@@ -113,6 +114,7 @@
 		3C9AEA6728FC25310080415E /* mixkit-arcade.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "mixkit-arcade.wav"; sourceTree = "<group>"; };
 		3C9AEA7128FC2FE90080415E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3CA5FFE9291425B200A789CF /* SessionActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionActivityAttributes.swift; sourceTree = "<group>"; };
+		3CA91F122961C6DF0030069B /* CalculPaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculPaceTests.swift; sourceTree = "<group>"; };
 		3CAB873928FF0A97009966D5 /* ShowFinishedSessionSheetButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFinishedSessionSheetButtonCell.swift; sourceTree = "<group>"; };
 		3CAB873B28FF0D6A009966D5 /* ToolbarTitleViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarTitleViewModifier.swift; sourceTree = "<group>"; };
 		3CC3D5AF29029BF8006DC14A /* Masko.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Masko.entitlements; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			children = (
 				3C9AEA5D28FC20430080415E /* ConvertTimeTests.swift */,
 				3CC54E5A291265E10013E75F /* FinishedSessionTests.swift */,
+				3CA91F122961C6DF0030069B /* CalculPaceTests.swift */,
 			);
 			path = MaskoTests;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CC54E5B291265E10013E75F /* FinishedSessionTests.swift in Sources */,
+				3CA91F132961C6DF0030069B /* CalculPaceTests.swift in Sources */,
 				3C9AEA5E28FC20430080415E /* ConvertTimeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
